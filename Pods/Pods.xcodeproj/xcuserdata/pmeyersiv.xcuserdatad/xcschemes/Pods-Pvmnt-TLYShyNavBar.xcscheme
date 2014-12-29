@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0BD7AF36F8096ECEAE63F9E"
+               BlueprintIdentifier = "818D123833F6C99639168A9D"
                BuildableName = "libPods-Pvmnt-TLYShyNavBar.a"
                BlueprintName = "Pods-Pvmnt-TLYShyNavBar"
                ReferencedContainer = "container:Pods.xcodeproj">

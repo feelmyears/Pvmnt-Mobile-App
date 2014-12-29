@@ -24,6 +24,7 @@ pod 'AMScrollingNavbar'
 pod 'SVProgressHUD'
 pod 'ISHPermissionKit'
 pod 'MBProgressHUD', '~> 0.8'
+pod 'TTTAttributedLabel'
 
 pod 'BlocksKit', '2.2.2'
 pod 'ObjcAssociatedObjectHelpers', '1.2.1'

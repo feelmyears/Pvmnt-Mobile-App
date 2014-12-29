@@ -7,8 +7,11 @@
 //
 
 #import "EventInfoFlyerDescriptionHTKCollectionViewCell.h"
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
+#import "SVModalWebViewController.h"
+
 @interface EventInfoFlyerDescriptionHTKCollectionViewCell()
-@property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) TTTAttributedLabel *label;
 @end
 
 
@@ -26,7 +29,7 @@
 {
     self.backgroundColor = [UIColor whiteColor];
     
-    self.label = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.label = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
     self.label.translatesAutoresizingMaskIntoConstraints = NO;
 //    self.label.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:15];
     self.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
@@ -34,6 +37,8 @@
     self.label.numberOfLines = 0;
     self.label.lineBreakMode = NSLineBreakByWordWrapping;
     self.label.textAlignment = NSTextAlignmentNatural;
+    self.label.enabledTextCheckingTypes = NSTextCheckingTypeAddress | NSTextCheckingTypeLink | NSTextCheckingTypePhoneNumber;
+    self.label.delegate = self;
     
     [self.contentView addSubview:self.label];
     
@@ -66,12 +71,41 @@
     }
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+#pragma mark - TTTAttributedLabel Delegate
+//---------------------Phone Number Tap-----------------------
+- (void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithPhoneNumber:(NSString *)phoneNumber atPoint:(CGPoint)point
+{
+    NSLog(@"Long phone number press");
 }
-*/
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithPhoneNumber:(NSString *)phoneNumber
+{
+    NSString *callURL = [@"tel://" stringByAppendingString:phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callURL]];
+}
+
+//---------------------Address Tap-----------------------
+- (void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithAddress:(NSDictionary *)addressComponents atPoint:(CGPoint)point
+{
+    NSLog(@"Long address press");
+}
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithAddress:(NSDictionary *)addressComponents
+{
+    NSLog(@"Address select");
+}
+
+//---------------------Link Tap-----------------------
+- (void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithURL:(NSURL *)url atPoint:(CGPoint)point
+{
+    NSLog(@"Long url press");
+}
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
+{
+    NSLog(@"URL select");
+    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[url absoluteString]];
+    [self.window.rootViewController presentViewController:webViewController animated:YES completion:NULL];
+}
 
 @end

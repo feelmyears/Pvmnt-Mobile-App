@@ -7,9 +7,10 @@
 //
 
 #import "HTKDynamicResizingCollectionViewCell.h"
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 #define DEFAULT_FLYER_DESCRIPTION_CELL_SIZE (CGSize){[[UIScreen mainScreen] bounds].size.width, 50}
 
-@interface EventInfoFlyerDescriptionHTKCollectionViewCell : HTKDynamicResizingCollectionViewCell
+@interface EventInfoFlyerDescriptionHTKCollectionViewCell : HTKDynamicResizingCollectionViewCell<TTTAttributedLabelDelegate>
 - (void)setupCellWithDescription:(NSString *)description isHTML:(BOOL)isDescriptionHTML;
 @end

@@ -158,7 +158,7 @@ static NSString *EventInfoActionCollectionViewCellIdentifier                = @"
         cell = titleCell;
     } else if (indexPath.section == 2) {
         EventInfoFlyerDetailHTKCollectionViewCell *detailCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:EventInfoFlyerDetailHTKCollectionViewCellIdentifier forIndexPath:indexPath];
-        [detailCell setupCellWithFlyer:self.flyer forCellType:[_detailCellFeatures[indexPath.row] integerValue]];
+        [detailCell setupCellWithFlyer:self.flyer forCellType:(EventInfoFlyerDetailHTKCollectionViewCellType)[_detailCellFeatures[indexPath.row] integerValue]];
         cell = detailCell;
     } else if (indexPath.section == 3) {
 //        EventInfoActionsCell *actionsCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Actions Cell" forIndexPath:indexPath];
@@ -339,7 +339,15 @@ static NSString *EventInfoActionCollectionViewCellIdentifier                = @"
 
 - (void)handleShareTap
 {
-    NSLog(@"Share.");
+    NSString *shareURL = [NSString stringWithFormat:@"https://northwestern.pvmnt.com/flyers/%@", self.flyer.flyerId];
+    NSString *shareString = [NSString stringWithFormat:@"Check out this event on Pvmnt: %@", shareURL];
+    UIImage *shareImage = [self.flyer.image imageforCD_Image];
+    NSArray *activityItems = @[shareString, shareImage];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+    [self presentViewController:activityViewController animated:YES completion:^{
+//        code
+    }];
 }
 
 - (void)handleSaveTap

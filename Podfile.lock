@@ -63,6 +63,7 @@ PODS:
     - AHEasing
   - TLYShyNavBar (0.9.8)
   - TransitionKit (1.1.1)
+  - TTTAttributedLabel (1.13.0)
   - UIImage+BlurredFrame (0.0.4)
   - URBMediaFocusViewController (0.5.5)
   - XLMediaZoom (2.0.1)
@@ -88,6 +89,7 @@ DEPENDENCIES:
   - THCalendarDatePicker (~> 0.2.4)
   - TLLayoutTransitioning
   - TLYShyNavBar
+  - TTTAttributedLabel
   - URBMediaFocusViewController
   - XLMediaZoom
 
@@ -118,6 +120,7 @@ SPEC CHECKSUMS:
   TLLayoutTransitioning: 2939a6cf6464f5b8246b190dbfbd0b17a88ca877
   TLYShyNavBar: cf15a919cf7f6e79080ac5b95b56580a752cf64d
   TransitionKit: b573f93c422f6aedf7d40e93e7c2f202d1295063
+  TTTAttributedLabel: a847b59a75c92d59f4eabc9cc1745704cff2dc36
   UIImage+BlurredFrame: 0c38f5760d72125c47d16001a88faaac573bd35d
   URBMediaFocusViewController: 4dff9de3767e60b96ba325c897d4ffa7131a122e
   XLMediaZoom: 3b32c799e81a0026ef4a9b4bf92f5a8bc7a4838e
