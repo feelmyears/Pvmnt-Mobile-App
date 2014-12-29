@@ -1,0 +1,1 @@
+../../../ISHPermissionKit/ISHPermissionKit/ISHPermissionRequestViewController+Private.h

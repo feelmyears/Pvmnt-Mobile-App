@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Lobster.ttf">
+            <string>Lobster</string>
+            <string>Lobster</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PvmntPermissionRequestISHPermissionRequestViewController">
+            <connections>
+                <outlet property="okButton" destination="u32-Pp-4Mz" id="krs-Sy-zW5"/>
+                <outlet property="permissionsExplanationLabel" destination="6S1-ng-wTk" id="ooW-6T-IcX"/>
+                <outlet property="pvmntLabel" destination="yVZ-G9-1dD" id="xaV-eG-ICA"/>
+                <outlet property="view" destination="iN0-l3-epB" id="vch-zp-kxp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pvmnt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVZ-G9-1dD">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" name="Lobster" family="Lobster 1.4" pointSize="100"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6S1-ng-wTk">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u32-Pp-4Mz">
+                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="P5M-gd-6Zp"/>
+                        <constraint firstAttribute="height" constant="50" id="V7T-bg-aFF"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lobster" family="Lobster 1.4" pointSize="25"/>
+                    <state key="normal" title="Ok!">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="P5M-gd-6Zp"/>
+                            <exclude reference="V7T-bg-aFF"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="P5M-gd-6Zp"/>
+                            <include reference="V7T-bg-aFF"/>
+                        </mask>
+                    </variation>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="u32-Pp-4Mz" secondAttribute="bottom" constant="8" id="4P8-kV-K9U"/>
+                <constraint firstAttribute="centerX" secondItem="6S1-ng-wTk" secondAttribute="centerX" id="OEM-jt-ORK"/>
+                <constraint firstAttribute="centerX" secondItem="yVZ-G9-1dD" secondAttribute="centerX" id="Rey-3u-oBj"/>
+                <constraint firstAttribute="centerX" secondItem="u32-Pp-4Mz" secondAttribute="centerX" id="aX6-nG-Heq"/>
+                <constraint firstAttribute="centerY" secondItem="yVZ-G9-1dD" secondAttribute="centerY" constant="49.5" id="eLO-xd-9U2"/>
+                <constraint firstAttribute="centerX" secondItem="u32-Pp-4Mz" secondAttribute="centerX" id="tqm-tR-eXl"/>
+                <constraint firstItem="6S1-ng-wTk" firstAttribute="top" secondItem="yVZ-G9-1dD" secondAttribute="bottom" id="vws-EN-kyb"/>
+            </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="yVZ-G9-1dD"/>
+                    <exclude reference="6S1-ng-wTk"/>
+                    <exclude reference="u32-Pp-4Mz"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="Rey-3u-oBj"/>
+                    <exclude reference="eLO-xd-9U2"/>
+                    <exclude reference="OEM-jt-ORK"/>
+                    <exclude reference="vws-EN-kyb"/>
+                    <exclude reference="4P8-kV-K9U"/>
+                    <exclude reference="aX6-nG-Heq"/>
+                    <exclude reference="tqm-tR-eXl"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="yVZ-G9-1dD"/>
+                    <include reference="6S1-ng-wTk"/>
+                    <include reference="u32-Pp-4Mz"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="Rey-3u-oBj"/>
+                    <include reference="eLO-xd-9U2"/>
+                    <include reference="OEM-jt-ORK"/>
+                    <include reference="vws-EN-kyb"/>
+                    <include reference="4P8-kV-K9U"/>
+                    <include reference="aX6-nG-Heq"/>
+                    <include reference="tqm-tR-eXl"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

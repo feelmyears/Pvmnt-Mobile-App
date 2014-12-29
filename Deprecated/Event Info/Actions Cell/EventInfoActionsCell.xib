@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="EventInfoActionsCell">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="86"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="86"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2l-6n-gYO">
+                        <rect key="frame" x="20" y="23" width="305" height="40"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dh-8W-BW9">
+                                <rect key="frame" x="10" y="5" width="71" height="30"/>
+                                <state key="normal" title="Add Event">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBo-id-yAP">
+                                <rect key="frame" x="132" y="5" width="40" height="30"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWA-oq-2Td">
+                                <rect key="frame" x="223" y="5" width="72" height="30"/>
+                                <state key="normal" title="Save Flyer">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="TBo-id-yAP" secondAttribute="centerY" id="0PK-Wm-WPy"/>
+                            <constraint firstAttribute="centerX" secondItem="TBo-id-yAP" secondAttribute="centerX" constant="0.5" id="4w1-T1-3yL"/>
+                            <constraint firstAttribute="centerY" secondItem="lWA-oq-2Td" secondAttribute="centerY" id="Iab-aB-q6z"/>
+                            <constraint firstAttribute="height" constant="40" id="Rm3-jK-jLG"/>
+                            <constraint firstAttribute="centerY" secondItem="7dh-8W-BW9" secondAttribute="centerY" id="i1s-mF-M6C"/>
+                            <constraint firstItem="7dh-8W-BW9" firstAttribute="leading" secondItem="k2l-6n-gYO" secondAttribute="leading" constant="10" id="rxq-om-jVL"/>
+                            <constraint firstAttribute="trailing" secondItem="lWA-oq-2Td" secondAttribute="trailing" constant="10" id="urM-R7-KzO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="k2l-6n-gYO" secondAttribute="centerY" id="7zA-CO-iPQ"/>
+                <constraint firstItem="k2l-6n-gYO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="EGd-5w-wSj"/>
+                <constraint firstItem="k2l-6n-gYO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="PDw-2J-Hge"/>
+                <constraint firstAttribute="bottom" secondItem="k2l-6n-gYO" secondAttribute="bottom" constant="20" id="Vkh-WP-S1J"/>
+                <constraint firstAttribute="trailing" secondItem="k2l-6n-gYO" secondAttribute="trailing" constant="20" id="pu8-hC-hav"/>
+            </constraints>
+            <size key="customSize" width="345" height="86"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="EGd-5w-wSj"/>
+                    <exclude reference="Vkh-WP-S1J"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="opaqueBackgroundView" destination="k2l-6n-gYO" id="eg1-b5-HfW"/>
+            </connections>
+            <point key="canvasLocation" x="559.5" y="285"/>
+        </collectionViewCell>
+    </objects>
+</document>

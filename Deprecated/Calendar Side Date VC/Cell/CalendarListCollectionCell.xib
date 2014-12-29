@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CalendarListCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="410" height="79"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="410" height="79"/>
+                <subviews>
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWb-qA-kyP">
+                        <rect key="frame" x="0.0" y="19" width="67" height="41"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrE-jQ-Phf">
+                                <rect key="frame" x="0.0" y="0.0" width="67" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="9:30 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlc-uA-bli">
+                                <rect key="frame" x="0.0" y="19" width="67" height="22"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qlc-uA-bli" firstAttribute="leading" secondItem="gWb-qA-kyP" secondAttribute="leading" id="1df-dC-ffc"/>
+                            <constraint firstItem="qlc-uA-bli" firstAttribute="top" secondItem="gWb-qA-kyP" secondAttribute="top" id="J9b-oE-evA"/>
+                            <constraint firstAttribute="bottom" secondItem="qlc-uA-bli" secondAttribute="bottom" id="Uze-Zt-FKn"/>
+                            <constraint firstAttribute="bottom" secondItem="RrE-jQ-Phf" secondAttribute="bottom" id="Zwq-6T-AoT"/>
+                            <constraint firstItem="RrE-jQ-Phf" firstAttribute="leading" secondItem="gWb-qA-kyP" secondAttribute="leading" id="mUv-jG-vIl"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RrE-jQ-Phf" secondAttribute="trailing" id="rTB-h5-CeO"/>
+                            <constraint firstItem="RrE-jQ-Phf" firstAttribute="top" secondItem="gWb-qA-kyP" secondAttribute="top" id="v2m-d8-Hk7"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qlc-uA-bli" secondAttribute="trailing" id="vNw-f6-Xqy"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="RrE-jQ-Phf" secondAttribute="trailing" priority="750" id="xxW-aH-q2Z"/>
+                            <constraint firstItem="qlc-uA-bli" firstAttribute="top" secondItem="RrE-jQ-Phf" secondAttribute="bottom" id="y8N-68-jUD"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Zwq-6T-AoT"/>
+                                <exclude reference="J9b-oE-evA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kop-qa-qK6">
+                        <rect key="frame" x="350" y="0.0" width="60" height="79"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="4Td-gi-QCe"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="gWb-qA-kyP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="F3L-7D-LQd"/>
+                <constraint firstAttribute="bottom" secondItem="Kop-qa-qK6" secondAttribute="bottom" id="Phe-mJ-VRa"/>
+                <constraint firstItem="Kop-qa-qK6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="bOY-ME-ioU"/>
+                <constraint firstItem="Kop-qa-qK6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gWb-qA-kyP" secondAttribute="trailing" constant="5" id="g7W-eG-4WY"/>
+                <constraint firstAttribute="trailing" secondItem="Kop-qa-qK6" secondAttribute="trailing" id="lOg-SN-tZI"/>
+                <constraint firstAttribute="centerY" secondItem="gWb-qA-kyP" secondAttribute="centerY" id="t9U-bi-eBm"/>
+            </constraints>
+            <size key="customSize" width="410" height="138"/>
+            <connections>
+                <outlet property="eventTitleLabel" destination="RrE-jQ-Phf" id="SH2-1H-e62"/>
+                <outlet property="flyerImage" destination="Kop-qa-qK6" id="eSx-PD-Dh6"/>
+                <outlet property="flyerImageWidth" destination="4Td-gi-QCe" id="y4B-Rz-DoL"/>
+                <outlet property="timeLabel" destination="qlc-uA-bli" id="DAP-3x-mo2"/>
+            </connections>
+            <point key="canvasLocation" x="487" y="394.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

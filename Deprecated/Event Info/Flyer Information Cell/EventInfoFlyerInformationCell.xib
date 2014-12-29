@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EPi-AM-x9l" customClass="EventInfoFlyerInformationCell">
+            <rect key="frame" x="0.0" y="0.0" width="348" height="53"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="348" height="53"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="internal_icon" translatesAutoresizingMaskIntoConstraints="NO" id="aRr-xH-8A5">
+                        <rect key="frame" x="10" y="11" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="ONV-Md-UtW"/>
+                            <constraint firstAttribute="width" constant="30" id="WDX-Wk-vub"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Information pertaining to the event" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hd-tP-SKM">
+                        <rect key="frame" x="50" y="17" width="227" height="20"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8Hd-tP-SKM" secondAttribute="bottom" id="4iU-d9-pyC"/>
+                <constraint firstAttribute="centerY" secondItem="8Hd-tP-SKM" secondAttribute="centerY" id="N7i-gE-3cv"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Hd-tP-SKM" secondAttribute="trailing" constant="10" id="URf-2W-yjC"/>
+                <constraint firstAttribute="centerY" secondItem="aRr-xH-8A5" secondAttribute="centerY" id="bUe-M8-gHb"/>
+                <constraint firstItem="8Hd-tP-SKM" firstAttribute="leading" secondItem="aRr-xH-8A5" secondAttribute="trailing" constant="10" id="fjb-hT-b2R"/>
+                <constraint firstItem="8Hd-tP-SKM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EPi-AM-x9l" secondAttribute="top" id="joV-bF-yP5"/>
+                <constraint firstItem="aRr-xH-8A5" firstAttribute="leading" secondItem="EPi-AM-x9l" secondAttribute="leading" constant="10" id="q7a-Ov-Jjo"/>
+            </constraints>
+            <size key="customSize" width="348" height="53"/>
+            <connections>
+                <outlet property="iconImageView" destination="aRr-xH-8A5" id="jXR-w6-YGX"/>
+                <outlet property="informationLabel" destination="8Hd-tP-SKM" id="po3-hr-BiQ"/>
+            </connections>
+            <point key="canvasLocation" x="87" y="365.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="internal_icon" width="25" height="25"/>
+    </resources>
+</document>

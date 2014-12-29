@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchBar">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHT-nb-3X6">
+                    <rect key="frame" x="5" y="7" width="75" height="30"/>
+                    <state key="normal" title="Event Type">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="eventTypeTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="bgz-dg-dTt"/>
+                    </connections>
+                </button>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Filter flyers" translatesAutoresizingMaskIntoConstraints="NO" id="z19-6H-LeN">
+                    <rect key="frame" x="85" y="0.0" width="237" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="z19-6H-LeN" secondAttribute="trailing" constant="5" id="3rO-z3-BOk"/>
+                <constraint firstItem="wHT-nb-3X6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="ASz-41-HBj"/>
+                <constraint firstAttribute="centerY" secondItem="z19-6H-LeN" secondAttribute="centerY" id="N2V-0O-Acy"/>
+                <constraint firstAttribute="centerY" secondItem="wHT-nb-3X6" secondAttribute="centerY" id="YTz-Gw-w5o"/>
+                <constraint firstItem="z19-6H-LeN" firstAttribute="leading" secondItem="wHT-nb-3X6" secondAttribute="trailing" constant="5" id="zIM-dr-Xgu"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="searchBar" destination="z19-6H-LeN" id="T72-kt-Ewo"/>
+            </connections>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

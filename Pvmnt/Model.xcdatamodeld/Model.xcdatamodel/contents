@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CD_Colorscheme" representedClassName="CD_Colorscheme" syncable="YES">
+        <attribute name="backgroundColor" optional="YES" attributeType="Transformable" valueTransformerName="" syncable="YES"/>
+        <attribute name="mainTextColor" optional="YES" attributeType="Transformable" valueTransformerName="" syncable="YES"/>
+        <attribute name="secondaryTextColor" optional="YES" attributeType="Transformable" valueTransformerName="" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CD_Image" inverseName="colorscheme" inverseEntity="CD_Image" syncable="YES"/>
+    </entity>
+    <entity name="CD_Image" representedClassName="CD_Image" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageDownloaded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="colorscheme" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CD_Colorscheme" inverseName="image" inverseEntity="CD_Colorscheme" syncable="YES"/>
+        <relationship name="flyer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CD_V2_Flyer" inverseName="image" inverseEntity="CD_V2_Flyer" syncable="YES"/>
+    </entity>
+    <entity name="CD_V2_Category" representedClassName="CD_V2_Category" syncable="YES">
+        <attribute name="categoryId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="urlExtension" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="flyers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CD_V2_Flyer" inverseName="flyerCategories" inverseEntity="CD_V2_Flyer" syncable="YES"/>
+    </entity>
+    <entity name="CD_V2_Flyer" representedClassName="CD_V2_Flyer" syncable="YES">
+        <attribute name="approved" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="created_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="event_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="event_time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="flyerId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updated_at" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="flyerCategories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CD_V2_Category" inverseName="flyers" inverseEntity="CD_V2_Category" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CD_Image" inverseName="flyer" inverseEntity="CD_Image" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CD_Image" positionX="97" positionY="375" width="128" height="133"/>
+        <element name="CD_V2_Category" positionX="522" positionY="-45" width="128" height="133"/>
+        <element name="CD_V2_Flyer" positionX="-162" positionY="-206" width="128" height="208"/>
+        <element name="CD_Colorscheme" positionX="430" positionY="405" width="128" height="103"/>
+    </elements>
+</model>
