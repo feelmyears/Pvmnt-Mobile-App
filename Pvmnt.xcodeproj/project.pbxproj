@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211E01401A524FE900B17343 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E013F1A524FE900B17343 /* MenuTableViewController.m */; };
 		214526C11A50DAE60092376F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C01A50DAE60092376F /* Social.framework */; };
 		214526C31A50DAED0092376F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C21A50DAED0092376F /* MessageUI.framework */; };
 		214526EA1A50EC4A0092376F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 214526CB1A50EC4A0092376F /* SVWebViewController.strings */; };
@@ -150,6 +151,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211E013D1A52471500B17343 /* Pvmnt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pvmnt-Prefix.pch"; sourceTree = "<group>"; };
+		211E013E1A524FE900B17343 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
+		211E013F1A524FE900B17343 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		214526C01A50DAE60092376F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		214526C21A50DAED0092376F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		214526CC1A50EC4A0092376F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -513,6 +517,8 @@
 		21D778BE1A50D13E0038CC30 = {
 			isa = PBXGroup;
 			children = (
+				211E013E1A524FE900B17343 /* MenuTableViewController.h */,
+				211E013F1A524FE900B17343 /* MenuTableViewController.m */,
 				21D779C61A50D2520038CC30 /* Event Info VC */,
 				21D779E71A50D2520038CC30 /* App Model */,
 				21D779FD1A50D2520038CC30 /* School Picker VC */,
@@ -540,6 +546,7 @@
 		21D778C91A50D13E0038CC30 /* Pvmnt */ = {
 			isa = PBXGroup;
 			children = (
+				211E013D1A52471500B17343 /* Pvmnt-Prefix.pch */,
 				21D77A381A50D2800038CC30 /* PVMNT_CONSTANTS.m */,
 				21D77A391A50D2800038CC30 /* PVMNT_CONSTANTS.h */,
 				21D77A351A50D2730038CC30 /* Resources */,
@@ -1436,6 +1443,7 @@
 				21D7796E1A50D2320038CC30 /* UIImage-MJGScaling.m in Sources */,
 				21D779651A50D2320038CC30 /* Reachability.m in Sources */,
 				21D779AF1A50D23F0038CC30 /* CalendarListViewController.m in Sources */,
+				211E01401A524FE900B17343 /* MenuTableViewController.m in Sources */,
 				21D779631A50D2320038CC30 /* NSDate+SameDay.m in Sources */,
 				21D7795C1A50D2320038CC30 /* KEZCollectionViewTableLayout.m in Sources */,
 				21D779691A50D2320038CC30 /* THTinderNavigationBar.m in Sources */,
@@ -1540,6 +1548,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "Pvmnt/Pvmnt-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1580,6 +1589,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "Pvmnt/Pvmnt-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

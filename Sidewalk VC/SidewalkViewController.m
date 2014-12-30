@@ -34,7 +34,7 @@
 #import <BlurryModalSegue/BlurryModalSegue.h>
 
 #import "AppDelegate.h"
-#import "PVMNT_CONSTANTS.h"
+//#import "PVMNT_CONSTANTS.h"
 
 #import <TLYShyNavBar/TLYShyNavBarManager.h>
 #import <FNShyTabBar/FNShyTabBar.h>
@@ -62,7 +62,7 @@ static NSString *SidewalkFlyerImageHTKCollectionViewCellIdentifier  = @"Sidewalk
 CGFloat const SIDEWALK_COLLECTION_VIEW_PADDING = 0.;
 CGFloat const SIDEWALK_COLLECTION_VIEW_TOP_INSET = 0.f;
 CGFloat const SIDEWALK_COLLECTION_VIEW_BOTTOM_INSET = 00.f;
-static CGFloat spacing = 30;
+static CGFloat spacing = 12.5;
 
 
 @implementation SidewalkViewController
@@ -253,10 +253,12 @@ static CGFloat spacing = 30;
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    if (section != 0) {
-       return UIEdgeInsetsMake(spacing, 0, 0, 0);
-    } else return UIEdgeInsetsMake(0, 0, 0, 0);
-    
+    return UIEdgeInsetsMake(spacing, 0, spacing, 0);
+    /*
+    if (section == 0) {
+       return UIEdgeInsetsMake(spacing, 0, spacing, 0);
+    } else return UIEdgeInsetsMake(spacing, 0, 0, 0);
+    */
                             
 }
 
