@@ -14,7 +14,8 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <FormatterKit/TTTAddressFormatter.h>
 #import <MapKit/MapKit.h>
-#import <MessageUI/MessageUI.h>
+
+
 
 @interface EventInfoFlyerDescriptionHTKCollectionViewCell()
 @property (strong, nonatomic) TTTAttributedLabel *label;
@@ -149,31 +150,57 @@
 }
 
 //---------------------Link Tap-----------------------
-- (void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithURL:(NSURL *)url atPoint:(CGPoint)point
+-(void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithURL:(NSURL *)url atPoint:(CGPoint)point
 {
+    NSObject *shareObject;
+    
+    NSString *mailURLScheme = @"mailto";
+    if ([[url scheme] isEqualToString:mailURLScheme]) {
+        NSString *shareString = [[url absoluteString] stringByReplacingOccurrencesOfString:[url scheme] withString:@""];
+        shareString = [shareString stringByReplacingOccurrencesOfString:@":" withString:@""];
+        shareObject = shareString;
+    } else {
+        shareObject = url;
+    }
+     
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[shareObject] applicationActivities:nil];
+    NSArray *excludedActivityTypes;
+    
+    if ([shareObject isMemberOfClass:[NSString class]]) {
+        excludedActivityTypes = @[UIActivityTypeAddToReadingList,
+                                  UIActivityTypeAirDrop,
+                                  UIActivityTypePrint,
+                                  UIActivityTypeSaveToCameraRoll];
+    } else if ([shareObject isMemberOfClass:[NSURL class]]) {
+        excludedActivityTypes = @[UIActivityTypeAirDrop,
+                                  UIActivityTypePrint,
+                                  UIActivityTypeSaveToCameraRoll];
+    } else {
+        excludedActivityTypes = @[UIActivityTypeAddToReadingList,
+                                  UIActivityTypeAirDrop,
+                                  UIActivityTypePrint,
+                                  UIActivityTypeSaveToCameraRoll];
+    }
+    activityViewController.excludedActivityTypes = excludedActivityTypes;
+    
+    [[self topMostController] presentViewController:activityViewController animated:YES completion:nil];
+    
+    /*
     [UIActionSheet showFromTabBar:[self topMostController].tabBarController.tabBar withTitle:@"Copy URL?" cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@[@"Copy"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
         if (buttonIndex != actionSheet.cancelButtonIndex) {
             [[UIPasteboard generalPasteboard] setURL:url];
             [SVProgressHUD showSuccessWithStatus:@"URL Copied"];
         }
     }];
+     */
     
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
     NSString *mailURLScheme = @"mailto";
-//    NSString *urlScheme = [[url absoluteString] substringWithRange:NSMakeRange(0, mailURLScheme.length)];
     if ([[url scheme] isEqualToString:mailURLScheme]) {
         [[UIApplication sharedApplication] openURL:url];
-        /*
-        if ([MFMailComposeViewController canSendMail]) {
-            MFMailComposeViewController *composeVC = [[MFMailComposeViewController alloc] init];
-            composeVC.mailComposeDelegate = self;
-            [composeVC setToRecipients:@[[url resourceSpecifier]]];
-            [[self topMostController] presentViewController:composeVC animated:YES completion:NULL];
-        }
-         */
     } else {
         SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[url absoluteString]];
         webViewController.barsTintColor = [UIColor blackColor];
@@ -181,10 +208,9 @@
     }
 }
 
-#pragma mark - MFMailComposeViewController Delegate
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-    [controller dismissViewControllerAnimated:YES completion:NULL];
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIViewController*) topMostController
