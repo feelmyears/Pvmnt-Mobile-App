@@ -503,7 +503,7 @@
         <!--Settings-->
         <scene sceneID="ICD-4A-ezc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y9t-Ai-bs4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Settings VC Nav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y9t-Ai-bs4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" id="CIy-im-9LD"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mcn-Sq-2mo">

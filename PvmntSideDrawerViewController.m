@@ -84,28 +84,57 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 10;
+    return 3;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 2;
+	switch (section) {
+		case 0:
+			return 2;
+		case 1:
+			return 1;
+		case 2:
+			return 1;
+		default:
+			return 0;
+			break;
+	}
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.textLabel.text = @"Testing!";
-    // Configure the cell...
+	
+	static NSString *CellIdentifier = @"Cell";
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+	}
+	
+	switch (indexPath.section) {
+		case 0: {
+			if (indexPath.row == 0) {
+				cell.textLabel.text = @"Sidewalk";
+			} else {
+				cell.textLabel.text = @"Calendar";
+			}
+			break;
+		}
+		case 1: {
+			cell.textLabel.text = @"Search";
+			break;
+		}
+		case 2: {
+			cell.textLabel.text = @"Settings";
+			break;
+		}
+		default:
+			break;
+	}
+	
     
     return cell;
 }
@@ -115,15 +144,39 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    UIViewController *newVC;
-    if (indexPath.row % 2 == 0) {
-        newVC = [appDelegate sidewalkViewController];
-    } else {
-        newVC = [appDelegate calendarFeedViewController];
-    }
-    [self.mm_drawerController setCenterViewController:newVC withFullCloseAnimation:YES completion:^(BOOL finished) {
-//        code
-    }];
+    UINavigationController *newVC;
+	switch (indexPath.section) {
+		case 0: {
+			if (indexPath.row == 0) {
+				newVC = (UINavigationController *)[appDelegate sidewalkViewController];
+			} else {
+				newVC = (UINavigationController *)[appDelegate calendarFeedViewController];
+			}
+			break;
+		}
+		case 1: {
+//			cell.textLabel.text = @"Search";
+			break;
+		}
+		case 2: {
+			newVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Settings VC Nav"];
+			break;
+		}
+		default:
+			break;
+	}
+
+	if (newVC) {
+		if ([newVC.topViewController isMemberOfClass:[[(UINavigationController *)self.mm_drawerController.centerViewController topViewController] class]]) {
+			[self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:^(BOOL finished) {
+//				code
+			}];
+		} else {
+			[self.mm_drawerController setCenterViewController:newVC withFullCloseAnimation:YES completion:^(BOOL finished) {
+		//        code
+			}];
+		}
+	}
 }
 
 /*

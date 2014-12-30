@@ -157,7 +157,7 @@
 		211E013E1A524FE900B17343 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		211E013F1A524FE900B17343 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		211E01451A53139E00B17343 /* PvmntSideDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntSideDrawerViewController.h; sourceTree = "<group>"; };
-		211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntSideDrawerViewController.m; sourceTree = "<group>"; };
+		211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntSideDrawerViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
 		211E01481A531C6E00B17343 /* PvmntViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntViewController.h; sourceTree = SOURCE_ROOT; };
 		211E01491A531C6E00B17343 /* PvmntViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntViewController.m; sourceTree = SOURCE_ROOT; };
 		214526C01A50DAE60092376F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
