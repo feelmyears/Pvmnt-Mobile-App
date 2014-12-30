@@ -13,5 +13,6 @@
 #define DEFAULT_FLYER_DESCRIPTION_CELL_SIZE (CGSize){[[UIScreen mainScreen] bounds].size.width, 50}
 
 @interface EventInfoFlyerDescriptionHTKCollectionViewCell : HTKDynamicResizingCollectionViewCell<TTTAttributedLabelDelegate, MFMailComposeViewControllerDelegate>
-- (void)setupCellWithDescription:(NSString *)description isHTML:(BOOL)isDescriptionHTML;
+- (void)setupCellWithDescription:(NSString *)description isHTML:(BOOL)isDescriptionHTML __attribute__((deprecated("Use setupCellWithDescription: instead")));
+- (void)setupCellWithDescription:(NSString *)description;
 @end

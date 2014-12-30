@@ -136,8 +136,8 @@ static NSString *EventInfoActionCollectionViewCellIdentifier                = @"
     } else if (section == 3) {
         return 1;
     } else if (section == 4) {
-        return 1;
-    }else return 0;
+        return (self.flyer.desc.length) ? 1 : 0;
+    } else return 0;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -177,7 +177,7 @@ static NSString *EventInfoActionCollectionViewCellIdentifier                = @"
         cell = actionsCell;
     } else if (indexPath.section == 4) {
         EventInfoFlyerDescriptionHTKCollectionViewCell *descriptionCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:EventInfoFlyerDescriptionHTKCollectionViewCellIdentifier forIndexPath:indexPath];
-        [descriptionCell setupCellWithDescription:self.flyer.desc isHTML:YES];
+        [descriptionCell setupCellWithDescription:self.flyer.desc];
         cell = descriptionCell;
     }
     

@@ -78,6 +78,11 @@
     }
 }
 
+- (void)setupCellWithDescription:(NSString *)description
+{
+    self.label.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
 #pragma mark - TTTAttributedLabel Delegate
 //---------------------Phone Number Tap-----------------------
 - (void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithPhoneNumber:(NSString *)phoneNumber atPoint:(CGPoint)point

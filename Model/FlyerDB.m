@@ -17,7 +17,7 @@
 #import "RK_Flyer.h"
 #import "NSDate+Utilities.h"
 #import "SVPullToRefresh.h"
-#import "PVMNT_CONSTANTS.h"
+//#import "PVMNT_CONSTANTS.h"
 #import "SchoolPickerViewController.h"
 
 NSString *const kFlyerDBRemovedFlyersNotification            = @"kFlyerDBRemovedFlyersNotification";
@@ -289,9 +289,10 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
     newFlyer.title = [rkFlyer.title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     newFlyer.event_date = [rkFlyer.event_date dateAtStartOfDay];
     newFlyer.event_time = rkFlyer.event_date;
+    newFlyer.desc = [rkFlyer.flyerDescription stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-    NSAttributedString *markdownString = [[NSAttributedString alloc] initWithData:[rkFlyer.flyerDescription dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:@(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
-    newFlyer.desc = [[markdownString string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//    NSAttributedString *markdownString = [[NSAttributedString alloc] initWithData:[rkFlyer.flyerDescription dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:@(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
+//    newFlyer.desc = [[markdownString string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     CD_Image *image = [CD_Image MR_createEntity];
     NSString *imageURL = [rkFlyer.imageURL stringByReplacingOccurrencesOfString:@"pvmnt.s3.amazonaws.com" withString:@"d91h6uwlhrn81.cloudfront.net"];
