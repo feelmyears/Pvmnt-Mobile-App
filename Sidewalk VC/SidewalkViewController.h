@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PvmntViewController.h"
+
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "SidewalkFlyerCollectionCell.h"
 #import "SidewalkModel.h"
 
-@interface SidewalkViewController : UIViewController
+@interface SidewalkViewController : PvmntViewController
 <
 UICollectionViewDelegate,
 UICollectionViewDataSource,

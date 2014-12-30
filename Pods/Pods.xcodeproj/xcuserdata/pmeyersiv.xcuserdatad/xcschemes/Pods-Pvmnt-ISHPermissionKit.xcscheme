@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5E614BDEBDD2349CB7C7333B"
+               BlueprintIdentifier = "EB81A38798B5DA7FD252D241"
                BuildableName = "libPods-Pvmnt-ISHPermissionKit.a"
                BlueprintName = "Pods-Pvmnt-ISHPermissionKit"
                ReferencedContainer = "container:Pods.xcodeproj">

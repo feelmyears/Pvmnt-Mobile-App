@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		211E01401A524FE900B17343 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E013F1A524FE900B17343 /* MenuTableViewController.m */; };
+		211E01471A53139E00B17343 /* PvmntSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */; };
+		211E014A1A531C6E00B17343 /* PvmntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E01491A531C6E00B17343 /* PvmntViewController.m */; };
 		214526C11A50DAE60092376F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C01A50DAE60092376F /* Social.framework */; };
 		214526C31A50DAED0092376F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C21A50DAED0092376F /* MessageUI.framework */; };
 		214526EA1A50EC4A0092376F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 214526CB1A50EC4A0092376F /* SVWebViewController.strings */; };
@@ -154,6 +156,10 @@
 		211E013D1A52471500B17343 /* Pvmnt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pvmnt-Prefix.pch"; sourceTree = "<group>"; };
 		211E013E1A524FE900B17343 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		211E013F1A524FE900B17343 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		211E01451A53139E00B17343 /* PvmntSideDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntSideDrawerViewController.h; sourceTree = "<group>"; };
+		211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntSideDrawerViewController.m; sourceTree = "<group>"; };
+		211E01481A531C6E00B17343 /* PvmntViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntViewController.h; sourceTree = SOURCE_ROOT; };
+		211E01491A531C6E00B17343 /* PvmntViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntViewController.m; sourceTree = SOURCE_ROOT; };
 		214526C01A50DAE60092376F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		214526C21A50DAED0092376F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		214526CC1A50EC4A0092376F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -422,6 +428,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		211E01431A53134800B17343 /* Settings VC */ = {
+			isa = PBXGroup;
+			children = (
+				211E013E1A524FE900B17343 /* MenuTableViewController.h */,
+				211E013F1A524FE900B17343 /* MenuTableViewController.m */,
+			);
+			name = "Settings VC";
+			sourceTree = "<group>";
+		};
+		211E01441A53135100B17343 /* Side Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				211E01451A53139E00B17343 /* PvmntSideDrawerViewController.h */,
+				211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */,
+			);
+			name = "Side Drawer";
+			sourceTree = "<group>";
+		};
+		211E014B1A531E6300B17343 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				21D779471A50D2320038CC30 /* CalendarFeedFlyerHTKCollectionViewCell.h */,
+				21D779481A50D2320038CC30 /* CalendarFeedFlyerHTKCollectionViewCell.m */,
+				21D779491A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.h */,
+				21D7794A1A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.m */,
+				21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */,
+				21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		214526C41A50DDE60092376F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,8 +554,8 @@
 		21D778BE1A50D13E0038CC30 = {
 			isa = PBXGroup;
 			children = (
-				211E013E1A524FE900B17343 /* MenuTableViewController.h */,
-				211E013F1A524FE900B17343 /* MenuTableViewController.m */,
+				211E01441A53135100B17343 /* Side Drawer */,
+				211E01431A53134800B17343 /* Settings VC */,
 				21D779C61A50D2520038CC30 /* Event Info VC */,
 				21D779E71A50D2520038CC30 /* App Model */,
 				21D779FD1A50D2520038CC30 /* School Picker VC */,
@@ -546,9 +583,11 @@
 		21D778C91A50D13E0038CC30 /* Pvmnt */ = {
 			isa = PBXGroup;
 			children = (
+				211E01481A531C6E00B17343 /* PvmntViewController.h */,
+				211E01491A531C6E00B17343 /* PvmntViewController.m */,
 				211E013D1A52471500B17343 /* Pvmnt-Prefix.pch */,
-				21D77A381A50D2800038CC30 /* PVMNT_CONSTANTS.m */,
 				21D77A391A50D2800038CC30 /* PVMNT_CONSTANTS.h */,
+				21D77A381A50D2800038CC30 /* PVMNT_CONSTANTS.m */,
 				21D77A351A50D2730038CC30 /* Resources */,
 				21D778CE1A50D13E0038CC30 /* AppDelegate.h */,
 				21D778CF1A50D13E0038CC30 /* AppDelegate.m */,
@@ -824,16 +863,11 @@
 		21D779461A50D2320038CC30 /* Calendar Feed VC */ = {
 			isa = PBXGroup;
 			children = (
-				21D779471A50D2320038CC30 /* CalendarFeedFlyerHTKCollectionViewCell.h */,
-				21D779481A50D2320038CC30 /* CalendarFeedFlyerHTKCollectionViewCell.m */,
-				21D779491A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.h */,
-				21D7794A1A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.m */,
-				21D7794B1A50D2320038CC30 /* CalendarFeedViewController.h */,
-				21D7794C1A50D2320038CC30 /* CalendarFeedViewController.m */,
-				21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */,
-				21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */,
+				211E014B1A531E6300B17343 /* Cells */,
 				21D7794F1A50D2320038CC30 /* CalendarSideDateModel.h */,
 				21D779501A50D2320038CC30 /* CalendarSideDateModel.m */,
+				21D7794B1A50D2320038CC30 /* CalendarFeedViewController.h */,
+				21D7794C1A50D2320038CC30 /* CalendarFeedViewController.m */,
 			);
 			path = "Calendar Feed VC";
 			sourceTree = "<group>";
@@ -1393,6 +1427,7 @@
 				21D779521A50D2320038CC30 /* CSStickyHeaderFlowLayout.m in Sources */,
 				21D77A341A50D2520038CC30 /* SidewalkViewController.m in Sources */,
 				21D77A3A1A50D2800038CC30 /* PVMNT_CONSTANTS.m in Sources */,
+				211E014A1A531C6E00B17343 /* PvmntViewController.m in Sources */,
 				21D77A221A50D2520038CC30 /* CD_Image.m in Sources */,
 				21D7795E1A50D2320038CC30 /* UIColor+YUVSpace.m in Sources */,
 				21D77A291A50D2520038CC30 /* RK_Flyer.m in Sources */,
@@ -1430,6 +1465,7 @@
 				21D77A1D1A50D2520038CC30 /* EventInfoFlyerTitleHTKCollectionViewCell.m in Sources */,
 				21D779B31A50D23F0038CC30 /* CalendarListCollectionCell.m in Sources */,
 				21D779591A50D2320038CC30 /* DIDatepicker.m in Sources */,
+				211E01471A53139E00B17343 /* PvmntSideDrawerViewController.m in Sources */,
 				21D77A1A1A50D2520038CC30 /* EventInfoFlyerDescriptionHTKCollectionViewCell.m in Sources */,
 				214526F41A50EC4A0092376F /* SVWebViewControllerActivitySafari.m in Sources */,
 				21D779681A50D2320038CC30 /* SWRevealViewController.m in Sources */,

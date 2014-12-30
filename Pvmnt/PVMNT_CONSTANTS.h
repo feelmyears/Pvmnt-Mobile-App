@@ -11,4 +11,6 @@
 
 extern NSString *const kNSUserDefaultsHasPickedSchoolKey;
 extern NSString *const kNSUserDefaultsSchoolNameKey;
-//extern NSString *const kNSUserDefaultsHasPickedSchoolKey;
+
+extern NSString *const kSVPullToRefreshViewStartedRefreshingKey;
+extern NSString *const kSVPullToRefreshViewStoppedRefreshingKey;

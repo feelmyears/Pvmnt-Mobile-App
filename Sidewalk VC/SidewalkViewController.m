@@ -91,7 +91,7 @@ static CGFloat spacing = 12.5;
         [self performSegueWithIdentifier:@"Pick School Segue" sender:self];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSchoolChosenNotification) name:kSchoolPickerSchoolChosenNotification object:nil];
     }
-    
+
     
     //CollectionView Setup
     [self.collectionView setDelegate:self];

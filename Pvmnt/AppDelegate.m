@@ -12,13 +12,19 @@
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <MagicalRecord/MagicalRecord+Setup.h>
 #import <BlurryModalSegue/BlurryModalSegue.h>
-#import "THTinderNavigationController.h"
-#import "THTinderNavigationBar.h"
-#import "CalendarListViewController.h"
-#import "SidewalkViewController.h"
+
+#import "PvmntSideDrawerViewController.h"
+#import <MMDrawerController/MMDrawerController.h>
+#import <MMDrawerController/MMDrawerVisualState.h>
 
 #import <SVProgressHUD/SVProgressHUD.h>
+
+#import "SidewalkViewController.h"
+#import "CalendarFeedViewController.h"
 @interface AppDelegate ()
+@property (strong, nonatomic) MMDrawerController *drawerController;
+@property (strong, nonatomic) UIViewController *sidewalkViewController;
+@property (strong, nonatomic) UIViewController *calendarFeedViewController;
 @end
 
 @implementation AppDelegate
@@ -39,8 +45,48 @@
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-    //    [[UIView appearance] setTintColor:[UIColor blackColor]];
+    UIViewController *leftSideDrawerViewController = [[PvmntSideDrawerViewController alloc] init];
+    [leftSideDrawerViewController setRestorationIdentifier:@"PvmntSideDrawerViewControllerRestorationKey"];
+    UINavigationController *leftSideNavController = [[UINavigationController alloc] initWithRootViewController:leftSideDrawerViewController];
+    [leftSideNavController setRestorationIdentifier:@"PvmntLeftSideNavControllerRestorationKey"];
+    
+    UINavigationController *centerViewController = [self sidewalkViewController];
+    
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:centerViewController leftDrawerViewController:leftSideNavController];
+    [self. drawerController setShowsShadow:YES];
+    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
+
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningNavigationBar];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [self.drawerController setShouldStretchDrawer:NO];
+    [self.drawerController setCenterHiddenInteractionMode:MMDrawerOpenCenterInteractionModeNavigationBarOnly];
+    
+    [self.drawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.drawerController setMaximumLeftDrawerWidth:self.window.frame.size.width - 100];
+    
+    [self.window setTintColor:[UIColor blackColor]];
+    [self.window setRootViewController:self.drawerController];
     return YES;
+}
+
+- (UIViewController *)sidewalkViewController
+{
+    if (!_sidewalkViewController) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        _sidewalkViewController = [storyboard instantiateViewControllerWithIdentifier:@"Sidewalk VC Nav"];
+    }
+    return _sidewalkViewController;
+}
+
+- (UIViewController *)calendarFeedViewController
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    if (!_calendarFeedViewController) {
+        _calendarFeedViewController = [storyboard instantiateViewControllerWithIdentifier:@"Calendar Feed VC Nav"];
+    }
+    return _calendarFeedViewController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

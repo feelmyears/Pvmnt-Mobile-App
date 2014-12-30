@@ -10,3 +10,6 @@
 
 NSString *const kNSUserDefaultsHasPickedSchoolKey       = @"kNSUserDefaultsHasPickedSchoolKey";
 NSString *const kNSUserDefaultsSchoolNameKey            = @"kNSUserDefaultsSchoolNameKey";
+
+NSString *const kSVPullToRefreshViewStartedRefreshingKey = @"kSVPullToRefreshViewStartedRefreshingKey";
+NSString *const kSVPullToRefreshViewStoppedRefreshingKey = @"kSVPullToRefreshViewStoppedRefreshingKey";

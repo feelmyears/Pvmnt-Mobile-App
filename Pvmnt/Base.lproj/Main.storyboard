@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3F2-tW-OHF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YFw-J8-96X">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="1VR-mj-wJw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jmJ-sM-BTL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pPf-lz-ZW5">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HmN-b7-F3b">
                                     <size key="itemSize" width="245" height="325"/>
@@ -315,17 +315,17 @@
         <!--Calendar Feed-->
         <scene sceneID="s4P-cF-l6S">
             <objects>
-                <viewController title="Calendar Feed" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="hSK-jR-ene" customClass="CalendarFeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Calendar Feed VC" title="Calendar Feed" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hSK-jR-ene" customClass="CalendarFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qI1-qE-Qud"/>
                         <viewControllerLayoutGuide type="bottom" id="Egw-9q-nSx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JkM-z9-seX">
-                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Adn-hF-x8o">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ql6-Sd-41W">
                                     <size key="itemSize" width="50" height="50"/>
@@ -447,7 +447,7 @@
         <!--Sidewalk-->
         <scene sceneID="KpN-4m-q8o">
             <objects>
-                <navigationController storyboardIdentifier="Sidewalk VC Nav" automaticallyAdjustsScrollViewInsets="NO" id="YFw-J8-96X" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Sidewalk VC Nav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YFw-J8-96X" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sidewalk" id="eiI-cV-K8M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zDN-z6-JJG">
@@ -484,7 +484,7 @@
         <!--Calendar-->
         <scene sceneID="cho-Cu-Z6C">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OOv-bH-f3i" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Calendar Feed VC Nav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OOv-bH-f3i" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendar" id="W3q-PR-djl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xqq-Bm-fXt">
@@ -498,27 +498,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUg-Tn-TL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5526" y="2310"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="vZR-2Y-vU8">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3F2-tW-OHF" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="QgH-sR-9oo" customClass="FNShyTabBar">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="YFw-J8-96X" kind="relationship" relationship="viewControllers" id="zZ1-vS-jct"/>
-                        <segue destination="OOv-bH-f3i" kind="relationship" relationship="viewControllers" id="av5-y3-hAg"/>
-                        <segue destination="Y9t-Ai-bs4" kind="relationship" relationship="viewControllers" id="e6h-aL-A2X"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ibF-2E-NFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5526" y="1566"/>
+            <point key="canvasLocation" x="5530" y="2298"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ICD-4A-ezc">
@@ -541,7 +521,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="H2i-01-751"/>
+        <segue reference="C9f-iz-UWh"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>
