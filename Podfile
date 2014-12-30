@@ -25,6 +25,7 @@ pod 'SVProgressHUD'
 pod 'ISHPermissionKit'
 pod 'MBProgressHUD', '~> 0.8'
 pod 'TTTAttributedLabel'
+pod 'FormatterKit', '~> 1.7'
 
 pod 'BlocksKit', '2.2.2'
 pod 'ObjcAssociatedObjectHelpers', '1.2.1'

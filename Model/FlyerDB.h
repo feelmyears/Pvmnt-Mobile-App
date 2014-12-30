@@ -17,11 +17,6 @@ extern NSString *const kFlyerDBAddedFlyerNotification;
 
 
 + (id)sharedInstance;
-//- (void)configureRestKit;
-//- (void)fetchAllFlyers;
-//- (void)fetchAllCategories;
-//- (void)deleteOldFlyers;
-//- (void)refresh:(SVPullToRefreshView *)pullToRefreshView withCompletionBlock:(void (^)())completionBlock;
 - (void)fetchAllWithCompletionBlock:(void (^)())completionBlock;
 
 - (NSArray *)flyerDates;

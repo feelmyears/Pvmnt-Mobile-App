@@ -294,7 +294,8 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
     newFlyer.desc = [[markdownString string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     CD_Image *image = [CD_Image MR_createEntity];
-    image.imageURL = rkFlyer.imageURL;
+    NSString *imageURL = [rkFlyer.imageURL stringByReplacingOccurrencesOfString:@"pvmnt.s3.amazonaws.com" withString:@"d91h6uwlhrn81.cloudfront.net"];
+    image.imageURL = imageURL;
     image.imageDownloaded = [NSNumber numberWithBool:NO];
     newFlyer.image = image;
     

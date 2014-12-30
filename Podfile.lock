@@ -23,6 +23,25 @@ PODS:
     - MZAppearance (~> 1.1.1)
     - UIImage+BlurredFrame (~> 0.0.4)
   - FNShyTabBar (0.3.0)
+  - FormatterKit (1.7.5):
+    - FormatterKit/AddressFormatter
+    - FormatterKit/ArrayFormatter
+    - FormatterKit/ColorFormatter
+    - FormatterKit/LocationFormatter
+    - FormatterKit/NameFormatter
+    - FormatterKit/OrdinalNumberFormatter
+    - FormatterKit/TimeIntervalFormatter
+    - FormatterKit/UnitOfInformationFormatter
+    - FormatterKit/URLRequestFormatter
+  - FormatterKit/AddressFormatter (1.7.5)
+  - FormatterKit/ArrayFormatter (1.7.5)
+  - FormatterKit/ColorFormatter (1.7.5)
+  - FormatterKit/LocationFormatter (1.7.5)
+  - FormatterKit/NameFormatter (1.7.5)
+  - FormatterKit/OrdinalNumberFormatter (1.7.5)
+  - FormatterKit/TimeIntervalFormatter (1.7.5)
+  - FormatterKit/UnitOfInformationFormatter (1.7.5)
+  - FormatterKit/URLRequestFormatter (1.7.5)
   - FXBlurView (1.6.3)
   - HTKDynamicResizingCell (0.0.2)
   - ISHPermissionKit (0.7.0)
@@ -75,6 +94,7 @@ DEPENDENCIES:
   - BlocksKit (= 2.2.2)
   - BlurryModalSegue
   - FNShyTabBar
+  - FormatterKit (~> 1.7)
   - FXBlurView (~> 1.6)
   - HTKDynamicResizingCell (~> 0.0.1)
   - ISHPermissionKit
@@ -102,6 +122,7 @@ SPEC CHECKSUMS:
   BlocksKit: 49fda17cbd628f3d6683f62de57edeaa315b386c
   BlurryModalSegue: 5775612771e4b6a162043a535d157b9503b0031e
   FNShyTabBar: 250a3d12059d49c7e58cefd9392ee9df8bba4bea
+  FormatterKit: 758bef4552d11454f0eb7e73669f81c225247904
   FXBlurView: abe1046285813c4f6e9008abbc324fc5ab32af90
   HTKDynamicResizingCell: ef19a37818f634a165a408d8f65a7596ba17b002
   ISHPermissionKit: d4e70418fe1e01e446d2f5da60d7b17c8b40ff5d

@@ -22,6 +22,12 @@
 		214526F41A50EC4A0092376F /* SVWebViewControllerActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 214526E41A50EC4A0092376F /* SVWebViewControllerActivitySafari.m */; };
 		214526F51A50EC4A0092376F /* SVWebViewControllerActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 214526E51A50EC4A0092376F /* SVWebViewControllerActivitySafari@2x.png */; };
 		214526F61A50EC4A0092376F /* SVWebViewControllerActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 214526E71A50EC4A0092376F /* SVWebViewControllerActivity.m */; };
+		214526F91A51E1390092376F /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 214526F71A51E1390092376F /* UIActionSheet+Blocks.m */; };
+		214526FC1A51E1D10092376F /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 214526FA1A51E1D10092376F /* UIAlertView+Blocks.m */; };
+		214527001A51E42C0092376F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526FE1A51E42C0092376F /* AddressBook.framework */; };
+		214527011A51E42C0092376F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526FF1A51E42C0092376F /* AddressBookUI.framework */; };
+		214527031A51E5FB0092376F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214527021A51E5FB0092376F /* CoreLocation.framework */; };
+		214527051A51E6010092376F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214527041A51E6010092376F /* MapKit.framework */; };
 		21D778CD1A50D13E0038CC30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D778CC1A50D13E0038CC30 /* main.m */; };
 		21D778D01A50D13E0038CC30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D778CF1A50D13E0038CC30 /* AppDelegate.m */; };
 		21D778D61A50D13E0038CC30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D778D41A50D13E0038CC30 /* Main.storyboard */; };
@@ -173,6 +179,14 @@
 		214526E71A50EC4A0092376F /* SVWebViewControllerActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVWebViewControllerActivity.m; sourceTree = "<group>"; };
 		214526E81A50EC4A0092376F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
 		214526E91A50EC4A0092376F /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SVWebViewController.strings"; sourceTree = "<group>"; };
+		214526F71A51E1390092376F /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
+		214526F81A51E1390092376F /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
+		214526FA1A51E1D10092376F /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		214526FB1A51E1D10092376F /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		214526FE1A51E42C0092376F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		214526FF1A51E42C0092376F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		214527021A51E5FB0092376F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		214527041A51E6010092376F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		21D778C71A50D13E0038CC30 /* Pvmnt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pvmnt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D778CB1A50D13E0038CC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D778CC1A50D13E0038CC30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -380,6 +394,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214527051A51E6010092376F /* MapKit.framework in Frameworks */,
+				214527031A51E5FB0092376F /* CoreLocation.framework in Frameworks */,
+				214527001A51E42C0092376F /* AddressBook.framework in Frameworks */,
+				214527011A51E42C0092376F /* AddressBookUI.framework in Frameworks */,
 				214526C31A50DAED0092376F /* MessageUI.framework in Frameworks */,
 				214526C11A50DAE60092376F /* Social.framework in Frameworks */,
 				21D77A451A50D3150038CC30 /* UIKit.framework in Frameworks */,
@@ -481,6 +499,17 @@
 			path = Safari;
 			sourceTree = "<group>";
 		};
+		214526FD1A51E1D60092376F /* UIActionSheet + Blocks & UIAlertView + Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				214526FA1A51E1D10092376F /* UIAlertView+Blocks.m */,
+				214526FB1A51E1D10092376F /* UIAlertView+Blocks.h */,
+				214526F71A51E1390092376F /* UIActionSheet+Blocks.m */,
+				214526F81A51E1390092376F /* UIActionSheet+Blocks.h */,
+			);
+			name = "UIActionSheet + Blocks & UIAlertView + Blocks";
+			sourceTree = "<group>";
+		};
 		21D778BE1A50D13E0038CC30 = {
 			isa = PBXGroup;
 			children = (
@@ -554,6 +583,7 @@
 		21D778F01A50D2320038CC30 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				214526FD1A51E1D60092376F /* UIActionSheet + Blocks & UIAlertView + Blocks */,
 				214526CA1A50EC4A0092376F /* SVWebViewController */,
 				21D778F11A50D2320038CC30 /* CHTCollectionViewWaterfallLayout */,
 				21D778F41A50D2320038CC30 /* Classes */,
@@ -1154,6 +1184,10 @@
 		916152CEB60AAB2BF1958212 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				214527041A51E6010092376F /* MapKit.framework */,
+				214527021A51E5FB0092376F /* CoreLocation.framework */,
+				214526FE1A51E42C0092376F /* AddressBook.framework */,
+				214526FF1A51E42C0092376F /* AddressBookUI.framework */,
 				214526C21A50DAED0092376F /* MessageUI.framework */,
 				214526C01A50DAE60092376F /* Social.framework */,
 				21D77A441A50D3150038CC30 /* UIKit.framework */,
@@ -1373,6 +1407,7 @@
 				21D779661A50D2320038CC30 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				21D779561A50D2320038CC30 /* ColorUtils.m in Sources */,
 				21D779571A50D2320038CC30 /* Colours.m in Sources */,
+				214526FC1A51E1D10092376F /* UIAlertView+Blocks.m in Sources */,
 				21D77A271A50D2520038CC30 /* FlyerDB.m in Sources */,
 				21D779701A50D2320038CC30 /* UIView+RoundedCorners.m in Sources */,
 				21D779531A50D2320038CC30 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
@@ -1407,6 +1442,7 @@
 				21D7795A1A50D2320038CC30 /* DIDatepickerDateView.m in Sources */,
 				21D7795B1A50D2320038CC30 /* iCarousel.m in Sources */,
 				21D77A1F1A50D2520038CC30 /* PvmntPermissionRequestISHPermissionRequestViewController.m in Sources */,
+				214526F91A51E1390092376F /* UIActionSheet+Blocks.m in Sources */,
 				21D779721A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.m in Sources */,
 				21D779671A50D2320038CC30 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				21D77A1E1A50D2520038CC30 /* EventInforViewController.m in Sources */,

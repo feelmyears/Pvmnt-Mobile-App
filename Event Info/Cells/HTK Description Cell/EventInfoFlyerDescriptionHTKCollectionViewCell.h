@@ -8,9 +8,10 @@
 
 #import "HTKDynamicResizingCollectionViewCell.h"
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
+#import <MessageUI/MessageUI.h>
 
 #define DEFAULT_FLYER_DESCRIPTION_CELL_SIZE (CGSize){[[UIScreen mainScreen] bounds].size.width, 50}
 
-@interface EventInfoFlyerDescriptionHTKCollectionViewCell : HTKDynamicResizingCollectionViewCell<TTTAttributedLabelDelegate>
+@interface EventInfoFlyerDescriptionHTKCollectionViewCell : HTKDynamicResizingCollectionViewCell<TTTAttributedLabelDelegate, MFMailComposeViewControllerDelegate>
 - (void)setupCellWithDescription:(NSString *)description isHTML:(BOOL)isDescriptionHTML;
 @end

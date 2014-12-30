@@ -9,6 +9,12 @@
 #import "EventInfoFlyerDescriptionHTKCollectionViewCell.h"
 #import <TTTAttributedLabel/TTTAttributedLabel.h>
 #import "SVModalWebViewController.h"
+#import "UIActionSheet+Blocks.h"
+#import "UIAlertView+Blocks.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <FormatterKit/TTTAddressFormatter.h>
+#import <MapKit/MapKit.h>
+#import <MessageUI/MessageUI.h>
 
 @interface EventInfoFlyerDescriptionHTKCollectionViewCell()
 @property (strong, nonatomic) TTTAttributedLabel *label;
@@ -75,37 +81,121 @@
 //---------------------Phone Number Tap-----------------------
 - (void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithPhoneNumber:(NSString *)phoneNumber atPoint:(CGPoint)point
 {
-    NSLog(@"Long phone number press");
+    [UIActionSheet showFromTabBar:[self topMostController].tabBarController.tabBar withTitle:@"Copy Phone Number?" cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@[@"Copy"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+        if (buttonIndex != actionSheet.cancelButtonIndex) {
+            [[UIPasteboard generalPasteboard] setString:phoneNumber];
+            [SVProgressHUD showSuccessWithStatus:@"Phone Number Copied"];
+        }
+    }];
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithPhoneNumber:(NSString *)phoneNumber
 {
-    NSString *callURL = [@"tel://" stringByAppendingString:phoneNumber];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callURL]];
+    [UIAlertView showWithTitle:[NSString stringWithFormat:@"Call %@?", phoneNumber] message:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Call"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        if (buttonIndex != alertView.cancelButtonIndex) {
+            NSString *callURL = [@"tel://" stringByAppendingString:phoneNumber];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:callURL]];
+        }
+    }];
 }
 
 //---------------------Address Tap-----------------------
 - (void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithAddress:(NSDictionary *)addressComponents atPoint:(CGPoint)point
 {
-    NSLog(@"Long address press");
+    [UIActionSheet showFromTabBar:[self topMostController].tabBarController.tabBar withTitle:@"Copy Address?" cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@[@"Copy"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+        if (buttonIndex != actionSheet.cancelButtonIndex) {
+            TTTAddressFormatter *addressFormatter = [[TTTAddressFormatter alloc] init];
+            NSString *addressString = [addressFormatter stringFromAddressWithStreet:addressComponents[NSTextCheckingStreetKey]
+                                                                           locality:addressComponents[NSTextCheckingCityKey]
+                                                                             region:addressComponents[NSTextCheckingStateKey]
+                                                                         postalCode:addressComponents[NSTextCheckingZIPKey]
+                                                                            country:addressComponents[NSTextCheckingCountryKey]];
+            [[UIPasteboard generalPasteboard] setString:addressString];
+            [SVProgressHUD showSuccessWithStatus:@"URL Copied"];
+        }
+    }];
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithAddress:(NSDictionary *)addressComponents
 {
-    NSLog(@"Address select");
+    [UIAlertView showWithTitle:@"Open in Maps?" message:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Open"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        if (buttonIndex != alertView.cancelButtonIndex) {
+            Class mapItemClass = [MKMapItem class];
+            if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+            {
+                CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+                [geocoder geocodeAddressDictionary:addressComponents
+                                 completionHandler:^(NSArray *placemarks, NSError *error) {
+                                     
+                                     // Convert the CLPlacemark to an MKPlacemark
+                                     // Note: There's no error checking for a failed geocode
+                                     CLPlacemark *geocodedPlacemark = [placemarks objectAtIndex:0];
+                                     MKPlacemark *placemark = [[MKPlacemark alloc]
+                                                               initWithCoordinate:geocodedPlacemark.location.coordinate
+                                                               addressDictionary:geocodedPlacemark.addressDictionary];
+                                     
+                                     // Create a map item for the geocoded address to pass to Maps app
+                                     MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+                                     [mapItem setName:geocodedPlacemark.name];
+                                     
+                                     // Set the directions mode to "Driving"
+                                     // Can use MKLaunchOptionsDirectionsModeWalking instead
+                                     NSDictionary *launchOptions = @{};
+                                     [mapItem openInMapsWithLaunchOptions:launchOptions];
+                                 }];
+            }
+        }
+    }];
 }
 
 //---------------------Link Tap-----------------------
 - (void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithURL:(NSURL *)url atPoint:(CGPoint)point
 {
-    NSLog(@"Long url press");
+    [UIActionSheet showFromTabBar:[self topMostController].tabBarController.tabBar withTitle:@"Copy URL?" cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@[@"Copy"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+        if (buttonIndex != actionSheet.cancelButtonIndex) {
+            [[UIPasteboard generalPasteboard] setURL:url];
+            [SVProgressHUD showSuccessWithStatus:@"URL Copied"];
+        }
+    }];
+    
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url
 {
-    NSLog(@"URL select");
-    SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[url absoluteString]];
-    [self.window.rootViewController presentViewController:webViewController animated:YES completion:NULL];
+    NSString *mailURLScheme = @"mailto";
+//    NSString *urlScheme = [[url absoluteString] substringWithRange:NSMakeRange(0, mailURLScheme.length)];
+    if ([[url scheme] isEqualToString:mailURLScheme]) {
+        [[UIApplication sharedApplication] openURL:url];
+        /*
+        if ([MFMailComposeViewController canSendMail]) {
+            MFMailComposeViewController *composeVC = [[MFMailComposeViewController alloc] init];
+            composeVC.mailComposeDelegate = self;
+            [composeVC setToRecipients:@[[url resourceSpecifier]]];
+            [[self topMostController] presentViewController:composeVC animated:YES completion:NULL];
+        }
+         */
+    } else {
+        SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithAddress:[url absoluteString]];
+        webViewController.barsTintColor = [UIColor blackColor];
+        [[self topMostController] presentViewController:webViewController animated:YES completion:NULL];
+    }
+}
+
+#pragma mark - MFMailComposeViewController Delegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (UIViewController*) topMostController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    
+    return topController;
 }
 
 @end

@@ -50,6 +50,13 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.navigationBar.translucent = NO;
+//    self.tabBarController.tabBar.translucent = NO;
+    self.toolbar.translucent = NO;
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:NO];
     
