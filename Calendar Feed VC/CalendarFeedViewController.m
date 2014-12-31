@@ -42,7 +42,7 @@ static NSString *CalendarFeedHeaderCollectionResuableViewIdentifier     = @"Cale
     self.navigationController.navigationBar.translucent = NO;
     
     UIButton *pvmntLogo = [UIButton new];
-    [pvmntLogo setTitle:@"pvmnt" forState:UIControlStateNormal];
+    [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
     pvmntLogo.titleLabel.font = [UIFont fontWithName:@"Lobster" size:30.];
     [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.navigationItem.titleView = pvmntLogo;
