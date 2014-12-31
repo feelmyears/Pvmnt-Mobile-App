@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+	
     if(OSVersionIsAtLeastiOS7()){
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     }
@@ -51,7 +51,8 @@
     }
 	 */
 	[self.tableView setBackgroundColor:[UIColor whiteColor]];
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+	self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLineEtched];
     [self.view setBackgroundColor:[UIColor colorWithRed:66.0/255.0
                                                   green:69.0/255.0
                                                    blue:71.0/255.0
@@ -236,6 +237,7 @@
 			break;
 	}
 }
+
 
 /*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

@@ -294,6 +294,12 @@
 #define COCOAPODS_VERSION_MINOR_SVProgressHUD 1
 #define COCOAPODS_VERSION_PATCH_SVProgressHUD 2
 
+// Shimmer
+#define COCOAPODS_POD_AVAILABLE_Shimmer
+#define COCOAPODS_VERSION_MAJOR_Shimmer 1
+#define COCOAPODS_VERSION_MINOR_Shimmer 0
+#define COCOAPODS_VERSION_PATCH_Shimmer 2
+
 // THCalendarDatePicker
 #define COCOAPODS_POD_AVAILABLE_THCalendarDatePicker
 #define COCOAPODS_VERSION_MAJOR_THCalendarDatePicker 0
@@ -335,6 +341,12 @@
 #define COCOAPODS_VERSION_MAJOR_URBMediaFocusViewController 0
 #define COCOAPODS_VERSION_MINOR_URBMediaFocusViewController 5
 #define COCOAPODS_VERSION_PATCH_URBMediaFocusViewController 5
+
+// WYPopoverController
+#define COCOAPODS_POD_AVAILABLE_WYPopoverController
+#define COCOAPODS_VERSION_MAJOR_WYPopoverController 0
+#define COCOAPODS_VERSION_MINOR_WYPopoverController 2
+#define COCOAPODS_VERSION_PATCH_WYPopoverController 2
 
 // XLMediaZoom
 #define COCOAPODS_POD_AVAILABLE_XLMediaZoom

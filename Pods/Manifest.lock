@@ -87,6 +87,7 @@ PODS:
   - SDWebImage (3.7.1):
     - SDWebImage/Core
   - SDWebImage/Core (3.7.1)
+  - Shimmer (1.0.2)
   - SOCKit (1.1)
   - SVProgressHUD (1.1.2)
   - THCalendarDatePicker (0.2.8):
@@ -98,6 +99,7 @@ PODS:
   - TTTAttributedLabel (1.13.0)
   - UIImage+BlurredFrame (0.0.4)
   - URBMediaFocusViewController (0.5.5)
+  - WYPopoverController (0.2.2)
   - XLMediaZoom (2.0.1)
 
 DEPENDENCIES:
@@ -120,12 +122,14 @@ DEPENDENCIES:
   - ObjcAssociatedObjectHelpers (= 1.2.1)
   - RestKit (~> 0.20.0)
   - SDWebImage (~> 3.6)
+  - Shimmer
   - SVProgressHUD
   - THCalendarDatePicker (~> 0.2.4)
   - TLLayoutTransitioning
   - TLYShyNavBar
   - TTTAttributedLabel
   - URBMediaFocusViewController
+  - WYPopoverController (~> 0.2.2)
   - XLMediaZoom
 
 SPEC CHECKSUMS:
@@ -152,6 +156,7 @@ SPEC CHECKSUMS:
   ObjcAssociatedObjectHelpers: bbb9f597f62ab0d7b0c187f56bc887c9f7d0c8f0
   RestKit: 7f9490e709ee745e166c4d2aa7a8d132831275b0
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  Shimmer: 057fcfe9c1c978d69d50b64fce93a61080cd08ec
   SOCKit: d8d0dd3688ae1026c12367570da8fa8e1a6980fb
   SVProgressHUD: da7a49e789af645d9279ffbca62318945a832438
   THCalendarDatePicker: 6e7a9e0877e9c84272fe856bc76ea2f4f22c41a7
@@ -161,6 +166,7 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: a847b59a75c92d59f4eabc9cc1745704cff2dc36
   UIImage+BlurredFrame: 0c38f5760d72125c47d16001a88faaac573bd35d
   URBMediaFocusViewController: 4dff9de3767e60b96ba325c897d4ffa7131a122e
+  WYPopoverController: c233d69fdfd5c7e316b481df1060624d7a9e629d
   XLMediaZoom: 3b32c799e81a0026ef4a9b4bf92f5a8bc7a4838e
 
 COCOAPODS: 0.34.4

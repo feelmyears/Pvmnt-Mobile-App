@@ -44,6 +44,8 @@
 
 #import "SchoolPickerViewController.h"
 #import "KxMenu.h"
+#import "LMDropdownView.h"
+#import "FilterTableViewController.h"
 #import <ionicons/IonIcons.h>
 #import "PvmntStyleKit.h"
 
@@ -59,6 +61,8 @@ static NSString *SidewalkFlyerImageHTKCollectionViewCellIdentifier  = @"Sidewalk
 @property (strong, nonatomic) SidewalkModel *model;
 @property (nonatomic) BOOL refreshing;
 @property (strong, nonatomic) NSMutableDictionary *filterDictionary;
+@property (strong, nonatomic) LMDropdownView *dropdownMenu;
+@property (strong, nonatomic) FilterTableViewController *filterTableVC;
 @end
 
 CGFloat const SIDEWALK_COLLECTION_VIEW_PADDING = 0.;
@@ -68,7 +72,30 @@ static CGFloat spacing = 12.5;
 
 
 @implementation SidewalkViewController
+- (FilterTableViewController *)filterTableVC
+{
+    if (!_filterTableVC) {
+        _filterTableVC = [[FilterTableViewController alloc] init];
+//        _filterTableVC.cellHeight = self.collectionView.bounds.size.height/((CGFloat)_filterTableVC.numCells);
+        _filterTableVC.cellHeight = 60;
+        _filterTableVC.tableView.contentMode = UIViewContentModeRedraw;
+        [_filterTableVC.tableView setBounds:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, [self.filterTableVC heightForTable])];
+        [_filterTableVC.view setBounds:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, [self.filterTableVC heightForTable])];
+        _filterTableVC.tableView.clipsToBounds = YES;
+    }
+    return _filterTableVC;
+}
 
+
+- (LMDropdownView *)dropdownMenu
+{
+    if (!_dropdownMenu) {
+        _dropdownMenu = [[LMDropdownView alloc] init];
+        _dropdownMenu.menuBackgroundColor = [UIColor whiteColor];
+        _dropdownMenu.menuContentView = self.filterTableVC.tableView;
+    }
+    return _dropdownMenu;
+}
 
 - (void)viewDidLoad
 {
@@ -79,7 +106,7 @@ static CGFloat spacing = 12.5;
     self.navigationController.navigationBar.translucent = NO;
 
     UIButton *pvmntLogo = [UIButton new];
-    [pvmntLogo setTitle:@"pvmnt" forState:UIControlStateNormal];
+    [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
     pvmntLogo.titleLabel.font = [UIFont fontWithName:@"Lobster" size:30.];
     [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.navigationItem.titleView = pvmntLogo;
@@ -89,6 +116,8 @@ static CGFloat spacing = 12.5;
     self.tabBarController.tabBar.translucent = NO;
     self.title = @"Sidewalk";
     
+    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(handleFilterButtonTap)];
+    self.navigationItem.rightBarButtonItem = filterButton;
     
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsHasPickedSchoolKey]) {
@@ -179,6 +208,29 @@ static CGFloat spacing = 12.5;
     [self initialFetch];
 }
 
+- (void)handleFilterButtonTap
+{
+    // Show/hide dropdown view
+    if ([self.dropdownMenu isOpen])
+    {
+        [self.dropdownMenu hide];
+    }
+    else
+    {
+        [self.filterTableVC.tableView setBounds:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, [self.filterTableVC heightForTable])];
+        [self.filterTableVC.view setBounds:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, [self.filterTableVC heightForTable])];        [self.dropdownMenu showInView:self.view withFrame:self.view.bounds];
+    }
+}
+
+- (void)menuItemSelected:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (void)pullDownAnimated:(BOOL)open
+{
+    
+}
 - (void)initialFetch
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsHasPickedSchoolKey]) {

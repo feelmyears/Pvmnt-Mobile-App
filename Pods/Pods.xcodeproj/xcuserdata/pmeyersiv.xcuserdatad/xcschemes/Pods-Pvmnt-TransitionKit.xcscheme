@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F64D94A73BC47F5041FE2BA8"
+               BlueprintIdentifier = "2C595F5C943C30A3047E3233"
                BuildableName = "libPods-Pvmnt-TransitionKit.a"
                BlueprintName = "Pods-Pvmnt-TransitionKit"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "384CC1C09D87A8E35CC5796B"
+               BlueprintIdentifier = "FE1EAE44EFFD103D0D651D92"
                BuildableName = "FNShyTabBar.bundle"
                BlueprintName = "FNShyTabBar"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -17,6 +17,7 @@
 #import "PvmntStyleKit.h"
 
 
+
 @interface EventInfoFlyerDescriptionHTKCollectionViewCell()
 @property (strong, nonatomic) TTTAttributedLabel *label;
 @end

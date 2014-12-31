@@ -12,6 +12,7 @@
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "SidewalkFlyerCollectionCell.h"
 #import "SidewalkModel.h"
+#import "PulldownMenu.h"
 
 @interface SidewalkViewController : PvmntViewController
 <
@@ -20,7 +21,8 @@ UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout,
 CHTCollectionViewDelegateWaterfallLayout,
 UISearchBarDelegate,
-SidewalkModelDelegate
+SidewalkModelDelegate,
+PulldownMenuDelegate
 >
 
 @end
