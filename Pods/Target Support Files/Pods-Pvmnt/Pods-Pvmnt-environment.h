@@ -342,6 +342,12 @@
 #define COCOAPODS_VERSION_MINOR_XLMediaZoom 0
 #define COCOAPODS_VERSION_PATCH_XLMediaZoom 1
 
+// ionicons
+#define COCOAPODS_POD_AVAILABLE_ionicons
+#define COCOAPODS_VERSION_MAJOR_ionicons 1
+#define COCOAPODS_VERSION_MINOR_ionicons 5
+#define COCOAPODS_VERSION_PATCH_ionicons 2
+
 // libextobjc/EXTScope
 #define COCOAPODS_POD_AVAILABLE_libextobjc_EXTScope
 #define COCOAPODS_VERSION_MAJOR_libextobjc_EXTScope 0

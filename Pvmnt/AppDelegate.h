@@ -11,7 +11,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic, readonly) UIViewController *sidewalkViewController;
-@property (strong, nonatomic, readonly) UIViewController *calendarFeedViewController;
+@property (strong, nonatomic, readonly) UINavigationController *sidewalkViewController;
+@property (strong, nonatomic, readonly) UINavigationController *calendarFeedViewController;
 @end
 

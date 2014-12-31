@@ -44,6 +44,7 @@ PODS:
   - FormatterKit/URLRequestFormatter (1.7.5)
   - FXBlurView (1.6.3)
   - HTKDynamicResizingCell (0.0.2)
+  - ionicons (1.5.2)
   - ISHPermissionKit (0.7.0)
   - JRSwizzle (1.0)
   - KNSemiModalViewController (0.3)
@@ -109,6 +110,7 @@ DEPENDENCIES:
   - FormatterKit (~> 1.7)
   - FXBlurView (~> 1.6)
   - HTKDynamicResizingCell (~> 0.0.1)
+  - ionicons
   - ISHPermissionKit
   - JRSwizzle (= 1.0)
   - libextobjc/EXTScope (= 0.4)
@@ -138,6 +140,7 @@ SPEC CHECKSUMS:
   FormatterKit: 758bef4552d11454f0eb7e73669f81c225247904
   FXBlurView: abe1046285813c4f6e9008abbc324fc5ab32af90
   HTKDynamicResizingCell: ef19a37818f634a165a408d8f65a7596ba17b002
+  ionicons: 6be0e241a437a7e69c50cbc8e1700ee8d1535a58
   ISHPermissionKit: d4e70418fe1e01e446d2f5da60d7b17c8b40ff5d
   JRSwizzle: 30da7a2c539a4ebf954b16d15f6dd8221c9f6fa5
   KNSemiModalViewController: 6fb1e2f6a4d84238b524cb705e91118b0fa6bbc9

@@ -365,7 +365,10 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
 }
 
 
-
+- (NSArray *)allCategoriesSortedByName
+{
+    return [CD_V2_Category MR_findAllSortedBy:@"name" ascending:YES];
+}
 
 
 @end

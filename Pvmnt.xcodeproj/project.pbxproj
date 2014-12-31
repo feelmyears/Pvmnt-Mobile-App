@@ -10,6 +10,7 @@
 		211E01401A524FE900B17343 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E013F1A524FE900B17343 /* MenuTableViewController.m */; };
 		211E01471A53139E00B17343 /* PvmntSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */; };
 		211E014A1A531C6E00B17343 /* PvmntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E01491A531C6E00B17343 /* PvmntViewController.m */; };
+		211E014F1A53383900B17343 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E014E1A53383900B17343 /* KxMenu.m */; };
 		214526C11A50DAE60092376F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C01A50DAE60092376F /* Social.framework */; };
 		214526C31A50DAED0092376F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C21A50DAED0092376F /* MessageUI.framework */; };
 		214526EA1A50EC4A0092376F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 214526CB1A50EC4A0092376F /* SVWebViewController.strings */; };
@@ -139,6 +140,8 @@
 		21D77A411A50D30A0038CC30 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D77A401A50D30A0038CC30 /* EventKit.framework */; };
 		21D77A431A50D30F0038CC30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D77A421A50D30F0038CC30 /* SystemConfiguration.framework */; };
 		21D77A451A50D3150038CC30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D77A441A50D3150038CC30 /* UIKit.framework */; };
+		21EF5D6D1A538DB600D1DF98 /* PvmntStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 21EF5D6C1A538DB600D1DF98 /* PvmntStyleKit.m */; };
+		21EF5D711A53967D00D1DF98 /* PvmntPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21EF5D701A53967D00D1DF98 /* PvmntPView.m */; };
 		BEC920479048716BDC1B1B50 /* libPods-Pvmnt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60267B687E94B71AA4516DAD /* libPods-Pvmnt.a */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +163,8 @@
 		211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntSideDrawerViewController.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
 		211E01481A531C6E00B17343 /* PvmntViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntViewController.h; sourceTree = SOURCE_ROOT; };
 		211E01491A531C6E00B17343 /* PvmntViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntViewController.m; sourceTree = SOURCE_ROOT; };
+		211E014D1A53383900B17343 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
+		211E014E1A53383900B17343 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		214526C01A50DAE60092376F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		214526C21A50DAED0092376F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		214526CC1A50EC4A0092376F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -394,6 +399,11 @@
 		21D77A401A50D30A0038CC30 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		21D77A421A50D30F0038CC30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		21D77A441A50D3150038CC30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		21EF5D6B1A538DB600D1DF98 /* PvmntStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntStyleKit.h; sourceTree = "<group>"; };
+		21EF5D6C1A538DB600D1DF98 /* PvmntStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntStyleKit.m; sourceTree = "<group>"; };
+		21EF5D6E1A5392D200D1DF98 /* CGRectPositioning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGRectPositioning.h; sourceTree = "<group>"; };
+		21EF5D6F1A53967D00D1DF98 /* PvmntPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntPView.h; sourceTree = "<group>"; };
+		21EF5D701A53967D00D1DF98 /* PvmntPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntPView.m; sourceTree = "<group>"; };
 		43CFE088CCB8243E49764925 /* Pods-Pvmnt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pvmnt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pvmnt/Pods-Pvmnt.debug.xcconfig"; sourceTree = "<group>"; };
 		60267B687E94B71AA4516DAD /* libPods-Pvmnt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pvmnt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5E665890529F06191D224A /* Pods-Pvmnt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pvmnt.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pvmnt/Pods-Pvmnt.release.xcconfig"; sourceTree = "<group>"; };
@@ -440,6 +450,8 @@
 		211E01441A53135100B17343 /* Side Drawer */ = {
 			isa = PBXGroup;
 			children = (
+				21EF5D6F1A53967D00D1DF98 /* PvmntPView.h */,
+				21EF5D701A53967D00D1DF98 /* PvmntPView.m */,
 				211E01451A53139E00B17343 /* PvmntSideDrawerViewController.h */,
 				211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */,
 			);
@@ -457,6 +469,15 @@
 				21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		211E014C1A53383900B17343 /* KxMenu */ = {
+			isa = PBXGroup;
+			children = (
+				211E014D1A53383900B17343 /* KxMenu.h */,
+				211E014E1A53383900B17343 /* KxMenu.m */,
+			);
+			path = KxMenu;
 			sourceTree = "<group>";
 		};
 		214526C41A50DDE60092376F /* Cells */ = {
@@ -583,6 +604,9 @@
 		21D778C91A50D13E0038CC30 /* Pvmnt */ = {
 			isa = PBXGroup;
 			children = (
+				21EF5D6E1A5392D200D1DF98 /* CGRectPositioning.h */,
+				21EF5D6B1A538DB600D1DF98 /* PvmntStyleKit.h */,
+				21EF5D6C1A538DB600D1DF98 /* PvmntStyleKit.m */,
 				211E01481A531C6E00B17343 /* PvmntViewController.h */,
 				211E01491A531C6E00B17343 /* PvmntViewController.m */,
 				211E013D1A52471500B17343 /* Pvmnt-Prefix.pch */,
@@ -629,6 +653,7 @@
 		21D778F01A50D2320038CC30 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				211E014C1A53383900B17343 /* KxMenu */,
 				214526FD1A51E1D60092376F /* UIActionSheet + Blocks & UIAlertView + Blocks */,
 				214526CA1A50EC4A0092376F /* SVWebViewController */,
 				21D778F11A50D2320038CC30 /* CHTCollectionViewWaterfallLayout */,
@@ -1451,11 +1476,13 @@
 				21D779571A50D2320038CC30 /* Colours.m in Sources */,
 				214526FC1A51E1D10092376F /* UIAlertView+Blocks.m in Sources */,
 				21D77A271A50D2520038CC30 /* FlyerDB.m in Sources */,
+				211E014F1A53383900B17343 /* KxMenu.m in Sources */,
 				21D779701A50D2320038CC30 /* UIView+RoundedCorners.m in Sources */,
 				21D779531A50D2320038CC30 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
 				21D779B11A50D23F0038CC30 /* CalendarSideDateDateHTKCollectionViewCell.m in Sources */,
 				21D77A3D1A50D2880038CC30 /* Model.xcdatamodeld in Sources */,
 				21D77A231A50D2520038CC30 /* CD_V2_Category.m in Sources */,
+				21EF5D711A53967D00D1DF98 /* PvmntPView.m in Sources */,
 				214526EB1A50EC4A0092376F /* SVModalWebViewController.m in Sources */,
 				21D77A171A50D2520038CC30 /* EventInfoActionCollectionViewCell.m in Sources */,
 				21D779741A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m in Sources */,
@@ -1464,6 +1491,7 @@
 				21D77A251A50D2520038CC30 /* v1_Flyer.m in Sources */,
 				21D77A1D1A50D2520038CC30 /* EventInfoFlyerTitleHTKCollectionViewCell.m in Sources */,
 				21D779B31A50D23F0038CC30 /* CalendarListCollectionCell.m in Sources */,
+				21EF5D6D1A538DB600D1DF98 /* PvmntStyleKit.m in Sources */,
 				21D779591A50D2320038CC30 /* DIDatepicker.m in Sources */,
 				211E01471A53139E00B17343 /* PvmntSideDrawerViewController.m in Sources */,
 				21D77A1A1A50D2520038CC30 /* EventInfoFlyerDescriptionHTKCollectionViewCell.m in Sources */,

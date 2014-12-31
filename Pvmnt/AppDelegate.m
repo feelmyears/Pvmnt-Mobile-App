@@ -23,8 +23,8 @@
 #import "CalendarFeedViewController.h"
 @interface AppDelegate ()
 @property (strong, nonatomic) MMDrawerController *drawerController;
-@property (strong, nonatomic) UIViewController *sidewalkViewController;
-@property (strong, nonatomic) UIViewController *calendarFeedViewController;
+@property (strong, nonatomic) UINavigationController *sidewalkViewController;
+@property (strong, nonatomic) UINavigationController *calendarFeedViewController;
 @end
 
 @implementation AppDelegate
@@ -57,7 +57,7 @@
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
 
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningNavigationBar];
-    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeBezelPanningCenterView | MMCloseDrawerGestureModePanningCenterView | MMCloseDrawerGestureModePanningNavigationBar | MMCloseDrawerGestureModeTapCenterView | MMCloseDrawerGestureModeTapNavigationBar];
     [self.drawerController setShouldStretchDrawer:NO];
     [self.drawerController setCenterHiddenInteractionMode:MMDrawerOpenCenterInteractionModeNavigationBarOnly];
     
@@ -71,7 +71,7 @@
     return YES;
 }
 
-- (UIViewController *)sidewalkViewController
+- (UINavigationController *)sidewalkViewController
 {
     if (!_sidewalkViewController) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -80,7 +80,7 @@
     return _sidewalkViewController;
 }
 
-- (UIViewController *)calendarFeedViewController
+- (UINavigationController *)calendarFeedViewController
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     if (!_calendarFeedViewController) {

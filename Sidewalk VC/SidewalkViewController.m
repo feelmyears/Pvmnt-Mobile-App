@@ -43,8 +43,9 @@
 #import "UICollectionView+EmptyState.h"
 
 #import "SchoolPickerViewController.h"
-
-
+#import "KxMenu.h"
+#import <ionicons/IonIcons.h>
+#import "PvmntStyleKit.h"
 
 static NSString *SidewalkTitleHTKCollectionViewCellIdentifier       = @"SidewalkTitleHTKCollectionViewCellIdentifier";
 static NSString *SidewalkCombinedHTKCollectionViewCellIdentifier    = @"SidewalkCombinedHTKCollectionViewCellIdentifier";
@@ -57,6 +58,7 @@ static NSString *SidewalkFlyerImageHTKCollectionViewCellIdentifier  = @"Sidewalk
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) SidewalkModel *model;
 @property (nonatomic) BOOL refreshing;
+@property (strong, nonatomic) NSMutableDictionary *filterDictionary;
 @end
 
 CGFloat const SIDEWALK_COLLECTION_VIEW_PADDING = 0.;
@@ -86,6 +88,8 @@ static CGFloat spacing = 12.5;
     self.tabBarController.tabBar.tintColor = [UIColor blackColor];
     self.tabBarController.tabBar.translucent = NO;
     self.title = @"Sidewalk";
+    
+    
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsHasPickedSchoolKey]) {
         [self performSegueWithIdentifier:@"Pick School Segue" sender:self];
@@ -124,7 +128,6 @@ static CGFloat spacing = 12.5;
   
     [self initialFetch];
 }
-
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -186,6 +189,11 @@ static CGFloat spacing = 12.5;
             [self.collectionView reloadData];
             self.refreshing = NO;
             NSLog(@"No longer refreshing");
+            
+            self.filterDictionary = [NSMutableDictionary new];
+            for (CD_V2_Category *category in [[FlyerDB sharedInstance] allCategoriesSortedByName]) {
+                [self.filterDictionary setObject:@(YES) forKey:category.name];
+            }
         }];
     }
 }
@@ -283,7 +291,5 @@ static CGFloat spacing = 12.5;
         eventInfoVC.flyer = (CD_V2_Flyer *)sender;
     }
 }
-
-
 @end
 

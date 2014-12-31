@@ -271,6 +271,7 @@ install_resource()
                     install_resource "SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
                     install_resource "THCalendarDatePicker/THCalendarDatePicker/THDateDay.xib"
                     install_resource "THCalendarDatePicker/THCalendarDatePicker/THDatePickerViewController.xib"
+                    install_resource "ionicons/ionicons/ionicons.ttf"
                     install_resource "${BUILT_PRODUCTS_DIR}/FNShyTabBar.bundle"
                     install_resource "${BUILT_PRODUCTS_DIR}/THCalendarDatePickerImages.bundle"
           

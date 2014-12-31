@@ -14,7 +14,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <FormatterKit/TTTAddressFormatter.h>
 #import <MapKit/MapKit.h>
-
+#import "PvmntStyleKit.h"
 
 
 @interface EventInfoFlyerDescriptionHTKCollectionViewCell()
@@ -65,6 +65,7 @@
     [self.label setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     CGSize defaultSize = DEFAULT_FLYER_DESCRIPTION_CELL_SIZE;
     self.label.preferredMaxLayoutWidth = defaultSize.width - 2 * [metricDict[@"sideBuffer"] floatValue];
+    
 }
 
 - (void)setupCellWithDescription:(NSString *)description isHTML:(BOOL)isDescriptionHTML;
@@ -228,5 +229,6 @@
     
     return topController;
 }
+
 
 @end

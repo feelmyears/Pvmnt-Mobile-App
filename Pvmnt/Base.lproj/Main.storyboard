@@ -430,7 +430,7 @@
         <!--Navigation Controller-->
         <scene sceneID="FfT-eK-Acs">
             <objects>
-                <navigationController id="hYo-rH-u55" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Schoolpicker VC Nav" id="hYo-rH-u55" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2a5-Ay-6QK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
