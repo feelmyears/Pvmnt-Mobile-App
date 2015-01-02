@@ -49,6 +49,9 @@
 #import <ionicons/IonIcons.h>
 #import "PvmntStyleKit.h"
 
+#import "CategorySliderView.h"
+#import "PvmntCategorySliderLabel.h"
+
 static NSString *SidewalkTitleHTKCollectionViewCellIdentifier       = @"SidewalkTitleHTKCollectionViewCellIdentifier";
 static NSString *SidewalkCombinedHTKCollectionViewCellIdentifier    = @"SidewalkCombinedHTKCollectionViewCellIdentifier";
 static NSString *SidewalkFlyerImageHTKCollectionViewCellIdentifier  = @"SidewalkFlyerImageHTKCollectionViewCellIdentifier";
@@ -63,6 +66,7 @@ static NSString *SidewalkFlyerImageHTKCollectionViewCellIdentifier  = @"Sidewalk
 @property (strong, nonatomic) NSMutableDictionary *filterDictionary;
 @property (strong, nonatomic) LMDropdownView *dropdownMenu;
 @property (strong, nonatomic) FilterTableViewController *filterTableVC;
+@property (strong, nonatomic) CategorySliderView *categoryFilterSlider;
 @end
 
 CGFloat const SIDEWALK_COLLECTION_VIEW_PADDING = 0.;
@@ -97,6 +101,40 @@ static CGFloat spacing = 12.5;
     return _dropdownMenu;
 }
 
+- (CategorySliderView *)categoryFilterSlider
+{
+    if (!_categoryFilterSlider) {
+        NSMutableArray *categoryNames = [[[[FlyerDB sharedInstance] allCategoriesSortedByName] valueForKey:@"name"] mutableCopy];
+        [categoryNames insertObject:@"all" atIndex:0];
+        NSMutableArray *categoryViews = [[NSMutableArray alloc] initWithCapacity:categoryNames.count];
+        UIColor *highlightedColor = [UIColor goldenrodColor];
+        UIColor *standardColor = [UIColor whiteColor];
+        CGFloat sliderHeight = 45.f;
+        UIFont *font = [UIFont fontWithName:@"Lobster" size:20];
+        for (NSString *categoryName in categoryNames) {
+            CGFloat width = [categoryName sizeWithAttributes:@{NSFontAttributeName:font}].width;
+            
+            PvmntCategorySliderLabel *label = [[PvmntCategorySliderLabel alloc] initWithFrame:CGRectMake(0, 0, width, sliderHeight)];
+            [label setFont:font];
+            [label setText:categoryName];
+            [label setTextAlignment:NSTextAlignmentCenter];
+            [label setHighlightColor:highlightedColor];
+            [label setStandardColor:standardColor];
+            [label setTextColor:standardColor];
+            [categoryViews addObject:label];
+        }
+        _categoryFilterSlider = [[CategorySliderView alloc] initWithFrame:CGRectMake(0, -sliderHeight, self.view.frame.size.width, sliderHeight)
+                                                         andCategoryViews:categoryViews
+                                                          sliderDirection:SliderDirectionHorizontal
+                                                   categorySelectionBlock:^(UIView *categoryView, NSInteger categoryIndex) {
+                                                       [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
+                                                       [self.collectionView reloadData];
+                                                   }];
+        [_categoryFilterSlider setBackgroundColor:[UIColor blackColor]];
+//        [self.view addSubview:_categoryFilterSlider];
+    }
+    return _categoryFilterSlider;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -137,6 +175,7 @@ static CGFloat spacing = 12.5;
 //    [self.collectionView registerClass:[SidewalkTitleHTKCollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:SidewalkTitleHTKCollectionViewCellIdentifier];
     
     self.collectionView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.model = [[SidewalkModel alloc] init];
     self.model.delegate = self;
@@ -150,7 +189,7 @@ static CGFloat spacing = 12.5;
         self.refreshing = YES;
         [[FlyerDB sharedInstance] fetchAllWithCompletionBlock:^{
             [self.collectionView.pullToRefreshView stopAnimating];
-            [self.collectionView reloadData];
+//            [self.collectionView reloadData];
             self.refreshing = NO;
         }];
     } position:SVPullToRefreshPositionTop];
@@ -210,16 +249,48 @@ static CGFloat spacing = 12.5;
 
 - (void)handleFilterButtonTap
 {
-    // Show/hide dropdown view
-    if ([self.dropdownMenu isOpen])
-    {
-        [self.dropdownMenu hide];
+    NSTimeInterval animationDuration = 0.2;
+    if ([self.view.subviews containsObject:self.categoryFilterSlider]) {
+        CGRect newFrame = self.categoryFilterSlider.frame;
+        newFrame.origin.y = -CGRectGetHeight(newFrame);
+        
+        UIEdgeInsets newInsets = self.collectionView.contentInset;
+        newInsets.top -= CGRectGetHeight(newFrame);
+        CGPoint contentOffset = self.collectionView.contentOffset;
+        contentOffset.y += CGRectGetHeight(newFrame);
+        
+        [UIView animateWithDuration:animationDuration animations:^{
+            [self.categoryFilterSlider setFrame:newFrame];
+            
+            self.collectionView.contentInset = newInsets;
+            self.collectionView.contentOffset = contentOffset;
+        } completion:^(BOOL finished) {
+            [self.categoryFilterSlider removeFromSuperview];
+            [self.model filterWithCategoryName:nil];
+            [self.collectionView reloadData];
+        }];
+        
+    } else {
+        [self.view addSubview:self.categoryFilterSlider];
+        CGRect newFrame = self.categoryFilterSlider.frame;
+        newFrame.origin.y = 0;
+        
+        UIEdgeInsets newInsets = self.collectionView.contentInset;
+        newInsets.top += CGRectGetHeight(newFrame);
+        CGPoint contentOffset = self.collectionView.contentOffset;
+        contentOffset.y -= CGRectGetHeight(newFrame);
+        
+        [UIView animateWithDuration:animationDuration animations:^{
+            [self.categoryFilterSlider setFrame:newFrame];
+            
+            self.collectionView.contentInset = newInsets;
+            self.collectionView.contentOffset = contentOffset;
+        }];
+
     }
-    else
-    {
-        [self.filterTableVC.tableView setBounds:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, [self.filterTableVC heightForTable])];
-        [self.filterTableVC.view setBounds:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, [self.filterTableVC heightForTable])];        [self.dropdownMenu showInView:self.view withFrame:self.view.bounds];
-    }
+    
+    [self.collectionView updatePullToRefreshInsets];
+
 }
 
 - (void)menuItemSelected:(NSIndexPath *)indexPath
@@ -238,6 +309,7 @@ static CGFloat spacing = 12.5;
         self.refreshing = YES;
         [[FlyerDB sharedInstance] fetchAllWithCompletionBlock:^{
             [SVProgressHUD dismiss];
+            [self.model refreshDatabase];
             [self.collectionView reloadData];
             self.refreshing = NO;
             NSLog(@"No longer refreshing");
@@ -313,12 +385,11 @@ static CGFloat spacing = 12.5;
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(spacing, 0, spacing, 0);
-    /*
+//    return UIEdgeInsetsMake(spacing, 0, spacing, 0);
+    
     if (section == 0) {
-       return UIEdgeInsetsMake(spacing, 0, spacing, 0);
+       return UIEdgeInsetsMake(0, 0, spacing, 0);
     } else return UIEdgeInsetsMake(spacing, 0, 0, 0);
-    */
                             
 }
 

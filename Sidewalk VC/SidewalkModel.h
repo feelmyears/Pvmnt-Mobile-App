@@ -22,7 +22,8 @@
 
 @interface SidewalkModel : NSObject
 @property (weak, nonatomic) id<SidewalkModelDelegate> delegate;
-
+- (void)refreshDatabase;
+- (void)filterWithCategoryName:(NSString *)categoryName;
 - (NSUInteger)numberOfSections;
 - (NSUInteger)numberOfItemsInSection:(NSUInteger)section;
 - (CD_V2_Flyer *)flyerAtIndexPath:(NSIndexPath *)indexPath;

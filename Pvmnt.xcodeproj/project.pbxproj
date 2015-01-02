@@ -32,6 +32,8 @@
 		214527011A51E42C0092376F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526FF1A51E42C0092376F /* AddressBookUI.framework */; };
 		214527031A51E5FB0092376F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214527021A51E5FB0092376F /* CoreLocation.framework */; };
 		214527051A51E6010092376F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214527041A51E6010092376F /* MapKit.framework */; };
+		218E545B1A56056B00E75616 /* CategorySliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E545A1A56056B00E75616 /* CategorySliderView.m */; };
+		218E54621A5605AD00E75616 /* PvmntCategorySliderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */; };
 		21C3E69D1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C3E69C1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m */; };
 		21D3B7451A5487CB0078B038 /* PulldownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B7431A5487CB0078B038 /* PulldownMenu.m */; };
 		21D3B74D1A548C180078B038 /* LMDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B7491A548C180078B038 /* LMDropdownView.m */; };
@@ -208,6 +210,10 @@
 		214526FF1A51E42C0092376F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		214527021A51E5FB0092376F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		214527041A51E6010092376F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		218E54591A56056B00E75616 /* CategorySliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategorySliderView.h; path = "3rd Party/CategorySliderView.h"; sourceTree = "<group>"; };
+		218E545A1A56056B00E75616 /* CategorySliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategorySliderView.m; path = "3rd Party/CategorySliderView.m"; sourceTree = "<group>"; };
+		218E54601A5605AD00E75616 /* PvmntCategorySliderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntCategorySliderLabel.h; sourceTree = "<group>"; };
+		218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntCategorySliderLabel.m; sourceTree = "<group>"; };
 		21C3E69B1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntLaunchScreenShimmerTextView.h; sourceTree = "<group>"; };
 		21C3E69C1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntLaunchScreenShimmerTextView.m; sourceTree = "<group>"; };
 		21D3B7431A5487CB0078B038 /* PulldownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulldownMenu.m; sourceTree = "<group>"; };
@@ -589,6 +595,17 @@
 			name = "UIActionSheet + Blocks & UIAlertView + Blocks";
 			sourceTree = "<group>";
 		};
+		218E545C1A56057F00E75616 /* Fliter Slider */ = {
+			isa = PBXGroup;
+			children = (
+				218E54591A56056B00E75616 /* CategorySliderView.h */,
+				218E545A1A56056B00E75616 /* CategorySliderView.m */,
+				218E54601A5605AD00E75616 /* PvmntCategorySliderLabel.h */,
+				218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */,
+			);
+			name = "Fliter Slider";
+			sourceTree = "<group>";
+		};
 		21D3B7461A5487D10078B038 /* PulldownMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,6 +637,7 @@
 		21D3B74F1A548C350078B038 /* Filter VC */ = {
 			isa = PBXGroup;
 			children = (
+				218E545C1A56057F00E75616 /* Fliter Slider */,
 				21D3B7501A548C520078B038 /* FilterTableViewController.h */,
 				21D3B7511A548C520078B038 /* FilterTableViewController.m */,
 				21D3B7521A548C520078B038 /* FilterTableViewController.xib */,
@@ -1532,6 +1550,7 @@
 				21D779B51A50D23F0038CC30 /* CalendarSideDateCell.m in Sources */,
 				21D7796A1A50D2320038CC30 /* THTinderNavigationController.m in Sources */,
 				21D779711A50D2320038CC30 /* CalendarFeedFlyerHTKCollectionViewCell.m in Sources */,
+				218E54621A5605AD00E75616 /* PvmntCategorySliderLabel.m in Sources */,
 				21D779731A50D2320038CC30 /* CalendarFeedViewController.m in Sources */,
 				21D7796D1A50D2320038CC30 /* UIColor-MJGAdditions.m in Sources */,
 				21D779C41A50D23F0038CC30 /* RKSwipeBetweenViewControllers.m in Sources */,
@@ -1597,6 +1616,7 @@
 				21D779B91A50D23F0038CC30 /* EventInfoFlyerDescriptionCell.m in Sources */,
 				21D779B01A50D23F0038CC30 /* CalendarSideDateActionCell.m in Sources */,
 				21D77A161A50D2520038CC30 /* EventInfoActionCellView.m in Sources */,
+				218E545B1A56056B00E75616 /* CategorySliderView.m in Sources */,
 				21D779581A50D2320038CC30 /* DateFlowLayout.m in Sources */,
 				21D77A2A1A50D2520038CC30 /* SchoolPickerViewController.m in Sources */,
 				21D77A1B1A50D2520038CC30 /* EventInfoFlyerDetailHTKCollectionViewCell.m in Sources */,

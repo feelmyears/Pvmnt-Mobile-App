@@ -370,5 +370,19 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
     return [CD_V2_Category MR_findAllSortedBy:@"name" ascending:YES];
 }
 
+- (NSArray *)flyersInCategoryName:(NSString *)categoryName sortedByProperty:(NSString *)propertyName
+{
+    return [[[(CD_V2_Category *)[CD_V2_Category MR_findByAttribute:@"name" withValue:categoryName].firstObject flyers] allObjects] sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSObject *lhs = [((CD_V2_Flyer *)obj1) valueForKey:propertyName];
+        NSObject *rhs = [((CD_V2_Flyer *)obj2) valueForKey:propertyName];
+        if ([lhs isMemberOfClass:[NSDate class]]) {
+            return [(NSDate *)lhs compare:(NSDate *)rhs];
+        } else if ([lhs isMemberOfClass:[NSString class]]) {
+            return [(NSString *)lhs compare:(NSString *)rhs];
+        } else {
+            return NSOrderedSame;
+        }
+     }];
+}
 
 @end

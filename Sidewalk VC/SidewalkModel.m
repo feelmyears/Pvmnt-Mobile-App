@@ -11,6 +11,7 @@
 
 @interface SidewalkModel()
 @property (strong, nonatomic) FlyerDB *database;
+@property (strong, nonatomic) NSMutableArray *dataSource;
 @end
 
 
@@ -23,6 +24,11 @@
         [self setupNotifications];
     }
     return self;
+}
+
+- (void)refreshDatabase
+{
+    self.dataSource = [[self.database allFlyersSortedByUploadDate] mutableCopy];
 }
 
 - (void)setupNotifications
@@ -74,12 +80,21 @@
 
 - (NSUInteger)numberOfSections
 {
-    return [self.database allFlyersSortedByUploadDate].count;
+    return self.dataSource.count;
 }
 
 - (CD_V2_Flyer *)flyerAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.database allFlyersSortedByUploadDate][indexPath.section];
+    return self.dataSource[indexPath.section];
+}
+
+- (void)filterWithCategoryName:(NSString *)categoryName
+{
+    if (!categoryName || [categoryName isEqualToString:@"all"]) {
+        [self refreshDatabase];
+    } else {
+        self.dataSource = [[self.database flyersInCategoryName:categoryName sortedByProperty:@"created_at"] mutableCopy];
+    }
 }
 
 @end

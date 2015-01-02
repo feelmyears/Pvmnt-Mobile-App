@@ -65,6 +65,13 @@ static char UIScrollViewPullToRefreshView;
 
 @dynamic pullToRefreshView, showsPullToRefresh;
 
+- (void)updatePullToRefreshInsets
+{
+    SVPullToRefreshView *view = self.pullToRefreshView;
+    view.originalTopInset = self.contentInset.top;
+    view.originalBottomInset = self.contentInset.bottom;
+}
+
 - (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler position:(SVPullToRefreshPosition)position {
     
     if(!self.pullToRefreshView) {

@@ -24,4 +24,5 @@ extern NSString *const kFlyerDBAddedFlyerNotification;
 - (NSArray *)allFlyersSortedByDateAndTime;
 - (NSArray *)allFlyersSortedByUploadDate;
 - (NSArray *)allCategoriesSortedByName;
+- (NSArray *)flyersInCategoryName:(NSString *)categoryName sortedByProperty:(NSString *)propertyName;
 @end
