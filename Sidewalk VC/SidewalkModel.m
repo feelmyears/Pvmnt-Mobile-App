@@ -78,7 +78,7 @@
 
 - (NSUInteger)numberOfItemsInSection:(NSUInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (NSUInteger)numberOfSections
