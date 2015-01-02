@@ -129,7 +129,7 @@ static CGFloat spacing = 12.5;
                                                           sliderDirection:SliderDirectionHorizontal
                                                    categorySelectionBlock:^(UIView *categoryView, NSInteger categoryIndex) {
                                                        [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
-                                                       [self.collectionView reloadData];
+//                                                       [self.collectionView reloadData];
                                                    }];
         [_categoryFilterSlider setBackgroundColor:[UIColor blackColor]];
 //        [self.view addSubview:_categoryFilterSlider];
@@ -197,51 +197,6 @@ static CGFloat spacing = 12.5;
   
     [self initialFetch];
 }
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self showNavBarAnimated:NO];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-//    [self followScrollView:self.collectionView usingTopConstraint:self.topLayoutConstraint];
-//    [self.tabBarController.shyTabBar setTrackingView:self.collectionView];
-    
-    /*
-    UIView *emptyStateView = [[UIView alloc] initWithFrame:self.collectionView.frame];
-    emptyStateView.backgroundColor = [[UIColor babyBlueColor] colorWithAlphaComponent:.2];
-    
-    UILabel *emptyStateLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    emptyStateLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [emptyStateLabel setText:@"There are no flyers to display"];
-    emptyStateLabel.numberOfLines = 0;
-    emptyStateLabel.textAlignment = NSTextAlignmentCenter;
-    [emptyStateLabel setFont:[UIFont fontWithName:@"Lobster" size:20]];
-    
-    UIButton *reloadButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    reloadButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [reloadButton setTitle:@"Reload" forState:UIControlStateNormal];
-    [reloadButton.titleLabel setFont:[UIFont fontWithName:@"Lobster" size:20]];
-    [reloadButton addTarget:self action:@selector(handleReloadRequest) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    [emptyStateView addSubview:emptyStateLabel];
-    [emptyStateView addSubview:reloadButton];
-    
-    [emptyStateView addConstraint:[NSLayoutConstraint constraintWithItem:emptyStateLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:emptyStateView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-    [emptyStateView addConstraint:[NSLayoutConstraint constraintWithItem:reloadButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:emptyStateView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-    
-    [emptyStateView addConstraint:[NSLayoutConstraint constraintWithItem:emptyStateLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:emptyStateView attribute:NSLayoutAttributeTop multiplier:1 constant:100]];
-    [emptyStateView addConstraint:[NSLayoutConstraint constraintWithItem:emptyStateLabel attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:reloadButton attribute:NSLayoutAttributeTop multiplier:1 constant:100]];
-    
-    self.collectionView.emptyState_view = emptyStateView;
-    self.collectionView.emptyState_shouldRespectSectionHeader = NO;
-    self.collectionView.emptyState_showDelay = 2;
-    self.collectionView.emptyState_showAnimationDuration = 0.5;
-     */
-}
 
 - (void)handleSchoolChosenNotification
 {
@@ -294,15 +249,6 @@ static CGFloat spacing = 12.5;
 
 }
 
-- (void)menuItemSelected:(NSIndexPath *)indexPath
-{
-    
-}
-
-- (void)pullDownAnimated:(BOOL)open
-{
-    
-}
 - (void)initialFetch
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsHasPickedSchoolKey]) {
@@ -311,7 +257,6 @@ static CGFloat spacing = 12.5;
         [[FlyerDB sharedInstance] fetchAllWithCompletionBlock:^{
             [SVProgressHUD dismiss];
             [self.model refreshDatabase];
-            [self.collectionView reloadData];
             self.refreshing = NO;
             NSLog(@"No longer refreshing");
             
@@ -326,6 +271,16 @@ static CGFloat spacing = 12.5;
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+- (void)removeSectionsInIndexSet:(NSIndexSet *)sectionsToRemove addSectionsIndexSet:(NSIndexSet *)sectionsToAdd
+{
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView deleteSections:sectionsToRemove];
+            [self.collectionView insertSections:sectionsToAdd];
+        } completion:^(BOOL finished) {
+            //        code
+        }];
 }
 
 #pragma mark - UICollectionView Implementation
@@ -414,25 +369,26 @@ static CGFloat spacing = 12.5;
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-//    return UIEdgeInsetsMake(spacing, 0, spacing, 0);
+    return UIEdgeInsetsMake(0, 0, 0, 0);
     
+    /*
     if (section == 0) {
        return UIEdgeInsetsMake(0, 0, spacing, 0);
     } else return UIEdgeInsetsMake(spacing, 0, 0, 0);
-                            
+      */
 }
 
 #pragma mark - SidewalkModelDelegate Implementation
 - (void)insertItemsAtIndexPaths:(NSArray *)indexPaths
 {
-    if (!self.refreshing) {
-        [self.collectionView reloadData];
-    }
+//    if (!self.refreshing) {
+//        [self.collectionView reloadData];
+//    }
 }
 
 - (void)removeItemsAtIndexPaths:(NSArray *)indexPaths
 {
-    [self.collectionView reloadData];
+//    [self.collectionView reloadData];
 }
 
 

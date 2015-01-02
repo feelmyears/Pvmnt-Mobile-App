@@ -12,6 +12,7 @@
 @interface SidewalkModel()
 @property (strong, nonatomic) FlyerDB *database;
 @property (strong, nonatomic) NSMutableArray *dataSource;
+@property (strong, nonatomic) NSMutableArray *nextDataSource;
 @end
 
 
@@ -21,6 +22,7 @@
     self = [super init];
     if (self) {
         self.database = [FlyerDB sharedInstance];
+        self.dataSource = [[NSMutableArray alloc] init];
         [self setupNotifications];
     }
     return self;
@@ -28,7 +30,8 @@
 
 - (void)refreshDatabase
 {
-    self.dataSource = [[self.database allFlyersSortedByUploadDate] mutableCopy];
+//    self.dataSource = [[self.database allFlyersSortedByUploadDate] mutableCopy];
+    [self transitionToNextDataSource:[[self.database allFlyersSortedByUploadDate] mutableCopy]];
 }
 
 - (void)setupNotifications
@@ -75,7 +78,7 @@
 
 - (NSUInteger)numberOfItemsInSection:(NSUInteger)section
 {
-    return 2;
+    return 1;
 }
 
 - (NSUInteger)numberOfSections
@@ -91,10 +94,48 @@
 - (void)filterWithCategoryName:(NSString *)categoryName
 {
     if (!categoryName || [categoryName isEqualToString:@"all"]) {
-        [self refreshDatabase];
+        [self transitionToNextDataSource:[[self.database allFlyersSortedByUploadDate] mutableCopy]];
     } else {
-        self.dataSource = [[self.database flyersInCategoryName:categoryName sortedByProperty:@"created_at"] mutableCopy];
+        [self transitionToNextDataSource:[[self.database flyersInCategoryName:categoryName sortedByProperty:@"created_at"] mutableCopy]];
     }
 }
+
+- (void)transitionToNextDataSource:(NSMutableArray *)nextDataSource
+{
+    NSArray *oldDataSource = self.dataSource;
+    
+    //Items in intersection set are the ones that persist
+    NSMutableSet *intersection = [NSMutableSet setWithArray:oldDataSource];
+    [intersection intersectSet:[NSSet setWithArray:nextDataSource]];
+    
+    //Items in difference set are thes ones that must be added
+    NSMutableSet *difference = [NSMutableSet setWithArray:nextDataSource];
+    [difference minusSet:intersection];
+
+    NSMutableIndexSet *sectionsToRemove = [[NSMutableIndexSet alloc] init];
+    for (NSUInteger i = 0; i < oldDataSource.count; i++) {
+        CD_V2_Flyer *flyer = oldDataSource[i];
+        if (![intersection containsObject:flyer]) {
+            [sectionsToRemove addIndex:i];
+        }
+    }
+    
+    NSMutableArray *persistingDataSource = [oldDataSource mutableCopy];
+    [persistingDataSource removeObjectsAtIndexes:sectionsToRemove];
+    [persistingDataSource addObjectsFromArray:[difference allObjects]];
+    [persistingDataSource sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        CD_V2_Flyer *lhs = obj1;
+        CD_V2_Flyer *rhs = obj2;
+        return [rhs.created_at compare:lhs.created_at];
+    }];
+    NSIndexSet *sectionsToAdd = [persistingDataSource indexesOfObjectsWithOptions:NSEnumerationConcurrent passingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
+        return [difference containsObject:obj];
+    }];
+    
+    self.dataSource = persistingDataSource;
+    [self.delegate removeSectionsInIndexSet:sectionsToRemove addSectionsIndexSet:sectionsToAdd];
+    
+}
+
 
 @end

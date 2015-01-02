@@ -21,8 +21,7 @@ UICollectionViewDataSource,
 UICollectionViewDelegateFlowLayout,
 CHTCollectionViewDelegateWaterfallLayout,
 UISearchBarDelegate,
-SidewalkModelDelegate,
-PulldownMenuDelegate
+SidewalkModelDelegate
 >
 
 @end
