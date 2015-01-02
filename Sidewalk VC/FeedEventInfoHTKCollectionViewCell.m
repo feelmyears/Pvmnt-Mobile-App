@@ -1,33 +1,34 @@
 //
-//  EventInfoFlyerDescriptionHTKCollectionViewCell.m
-//  pvmntapp
+//  FeedEventInfoHTKCollectionViewCell.m
+//  Pvmnt
 //
-//  Created by Phil Meyers IV on 11/27/14.
-//  Copyright (c) 2014 pvmnt. All rights reserved.
+//  Created by Phil Meyers IV on 1/2/15.
+//  Copyright (c) 2015 Pvmnt. All rights reserved.
 //
-
-#import "EventInfoFlyerDescriptionHTKCollectionViewCell.h"
-#import <TTTAttributedLabel/TTTAttributedLabel.h>
+#import "FeedEventInfoHTKCollectionViewCell.h"
+#import "PvmntStyleKit.h"
+#import "NSDate+Utilities.h"
 #import "SVModalWebViewController.h"
 #import "UIActionSheet+Blocks.h"
 #import "UIAlertView+Blocks.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <FormatterKit/TTTAddressFormatter.h>
 #import <MapKit/MapKit.h>
-#import "PvmntStyleKit.h"
 
 
-
-@interface EventInfoFlyerDescriptionHTKCollectionViewCell()
-@property (strong, nonatomic) TTTAttributedLabel *label;
+@interface FeedEventInfoHTKCollectionViewCell()
+@property (strong, nonatomic) UILabel *timeLabel;
+@property (strong, nonatomic) UILabel *locationLabel;
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) TTTAttributedLabel *descriptionLabel;
 @end
 
+static CGFloat padding = 10;
 
-@implementation EventInfoFlyerDescriptionHTKCollectionViewCell
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
+@implementation FeedEventInfoHTKCollectionViewCell
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
         [self setupView];
     }
     return self;
@@ -35,58 +36,90 @@
 
 - (void)setupView
 {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [PvmntStyleKit calendarSidebar];
     
-    self.label = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
-    self.label.translatesAutoresizingMaskIntoConstraints = NO;
-//    self.label.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:15];
-    self.label.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    self.label.textColor = [UIColor blackColor];
-    self.label.numberOfLines = 0;
-    self.label.lineBreakMode = NSLineBreakByWordWrapping;
-    self.label.textAlignment = NSTextAlignmentNatural;
-    self.label.enabledTextCheckingTypes = NSTextCheckingTypeAddress | NSTextCheckingTypeLink | NSTextCheckingTypePhoneNumber;
-    self.label.delegate = self;
+    self.timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.timeLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.timeLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    self.timeLabel.textColor = [UIColor whiteColor];
+    self.timeLabel.numberOfLines = 0;
+    self.timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.timeLabel.textAlignment = NSTextAlignmentLeft;
     
-    [self.contentView addSubview:self.label];
+    self.locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.locationLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.locationLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    self.locationLabel.textColor = [UIColor whiteColor];
+    self.locationLabel.numberOfLines = 0;
+    self.locationLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.locationLabel.textAlignment = NSTextAlignmentLeft;
     
-    NSDictionary *viewDict = NSDictionaryOfVariableBindings(_label);
-    NSDictionary *metricDict = @{@"sideBuffer": @10};
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.numberOfLines = 0;
+    self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.titleLabel.textAlignment = NSTextAlignmentLeft;
     
-    //Constrain elements horizontally
-//    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_label attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sideBuffer)-[_label]-(>=sideBuffer)-|" options:0 metrics:metricDict views:viewDict]];
+    self.descriptionLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
+    self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.descriptionLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.descriptionLabel.textColor = [UIColor whiteColor];
+    self.descriptionLabel.numberOfLines = 0;
+    self.descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.descriptionLabel.textAlignment = NSTextAlignmentLeft;
     
-    //Constrain elements vertically
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=sideBuffer)-[_label]-(>=sideBuffer)-|" options:0 metrics:metricDict views:viewDict]];
-    //    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_label attribute:NSLayoutAttributeCenterY relatedBy:0 toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    NSMutableDictionary *linkAttributes = [self.descriptionLabel.linkAttributes mutableCopy];
+    [linkAttributes setObject:@(NSUnderlineStyleNone) forKey:NSUnderlineStyleAttributeName];
+    [linkAttributes setObject:[PvmntStyleKit gold] forKey:(NSString *)kCTForegroundColorAttributeName];
+    self.descriptionLabel.linkAttributes = linkAttributes;
+    
+    NSMutableDictionary *activeLinkAttributes = [self.descriptionLabel.activeLinkAttributes mutableCopy];
+    [activeLinkAttributes setObject:@(NSUnderlineStyleNone) forKey:NSUnderlineStyleAttributeName];
+    [activeLinkAttributes setObject:[PvmntStyleKit pureWhite] forKey:(NSString *)kCTForegroundColorAttributeName];
+    self.descriptionLabel.activeLinkAttributes = activeLinkAttributes;
+    
+    self.descriptionLabel.enabledTextCheckingTypes = NSTextCheckingTypeAddress | NSTextCheckingTypeLink | NSTextCheckingTypePhoneNumber;
+    self.descriptionLabel.delegate = self;
+    
+    [self.contentView addSubview:self.timeLabel];
+    [self.contentView addSubview:self.locationLabel];
+    [self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.descriptionLabel];
+    
+    NSDictionary *viewDict = NSDictionaryOfVariableBindings(_timeLabel, _locationLabel, _titleLabel, _descriptionLabel);
+    NSDictionary *metricDict = @{@"padding" : @(padding)};
+    
+    //Horizontal Constraints
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_titleLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_locationLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_timeLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_descriptionLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
+    
+    //Vertical Constraints
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(padding)-[_titleLabel]-(padding)-[_timeLabel]-[_locationLabel]-(padding)-[_descriptionLabel]-(padding)-|" options:0 metrics:metricDict views:viewDict]];
     
     
-    [self.label setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    [self.label setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
-    CGSize defaultSize = DEFAULT_FLYER_DESCRIPTION_CELL_SIZE;
-    self.label.preferredMaxLayoutWidth = defaultSize.width - 2 * [metricDict[@"sideBuffer"] floatValue];
-    
-}
-
-- (void)setupCellWithDescription:(NSString *)description isHTML:(BOOL)isDescriptionHTML;
-{
-    if (isDescriptionHTML) {
-        NSAttributedString *markdownString = [[NSAttributedString alloc] initWithData:[description dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:@(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
-//        self.label.attributedText = markdownString;
-        self.label.text = [[markdownString string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    } else {
-        self.label.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    for (UILabel *label in @[self.descriptionLabel, self.titleLabel, self.timeLabel, self.locationLabel]) {
+        [label setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        [label setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+        CGSize defaultSize = DEFAULT_FEED_EVENT_INFO_CELL_SIZE;
+        label.preferredMaxLayoutWidth = defaultSize.width - 2 * [metricDict[@"padding"] floatValue];
     }
+    
 }
 
-- (void)setupCellWithDescription:(NSString *)description
+- (void)setupCellWithFlyer:(CD_V2_Flyer *)flyer
 {
-//    self.label.text = description;
-    self.label.text = [description stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    self.titleLabel.text = flyer.title;
+    self.timeLabel.text = [NSString stringWithFormat:@"Time: %@", flyer.event_time.shortTimeString];
+    self.locationLabel.text = [NSString stringWithFormat:@"Location: %@", flyer.location];
+    self.descriptionLabel.text = flyer.desc;
 }
 
 #pragma mark - TTTAttributedLabel Delegate
+
 //---------------------Phone Number Tap-----------------------
 - (void)attributedLabel:(TTTAttributedLabel *)label didLongPressLinkWithPhoneNumber:(NSString *)phoneNumber atPoint:(CGPoint)point
 {
@@ -170,7 +203,7 @@
     } else {
         shareObject = url;
     }
-     
+    
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[shareObject] applicationActivities:nil];
     NSArray *excludedActivityTypes;
     
@@ -194,12 +227,12 @@
     [[self topMostController] presentViewController:activityViewController animated:YES completion:nil];
     
     /*
-    [UIActionSheet showFromTabBar:[self topMostController].tabBarController.tabBar withTitle:@"Copy URL?" cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@[@"Copy"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-        if (buttonIndex != actionSheet.cancelButtonIndex) {
-            [[UIPasteboard generalPasteboard] setURL:url];
-            [SVProgressHUD showSuccessWithStatus:@"URL Copied"];
-        }
-    }];
+     [UIActionSheet showFromTabBar:[self topMostController].tabBarController.tabBar withTitle:@"Copy URL?" cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@[@"Copy"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+     if (buttonIndex != actionSheet.cancelButtonIndex) {
+     [[UIPasteboard generalPasteboard] setURL:url];
+     [SVProgressHUD showSuccessWithStatus:@"URL Copied"];
+     }
+     }];
      */
     
 }

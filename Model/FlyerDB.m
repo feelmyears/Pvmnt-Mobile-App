@@ -69,6 +69,7 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
 - (void)configureRestKit
 {
     NSURL *baseURL = [NSURL URLWithString:@"https://www.pvmnt.com/api/v2/"];
+//    NSURL *baseURL = [NSURL URLWithString:@"https://staging-pvmnt.herokuapp.com/api/v2/"];
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
     RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
 
@@ -312,7 +313,7 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
             dispatch_group_enter(self.imageDownloadingGroup);
 //            NSLog(@"Entering imageDownloadGroup");
         });
-        
+        CD_Image *image = cdFlyer.image;
         [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:cdFlyer.image.imageURL]
                                                         options:SDWebImageCacheMemoryOnly progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                                             cdFlyer.image.imageDownloaded = @(YES);

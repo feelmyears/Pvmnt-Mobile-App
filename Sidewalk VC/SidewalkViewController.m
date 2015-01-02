@@ -51,11 +51,12 @@
 
 #import "CategorySliderView.h"
 #import "PvmntCategorySliderLabel.h"
+#import "FeedEventInfoHTKCollectionViewCell.h"
 
 static NSString *SidewalkTitleHTKCollectionViewCellIdentifier       = @"SidewalkTitleHTKCollectionViewCellIdentifier";
 static NSString *SidewalkCombinedHTKCollectionViewCellIdentifier    = @"SidewalkCombinedHTKCollectionViewCellIdentifier";
 static NSString *SidewalkFlyerImageHTKCollectionViewCellIdentifier  = @"SidewalkFlyerImageHTKCollectionViewCellIdentifier";
-
+static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEventInfoHTKCollectionViewCellIdentifier";
 
 
 @interface SidewalkViewController ()
@@ -170,7 +171,7 @@ static CGFloat spacing = 12.5;
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"SidewalkFlyerCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"Flyer Cell"];
     [self.collectionView registerClass:[SidewalkTitleHTKCollectionViewCell class] forCellWithReuseIdentifier:SidewalkTitleHTKCollectionViewCellIdentifier];
-    [self.collectionView registerClass:[SidewalkCombinedHTKCollectionViewCell class] forCellWithReuseIdentifier:SidewalkCombinedHTKCollectionViewCellIdentifier];
+    [self.collectionView registerClass:[FeedEventInfoHTKCollectionViewCell class] forCellWithReuseIdentifier:FeedEventInfoHTKCollectionViewCellIdentifier];
     [self.collectionView registerClass:[SidewalkFlyerImageHTKCollectionViewCell class] forCellWithReuseIdentifier:SidewalkFlyerImageHTKCollectionViewCellIdentifier];
 //    [self.collectionView registerClass:[SidewalkTitleHTKCollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:SidewalkTitleHTKCollectionViewCellIdentifier];
     
@@ -341,19 +342,38 @@ static CGFloat spacing = 12.5;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    switch (indexPath.row) {
+        case 0:{
+            SidewalkFlyerImageHTKCollectionViewCell *imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:SidewalkFlyerImageHTKCollectionViewCellIdentifier forIndexPath:indexPath];
+            CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:indexPath];
+            [imageCell setupCellWithImage:flyerForCell.image];
+            return imageCell;
+        }
+        case 1:{
+            FeedEventInfoHTKCollectionViewCell *feedCell = [collectionView dequeueReusableCellWithReuseIdentifier:FeedEventInfoHTKCollectionViewCellIdentifier forIndexPath:indexPath];
+            CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:indexPath];
+            [feedCell setupCellWithFlyer:flyerForCell];
+            return feedCell;
+        }
+        default:
+            return nil;
+            break;
+    }
+    /*
     if (indexPath.row == 0) {
         SidewalkFlyerImageHTKCollectionViewCell *imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:SidewalkFlyerImageHTKCollectionViewCellIdentifier forIndexPath:indexPath];
         CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:indexPath];
         [imageCell setupCellWithImage:flyerForCell.image];
         return imageCell;
         
-    } else {
+    } elseif (indexPath.row ) {
         SidewalkTitleHTKCollectionViewCell *titleCell = [collectionView dequeueReusableCellWithReuseIdentifier:SidewalkTitleHTKCollectionViewCellIdentifier forIndexPath:indexPath];
         CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:indexPath];
         [titleCell setupCellWithFlyer:flyerForCell];
         
         return titleCell;
     }
+     */
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -364,10 +384,19 @@ static CGFloat spacing = 12.5;
         return [SidewalkFlyerImageHTKCollectionViewCell sizeForCellWithImage:flyerForCell.image];
         
     } else {
+        /*
         CGSize defaultSize = DEFAULT_SIDEWALK_FLYER_TITLE_CELL_SIZE;
         CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section]];
         return [SidewalkTitleHTKCollectionViewCell sizeForCellWithDefaultSize:defaultSize setupCellBlock:^id(id<HTKDynamicResizingCellProtocol> cellToSetup) {
             [((SidewalkTitleHTKCollectionViewCell *)cellToSetup) setupCellWithFlyer:flyerForCell];
+            return cellToSetup;
+        }];
+         */
+        
+        CGSize defaultSize = DEFAULT_FEED_EVENT_INFO_CELL_SIZE;
+        CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section]];
+        return [FeedEventInfoHTKCollectionViewCell sizeForCellWithDefaultSize:defaultSize setupCellBlock:^id(id<HTKDynamicResizingCellProtocol> cellToSetup) {
+            [((FeedEventInfoHTKCollectionViewCell *)cellToSetup) setupCellWithFlyer:flyerForCell];
             return cellToSetup;
         }];
     }
