@@ -98,7 +98,7 @@ static CGFloat padding = 10;
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_descriptionLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
     
     //Vertical Constraints
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(padding)-[_titleLabel]-(padding)-[_timeLabel]-[_locationLabel]-(padding)-[_descriptionLabel]-(padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(padding)-[_titleLabel]-(padding)-[_timeLabel]-(0)-[_locationLabel]-(padding)-[_descriptionLabel]-(padding)-|" options:0 metrics:metricDict views:viewDict]];
     
     
     for (UILabel *label in @[self.descriptionLabel, self.titleLabel, self.timeLabel, self.locationLabel]) {
@@ -112,11 +112,26 @@ static CGFloat padding = 10;
 
 - (void)setupCellWithFlyer:(CD_V2_Flyer *)flyer
 {
+    
     self.titleLabel.text = flyer.title;
     self.timeLabel.text = [NSString stringWithFormat:@"Time: %@", flyer.event_time.shortTimeString];
+    NSMutableAttributedString *mutableTimeLabelText = [self.timeLabel.attributedText mutableCopy];
+    NSRange timeLabelRange = NSMakeRange(0, 1);
+    CGFloat timeLabelFontSize = ((UIFont *)[mutableTimeLabelText attribute:NSFontAttributeName atIndex:0 effectiveRange:&timeLabelRange]).pointSize;
+    [mutableTimeLabelText setAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:timeLabelFontSize]} range:NSMakeRange(0, @"Time :".length)];
+    self.timeLabel.attributedText = mutableTimeLabelText;
+    
+    
     self.locationLabel.text = [NSString stringWithFormat:@"Location: %@", flyer.location];
+    NSMutableAttributedString *mutableLocationLabelText = [self.locationLabel.attributedText mutableCopy];
+    NSRange locationLabelRange = NSMakeRange(0, 1);
+    CGFloat locationLabelFontSize = ((UIFont *)[mutableLocationLabelText attribute:NSFontAttributeName atIndex:0 effectiveRange:&locationLabelRange]).pointSize;
+    [mutableLocationLabelText setAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:locationLabelFontSize]} range:NSMakeRange(0, @"Location :".length)];
+    self.locationLabel.attributedText = mutableLocationLabelText;
+    
     self.descriptionLabel.text = flyer.desc;
 }
+
 
 #pragma mark - TTTAttributedLabel Delegate
 

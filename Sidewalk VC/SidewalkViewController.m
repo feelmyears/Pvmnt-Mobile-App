@@ -53,6 +53,7 @@
 #import "PvmntCategorySliderLabel.h"
 #import "FeedEventInfoHTKCollectionViewCell.h"
 #import "SidewalkCollectionViewFlowLayout.h"
+#import <UINavigationBar+Addition/UINavigationBar+Addition.h>
 
 static NSString *SidewalkTitleHTKCollectionViewCellIdentifier       = @"SidewalkTitleHTKCollectionViewCellIdentifier";
 static NSString *SidewalkCombinedHTKCollectionViewCellIdentifier    = @"SidewalkCombinedHTKCollectionViewCellIdentifier";
@@ -109,8 +110,8 @@ static CGFloat spacing = 12.5;
         NSMutableArray *categoryNames = [[[[FlyerDB sharedInstance] allCategoriesSortedByName] valueForKey:@"name"] mutableCopy];
         [categoryNames insertObject:@"all" atIndex:0];
         NSMutableArray *categoryViews = [[NSMutableArray alloc] initWithCapacity:categoryNames.count];
-        UIColor *highlightedColor = [UIColor goldenrodColor];
-        UIColor *standardColor = [UIColor whiteColor];
+        UIColor *highlightedColor = [PvmntStyleKit mainBlack];
+        UIColor *standardColor = [PvmntStyleKit mainBlack];
         CGFloat sliderHeight = 45.f;
         UIFont *font = [UIFont fontWithName:@"Lobster" size:20];
         for (NSString *categoryName in categoryNames) {
@@ -134,7 +135,7 @@ static CGFloat spacing = 12.5;
                                                        }
                                                        [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
                                                    }];
-        [_categoryFilterSlider setBackgroundColor:[UIColor blackColor]];
+        [_categoryFilterSlider setBackgroundColor:[UIColor whiteColor]];
 //        [self.view addSubview:_categoryFilterSlider];
     }
     return _categoryFilterSlider;
@@ -146,6 +147,7 @@ static CGFloat spacing = 12.5;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar hideBottomHairline];
 
     UIButton *pvmntLogo = [UIButton new];
     [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
@@ -158,8 +160,8 @@ static CGFloat spacing = 12.5;
     self.tabBarController.tabBar.translucent = NO;
     self.title = @"Sidewalk";
     
-    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(handleFilterButtonTap)];
-    self.navigationItem.rightBarButtonItem = filterButton;
+//    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(handleFilterButtonTap)];
+//    self.navigationItem.rightBarButtonItem = filterButton;
     
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsHasPickedSchoolKey]) {
@@ -178,7 +180,7 @@ static CGFloat spacing = 12.5;
     [self.collectionView registerClass:[SidewalkFlyerImageHTKCollectionViewCell class] forCellWithReuseIdentifier:SidewalkFlyerImageHTKCollectionViewCellIdentifier];
 //    [self.collectionView registerClass:[SidewalkTitleHTKCollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:SidewalkTitleHTKCollectionViewCellIdentifier];
     
-    self.collectionView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
+    self.collectionView.backgroundColor = [PvmntStyleKit mainBlack];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.collectionView setCollectionViewLayout:[[SidewalkCollectionViewFlowLayout alloc] init]];
     
@@ -194,6 +196,7 @@ static CGFloat spacing = 12.5;
         self.refreshing = YES;
         [[FlyerDB sharedInstance] fetchAllWithCompletionBlock:^{
             [self.collectionView.pullToRefreshView stopAnimating];
+
 //            [self.collectionView reloadData];
             self.refreshing = NO;
         }];
@@ -268,6 +271,7 @@ static CGFloat spacing = 12.5;
             for (CD_V2_Category *category in [[FlyerDB sharedInstance] allCategoriesSortedByName]) {
                 [self.filterDictionary setObject:@(YES) forKey:category.name];
             }
+            [self handleFilterButtonTap];
         }];
     }
 }
@@ -313,7 +317,8 @@ static CGFloat spacing = 12.5;
         case 0:{
             SidewalkFlyerImageHTKCollectionViewCell *imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:SidewalkFlyerImageHTKCollectionViewCellIdentifier forIndexPath:indexPath];
             CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:indexPath];
-            [imageCell setupCellWithImage:flyerForCell.image];
+//            [imageCell setupCellWithImage:flyerForCell.image];
+            [imageCell setupCellWithFlyer:flyerForCell];
             imageCell.layer.zPosition = 0;
             return imageCell;
         }
@@ -383,9 +388,9 @@ static CGFloat spacing = 12.5;
         NSIndexPath *indexPathToRemove = [self.model showDescriptionCellForSection:nil];
         [self.collectionView performBatchUpdates:^{
             [self.collectionView deleteItemsAtIndexPaths:@[indexPathToRemove]];
-            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
-        } completion:^(BOOL finished) {
             
+        } completion:^(BOOL finished) {
+//            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         }];
     } else {
         NSIndexPath *descriptionIndexPath = [NSIndexPath indexPathForRow:1 inSection:indexPath.section];
@@ -397,7 +402,7 @@ static CGFloat spacing = 12.5;
             }
             [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         } completion:^(BOOL finished) {
-            
+            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         }];
     }
 }

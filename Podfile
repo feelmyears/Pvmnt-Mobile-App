@@ -30,6 +30,7 @@ pod 'MMDrawerController', '~> 0.5.7'
 pod 'ionicons'
 pod 'WYPopoverController', '~> 0.2.2'
 pod 'Shimmer'
+pod 'UINavigationBar+Addition'
 
 pod 'BlocksKit', '2.2.2'
 pod 'ObjcAssociatedObjectHelpers', '1.2.1'

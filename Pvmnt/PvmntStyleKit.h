@@ -12,6 +12,8 @@
 #import <UIKit/UIKit.h>
 
 
+@class PCGradient;
+
 @interface PvmntStyleKit : NSObject
 
 // iOS Controls Customization Outlets
@@ -23,12 +25,36 @@
 + (UIColor*)calendarSidebar;
 + (UIColor*)mainSidebarMenu;
 + (UIColor*)gold;
++ (UIColor*)flyerGradientColorStart;
+
+// Gradients
++ (PCGradient*)gradient;
 
 // Drawing Methods
 + (void)drawInsetP;
 + (void)drawDiscoverYourCampus;
++ (void)drawFlyerImageGradientWithDrawRect: (CGRect)drawRect;
 
 // Generated Images
 + (UIImage*)imageOfPvmntTextImage;
+
+@end
+
+
+
+@interface PCGradient : NSObject
+@property(nonatomic, readonly) CGGradientRef CGGradient;
+- (CGGradientRef)CGGradient NS_RETURNS_INNER_POINTER;
+
++ (instancetype)gradientWithColors: (NSArray*)colors locations: (const CGFloat*)locations;
++ (instancetype)gradientWithStartingColor: (UIColor*)startingColor endingColor: (UIColor*)endingColor;
+
+@end
+
+
+
+@interface UIColor (PaintCodeAdditions)
+
+- (UIColor*)blendedColorWithFraction: (CGFloat)fraction ofColor: (UIColor*)color;
 
 @end

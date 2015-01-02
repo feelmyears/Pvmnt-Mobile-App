@@ -8,11 +8,15 @@
 
 #import "SidewalkFlyerImageHTKCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "NSDate+Utilities.h"
+#import "PvmntStyleKit.h"
+#import "GradientView.h"
 
 @interface SidewalkFlyerImageHTKCollectionViewCell()
 @property (strong, nonatomic) UIImageView *imageView;
-@property (strong, nonatomic) UIView *hairlineView;
+@property (strong, nonatomic) GradientView *gradientView;
+@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UILabel *timeLabel;
 @end
 
 static CGFloat hairlineSize = 0.5;
@@ -33,51 +37,69 @@ static CGFloat hairlineSize = 0.5;
     self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.backgroundColor = [UIColor clearColor];
- 
     
-    self.hairlineView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.hairlineView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.hairlineView.backgroundColor = [UIColor grayColor];
+    self.gradientView = [[GradientView alloc] initWithFrame:CGRectZero];
+    self.gradientView.translatesAutoresizingMaskIntoConstraints = NO;
+ 
+    self.timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.timeLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.timeLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    self.timeLabel.textColor = [UIColor whiteColor];
+    self.timeLabel.numberOfLines = 0;
+    self.timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.timeLabel.textAlignment = NSTextAlignmentLeft;
+    
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.numberOfLines = 2;
+    self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    self.titleLabel.textAlignment = NSTextAlignmentLeft;
     
     [self.contentView addSubview:self.imageView];
-    [self.contentView addSubview:self.hairlineView];
+    [self.contentView addSubview:self.gradientView];
+    [self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.timeLabel];
+   
     
-    
-    NSDictionary *viewDict = NSDictionaryOfVariableBindings(_imageView, _hairlineView);
-    NSDictionary *metricDict = @{@"hairlineSize" : @(hairlineSize)};
+    NSDictionary *viewDict = NSDictionaryOfVariableBindings(_imageView, _timeLabel, _titleLabel, _gradientView);
+    NSDictionary *metricDict = @{@"padding" : @5};
     
     //Constrain elements horizontally
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_imageView]|" options:0 metrics:metricDict views:viewDict]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_hairlineView]|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_gradientView]|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_titleLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_timeLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
     
     //Constrain elements vertically
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_hairlineView(hairlineSize)]-(0)-[_imageView]|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_imageView]|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_gradientView]|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_titleLabel]-(0)-[_timeLabel]-(padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.gradientView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.titleLabel attribute:NSLayoutAttributeTop multiplier:1 constant:-20]];
     
     [self.imageView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
     [self.imageView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     
-    [self.hairlineView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-    [self.hairlineView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     
+    for (UILabel *label in @[self.titleLabel, self.timeLabel]) {
+        [label setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        [label setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+        CGSize defaultSize = DEFAULT_SIDEWALK_FLYER_IMAGE_CELL_SIZE;
+        label.preferredMaxLayoutWidth = defaultSize.width - 2 * [metricDict[@"padding"] floatValue];
+    }
+}
+
+- (void)setupCellWithFlyer:(CD_V2_Flyer *)flyer
+{
+    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:flyer.image.imageURL] andPlaceholderImage:[UIImage imageNamed:@"Concrete_Pattern"] options:0 progress:nil completed:nil];
+    self.titleLabel.text = flyer.title;
+    self.timeLabel.text = flyer.event_time.mediumString;
 }
 
 - (void)setupCellWithImage:(CD_Image *)image
 {
     [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:image.imageURL] andPlaceholderImage:[UIImage imageNamed:@"Concrete_Pattern"] options:0 progress:nil completed:nil];
-    
-    /*
-    CGSize imageSize = [SidewalkFlyerImageHTKCollectionViewCell sizeForCellWithImage:image];
-    
-    NSDictionary *viewDict = NSDictionaryOfVariableBindings(_imageView);
-    NSDictionary *metricDict = @{@"height" : [NSNumber numberWithFloat:imageSize.height],
-                                 @"width" : [NSNumber numberWithFloat:imageSize.width],
-                                 @"constant" : @100,
-                                 };
-    
-    
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_imageView(height)]" options:0 metrics:metricDict views:viewDict]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_imageView(width)]" options:0 metrics:metricDict views:viewDict]];
-     */
     
 }
 
@@ -93,4 +115,5 @@ static CGFloat hairlineSize = 0.5;
     
     return CGSizeMake(fixedItemWidth, heightForItem + hairlineSize);
 }
+
 @end

@@ -69,6 +69,21 @@ Quick Setup Video
 --------------------
 You can find a video with the full setup [here](https://vimeo.com/92721470)
 
+Using it with UITableViewController or UICollectionViewController
+--------------------
+If you are not using a plain `UIViewController` you have to enable this property:
+```objc
+[self setUseSuperview:NO];
+```
+
+Delegate
+--------------------
+You can implement the `AMScrollingNavbarDelegate` protocol to receive these messages:
+```objc
+- (void)navigationBarDidChangeToCollapsed:(BOOL)collapsed;
+- (void)navigationBarDidChangeToExpanded:(BOOL)expanded;
+```
+
 MIT License
 --------------------
     The MIT License (MIT)

@@ -20,6 +20,9 @@ static UIColor* _pureWhite = nil;
 static UIColor* _calendarSidebar = nil;
 static UIColor* _mainSidebarMenu = nil;
 static UIColor* _gold = nil;
+static UIColor* _flyerGradientColorStart = nil;
+
+static PCGradient* _gradient = nil;
 
 static UIImage* _imageOfPvmntTextImage = nil;
 
@@ -33,6 +36,11 @@ static UIImage* _imageOfPvmntTextImage = nil;
     _calendarSidebar = [UIColor colorWithRed: 0.133 green: 0.133 blue: 0.133 alpha: 1];
     _mainSidebarMenu = [UIColor colorWithRed: 0.118 green: 0.11 blue: 0.11 alpha: 1];
     _gold = [UIColor colorWithRed: 0.655 green: 0.541 blue: 0.357 alpha: 1];
+    _flyerGradientColorStart = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0.8];
+
+    // Gradients Initialization
+    CGFloat gradientLocations[] = {0, 0.75, 1};
+    _gradient = [PCGradient gradientWithColors: @[PvmntStyleKit.mainBlack, [PvmntStyleKit.mainBlack blendedColorWithFraction: 0.5 ofColor: PvmntStyleKit.pureWhite], PvmntStyleKit.pureWhite] locations: gradientLocations];
 
 }
 
@@ -43,6 +51,11 @@ static UIImage* _imageOfPvmntTextImage = nil;
 + (UIColor*)calendarSidebar { return _calendarSidebar; }
 + (UIColor*)mainSidebarMenu { return _mainSidebarMenu; }
 + (UIColor*)gold { return _gold; }
++ (UIColor*)flyerGradientColorStart { return _flyerGradientColorStart; }
+
+#pragma mark Gradients
+
++ (PCGradient*)gradient { return _gradient; }
 
 #pragma mark Drawing Methods
 
@@ -884,6 +897,30 @@ static UIImage* _imageOfPvmntTextImage = nil;
     [bezierPath fill];
 }
 
++ (void)drawFlyerImageGradientWithDrawRect: (CGRect)drawRect
+{
+    //// General Declarations
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    //// Color Declarations
+    UIColor* flyerGradientColorStop = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0];
+
+    //// Gradient Declarations
+    CGFloat sidewalkTitleGradientLocations[] = {0, 0.7, 1};
+    PCGradient* sidewalkTitleGradient = [PCGradient gradientWithColors: @[PvmntStyleKit.flyerGradientColorStart, [PvmntStyleKit.flyerGradientColorStart blendedColorWithFraction: 0.5 ofColor: flyerGradientColorStop], flyerGradientColorStop] locations: sidewalkTitleGradientLocations];
+
+    //// Rectangle Drawing
+    CGRect rectangleRect = CGRectMake(drawRect.origin.x, drawRect.origin.y, drawRect.size.width, drawRect.size.height);
+    UIBezierPath* rectanglePath = [UIBezierPath bezierPathWithRect: rectangleRect];
+    CGContextSaveGState(context);
+    [rectanglePath addClip];
+    CGContextDrawLinearGradient(context, sidewalkTitleGradient.CGGradient,
+        CGPointMake(CGRectGetMidX(rectangleRect), CGRectGetMaxY(rectangleRect)),
+        CGPointMake(CGRectGetMidX(rectangleRect), CGRectGetMinY(rectangleRect)),
+        0);
+    CGContextRestoreGState(context);
+}
+
 #pragma mark Generated Images
 
 + (UIImage*)imageOfPvmntTextImage
@@ -910,5 +947,74 @@ static UIImage* _imageOfPvmntTextImage = nil;
         [target setImage: PvmntStyleKit.imageOfPvmntTextImage];
 }
 
+
+@end
+
+
+
+@interface PCGradient ()
+{
+    CGGradientRef _CGGradient;
+}
+@end
+
+@implementation PCGradient
+
+- (instancetype)initWithColors: (NSArray*)colors locations: (const CGFloat*)locations
+{
+    self = super.init;
+    if (self)
+    {
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+        NSMutableArray* cgColors = NSMutableArray.array;
+        for (UIColor* color in colors)
+            [cgColors addObject: (id)color.CGColor];
+
+        _CGGradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)cgColors, locations);
+        CGColorSpaceRelease(colorSpace);
+    }
+    return self;
+}
+
++ (instancetype)gradientWithColors: (NSArray*)colors locations: (const CGFloat*)locations
+{
+    return [self.alloc initWithColors: colors locations: locations];
+}
+
++ (instancetype)gradientWithStartingColor: (UIColor*)startingColor endingColor: (UIColor*)endingColor
+{
+    CGFloat locations[] = {0, 1};
+    return [self.alloc initWithColors: @[startingColor, endingColor] locations: locations];
+}
+
+- (void)dealloc
+{
+    CGGradientRelease(_CGGradient);
+}
+
+@end
+
+
+
+@implementation UIColor (PaintCodeAdditions)
+
+- (UIColor*)blendedColorWithFraction: (CGFloat)fraction ofColor: (UIColor*)color2
+{
+    UIColor* color1 = self;
+
+    CGFloat r1 = 0, g1 = 0, b1 = 0, a1 = 0;
+    CGFloat r2 = 0, g2 = 0, b2 = 0, a2 = 0;
+
+
+    [color1 getRed: &r1 green: &g1 blue: &b1 alpha: &a1];
+    [color2 getRed: &r2 green: &g2 blue: &b2 alpha: &a2];
+
+    CGFloat r = r1 * (1 - fraction) + r2 * fraction;
+    CGFloat g = g1 * (1 - fraction) + g2 * fraction;
+    CGFloat b = b1 * (1 - fraction) + b2 * fraction;
+    CGFloat a = a1 * (1 - fraction) + a2 * fraction;
+
+    return [UIColor colorWithRed: r green: g blue: b alpha: a];
+}
 
 @end

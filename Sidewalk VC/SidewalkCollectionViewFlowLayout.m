@@ -7,6 +7,9 @@
 //
 
 #import "SidewalkCollectionViewFlowLayout.h"
+@interface SidewalkCollectionViewFlowLayout()
+@property (nonatomic, strong) NSMutableArray *indexPathsToAnimate;
+@end
 
 @implementation SidewalkCollectionViewFlowLayout
 - (instancetype)init
@@ -19,6 +22,7 @@
 
 - (void)setupLayout
 {
+    self.indexPathsToAnimate = [NSMutableArray new];
     self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.minimumInteritemSpacing = 0;
     self.minimumLineSpacing = 0;
@@ -26,7 +30,7 @@
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
-    if (itemIndexPath.row == 1) {
+    if ([_indexPathsToAnimate containsObject:itemIndexPath] && itemIndexPath.row == 1) {
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
         CGRect frame = attributes.frame;
         
@@ -38,9 +42,9 @@
     
 }
 
--(UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
+- (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
-    if (itemIndexPath.row == 1) {
+    if ([_indexPathsToAnimate containsObject:itemIndexPath] && itemIndexPath.row == 1) {
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
         CGRect frame = attributes.frame;
         
@@ -49,6 +53,30 @@
         return attributes;
     }
     else return [super initialLayoutAttributesForAppearingItemAtIndexPath:itemIndexPath];
+}
+
+- (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
+{
+    [super prepareForCollectionViewUpdates:updateItems];
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    for (UICollectionViewUpdateItem *updateItem in updateItems) {
+        switch (updateItem.updateAction) {
+            case UICollectionUpdateActionInsert:
+                [indexPaths addObject:updateItem.indexPathAfterUpdate];
+                break;
+            case UICollectionUpdateActionDelete:
+                [indexPaths addObject:updateItem.indexPathBeforeUpdate];
+                break;
+            case UICollectionUpdateActionMove:
+                [indexPaths addObject:updateItem.indexPathBeforeUpdate];
+                [indexPaths addObject:updateItem.indexPathAfterUpdate];
+                break;
+            default:
+                NSLog(@"unhandled case: %@", updateItem);
+                break;
+        }
+    }
+    self.indexPathsToAnimate = indexPaths;
 }
 
 @end

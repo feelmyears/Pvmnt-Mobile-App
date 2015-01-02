@@ -11,6 +11,7 @@
 		211E01471A53139E00B17343 /* PvmntSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */; };
 		211E014A1A531C6E00B17343 /* PvmntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E01491A531C6E00B17343 /* PvmntViewController.m */; };
 		211E014F1A53383900B17343 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E014E1A53383900B17343 /* KxMenu.m */; };
+		21356A401A5758680058E8D5 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356A3F1A5758680058E8D5 /* GradientView.m */; };
 		214526C11A50DAE60092376F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C01A50DAE60092376F /* Social.framework */; };
 		214526C31A50DAED0092376F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C21A50DAED0092376F /* MessageUI.framework */; };
 		214526EA1A50EC4A0092376F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 214526CB1A50EC4A0092376F /* SVWebViewController.strings */; };
@@ -175,6 +176,8 @@
 		211E01491A531C6E00B17343 /* PvmntViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntViewController.m; sourceTree = SOURCE_ROOT; };
 		211E014D1A53383900B17343 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		211E014E1A53383900B17343 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		21356A3E1A5758680058E8D5 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		21356A3F1A5758680058E8D5 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
 		214526C01A50DAE60092376F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		214526C21A50DAED0092376F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		214526CC1A50EC4A0092376F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -509,11 +512,23 @@
 			path = KxMenu;
 			sourceTree = "<group>";
 		};
+		21356A411A57586C0058E8D5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				21356A3E1A5758680058E8D5 /* GradientView.h */,
+				21356A3F1A5758680058E8D5 /* GradientView.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		214526C41A50DDE60092376F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				218E54631A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.h */,
+				218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */,
 				21D77A0C1A50D2520038CC30 /* SidewalkFlyerImageHTKCollectionViewCell.h */,
 				21D77A0D1A50D2520038CC30 /* SidewalkFlyerImageHTKCollectionViewCell.m */,
+				21356A411A57586C0058E8D5 /* Helper */,
 				21D77A101A50D2520038CC30 /* SidewalkTitleHTKCollectionViewCell.h */,
 				21D77A111A50D2520038CC30 /* SidewalkTitleHTKCollectionViewCell.m */,
 			);
@@ -1301,8 +1316,6 @@
 		21D77A001A50D2520038CC30 /* Sidewalk VC */ = {
 			isa = PBXGroup;
 			children = (
-				218E54631A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.h */,
-				218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */,
 				21D77A011A50D2520038CC30 /* Event Query */,
 				214526C41A50DDE60092376F /* Cells */,
 				21D77A121A50D2520038CC30 /* SidewalkViewController.h */,
@@ -1603,6 +1616,7 @@
 				21D779AD1A50D23F0038CC30 /* Calendar List Header.m in Sources */,
 				21D7796B1A50D2320038CC30 /* JRSwizzle.m in Sources */,
 				21D77A211A50D2520038CC30 /* CD_Colorscheme.m in Sources */,
+				21356A401A5758680058E8D5 /* GradientView.m in Sources */,
 				21D7795F1A50D2320038CC30 /* MBPullDownController.m in Sources */,
 				21D778CD1A50D13E0038CC30 /* main.m in Sources */,
 				21D77A261A50D2520038CC30 /* v2_Category.m in Sources */,
