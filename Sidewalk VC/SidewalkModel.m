@@ -13,6 +13,7 @@
 @property (strong, nonatomic) FlyerDB *database;
 @property (strong, nonatomic) NSMutableArray *dataSource;
 @property (strong, nonatomic) NSMutableArray *nextDataSource;
+@property (nonatomic) NSInteger expandedSection;
 @end
 
 
@@ -23,6 +24,7 @@
     if (self) {
         self.database = [FlyerDB sharedInstance];
         self.dataSource = [[NSMutableArray alloc] init];
+        self.expandedSection = -1;
         [self setupNotifications];
     }
     return self;
@@ -31,7 +33,8 @@
 - (void)refreshDatabase
 {
 //    self.dataSource = [[self.database allFlyersSortedByUploadDate] mutableCopy];
-    [self transitionToNextDataSource:[[self.database allFlyersSortedByUploadDate] mutableCopy]];
+//    [self transitionToNextDataSource:[[self.database allFlyersSortedByUploadDate] mutableCopy]];
+    [self filterWithCategoryName:@"all"];
 }
 
 - (void)setupNotifications
@@ -78,7 +81,7 @@
 
 - (NSUInteger)numberOfItemsInSection:(NSUInteger)section
 {
-    return 2;
+    return (section == self.expandedSection) ? 2 : 1;
 }
 
 - (NSUInteger)numberOfSections
@@ -93,11 +96,15 @@
 
 - (void)filterWithCategoryName:(NSString *)categoryName
 {
+    self.filterString = categoryName;
     if (!categoryName || [categoryName isEqualToString:@"all"]) {
         [self transitionToNextDataSource:[[self.database allFlyersSortedByUploadDate] mutableCopy]];
     } else {
+        
         [self transitionToNextDataSource:[[self.database flyersInCategoryName:categoryName sortedByProperty:@"created_at"] mutableCopy]];
     }
+    self.expandedSection = -1;
+    
 }
 
 - (void)transitionToNextDataSource:(NSMutableArray *)nextDataSource
@@ -137,5 +144,15 @@
     
 }
 
-
+- (NSIndexPath *)showDescriptionCellForSection:(NSIndexPath *)indexPath
+{
+    NSIndexPath *indexToHide = nil;
+    if (self.expandedSection >= 0) {
+         indexToHide = [NSIndexPath indexPathForRow:1 inSection:self.expandedSection];
+    }
+    
+    self.expandedSection = (indexPath) ? indexPath.section : -1;
+    
+    return indexToHide;
+}
 @end

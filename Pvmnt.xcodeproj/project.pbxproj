@@ -35,6 +35,7 @@
 		218E545B1A56056B00E75616 /* CategorySliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E545A1A56056B00E75616 /* CategorySliderView.m */; };
 		218E54621A5605AD00E75616 /* PvmntCategorySliderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */; };
 		218E54651A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */; };
+		218E54681A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54671A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m */; };
 		21C3E69D1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C3E69C1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m */; };
 		21D3B7451A5487CB0078B038 /* PulldownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B7431A5487CB0078B038 /* PulldownMenu.m */; };
 		21D3B74D1A548C180078B038 /* LMDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B7491A548C180078B038 /* LMDropdownView.m */; };
@@ -217,6 +218,8 @@
 		218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntCategorySliderLabel.m; sourceTree = "<group>"; };
 		218E54631A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedEventInfoHTKCollectionViewCell.h; sourceTree = "<group>"; };
 		218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedEventInfoHTKCollectionViewCell.m; sourceTree = "<group>"; };
+		218E54661A5733B300E75616 /* SidewalkCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidewalkCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		218E54671A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidewalkCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		21C3E69B1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntLaunchScreenShimmerTextView.h; sourceTree = "<group>"; };
 		21C3E69C1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntLaunchScreenShimmerTextView.m; sourceTree = "<group>"; };
 		21D3B7431A5487CB0078B038 /* PulldownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulldownMenu.m; sourceTree = "<group>"; };
@@ -1304,6 +1307,8 @@
 				214526C41A50DDE60092376F /* Cells */,
 				21D77A121A50D2520038CC30 /* SidewalkViewController.h */,
 				21D77A131A50D2520038CC30 /* SidewalkViewController.m */,
+				218E54661A5733B300E75616 /* SidewalkCollectionViewFlowLayout.h */,
+				218E54671A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m */,
 				214526C51A50DDF60092376F /* Model */,
 			);
 			path = "Sidewalk VC";
@@ -1580,6 +1585,7 @@
 				21D77A231A50D2520038CC30 /* CD_V2_Category.m in Sources */,
 				21C3E69D1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m in Sources */,
 				21EF5D711A53967D00D1DF98 /* PvmntPView.m in Sources */,
+				218E54681A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m in Sources */,
 				214526EB1A50EC4A0092376F /* SVModalWebViewController.m in Sources */,
 				21D77A171A50D2520038CC30 /* EventInfoActionCollectionViewCell.m in Sources */,
 				21D779741A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m in Sources */,
