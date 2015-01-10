@@ -57,6 +57,7 @@
 #import "EmptyStateView.h"
 #import "CategoryFilterView.h"
 
+#import "FlyerCloseLookViewController.h"
 static NSString *SidewalkTitleHTKCollectionViewCellIdentifier       = @"SidewalkTitleHTKCollectionViewCellIdentifier";
 static NSString *SidewalkCombinedHTKCollectionViewCellIdentifier    = @"SidewalkCombinedHTKCollectionViewCellIdentifier";
 static NSString *SidewalkFlyerImageHTKCollectionViewCellIdentifier  = @"SidewalkFlyerImageHTKCollectionViewCellIdentifier";
@@ -427,7 +428,8 @@ static CGFloat spacing = 12.5;
         layout.toContentOffset = toOffset;
     }
     */
-    [self toggleDescriptionCellViewAtIndexPath:indexPath];
+//    [self toggleDescriptionCellViewAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"Flyer Close Up Segue" sender:[self.model flyerAtIndexPath:indexPath]];
 }
 
 - (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout
@@ -490,6 +492,9 @@ static CGFloat spacing = 12.5;
     if ([segue.identifier isEqualToString:@"Flyer Detail Segue"] && [((UINavigationController*)segue.destinationViewController).topViewController isMemberOfClass:[EventInforViewController class]]) {
         EventInforViewController *eventInfoVC = (EventInforViewController *)((UINavigationController*)segue.destinationViewController).topViewController;
         eventInfoVC.flyer = (CD_V2_Flyer *)sender;
+    } else if ([segue.identifier isEqualToString:@"Flyer Close Up Segue"] && [segue.destinationViewController isMemberOfClass:[FlyerCloseLookViewController class]]) {
+        FlyerCloseLookViewController *flyerCloseLookVC = segue.destinationViewController;
+        flyerCloseLookVC.flyer = sender;
     }
 }
 @end

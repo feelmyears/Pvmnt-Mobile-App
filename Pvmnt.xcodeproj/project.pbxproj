@@ -13,6 +13,7 @@
 		211E014F1A53383900B17343 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E014E1A53383900B17343 /* KxMenu.m */; };
 		21356A401A5758680058E8D5 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356A3F1A5758680058E8D5 /* GradientView.m */; };
 		21356A441A575CFC0058E8D5 /* EmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356A431A575CFC0058E8D5 /* EmptyStateView.m */; };
+		21367F861A618CDA00B495D3 /* FlyerCloseLookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21367F851A618CDA00B495D3 /* FlyerCloseLookViewController.m */; };
 		214526C11A50DAE60092376F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C01A50DAE60092376F /* Social.framework */; };
 		214526C31A50DAED0092376F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C21A50DAED0092376F /* MessageUI.framework */; };
 		214526EA1A50EC4A0092376F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 214526CB1A50EC4A0092376F /* SVWebViewController.strings */; };
@@ -192,6 +193,8 @@
 		21356A3F1A5758680058E8D5 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
 		21356A421A575CFC0058E8D5 /* EmptyStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStateView.h; sourceTree = "<group>"; };
 		21356A431A575CFC0058E8D5 /* EmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStateView.m; sourceTree = "<group>"; };
+		21367F841A618CDA00B495D3 /* FlyerCloseLookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerCloseLookViewController.h; sourceTree = "<group>"; };
+		21367F851A618CDA00B495D3 /* FlyerCloseLookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerCloseLookViewController.m; sourceTree = "<group>"; };
 		214526C01A50DAE60092376F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		214526C21A50DAED0092376F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		214526CC1A50EC4A0092376F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -243,8 +246,8 @@
 		218E545A1A56056B00E75616 /* CategorySliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategorySliderView.m; path = "3rd Party/CategorySliderView.m"; sourceTree = "<group>"; };
 		218E54601A5605AD00E75616 /* PvmntCategorySliderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntCategorySliderLabel.h; sourceTree = "<group>"; };
 		218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntCategorySliderLabel.m; sourceTree = "<group>"; };
-		218E54631A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedEventInfoHTKCollectionViewCell.h; sourceTree = "<group>"; };
-		218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedEventInfoHTKCollectionViewCell.m; sourceTree = "<group>"; };
+		218E54631A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedEventInfoHTKCollectionViewCell.h; path = "../Sidewalk VC/FeedEventInfoHTKCollectionViewCell.h"; sourceTree = "<group>"; };
+		218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedEventInfoHTKCollectionViewCell.m; path = "../Sidewalk VC/FeedEventInfoHTKCollectionViewCell.m"; sourceTree = "<group>"; };
 		218E54661A5733B300E75616 /* SidewalkCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidewalkCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		218E54671A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidewalkCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		21C3E69B1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntLaunchScreenShimmerTextView.h; sourceTree = "<group>"; };
@@ -545,11 +548,38 @@
 			name = Helper;
 			sourceTree = "<group>";
 		};
-		214526C41A50DDE60092376F /* Cells */ = {
+		21367F831A618C4200B495D3 /* Flyer Close Look VC */ = {
+			isa = PBXGroup;
+			children = (
+				21367F871A618DE700B495D3 /* Cells */,
+				21367F841A618CDA00B495D3 /* FlyerCloseLookViewController.h */,
+				21367F851A618CDA00B495D3 /* FlyerCloseLookViewController.m */,
+			);
+			name = "Flyer Close Look VC";
+			path = "Event Info";
+			sourceTree = "<group>";
+		};
+		21367F871A618DE700B495D3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				21D779DB1A50D2520038CC30 /* HTK Image Cell */,
+				21367F881A61928F00B495D3 /* HTK Feed Cell */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		21367F881A61928F00B495D3 /* HTK Feed Cell */ = {
 			isa = PBXGroup;
 			children = (
 				218E54631A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.h */,
 				218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */,
+			);
+			name = "HTK Feed Cell";
+			sourceTree = "<group>";
+		};
+		214526C41A50DDE60092376F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 				21D77A0C1A50D2520038CC30 /* SidewalkFlyerImageHTKCollectionViewCell.h */,
 				21D77A0D1A50D2520038CC30 /* SidewalkFlyerImageHTKCollectionViewCell.m */,
 				21356A411A57586C0058E8D5 /* Helper */,
@@ -708,6 +738,7 @@
 				21D3B74F1A548C350078B038 /* Filter VC */,
 				211E01441A53135100B17343 /* Side Drawer */,
 				211E01431A53134800B17343 /* Settings VC */,
+				21367F831A618C4200B495D3 /* Flyer Close Look VC */,
 				21D779C61A50D2520038CC30 /* Event Info VC */,
 				21D779E71A50D2520038CC30 /* App Model */,
 				21D779FD1A50D2520038CC30 /* School Picker VC */,
@@ -1199,7 +1230,6 @@
 				21D779D11A50D2520038CC30 /* Flyer Image Cell */,
 				21D779D51A50D2520038CC30 /* HTK Description Cell */,
 				21D779D81A50D2520038CC30 /* HTK Detail Cell */,
-				21D779DB1A50D2520038CC30 /* HTK Image Cell */,
 				21D779DE1A50D2520038CC30 /* HTK Title Cell */,
 			);
 			path = Cells;
@@ -1261,7 +1291,8 @@
 				21D779DC1A50D2520038CC30 /* EventInfoFlyerImageHTKCollectionViewCell.h */,
 				21D779DD1A50D2520038CC30 /* EventInfoFlyerImageHTKCollectionViewCell.m */,
 			);
-			path = "HTK Image Cell";
+			name = "HTK Image Cell";
+			path = "Cells/HTK Image Cell";
 			sourceTree = "<group>";
 		};
 		21D779DE1A50D2520038CC30 /* HTK Title Cell */ = {
@@ -1642,6 +1673,7 @@
 				21D77A271A50D2520038CC30 /* FlyerDB.m in Sources */,
 				211E014F1A53383900B17343 /* KxMenu.m in Sources */,
 				218E54651A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m in Sources */,
+				21367F861A618CDA00B495D3 /* FlyerCloseLookViewController.m in Sources */,
 				21D779701A50D2320038CC30 /* UIView+RoundedCorners.m in Sources */,
 				21FA0D111A60E78800DDEDCC /* CategoryFilterView.m in Sources */,
 				21D779531A50D2320038CC30 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,

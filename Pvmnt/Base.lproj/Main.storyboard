@@ -65,13 +65,64 @@
                     <connections>
                         <outlet property="collectionView" destination="pPf-lz-ZW5" id="YNH-VI-koq"/>
                         <outlet property="sliderView" destination="KN3-Mu-pJi" id="96g-Hq-jKu"/>
-                        <segue destination="qG9-hz-hfD" kind="presentation" identifier="Flyer Detail Segue" id="C9f-iz-UWh"/>
+                        <segue destination="qG9-hz-hfD" kind="show" identifier="Flyer Detail Segue" id="C9f-iz-UWh"/>
                         <segue destination="hYo-rH-u55" kind="presentation" identifier="Pick School Segue" modalTransitionStyle="coverVertical" animates="NO" id="R1i-km-Llt"/>
+                        <segue destination="1gD-tl-2ck" kind="show" identifier="Flyer Close Up Segue" id="ga7-yz-FY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QAy-xA-fe3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7362" y="1594"/>
+            <point key="canvasLocation" x="7390" y="1616"/>
+        </scene>
+        <!--Flyer Close Look View Controller-->
+        <scene sceneID="McF-pR-DnF">
+            <objects>
+                <viewController id="1gD-tl-2ck" customClass="FlyerCloseLookViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fw8-kk-VOs"/>
+                        <viewControllerLayoutGuide type="bottom" id="OCq-Hr-NPl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MKY-4F-br9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TY0-Gq-RwQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OCL-Ap-SVR">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9Z3-A3-Nza">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TY0-Gq-RwQ" firstAttribute="top" secondItem="MKY-4F-br9" secondAttribute="top" id="6xD-mX-S6M"/>
+                            <constraint firstAttribute="trailing" secondItem="TY0-Gq-RwQ" secondAttribute="trailing" id="FGw-MW-MhH"/>
+                            <constraint firstItem="OCq-Hr-NPl" firstAttribute="top" secondItem="TY0-Gq-RwQ" secondAttribute="bottom" id="bo3-Nk-4Ua"/>
+                            <constraint firstItem="TY0-Gq-RwQ" firstAttribute="leading" secondItem="MKY-4F-br9" secondAttribute="leading" id="lkE-Ho-Jmj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="TY0-Gq-RwQ" id="JaP-df-EIs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0i7-jB-lcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7662" y="2508"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="k5d-6e-QhA">
@@ -300,7 +351,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Adn-hF-x8o">
-                                <rect key="frame" x="80" y="40" width="520" height="496"/>
+                                <rect key="frame" x="70" y="40" width="530" height="496"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1rF-iI-9uL">
                                     <size key="itemSize" width="50" height="50"/>
@@ -321,10 +372,10 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aOb-HI-DWG">
-                                <rect key="frame" x="0.0" y="40" width="80" height="496"/>
+                                <rect key="frame" x="0.0" y="40" width="70" height="496"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Api-dc-ru7"/>
+                                    <constraint firstAttribute="width" constant="70" id="Api-dc-ru7"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pqa-EZ-17t" customClass="CSStickyHeaderFlowLayout">
                                     <size key="itemSize" width="50" height="50"/>
@@ -375,11 +426,12 @@
                         <outlet property="filterView" destination="G8B-Tb-jS6" id="hNY-fn-Oci"/>
                         <outlet property="sideDateCollectionView" destination="aOb-HI-DWG" id="Nj8-qV-yzq"/>
                         <segue destination="qG9-hz-hfD" kind="presentation" identifier="Flyer Detail Segue" modalTransitionStyle="coverVertical" id="H2i-01-751"/>
+                        <segue destination="1gD-tl-2ck" kind="show" identifier="Flyer Close Up Segue" id="5W9-Ha-EHP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ExC-YJ-STZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6360" y="2310"/>
+            <point key="canvasLocation" x="6899" y="2391"/>
         </scene>
         <!--Select a School-->
         <scene sceneID="Kjk-6E-Oqa">
@@ -537,6 +589,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="5W9-Ha-EHP"/>
         <segue reference="H2i-01-751"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

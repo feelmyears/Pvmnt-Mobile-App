@@ -23,7 +23,7 @@
 #import "CategoryFilterView.h"
 #import "PvmntCategorySliderLabel.h"
 #import <UINavigationBar+Addition/UINavigationBar+Addition.h>
-
+#import "FlyerCloseLookViewController.h"
 
 static CGFloat VERTICAL_PADDING = 10.f;
 static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"CalendarSideDateFlyerHTKCollectionViewCellIndentifier";
@@ -208,7 +208,7 @@ static BOOL useAutoLayoutCell = NO;
 {
     if (collectionView == _cellCollectionView) {
         CD_V2_Flyer *chosenFlyer = [self.model flyerAtIndexPath:indexPath];
-        [self performSegueWithIdentifier:@"Flyer Detail Segue" sender:chosenFlyer];
+        [self performSegueWithIdentifier:@"Flyer Close Up Segue" sender:chosenFlyer];
     }
 }
 
@@ -292,6 +292,9 @@ static BOOL useAutoLayoutCell = NO;
         EventInforViewController *eventInfoVC = (EventInforViewController *)segue.destinationViewController;
         eventInfoVC.flyer = (CD_V2_Flyer *)sender;
         
+    } else if ([segue.identifier isEqualToString:@"Flyer Close Up Segue"] && [segue.destinationViewController isMemberOfClass:[FlyerCloseLookViewController class]]) {
+        FlyerCloseLookViewController *flyerCloseLookVC = segue.destinationViewController;
+        flyerCloseLookVC.flyer = sender;
     }
 }
 

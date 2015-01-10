@@ -9,6 +9,7 @@
 #import "CalendarSideDateFlyerHTKCollectionViewCell.h"
 #import "NSDate+Utilities.h"
 #import "Colours.h"
+#import "PvmntStyleKit.h"
 
 @interface CalendarSideDateFlyerHTKCollectionViewCell ()
 @property (strong, nonatomic) UIImageView *imageView;
@@ -43,18 +44,18 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
     
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+    self.titleLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:16];
     self.titleLabel.textColor = [UIColor blackColor];
-    self.titleLabel.numberOfLines = 0;
-    self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.titleLabel.numberOfLines = 2;
+    self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     
     self.minorLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.minorLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.minorLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
+    self.minorLabel.font = [UIFont fontWithName:@"OpenSans-Light" size:15];
     self.minorLabel.textColor = [UIColor grayColor];
-    self.minorLabel.numberOfLines = 0;
-    self.minorLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    self.minorLabel.numberOfLines = 2;
+    self.minorLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     self.minorLabel.textAlignment = NSTextAlignmentLeft;
     
     
@@ -103,7 +104,10 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
 //        <#code#>
     }];
     self.titleLabel.text = flyer.title;
-    self.minorLabel.text = ([flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length) ? [NSString stringWithFormat:@"%@ at %@", [flyer.event_time shortDateString], [flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]] : [flyer.event_time shortDateString];
+//    self.minorLabel.text = ([flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length) ? [NSString stringWithFormat:@"%@ | %@", [flyer.event_time shortTimeString], [flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]] : [flyer.event_time shortTimeString];
+    self.minorLabel.text = flyer.event_time.shortTimeString;
+    self.imageView.layer.borderWidth = .5;
+    self.imageView.layer.borderColor = [PvmntStyleKit calendarSidebar].CGColor;
 }
 
 

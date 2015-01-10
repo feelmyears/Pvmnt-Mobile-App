@@ -14,9 +14,24 @@
 @property (strong, nonatomic) FlyerDB *database;
 @property (strong, nonatomic) NSArray *dataSource;
 @property (strong, nonatomic) NSArray *rangesForDataSource;
+@property (strong, nonatomic) NSTimer *updateTimer;
 @end
 
 @implementation CalendarSideDateModel
+- (NSTimer *)updateTimer
+{
+    if (!_updateTimer) {
+        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(handleTimerFire) userInfo:nil repeats:NO];
+    }
+    return _updateTimer;
+}
+
+- (void)handleTimerFire
+{
+    [self handleDatabaseChange];
+    self.updateTimer = nil;
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -42,28 +57,30 @@
 
 - (void)handleRemovedFlyers:(NSNotification *)notification
 {
-    NSArray *flyerIdsToRemove = [notification.userInfo allKeys];
-    NSMutableArray *indexPathsToRemove = [[NSMutableArray alloc] initWithCapacity:flyerIdsToRemove.count];
-    
-    for (int section = 0; section < [self numberOfSections]; section ++) {
-        for (int row = 0; row < [self numberOfItemsInSection:section]; row ++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-            CD_V2_Flyer *flyer = [self flyerAtIndexPath:indexPath];
-            if ([flyerIdsToRemove containsObject:flyer.flyerId]) {
-                [indexPathsToRemove addObject:indexPath];
-            }
-            if (indexPathsToRemove.count == flyerIdsToRemove.count) {
-                break;
-            }
-        }
-    }
-    
-    [self.delegate removeItemsAtIndexPaths:indexPathsToRemove];
+//    NSArray *flyerIdsToRemove = [notification.userInfo allKeys];
+//    NSMutableArray *indexPathsToRemove = [[NSMutableArray alloc] initWithCapacity:flyerIdsToRemove.count];
+//    
+//    for (int section = 0; section < [self numberOfSections]; section ++) {
+//        for (int row = 0; row < [self numberOfItemsInSection:section]; row ++) {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+//            CD_V2_Flyer *flyer = [self flyerAtIndexPath:indexPath];
+//            if ([flyerIdsToRemove containsObject:flyer.flyerId]) {
+//                [indexPathsToRemove addObject:indexPath];
+//            }
+//            if (indexPathsToRemove.count == flyerIdsToRemove.count) {
+//                break;
+//            }
+//        }
+//    }
+//    
+//    [self.delegate removeItemsAtIndexPaths:indexPathsToRemove];
+    [self updateTimer];
 }
 
 - (void)handleAddedFlyer:(NSNotification *)notification
 {
-    [self.delegate insertItemsAtIndexPaths:nil];
+//    [self.delegate insertItemsAtIndexPaths:nil];
+    [self updateTimer];
 }
 
 
@@ -93,6 +110,11 @@
 - (NSDate *)dateForSection:(NSUInteger)section;
 {
     return [(CD_V2_Flyer *)[self flyerAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]] event_date];
+}
+
+- (void)handleDatabaseChange
+{
+    [self filterWithCategoryName:self.filterString];
 }
 
 - (void)filterWithCategoryName:(NSString *)categoryName
