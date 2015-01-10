@@ -297,6 +297,7 @@ static CGFloat spacing = 12.5;
                     [self toggleDescriptionCellViewAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:self.model.expandedSection]];
                 }
                 [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
+                [self.collectionView setContentOffset:CGPointZero animated:YES];
                 
             }]];
         }];
