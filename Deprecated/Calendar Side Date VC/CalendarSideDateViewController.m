@@ -36,6 +36,7 @@ static BOOL useAutoLayoutCell = NO;
 @property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (strong, nonatomic) CalendarSideDateModel *model;
 @property (strong, nonatomic) NSMutableDictionary *cellHeightDict;
+@property (weak, nonatomic) IBOutlet UIButton *titleViewButton;
 @property (strong, nonatomic) CategoryFilterView *categoryFilterView;
 @end
 
@@ -65,6 +66,7 @@ static BOOL useAutoLayoutCell = NO;
 //    pvmntLogo.titleLabel.font = [UIFont fontWithName:@"Lobster" size:30.];
 //    [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 //    self.navigationItem.titleView = pvmntLogo;
+     [self.titleViewButton setImage:[PvmntStyleKit imageOfPvmntLogo] forState:UIControlStateNormal];
     
     
     [self.cellCollectionView registerNib:[UINib nibWithNibName:@"CalendarListCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"Calendar List Cell"];

@@ -428,11 +428,21 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="eto-cN-Io2"/>
+                    <navigationItem key="navigationItem" id="eto-cN-Io2">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qTN-sw-zIw">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </navigationItem>
                     <connections>
                         <outlet property="cellCollectionView" destination="Adn-hF-x8o" id="lsV-CP-u7A"/>
                         <outlet property="filterView" destination="G8B-Tb-jS6" id="hNY-fn-Oci"/>
                         <outlet property="sideDateCollectionView" destination="aOb-HI-DWG" id="Nj8-qV-yzq"/>
+                        <outlet property="titleViewButton" destination="qTN-sw-zIw" id="SF9-zO-coT"/>
                         <segue destination="qG9-hz-hfD" kind="presentation" identifier="Flyer Detail Segue" modalTransitionStyle="coverVertical" id="H2i-01-751"/>
                         <segue destination="1gD-tl-2ck" kind="show" identifier="Flyer Close Up Segue" id="5W9-Ha-EHP"/>
                     </connections>
