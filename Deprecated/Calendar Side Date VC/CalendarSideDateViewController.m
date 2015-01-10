@@ -60,11 +60,11 @@ static BOOL useAutoLayoutCell = NO;
     self.navigationController.navigationBar.translucent = NO;
 //    [self.navigationController.navigationBar hideBottomHairline];
     
-    UIButton *pvmntLogo = [UIButton new];
-    [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
-    pvmntLogo.titleLabel.font = [UIFont fontWithName:@"Lobster" size:30.];
-    [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    self.navigationItem.titleView = pvmntLogo;
+//    UIButton *pvmntLogo = [UIButton new];
+//    [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
+//    pvmntLogo.titleLabel.font = [UIFont fontWithName:@"Lobster" size:30.];
+//    [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    self.navigationItem.titleView = pvmntLogo;
     
     
     [self.cellCollectionView registerNib:[UINib nibWithNibName:@"CalendarListCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"Calendar List Cell"];

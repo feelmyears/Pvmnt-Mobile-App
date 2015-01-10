@@ -28,6 +28,7 @@
 + (UIColor*)mainSidebarMenu;
 + (UIColor*)gold;
 + (UIColor*)flyerGradientColorStart;
++ (UIColor*)filterBarColor;
 
 // Gradients
 + (PCGradient*)gradient;

@@ -156,12 +156,12 @@ static CGFloat spacing = 12.5;
     self.navigationController.navigationBar.translucent = NO;
 //    [self.navigationController.navigationBar hideBottomHairline];
 
-    UIButton *pvmntLogo = [UIButton new];
-    [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
-    pvmntLogo.titleLabel.font = [UIFont fontWithName:@"Lobster" size:30.];
-    [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    self.navigationItem.titleView = pvmntLogo;
-
+//    UIButton *pvmntLogo = [UIButton new];
+//    [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
+//    pvmntLogo.titleLabel.font = [UIFont fontWithName:@"Lobster" size:30.];
+//    [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    self.navigationItem.titleView = pvmntLogo;
+    [self.titleViewButton setImage:[PvmntStyleKit imageOfPvmntLogo] forState:UIControlStateNormal];
     
 //    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(handleFilterButtonTap)];
 //    self.navigationItem.rightBarButtonItem = filterButton;
