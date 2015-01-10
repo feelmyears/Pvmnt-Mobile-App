@@ -16,13 +16,18 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 
 @interface FlyerCloseLookViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
 @end
 
 @implementation FlyerCloseLookViewController
-
+- (void)setFlyer:(CD_V2_Flyer *)flyer
+{
+    _flyer = flyer;
+    self.title = flyer.title;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-100.f, 0) forBarMetrics:UIBarMetricsDefault];
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

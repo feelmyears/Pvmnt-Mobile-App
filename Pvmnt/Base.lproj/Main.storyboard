@@ -60,11 +60,19 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="c99-7J-Xdt">
                         <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JcZ-H3-gue">
+                            <rect key="frame" x="253" y="0.0" width="94" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="collectionView" destination="pPf-lz-ZW5" id="YNH-VI-koq"/>
                         <outlet property="sliderView" destination="KN3-Mu-pJi" id="96g-Hq-jKu"/>
+                        <outlet property="titleViewButton" destination="JcZ-H3-gue" id="X4N-qM-kij"/>
                         <segue destination="qG9-hz-hfD" kind="show" identifier="Flyer Detail Segue" id="C9f-iz-UWh"/>
                         <segue destination="hYo-rH-u55" kind="presentation" identifier="Pick School Segue" modalTransitionStyle="coverVertical" animates="NO" id="R1i-km-Llt"/>
                         <segue destination="1gD-tl-2ck" kind="show" identifier="Flyer Close Up Segue" id="ga7-yz-FY0"/>

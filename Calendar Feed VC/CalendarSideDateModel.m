@@ -144,6 +144,7 @@
     NSMutableSet *difference = [NSMutableSet setWithArray:nextDataSource];
     [difference minusSet:intersection];
     
+ 
     NSMutableArray *indexPathsToRemove = [[NSMutableArray alloc] init];
     NSMutableIndexSet *sectionsToRemove = [NSMutableIndexSet new];
     NSMutableIndexSet *indexesToRemove = [NSMutableIndexSet new];
@@ -162,8 +163,7 @@
             [sectionsToRemove addIndex:section];
         }
     }
-    
-   
+
     NSMutableArray *persistingDataSource = [oldDataSource mutableCopy];
     [persistingDataSource removeObjectsAtIndexes:indexesToRemove];
     [persistingDataSource addObjectsFromArray:[difference allObjects]];
@@ -173,14 +173,17 @@
         return [lhs.event_time compare:rhs.event_time];
     }];
     
+    /*
     NSMutableIndexSet *previousSections = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.rangesForDataSource.count)];
     for (NSUInteger index = [sectionsToRemove firstIndex]; index != NSNotFound; index = [sectionsToRemove indexGreaterThanIndex:index]) {
         if ([previousSections containsIndex:index]) {
             [previousSections removeIndex:index];
         }
     }
+     */
     
     self.rangesForDataSource = [self dateRangesForSortedFlyerArray:persistingDataSource];
+    /*
     NSMutableArray *indexPathsToAdd = [[NSMutableArray alloc] init];
     NSMutableIndexSet *sectionsToAdd = [NSMutableIndexSet new];
     for (NSUInteger section = 0; section < self.rangesForDataSource.count; section++) {
@@ -195,9 +198,11 @@
             }
         }
     }
+     */
 
     self.dataSource = persistingDataSource;
-    [self.delegate removeItemsAtIndexes:indexPathsToRemove addItemsAtIndexes:indexPathsToAdd dateSectionsToRemove:sectionsToRemove dateSectionsToAdd:sectionsToAdd];
+//    [self.delegate removeItemsAtIndexes:indexPathsToRemove addItemsAtIndexes:indexPathsToAdd dateSectionsToRemove:sectionsToRemove dateSectionsToAdd:sectionsToAdd];
+    [self.delegate removeItemsAtIndexes:nil addItemsAtIndexes:nil dateSectionsToRemove:nil dateSectionsToAdd:nil];
 
 }
 

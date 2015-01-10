@@ -36,9 +36,21 @@ static BOOL useAutoLayoutCell = NO;
 @property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (strong, nonatomic) CalendarSideDateModel *model;
 @property (strong, nonatomic) NSMutableDictionary *cellHeightDict;
+@property (strong, nonatomic) CategoryFilterView *categoryFilterView;
 @end
 
 @implementation CalendarSideDateViewController
+
+- (CategoryFilterView *)categoryFilterView
+{
+    if (!_categoryFilterView) {
+        _categoryFilterView = [[CategoryFilterView alloc] initWithFrame:self.filterView.frame andCategorySelectionBlock:^(UIView *categoryView, NSInteger categoryIndex) {
+            [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
+        }];
+        [self.filterView addSubview:_categoryFilterView];
+    }
+    return _categoryFilterView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,7 +58,7 @@ static BOOL useAutoLayoutCell = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController.navigationBar hideBottomHairline];
+//    [self.navigationController.navigationBar hideBottomHairline];
     
     UIButton *pvmntLogo = [UIButton new];
     [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
@@ -54,10 +66,6 @@ static BOOL useAutoLayoutCell = NO;
     [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.navigationItem.titleView = pvmntLogo;
     
-    self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
-    self.tabBarController.tabBar.tintColor = [UIColor blackColor];
-    self.tabBarController.tabBar.translucent = NO;
-    self.title = @"Sidewalk";
     
     [self.cellCollectionView registerNib:[UINib nibWithNibName:@"CalendarListCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"Calendar List Cell"];
     [self.sideDateCollectionView registerNib:[UINib nibWithNibName:@"CalendarSideDateCell" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Side Date Cell"];
@@ -92,10 +100,10 @@ static BOOL useAutoLayoutCell = NO;
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
-    [self.filterView addSubview:[[CategoryFilterView alloc] initWithFrame:self.filterView.frame andCategorySelectionBlock:^(UIView *categoryView, NSInteger categoryIndex) {
-        [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
-    }]];
+    
+    [self categoryFilterView];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -264,7 +272,7 @@ static BOOL useAutoLayoutCell = NO;
 
 - (void)removeItemsAtIndexes:(NSArray *)indexesToRemove addItemsAtIndexes:(NSArray *)indexesToAdd dateSectionsToRemove:(NSIndexSet *)sectionsToRemove dateSectionsToAdd:(NSIndexSet *)sectionsToAdd
 {
-    NSLog(@"Calling updating items at indexes");
+//    NSLog(@"Calling updating items at indexes");
     @try
     {
 //        [self.cellCollectionView performBatchUpdates:^{
@@ -275,8 +283,13 @@ static BOOL useAutoLayoutCell = NO;
 //        } completion:^(BOOL finished) {
 //            
 //        }];
+//        
+//        [self.sideDateCollectionView reloadData];
+        
+   
         [self.cellCollectionView reloadData];
         [self.sideDateCollectionView reloadData];
+        [self.sideDateCollectionView setContentOffset:CGPointMake(0, -10) animated:YES];
     }
     @catch (NSException *except)
     {

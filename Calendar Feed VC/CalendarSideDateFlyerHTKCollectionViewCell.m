@@ -44,7 +44,7 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
     
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.titleLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:16];
+    self.titleLabel.font = [UIFont fontWithName:@"OpenSans-Regular" size:15];
     self.titleLabel.textColor = [UIColor blackColor];
     self.titleLabel.numberOfLines = 3;
     self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -52,7 +52,7 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
     
     self.minorLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.minorLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.minorLabel.font = [UIFont fontWithName:@"OpenSans-Light" size:15];
+    self.minorLabel.font = [UIFont fontWithName:@"OpenSans-Light" size:14];
     self.minorLabel.textColor = [UIColor grayColor];
     self.minorLabel.numberOfLines = 2;
     self.minorLabel.lineBreakMode = NSLineBreakByTruncatingTail;

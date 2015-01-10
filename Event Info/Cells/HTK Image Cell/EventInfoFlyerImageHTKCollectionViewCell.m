@@ -91,6 +91,20 @@ static CGFloat FRAME_HEIGHT = 40;
 {
     CGFloat imageWidth = [image.width floatValue];
     CGFloat imageHeight = [image.height floatValue];
+    
+    CGFloat contentWidth = DEFAULT_FLYER_IMAGE_CELL_SIZE.width;
+    CGFloat fixedItemWidth = contentWidth;
+    CGFloat heightToWidthRatio = imageHeight/imageWidth;
+    CGFloat heightForItem = fixedItemWidth * heightToWidthRatio;
+    
+    return CGSizeMake(fixedItemWidth, heightForItem);
+}
+
+/*
++ (CGSize)sizeForCellWithImage:(CD_Image *)image
+{
+    CGFloat imageWidth = [image.width floatValue];
+    CGFloat imageHeight = [image.height floatValue];
     CGFloat dimConstant = 225.f;
     CGSize finalImageSize = CGSizeZero;
     
@@ -120,6 +134,7 @@ static CGFloat FRAME_HEIGHT = 40;
     return (CGSizeMake(DEFAULT_FLYER_IMAGE_CELL_SIZE.width, finalImageSize.height + VERTICAL_BUFFER));
 
 }
+ */
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

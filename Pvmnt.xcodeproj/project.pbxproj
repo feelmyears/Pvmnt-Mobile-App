@@ -163,6 +163,7 @@
 		21D77A411A50D30A0038CC30 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D77A401A50D30A0038CC30 /* EventKit.framework */; };
 		21D77A431A50D30F0038CC30 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D77A421A50D30F0038CC30 /* SystemConfiguration.framework */; };
 		21D77A451A50D3150038CC30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D77A441A50D3150038CC30 /* UIKit.framework */; };
+		21E70DA01A61CE1C00399D3E /* AutoSizeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E70D961A61CE1C00399D3E /* AutoSizeCell.m */; };
 		21EF5D6D1A538DB600D1DF98 /* PvmntStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 21EF5D6C1A538DB600D1DF98 /* PvmntStyleKit.m */; };
 		21EF5D711A53967D00D1DF98 /* PvmntPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21EF5D701A53967D00D1DF98 /* PvmntPView.m */; };
 		21FA0D111A60E78800DDEDCC /* CategoryFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FA0D101A60E78800DDEDCC /* CategoryFilterView.m */; };
@@ -458,6 +459,8 @@
 		21D77A401A50D30A0038CC30 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		21D77A421A50D30F0038CC30 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		21D77A441A50D3150038CC30 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		21E70D951A61CE1C00399D3E /* AutoSizeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoSizeCell.h; path = AutoSizingTableCells/AutoSizeCell.h; sourceTree = "<group>"; };
+		21E70D961A61CE1C00399D3E /* AutoSizeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoSizeCell.m; path = AutoSizingTableCells/AutoSizeCell.m; sourceTree = "<group>"; };
 		21EF5D6B1A538DB600D1DF98 /* PvmntStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntStyleKit.h; sourceTree = "<group>"; };
 		21EF5D6C1A538DB600D1DF98 /* PvmntStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntStyleKit.m; sourceTree = "<group>"; };
 		21EF5D6E1A5392D200D1DF98 /* CGRectPositioning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGRectPositioning.h; sourceTree = "<group>"; };
@@ -511,6 +514,8 @@
 		211E01441A53135100B17343 /* Side Drawer */ = {
 			isa = PBXGroup;
 			children = (
+				21E70D951A61CE1C00399D3E /* AutoSizeCell.h */,
+				21E70D961A61CE1C00399D3E /* AutoSizeCell.m */,
 				21EF5D6F1A53967D00D1DF98 /* PvmntPView.h */,
 				21EF5D701A53967D00D1DF98 /* PvmntPView.m */,
 				211E01451A53139E00B17343 /* PvmntSideDrawerViewController.h */,
@@ -1671,6 +1676,7 @@
 				21356A441A575CFC0058E8D5 /* EmptyStateView.m in Sources */,
 				214526FC1A51E1D10092376F /* UIAlertView+Blocks.m in Sources */,
 				21D77A271A50D2520038CC30 /* FlyerDB.m in Sources */,
+				21E70DA01A61CE1C00399D3E /* AutoSizeCell.m in Sources */,
 				211E014F1A53383900B17343 /* KxMenu.m in Sources */,
 				218E54651A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m in Sources */,
 				21367F861A618CDA00B495D3 /* FlyerCloseLookViewController.m in Sources */,

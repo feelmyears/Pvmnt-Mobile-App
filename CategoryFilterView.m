@@ -48,7 +48,7 @@
     }
     
     self.sliderView = [[CategorySliderView alloc] initWithFrame:self.frame andCategoryViews:categoryViews sliderDirection:SliderDirectionHorizontal categorySelectionBlock:block];
-    self.sliderView.backgroundColor = [PvmntStyleKit calendarSidebar];
+    self.sliderView.backgroundColor = [PvmntStyleKit mainBlack];
     [self addSubview:self.sliderView];
 
 }

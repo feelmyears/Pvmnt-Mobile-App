@@ -13,12 +13,14 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "SchoolPickerViewController.h"
 #import "PvmntStyleKit.h"
+#import "AutoSizeCell.h"
 
 @interface PvmntSideDrawerViewController ()
 @property (strong, nonatomic) UITableView *tableView;
 @end
 
 @implementation PvmntSideDrawerViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -100,7 +102,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 4;
+    return 3;
 }
 
 
@@ -110,10 +112,8 @@
 		case 0:
 			return 2;	//Sidewalk and Calendar
 		case 1:
-			return 1;	//Search
-		case 2:
 			return 1;	//School Pvmnt
-		case 3:
+		case 2:
 			return 4;
 		default:
 			return 0;
@@ -129,56 +129,60 @@
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	}
 	
-	switch (indexPath.section) {
-		case 0: {
-			if (indexPath.row == 0) {
-				cell.textLabel.text = @"Sidewalk";
-			} else {
-				cell.textLabel.text = @"Calendar";
-			}
-			break;
-		}
-		case 1: {
-			cell.textLabel.text = @"Search";
-			break;
-		}
-		case 2: {
-			cell.textLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:kNSUserDefaultsSchoolNameKey];
-			break;
-		}
-		case 3: {
-			switch (indexPath.row) {
-				case 0:
-					cell.textLabel.text = @"About Pvmnt";
-					break;
-				case 1:
-					cell.textLabel.text = @"Share Pvmnt";
-					break;
-				case 2:
-					cell.textLabel.text = @"Rate Pvmnt";
-					break;
-				case 3:
-					cell.textLabel.text = @"Contact Us";
-					break;
-				default:
-					break;
-			}
-		}
-		default:
-			break;
-	}
+//	switch (indexPath.section) {
+//		case 0: {
+//			if (indexPath.row == 0) {
+//				cell.textLabel.text = @"Sidewalk";
+//			} else {
+//				cell.textLabel.text = @"Calendar";
+//			}
+//			break;
+//		}
+//		case 1: {
+//			cell.textLabel.text = @"Search";
+//			break;
+//		}
+//		case 2: {
+//			cell.textLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:kNSUserDefaultsSchoolNameKey];
+//			break;
+//		}
+//		case 3: {
+//			switch (indexPath.row) {
+//				case 0:
+//					cell.textLabel.text = @"About Pvmnt";
+//					break;
+//				case 1:
+//					cell.textLabel.text = @"Share Pvmnt";
+//					break;
+//				case 2:
+//					cell.textLabel.text = @"Rate Pvmnt";
+//					break;
+//				case 3:
+//					cell.textLabel.text = @"Contact Us";
+//					break;
+//				default:
+//					break;
+//			}
+//		}
+//		default:
+//			break;
+//	}
+	cell.textLabel.text = [self getTitleForCellAtIndexPath:indexPath];
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	cell.textLabel.textColor = [UIColor whiteColor];
+	cell.textLabel.font = [UIFont fontWithName:@"OpenSans-Light" size:18];
+	cell.textLabel.adjustsFontSizeToFitWidth = YES;
+	cell.textLabel.minimumScaleFactor = 0.25;
+	cell.textLabel.numberOfLines = 1;
 	cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
 
 #pragma mark Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 	
@@ -189,6 +193,7 @@
 			
 			if (indexPath.row == 0) {
 				newVC = (UINavigationController *)[appDelegate sidewalkViewController];
+				
 			} else {
 				newVC = (UINavigationController *)[appDelegate calendarFeedViewController];
 			}
@@ -231,12 +236,10 @@
 {
 	switch (section) {
 		case 0:
-			return nil;	//Sidewalk and Calendar
+			return @"Discover your campus";
 		case 1:
-			return nil;	//Search
-		case 2:
 			return @"My School";	//School Pvmnt
-		case 3:
+		case 2:
 			return @"Other";
 		default:
 			return 0;
@@ -244,7 +247,65 @@
 	}
 }
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//	UITableViewCell *cell = [[AutoSizeCell alloc] init];
+//	cell.textLabel.text = [self getTitleForCellAtIndexPath:indexPath];
+//	
+//	// Do the layout pass on the cell, which will calculate the frames for all the views based on the constraints
+//	// (Note that the preferredMaxLayoutWidth is set on multi-line UILabels inside the -[layoutSubviews] method
+//	// in the UITableViewCell subclass
+//	[cell setNeedsLayout];
+//	[cell layoutIfNeeded];
+//	
+//	// Get the actual height required for the cell
+//	CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+//	
+//	// Add an extra point to the height to account for the cell separator, which is added between the bottom
+//	// of the cell's contentView and the bottom of the table view cell.
+//	height += 1;
+//	
+//	return height;
+//}
 
+- (NSString *)getTitleForCellAtIndexPath:(NSIndexPath *)indexPath
+{
+	switch (indexPath.section) {
+		case 0: {
+			if (indexPath.row == 0) {
+				return @"Sidewalk";
+			} else {
+				return @"Calendar";
+			}
+			break;
+		}
+		case 1: {
+			return [[NSUserDefaults standardUserDefaults] stringForKey:kNSUserDefaultsSchoolNameKey];
+			break;
+		}
+		case 2: {
+			switch (indexPath.row) {
+				case 0:
+					return @"About Pvmnt";
+					break;
+				case 1:
+					return @"Share Pvmnt";
+					break;
+				case 2:
+					return @"Rate Pvmnt";
+					break;
+				case 3:
+					return @"Contact Us";
+					break;
+				default:
+					break;
+			}
+		}
+		default:
+			return @"";
+			break;
+	}
+}
 /*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {

@@ -57,7 +57,7 @@
     [self. drawerController setShowsShadow:YES];
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
 
-    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningNavigationBar];
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeBezelPanningCenterView | MMCloseDrawerGestureModePanningCenterView | MMCloseDrawerGestureModePanningNavigationBar | MMCloseDrawerGestureModeTapCenterView | MMCloseDrawerGestureModeTapNavigationBar];
     [self.drawerController setShouldStretchDrawer:NO];
     [self.drawerController setCenterHiddenInteractionMode:MMDrawerOpenCenterInteractionModeNavigationBarOnly];
@@ -65,7 +65,7 @@
     [self.drawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.drawerController setMaximumLeftDrawerWidth:self.window.frame.size.width - 100];
+    [self.drawerController setMaximumLeftDrawerWidth:self.window.frame.size.width - 50];
     
     [self.window setTintColor:[UIColor blackColor]];
     [self.window setRootViewController:self.drawerController];

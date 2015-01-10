@@ -73,6 +73,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 @property (strong, nonatomic) NSMutableDictionary *filterDictionary;
 @property (strong, nonatomic) LMDropdownView *dropdownMenu;
 @property (strong, nonatomic) FilterTableViewController *filterTableVC;
+@property (weak, nonatomic) IBOutlet UIButton *titleViewButton;
 @property (strong, nonatomic) CategorySliderView *categoryFilterSlider;
 @end
 
@@ -153,18 +154,14 @@ static CGFloat spacing = 12.5;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController.navigationBar hideBottomHairline];
+//    [self.navigationController.navigationBar hideBottomHairline];
 
     UIButton *pvmntLogo = [UIButton new];
     [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
     pvmntLogo.titleLabel.font = [UIFont fontWithName:@"Lobster" size:30.];
     [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.navigationItem.titleView = pvmntLogo;
-    
-    self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
-    self.tabBarController.tabBar.tintColor = [UIColor blackColor];
-    self.tabBarController.tabBar.translucent = NO;
-    self.title = @"Sidewalk";
+
     
 //    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(handleFilterButtonTap)];
 //    self.navigationItem.rightBarButtonItem = filterButton;
@@ -215,6 +212,8 @@ static CGFloat spacing = 12.5;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+
     CGSize emptyStateSize = CGSizeMake(285, 183);
     self.collectionView.emptyState_view = [[EmptyStateView alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.view.frame) - (emptyStateSize.width)/2.0,
                                                                                            CGRectGetMidY(self.view.frame) - (emptyStateSize.height)/2.0,
@@ -224,6 +223,7 @@ static CGFloat spacing = 12.5;
     self.collectionView.emptyState_showAnimationDuration = 0.2;
     self.collectionView.emptyState_hideAnimationDuration = 0;
     self.collectionView.emptyState_showDelay = 0.1;
+    
 }
 - (void)handleSchoolChosenNotification
 {
