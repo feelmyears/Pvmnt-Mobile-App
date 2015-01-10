@@ -46,7 +46,7 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.titleLabel.font = [UIFont fontWithName:@"OpenSans-Semibold" size:16];
     self.titleLabel.textColor = [UIColor blackColor];
-    self.titleLabel.numberOfLines = 2;
+    self.titleLabel.numberOfLines = 3;
     self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     
