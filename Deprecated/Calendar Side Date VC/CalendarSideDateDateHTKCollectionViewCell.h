@@ -8,7 +8,7 @@
 
 #import "HTKDynamicResizingCollectionViewCell.h"
 
-#define DEFAULT_CALENDAR_SIDE_DATE_CELL_SIZE (CGSize){60, 60}
+#define DEFAULT_CALENDAR_SIDE_DATE_CELL_SIZE (CGSize){80, 80}
 
 @interface CalendarSideDateDateHTKCollectionViewCell : HTKDynamicResizingCollectionViewCell
 - (void)setupCellWithDate:(NSDate *)date;

@@ -13,5 +13,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic, readonly) UINavigationController *sidewalkViewController;
 @property (strong, nonatomic, readonly) UINavigationController *calendarFeedViewController;
+@property (strong, nonatomic, readonly) UINavigationController *sideDateCalendarViewController;
 @end
 

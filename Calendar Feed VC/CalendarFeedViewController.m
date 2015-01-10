@@ -184,6 +184,15 @@ static NSString *CalendarFeedHeaderCollectionResuableViewIdentifier     = @"Cale
     [self.collectionView reloadData];
 }
 
+- (void)removeItemsAtIndexes:(NSArray *)indexesToRemove addItemsAtIndexes:(NSArray *)indexesToAdd
+{
+    [self.collectionView performBatchUpdates:^{
+        [self.collectionView deleteItemsAtIndexPaths:indexesToRemove];
+        [self.collectionView insertItemsAtIndexPaths:indexesToAdd];
+    } completion:^(BOOL finished) {
+//        code
+    }];
+}
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

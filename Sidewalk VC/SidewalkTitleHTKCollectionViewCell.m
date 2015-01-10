@@ -130,4 +130,5 @@ static CGFloat padding = 5.f;
     self.minorLabel.text = [minorLabelText componentsJoinedByString:@" at "];
 }
 
+
 @end

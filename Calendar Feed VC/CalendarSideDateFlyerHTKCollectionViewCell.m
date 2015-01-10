@@ -32,7 +32,7 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
 }
 
 - (void)setupView {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
     self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -70,10 +70,10 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
                                  @"zeroValue": @0};
     
     
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_imageView(imageViewSize)]-padding-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_imageView(imageViewSize)]-(>=0)-|" options:0 metrics:metricDict views:viewDict]];
     
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_titleLabel]-(>=padding)-[_imageView]" options:0 metrics:metricDict views:viewDict]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_minorLabel]-(>=padding)-[_imageView]" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_imageView]-(padding)-[_titleLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_imageView]-(padding)-[_minorLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
     
     //Constrain elements vertically
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-zeroPadding-[_imageView(imageViewSize)]-(>=zeroPadding)-|" options:0 metrics:metricDict views:viewDict]];
@@ -91,9 +91,9 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
     [self.minorLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     
     CGSize defaultSize = DEFAULT_FLYER_CELL_SIZE;
-    self.titleLabel.preferredMaxLayoutWidth = defaultSize.width - 2 * [metricDict[@"padding"] floatValue] - [metricDict[@"imageViewSize"] floatValue];
+    self.titleLabel.preferredMaxLayoutWidth = defaultSize.width - 3 * [metricDict[@"padding"] floatValue] - [metricDict[@"imageViewSize"] floatValue];
     
-    self.minorLabel.preferredMaxLayoutWidth = defaultSize.width - 2 * [metricDict[@"padding"] floatValue] - [metricDict[@"imageViewSize"] floatValue];
+    self.minorLabel.preferredMaxLayoutWidth = defaultSize.width - 3 * [metricDict[@"padding"] floatValue] - [metricDict[@"imageViewSize"] floatValue];
     
 }
 
@@ -103,24 +103,7 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
 //        <#code#>
     }];
     self.titleLabel.text = flyer.title;
-    self.minorLabel.text = ([flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length) ? [NSString stringWithFormat:@"%@ at %@", [flyer.event_time shortTimeString], [flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]] : [flyer.event_time shortTimeString];
-    
-    CD_Colorscheme *colorScheme = flyer.image.colorscheme;
-    
-    self.backgroundColor = (UIColor *)colorScheme.backgroundColor;
-    static CGFloat brightnessThreshold  = 0.85f;
-    
-    
-    UIColor *textColor;
-    if (self.backgroundColor.brightness < brightnessThreshold) {
-        textColor = [UIColor whiteColor];
-    } else {
-        textColor = [UIColor blackColor];
-    }
-    
-    self.titleLabel.textColor = textColor;
-    self.minorLabel.textColor = textColor;
-    
+    self.minorLabel.text = ([flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length) ? [NSString stringWithFormat:@"%@ at %@", [flyer.event_time shortDateString], [flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]] : [flyer.event_time shortDateString];
 }
 
 

@@ -127,6 +127,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - THCalendarDatePicker (~> 0.2.4)
   - TLLayoutTransitioning
+  - TLLayoutTransitioning (~> 1.0)
   - TLYShyNavBar
   - TTTAttributedLabel
   - UINavigationBar+Addition

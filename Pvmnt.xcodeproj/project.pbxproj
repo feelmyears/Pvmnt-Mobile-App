@@ -12,6 +12,7 @@
 		211E014A1A531C6E00B17343 /* PvmntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E01491A531C6E00B17343 /* PvmntViewController.m */; };
 		211E014F1A53383900B17343 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E014E1A53383900B17343 /* KxMenu.m */; };
 		21356A401A5758680058E8D5 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356A3F1A5758680058E8D5 /* GradientView.m */; };
+		21356A441A575CFC0058E8D5 /* EmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356A431A575CFC0058E8D5 /* EmptyStateView.m */; };
 		214526C11A50DAE60092376F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C01A50DAE60092376F /* Social.framework */; };
 		214526C31A50DAED0092376F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C21A50DAED0092376F /* MessageUI.framework */; };
 		214526EA1A50EC4A0092376F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 214526CB1A50EC4A0092376F /* SVWebViewController.strings */; };
@@ -33,6 +34,16 @@
 		214527011A51E42C0092376F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526FF1A51E42C0092376F /* AddressBookUI.framework */; };
 		214527031A51E5FB0092376F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214527021A51E5FB0092376F /* CoreLocation.framework */; };
 		214527051A51E6010092376F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214527041A51E6010092376F /* MapKit.framework */; };
+		2151CD601A5E47A1005AFA94 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD561A5E4513005AFA94 /* OpenSans-Regular.ttf */; };
+		2151CD611A5E47A1005AFA94 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD571A5E4513005AFA94 /* OpenSans-Light.ttf */; };
+		2151CD621A5E47A1005AFA94 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD581A5E4513005AFA94 /* OpenSans-LightItalic.ttf */; };
+		2151CD631A5E47A1005AFA94 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD591A5E4513005AFA94 /* OpenSans-Bold.ttf */; };
+		2151CD641A5E47A1005AFA94 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5A1A5E4513005AFA94 /* OpenSans-SemiboldItalic.ttf */; };
+		2151CD651A5E47A1005AFA94 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5B1A5E4513005AFA94 /* OpenSans-BoldItalic.ttf */; };
+		2151CD661A5E47A1005AFA94 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5C1A5E4513005AFA94 /* OpenSans-ExtraBold.ttf */; };
+		2151CD671A5E47A1005AFA94 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5D1A5E4513005AFA94 /* OpenSans-ExtraBoldItalic.ttf */; };
+		2151CD681A5E47A1005AFA94 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5E1A5E4513005AFA94 /* OpenSans-Italic.ttf */; };
+		2151CD691A5E47A1005AFA94 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5F1A5E4513005AFA94 /* OpenSans-Semibold.ttf */; };
 		218E545B1A56056B00E75616 /* CategorySliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E545A1A56056B00E75616 /* CategorySliderView.m */; };
 		218E54621A5605AD00E75616 /* PvmntCategorySliderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */; };
 		218E54651A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */; };
@@ -153,6 +164,7 @@
 		21D77A451A50D3150038CC30 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D77A441A50D3150038CC30 /* UIKit.framework */; };
 		21EF5D6D1A538DB600D1DF98 /* PvmntStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 21EF5D6C1A538DB600D1DF98 /* PvmntStyleKit.m */; };
 		21EF5D711A53967D00D1DF98 /* PvmntPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21EF5D701A53967D00D1DF98 /* PvmntPView.m */; };
+		21FA0D111A60E78800DDEDCC /* CategoryFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FA0D101A60E78800DDEDCC /* CategoryFilterView.m */; };
 		BEC920479048716BDC1B1B50 /* libPods-Pvmnt.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60267B687E94B71AA4516DAD /* libPods-Pvmnt.a */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +190,8 @@
 		211E014E1A53383900B17343 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		21356A3E1A5758680058E8D5 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		21356A3F1A5758680058E8D5 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		21356A421A575CFC0058E8D5 /* EmptyStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStateView.h; sourceTree = "<group>"; };
+		21356A431A575CFC0058E8D5 /* EmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStateView.m; sourceTree = "<group>"; };
 		214526C01A50DAE60092376F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		214526C21A50DAED0092376F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		214526CC1A50EC4A0092376F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -215,6 +229,16 @@
 		214526FF1A51E42C0092376F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		214527021A51E5FB0092376F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		214527041A51E6010092376F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2151CD561A5E4513005AFA94 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		2151CD571A5E4513005AFA94 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		2151CD581A5E4513005AFA94 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		2151CD591A5E4513005AFA94 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		2151CD5A1A5E4513005AFA94 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		2151CD5B1A5E4513005AFA94 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		2151CD5C1A5E4513005AFA94 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		2151CD5D1A5E4513005AFA94 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		2151CD5E1A5E4513005AFA94 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		2151CD5F1A5E4513005AFA94 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		218E54591A56056B00E75616 /* CategorySliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategorySliderView.h; path = "3rd Party/CategorySliderView.h"; sourceTree = "<group>"; };
 		218E545A1A56056B00E75616 /* CategorySliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategorySliderView.m; path = "3rd Party/CategorySliderView.m"; sourceTree = "<group>"; };
 		218E54601A5605AD00E75616 /* PvmntCategorySliderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntCategorySliderLabel.h; sourceTree = "<group>"; };
@@ -316,10 +340,10 @@
 		21D7794A1A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarFeedHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		21D7794B1A50D2320038CC30 /* CalendarFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarFeedViewController.h; sourceTree = "<group>"; };
 		21D7794C1A50D2320038CC30 /* CalendarFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarFeedViewController.m; sourceTree = "<group>"; };
-		21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarSideDateFlyerHTKCollectionViewCell.h; sourceTree = "<group>"; };
-		21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarSideDateFlyerHTKCollectionViewCell.m; sourceTree = "<group>"; };
-		21D7794F1A50D2320038CC30 /* CalendarSideDateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarSideDateModel.h; sourceTree = "<group>"; };
-		21D779501A50D2320038CC30 /* CalendarSideDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarSideDateModel.m; sourceTree = "<group>"; };
+		21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarSideDateFlyerHTKCollectionViewCell.h; path = "../../Calendar Feed VC/CalendarSideDateFlyerHTKCollectionViewCell.h"; sourceTree = "<group>"; };
+		21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarSideDateFlyerHTKCollectionViewCell.m; path = "../../Calendar Feed VC/CalendarSideDateFlyerHTKCollectionViewCell.m"; sourceTree = "<group>"; };
+		21D7794F1A50D2320038CC30 /* CalendarSideDateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarSideDateModel.h; path = "../../Calendar Feed VC/CalendarSideDateModel.h"; sourceTree = "<group>"; };
+		21D779501A50D2320038CC30 /* CalendarSideDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarSideDateModel.m; path = "../../Calendar Feed VC/CalendarSideDateModel.m"; sourceTree = "<group>"; };
 		21D779781A50D23F0038CC30 /* Calendar List Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Calendar List Header.h"; sourceTree = "<group>"; };
 		21D779791A50D23F0038CC30 /* Calendar List Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Calendar List Header.m"; sourceTree = "<group>"; };
 		21D7797A1A50D23F0038CC30 /* Calendar List Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Calendar List Header.xib"; sourceTree = "<group>"; };
@@ -436,6 +460,8 @@
 		21EF5D6E1A5392D200D1DF98 /* CGRectPositioning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGRectPositioning.h; sourceTree = "<group>"; };
 		21EF5D6F1A53967D00D1DF98 /* PvmntPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntPView.h; sourceTree = "<group>"; };
 		21EF5D701A53967D00D1DF98 /* PvmntPView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntPView.m; sourceTree = "<group>"; };
+		21FA0D0F1A60E78800DDEDCC /* CategoryFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryFilterView.h; sourceTree = "<group>"; };
+		21FA0D101A60E78800DDEDCC /* CategoryFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryFilterView.m; sourceTree = "<group>"; };
 		43CFE088CCB8243E49764925 /* Pods-Pvmnt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pvmnt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pvmnt/Pods-Pvmnt.debug.xcconfig"; sourceTree = "<group>"; };
 		60267B687E94B71AA4516DAD /* libPods-Pvmnt.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Pvmnt.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5E665890529F06191D224A /* Pods-Pvmnt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pvmnt.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pvmnt/Pods-Pvmnt.release.xcconfig"; sourceTree = "<group>"; };
@@ -497,8 +523,6 @@
 				21D779481A50D2320038CC30 /* CalendarFeedFlyerHTKCollectionViewCell.m */,
 				21D779491A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.h */,
 				21D7794A1A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.m */,
-				21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */,
-				21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -619,6 +643,8 @@
 		218E545C1A56057F00E75616 /* Fliter Slider */ = {
 			isa = PBXGroup;
 			children = (
+				21FA0D0F1A60E78800DDEDCC /* CategoryFilterView.h */,
+				21FA0D101A60E78800DDEDCC /* CategoryFilterView.m */,
 				218E54591A56056B00E75616 /* CategorySliderView.h */,
 				218E545A1A56056B00E75616 /* CategorySliderView.m */,
 				218E54601A5605AD00E75616 /* PvmntCategorySliderLabel.h */,
@@ -687,6 +713,7 @@
 				21D779FD1A50D2520038CC30 /* School Picker VC */,
 				21D77A001A50D2520038CC30 /* Sidewalk VC */,
 				21D779461A50D2320038CC30 /* Calendar Feed VC */,
+				21D7797D1A50D23F0038CC30 /* Calendar Side Date VC */,
 				21D778F01A50D2320038CC30 /* 3rd Party */,
 				21D778C91A50D13E0038CC30 /* Pvmnt */,
 				21D779761A50D23F0038CC30 /* Deprecated */,
@@ -996,8 +1023,6 @@
 			isa = PBXGroup;
 			children = (
 				211E014B1A531E6300B17343 /* Cells */,
-				21D7794F1A50D2320038CC30 /* CalendarSideDateModel.h */,
-				21D779501A50D2320038CC30 /* CalendarSideDateModel.m */,
 				21D7794B1A50D2320038CC30 /* CalendarFeedViewController.h */,
 				21D7794C1A50D2320038CC30 /* CalendarFeedViewController.m */,
 			);
@@ -1010,7 +1035,6 @@
 				21D779C81A50D2520038CC30 /* Action Cells */,
 				214526C61A50DE1C0092376F /* Sidewalk VC */,
 				21D779771A50D23F0038CC30 /* Calendar List VC */,
-				21D7797D1A50D23F0038CC30 /* Calendar Side Date VC */,
 				21D7798C1A50D23F0038CC30 /* Event Info */,
 				21D7799D1A50D23F0038CC30 /* Flyer Detail VC */,
 				21D779A71A50D23F0038CC30 /* Spotify Navigation */,
@@ -1033,6 +1057,10 @@
 		21D7797D1A50D23F0038CC30 /* Calendar Side Date VC */ = {
 			isa = PBXGroup;
 			children = (
+				21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */,
+				21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */,
+				21D7794F1A50D2320038CC30 /* CalendarSideDateModel.h */,
+				21D779501A50D2320038CC30 /* CalendarSideDateModel.m */,
 				21D7797E1A50D23F0038CC30 /* CalendarSideDateActionCell.h */,
 				21D7797F1A50D23F0038CC30 /* CalendarSideDateActionCell.m */,
 				21D779801A50D23F0038CC30 /* CalendarSideDateDateHTKCollectionViewCell.h */,
@@ -1042,7 +1070,8 @@
 				21D779841A50D23F0038CC30 /* Cell */,
 				21D779881A50D23F0038CC30 /* Side Date Cell */,
 			);
-			path = "Calendar Side Date VC";
+			name = "Calendar Side Date VC";
+			path = "Deprecated/Calendar Side Date VC";
 			sourceTree = "<group>";
 		};
 		21D779841A50D23F0038CC30 /* Cell */ = {
@@ -1320,6 +1349,8 @@
 				214526C41A50DDE60092376F /* Cells */,
 				21D77A121A50D2520038CC30 /* SidewalkViewController.h */,
 				21D77A131A50D2520038CC30 /* SidewalkViewController.m */,
+				21356A421A575CFC0058E8D5 /* EmptyStateView.h */,
+				21356A431A575CFC0058E8D5 /* EmptyStateView.m */,
 				218E54661A5733B300E75616 /* SidewalkCollectionViewFlowLayout.h */,
 				218E54671A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m */,
 				214526C51A50DDF60092376F /* Model */,
@@ -1342,6 +1373,16 @@
 		21D77A351A50D2730038CC30 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2151CD561A5E4513005AFA94 /* OpenSans-Regular.ttf */,
+				2151CD571A5E4513005AFA94 /* OpenSans-Light.ttf */,
+				2151CD581A5E4513005AFA94 /* OpenSans-LightItalic.ttf */,
+				2151CD591A5E4513005AFA94 /* OpenSans-Bold.ttf */,
+				2151CD5A1A5E4513005AFA94 /* OpenSans-SemiboldItalic.ttf */,
+				2151CD5B1A5E4513005AFA94 /* OpenSans-BoldItalic.ttf */,
+				2151CD5C1A5E4513005AFA94 /* OpenSans-ExtraBold.ttf */,
+				2151CD5D1A5E4513005AFA94 /* OpenSans-ExtraBoldItalic.ttf */,
+				2151CD5E1A5E4513005AFA94 /* OpenSans-Italic.ttf */,
+				2151CD5F1A5E4513005AFA94 /* OpenSans-Semibold.ttf */,
 				21D77A361A50D2730038CC30 /* Lobster.ttf */,
 			);
 			path = Resources;
@@ -1466,6 +1507,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2151CD601A5E47A1005AFA94 /* OpenSans-Regular.ttf in Resources */,
+				2151CD611A5E47A1005AFA94 /* OpenSans-Light.ttf in Resources */,
+				2151CD621A5E47A1005AFA94 /* OpenSans-LightItalic.ttf in Resources */,
+				2151CD631A5E47A1005AFA94 /* OpenSans-Bold.ttf in Resources */,
+				2151CD641A5E47A1005AFA94 /* OpenSans-SemiboldItalic.ttf in Resources */,
+				2151CD651A5E47A1005AFA94 /* OpenSans-BoldItalic.ttf in Resources */,
+				2151CD661A5E47A1005AFA94 /* OpenSans-ExtraBold.ttf in Resources */,
+				2151CD671A5E47A1005AFA94 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				2151CD681A5E47A1005AFA94 /* OpenSans-Italic.ttf in Resources */,
+				2151CD691A5E47A1005AFA94 /* OpenSans-Semibold.ttf in Resources */,
 				21D779BC1A50D23F0038CC30 /* EventInfoFlyerInformationCell.xib in Resources */,
 				21D779BA1A50D23F0038CC30 /* EventInfoFlyerDescriptionCell.xib in Resources */,
 				214526F51A50EC4A0092376F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
@@ -1586,11 +1637,13 @@
 				21D779661A50D2320038CC30 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				21D779561A50D2320038CC30 /* ColorUtils.m in Sources */,
 				21D779571A50D2320038CC30 /* Colours.m in Sources */,
+				21356A441A575CFC0058E8D5 /* EmptyStateView.m in Sources */,
 				214526FC1A51E1D10092376F /* UIAlertView+Blocks.m in Sources */,
 				21D77A271A50D2520038CC30 /* FlyerDB.m in Sources */,
 				211E014F1A53383900B17343 /* KxMenu.m in Sources */,
 				218E54651A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m in Sources */,
 				21D779701A50D2320038CC30 /* UIView+RoundedCorners.m in Sources */,
+				21FA0D111A60E78800DDEDCC /* CategoryFilterView.m in Sources */,
 				21D779531A50D2320038CC30 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
 				21D779B11A50D23F0038CC30 /* CalendarSideDateDateHTKCollectionViewCell.m in Sources */,
 				21D77A3D1A50D2880038CC30 /* Model.xcdatamodeld in Sources */,

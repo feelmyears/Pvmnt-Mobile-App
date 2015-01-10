@@ -16,4 +16,5 @@
 - (void)setupCellWithImage:(CD_Image *)image;
 - (void)setupCellWithFlyer:(CD_V2_Flyer *)flyer;
 + (CGSize)sizeForCellWithImage:(CD_Image *)image;
+- (void)toggleTitleComponentsHidden;
 @end

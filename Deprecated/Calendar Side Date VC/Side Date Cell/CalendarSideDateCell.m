@@ -41,7 +41,7 @@
     NSMutableAttributedString *dateString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@\n%@", dayFormattedString, [dayInWeekFormattedString lowercaseString], monthFormattedString]];
     
     
-    UIColor *textColor = [UIColor blackColor];
+    UIColor *textColor = [UIColor whiteColor];
     [dateString addAttributes:@{
                                 NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:20],
                                 NSForegroundColorAttributeName: textColor
@@ -74,6 +74,7 @@
 
 - (void)awakeFromNib {
     // Initialization code
+
 }
 
 @end

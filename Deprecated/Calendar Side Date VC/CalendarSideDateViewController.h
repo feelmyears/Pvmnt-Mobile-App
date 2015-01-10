@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CalendarSideDateModel.h"
-
-@interface CalendarSideDateViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, CalendarSideDateModelDelegate>
+#import "PvmntViewController.h"
+@interface CalendarSideDateViewController : PvmntViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, CalendarSideDateModelDelegate>
 
 @end

@@ -25,6 +25,7 @@
 @property (strong, nonatomic) MMDrawerController *drawerController;
 @property (strong, nonatomic) UINavigationController *sidewalkViewController;
 @property (strong, nonatomic) UINavigationController *calendarFeedViewController;
+@property (strong, nonatomic) UINavigationController *sideDateCalendarViewController;
 @end
 
 @implementation AppDelegate
@@ -87,6 +88,15 @@
         _calendarFeedViewController = [storyboard instantiateViewControllerWithIdentifier:@"Calendar Feed VC Nav"];
     }
     return _calendarFeedViewController;
+}
+
+- (UINavigationController *)sideDateCalendarViewController
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    if (!_sideDateCalendarViewController) {
+        _sideDateCalendarViewController = [storyboard instantiateViewControllerWithIdentifier:@"Calendar Feed VC Nav"];
+    }
+    return _sideDateCalendarViewController;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

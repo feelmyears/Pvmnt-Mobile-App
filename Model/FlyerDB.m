@@ -120,16 +120,26 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
             
             dispatch_group_wait(self.restfulServicesGroup, DISPATCH_TIME_FOREVER);
             
+            dispatch_async(self.concurrentRestfulServicesQueue, ^{
+                NSLog(@"Entered eternal group wait");
+                dispatch_group_wait(self.imageDownloadingGroup, DISPATCH_TIME_FOREVER);
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+                });
+            });
+            NSLog(@"Entered temporary group wait");
             dispatch_group_wait(self.imageDownloadingGroup, 5 * NSEC_PER_SEC);
+            
             
             [NSThread sleepForTimeInterval:1.5];
             dispatch_sync(dispatch_get_main_queue(), ^{
-                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+//                [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
                 [self deleteOldFlyers];
                 if (completionBlock) {
                     completionBlock();
                 }
             });
+            
         });
     }
 }

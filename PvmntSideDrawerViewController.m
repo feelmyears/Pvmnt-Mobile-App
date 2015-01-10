@@ -12,6 +12,7 @@
 #import "PvmntPView.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "SchoolPickerViewController.h"
+#import "PvmntStyleKit.h"
 
 @interface PvmntSideDrawerViewController ()
 @property (strong, nonatomic) UITableView *tableView;
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	[self.navigationController setNavigationBarHidden:YES animated:NO];
 	
     if(OSVersionIsAtLeastiOS7()){
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
@@ -28,7 +30,8 @@
     else {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     }
-    
+	self.extendedLayoutIncludesOpaqueBars = YES;
+	self.edgesForExtendedLayout = UIRectEdgeTop;
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.view addSubview:self.tableView];
@@ -50,7 +53,7 @@
                                                    alpha:1.0];
     }
 	 */
-	[self.tableView setBackgroundColor:[UIColor whiteColor]];
+	[self.tableView setBackgroundColor:[PvmntStyleKit mainSidebarMenu]];
 	self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLineEtched];
     [self.view setBackgroundColor:[UIColor colorWithRed:66.0/255.0
@@ -76,6 +79,8 @@
                                            alpha:1.0];
     navBarTitleDict = @{NSForegroundColorAttributeName:titleColor};
     [self.navigationController.navigationBar setTitleTextAttributes:navBarTitleDict];
+	[self.navigationController.navigationBar setBackgroundImage:[PvmntStyleKit imageOfSidebarMenuBackgroundImage] forBarMetrics:UIBarMetricsDefault];
+//	[self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
 	
 	CGSize logoSize = CGSizeMake(89.95, 113.5);
 	PvmntPView *logo = [[PvmntPView alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.tableView.bounds)-logoSize.width/2.0,
@@ -166,7 +171,8 @@
 			break;
 	}
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+	cell.textLabel.textColor = [UIColor whiteColor];
+	cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

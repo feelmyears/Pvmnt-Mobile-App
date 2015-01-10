@@ -7,8 +7,8 @@
 //
 
 #import "SidewalkViewController.h"
-#import "UICollectionView+TLTransitioning.h"
-#import "TLTransitionLayout.h"
+#import <TLLayoutTransitioning/TLTransitionLayout.h>
+#import <TLLayoutTransitioning/UICollectionView+TLTransitioning.h>
 #import "FlyerDetailCollectionViewController.h"
 #import "BFNavigationBarDrawer.h"
 #import "SearchBar.h"
@@ -54,6 +54,8 @@
 #import "FeedEventInfoHTKCollectionViewCell.h"
 #import "SidewalkCollectionViewFlowLayout.h"
 #import <UINavigationBar+Addition/UINavigationBar+Addition.h>
+#import "EmptyStateView.h"
+#import "CategoryFilterView.h"
 
 static NSString *SidewalkTitleHTKCollectionViewCellIdentifier       = @"SidewalkTitleHTKCollectionViewCellIdentifier";
 static NSString *SidewalkCombinedHTKCollectionViewCellIdentifier    = @"SidewalkCombinedHTKCollectionViewCellIdentifier";
@@ -64,6 +66,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 @interface SidewalkViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *sliderView;
 @property (strong, nonatomic) SidewalkModel *model;
 @property (nonatomic) BOOL refreshing;
 @property (strong, nonatomic) NSMutableDictionary *filterDictionary;
@@ -103,17 +106,17 @@ static CGFloat spacing = 12.5;
     }
     return _dropdownMenu;
 }
-
+/*
 - (CategorySliderView *)categoryFilterSlider
 {
     if (!_categoryFilterSlider) {
         NSMutableArray *categoryNames = [[[[FlyerDB sharedInstance] allCategoriesSortedByName] valueForKey:@"name"] mutableCopy];
         [categoryNames insertObject:@"all" atIndex:0];
         NSMutableArray *categoryViews = [[NSMutableArray alloc] initWithCapacity:categoryNames.count];
-        UIColor *highlightedColor = [PvmntStyleKit mainBlack];
-        UIColor *standardColor = [PvmntStyleKit mainBlack];
-        CGFloat sliderHeight = 45.f;
-        UIFont *font = [UIFont fontWithName:@"Lobster" size:20];
+        UIColor *highlightedColor = [PvmntStyleKit pureWhite];
+        UIColor *standardColor = [PvmntStyleKit pureWhite];
+        CGFloat sliderHeight = 35.f;
+        UIFont *font = [UIFont fontWithName:@"OpenSans" size:19];
         for (NSString *categoryName in categoryNames) {
             CGFloat width = [categoryName sizeWithAttributes:@{NSFontAttributeName:font}].width;
             
@@ -135,11 +138,13 @@ static CGFloat spacing = 12.5;
                                                        }
                                                        [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
                                                    }];
-        [_categoryFilterSlider setBackgroundColor:[UIColor whiteColor]];
+        [_categoryFilterSlider setBackgroundColor:[PvmntStyleKit calendarSidebar]];
 //        [self.view addSubview:_categoryFilterSlider];
     }
     return _categoryFilterSlider;
 }
+ */
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -191,6 +196,7 @@ static CGFloat spacing = 12.5;
 //    [self followScrollView:self.collectionView usingTopConstraint:self.topLayoutConstraint];
 //    [self.tabBarController.shyTabBar setTrackingView:self.collectionView];
     
+
     
     [self.collectionView addPullToRefreshWithActionHandler:^{
         self.refreshing = YES;
@@ -205,6 +211,19 @@ static CGFloat spacing = 12.5;
     [self initialFetch];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    CGSize emptyStateSize = CGSizeMake(285, 183);
+    self.collectionView.emptyState_view = [[EmptyStateView alloc] initWithFrame:CGRectMake(CGRectGetMidX(self.view.frame) - (emptyStateSize.width)/2.0,
+                                                                                           CGRectGetMidY(self.view.frame) - (emptyStateSize.height)/2.0,
+                                                                                           emptyStateSize.width,
+                                                                                           emptyStateSize.height)];
+    self.collectionView.emptyState_view.backgroundColor = [UIColor clearColor];
+    self.collectionView.emptyState_showAnimationDuration = 0.2;
+    self.collectionView.emptyState_hideAnimationDuration = 0;
+    self.collectionView.emptyState_showDelay = 0.1;
+}
 - (void)handleSchoolChosenNotification
 {
     [self initialFetch];
@@ -271,7 +290,15 @@ static CGFloat spacing = 12.5;
             for (CD_V2_Category *category in [[FlyerDB sharedInstance] allCategoriesSortedByName]) {
                 [self.filterDictionary setObject:@(YES) forKey:category.name];
             }
-            [self handleFilterButtonTap];
+//            [self handleFilterButtonTap];
+            
+            [self.sliderView addSubview:[[CategoryFilterView alloc] initWithFrame:self.sliderView.frame andCategorySelectionBlock:^(UIView *categoryView, NSInteger categoryIndex) {
+                if (self.model.expandedSection >= 0 && self.model.filterString && ![self.model.filterString isEqualToString:((PvmntCategorySliderLabel *)categoryView).text]) {
+                    [self toggleDescriptionCellViewAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:self.model.expandedSection]];
+                }
+                [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
+                
+            }]];
         }];
     }
 }
@@ -317,9 +344,9 @@ static CGFloat spacing = 12.5;
         case 0:{
             SidewalkFlyerImageHTKCollectionViewCell *imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:SidewalkFlyerImageHTKCollectionViewCellIdentifier forIndexPath:indexPath];
             CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:indexPath];
-//            [imageCell setupCellWithImage:flyerForCell.image];
             [imageCell setupCellWithFlyer:flyerForCell];
             imageCell.layer.zPosition = 0;
+//            imageCell.clipsToBounds = YES;
             return imageCell;
         }
         case 1:{
@@ -327,6 +354,7 @@ static CGFloat spacing = 12.5;
             CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:indexPath];
             [feedCell setupCellWithFlyer:flyerForCell];
             feedCell.layer.zPosition = -1;
+            feedCell.clipsToBounds = YES;
             return feedCell;
         }
         default:
@@ -379,7 +407,31 @@ static CGFloat spacing = 12.5;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
+    if ([self.collectionView.collectionViewLayout isMemberOfClass:[SidewalkCollectionViewFlowLayout class]]) {
+        UICollectionViewFlowLayout *newLayout = [[UICollectionViewFlowLayout alloc] init];
+        newLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        self.collectionView.pagingEnabled = YES;
+        
+        TLTransitionLayout *layout = (TLTransitionLayout *)[collectionView transitionToCollectionViewLayout:newLayout duration:0.3 easing:QuarticEaseInOut completion:nil];
+        CGPoint toOffset = [collectionView toContentOffsetForLayout:layout indexPaths:@[indexPath] placement:TLTransitionLayoutIndexPathPlacementTop];
+        layout.toContentOffset = toOffset;
+    } else {
+        SidewalkCollectionViewFlowLayout *newLayout = [[SidewalkCollectionViewFlowLayout alloc] init];
+        newLayout.sectionInset = UIEdgeInsetsZero;
+        self.collectionView.pagingEnabled = NO;
+
+        TLTransitionLayout *layout = (TLTransitionLayout *)[collectionView transitionToCollectionViewLayout:newLayout duration:0.3 easing:QuarticEaseInOut completion:nil];
+        CGPoint toOffset = [collectionView toContentOffsetForLayout:layout indexPaths:@[indexPath] placement:TLTransitionLayoutIndexPathPlacementTop];
+        layout.toContentOffset = toOffset;
+    }
+    */
     [self toggleDescriptionCellViewAtIndexPath:indexPath];
+}
+
+- (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout
+{
+    return [[TLTransitionLayout alloc] initWithCurrentLayout:fromLayout nextLayout:toLayout];
 }
 
 - (void)toggleDescriptionCellViewAtIndexPath:(NSIndexPath *)indexPath
@@ -388,17 +440,18 @@ static CGFloat spacing = 12.5;
         NSIndexPath *indexPathToRemove = [self.model showDescriptionCellForSection:nil];
         [self.collectionView performBatchUpdates:^{
             [self.collectionView deleteItemsAtIndexPaths:@[indexPathToRemove]];
-            
+            [(SidewalkFlyerImageHTKCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section]] toggleTitleComponentsHidden];
         } completion:^(BOOL finished) {
-//            [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         }];
     } else {
         NSIndexPath *descriptionIndexPath = [NSIndexPath indexPathForRow:1 inSection:indexPath.section];
         NSIndexPath *indexPathToRemove = [self.model showDescriptionCellForSection:descriptionIndexPath];
         [self.collectionView performBatchUpdates:^{
             [self.collectionView insertItemsAtIndexPaths:@[descriptionIndexPath]];
+            [(SidewalkFlyerImageHTKCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section]] toggleTitleComponentsHidden];
             if (indexPathToRemove) {
                 [self.collectionView deleteItemsAtIndexPaths:@[indexPathToRemove]];
+                [(SidewalkFlyerImageHTKCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section]] toggleTitleComponentsHidden];
             }
             [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section] atScrollPosition:UICollectionViewScrollPositionTop animated:YES];
         } completion:^(BOOL finished) {

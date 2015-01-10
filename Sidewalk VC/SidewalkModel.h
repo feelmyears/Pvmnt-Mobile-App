@@ -12,12 +12,8 @@
 @class SidewalkModel;
 @protocol SidewalkModelDelegate <NSObject>
 @required
-
 - (void)removeSectionsInIndexSet:(NSIndexSet *)sectionsToRemove addSectionsIndexSet:(NSIndexSet *)sectionsToAdd;
-
 @optional
-- (void)beginBatchUpdate;
-- (void)endBatchUpdate;
 - (void)removeItemsAtIndexPaths:(NSArray *)indexPaths;
 - (void)insertItemsAtIndexPaths:(NSArray *)indexPaths;
 @end

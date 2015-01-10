@@ -37,6 +37,7 @@ pod 'ObjcAssociatedObjectHelpers', '1.2.1'
 pod 'libextobjc/EXTScope', '0.4'
 pod 'JRSwizzle', '1.0'
 
+pod 'TLLayoutTransitioning', '~> 1.0'
 #platform :ios, '7.0'
 #    pod 'ECSlidingViewController', '~> 2.0.3'
 end

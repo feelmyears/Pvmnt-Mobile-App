@@ -14,21 +14,21 @@
 @protocol CalendarSideDateModelDelegate <NSObject>
 
 @required
-- (void)removeItemsAtIndexPath:(NSArray *)indexPaths;
-- (void)insertItemAtIndexPath:(NSIndexPath *)indexPath;
-
+- (void)removeItemsAtIndexes:(NSArray *)indexesToRemove addItemsAtIndexes:(NSArray *)indexesToAdd dateSectionsToRemove:(NSIndexSet *)sectionsToRemove dateSectionsToAdd:(NSIndexSet *)sectionsToAdd;
 @optional
-- (void)beginBatchUpdate;
-- (void)endBatchUpdate;
+- (void)removeItemsAtIndexPaths:(NSArray *)indexPaths;
+- (void)insertItemsAtIndexPaths:(NSArray *)indexPaths;
 @end
 
 @interface CalendarSideDateModel : NSObject
 @property (weak, nonatomic) id<CalendarSideDateModelDelegate> delegate;
-
+@property (strong, nonatomic) NSString *filterString;
 - (NSUInteger)numberOfSections;
 - (NSUInteger)numberOfItemsInSection:(NSUInteger)section;
-- (CD_V2_Flyer *)flyerAtIndexPath:(NSIndexPath *)indexPath;
-- (NSArray *)flyersForSection:(NSUInteger)section;
 - (NSDate *)dateForSection:(NSUInteger)section;
+- (void)refreshDatabase;
+- (CD_V2_Flyer *)flyerAtIndexPath:(NSIndexPath *)indexPath;
+- (NSArray *)flyersInSection:(NSUInteger)section;
+- (void)filterWithCategoryName:(NSString *)categoryName;
 
 @end

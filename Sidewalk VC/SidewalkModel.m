@@ -12,12 +12,26 @@
 @interface SidewalkModel()
 @property (strong, nonatomic) FlyerDB *database;
 @property (strong, nonatomic) NSMutableArray *dataSource;
-@property (strong, nonatomic) NSMutableArray *nextDataSource;
 @property (nonatomic) NSInteger expandedSection;
+@property (strong, nonatomic) NSTimer *updateTimer;
 @end
 
 
 @implementation SidewalkModel
+- (NSTimer *)updateTimer
+{
+    if (!_updateTimer) {
+        _updateTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(handleTimerFire) userInfo:nil repeats:NO];
+    }
+    return _updateTimer;
+}
+                        
+- (void)handleTimerFire
+{
+    [self handleDatabaseChange];
+    self.updateTimer = nil;
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -45,43 +59,47 @@
 
 - (void)handleRemovedFlyers:(NSNotification *)notification
 {
-    NSArray *flyerIdsToRemove = [notification.userInfo allKeys];
-    NSMutableArray *indexPathsToRemove = [[NSMutableArray alloc] initWithCapacity:flyerIdsToRemove.count];
+//    NSArray *flyerIdsToRemove = [notification.userInfo allKeys];
+//    NSMutableArray *indexPathsToRemove = [[NSMutableArray alloc] initWithCapacity:flyerIdsToRemove.count];
+//    
+//    for (int section = 0; section < [self numberOfSections]; section ++) {
+//        for (int row = 0; row < [self numberOfItemsInSection:section]; row ++) {
+//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+//            CD_V2_Flyer *flyer = [self flyerAtIndexPath:indexPath];
+//            if ([flyerIdsToRemove containsObject:flyer.flyerId]) {
+//                [indexPathsToRemove addObject:indexPath];
+//            }
+//            if (indexPathsToRemove.count == flyerIdsToRemove.count) {
+//                break;
+//            }
+//        }
+//    }
+//    
+//    [self.delegate removeItemsAtIndexPaths:indexPathsToRemove];
     
-    for (int section = 0; section < [self numberOfSections]; section ++) {
-        for (int row = 0; row < [self numberOfItemsInSection:section]; row ++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-            CD_V2_Flyer *flyer = [self flyerAtIndexPath:indexPath];
-            if ([flyerIdsToRemove containsObject:flyer.flyerId]) {
-                [indexPathsToRemove addObject:indexPath];
-            }
-            if (indexPathsToRemove.count == flyerIdsToRemove.count) {
-                break;
-            }
-        }
-    }
-    
-    [self.delegate removeItemsAtIndexPaths:indexPathsToRemove];
+    [self updateTimer];
 }
 
 - (void)handleAddedFlyer:(NSNotification *)notification
 {
-    CD_V2_Flyer *flyerToAdd = notification.object;
-    NSUInteger section = [[self.database allFlyersSortedByUploadDate] indexOfObject:flyerToAdd inSortedRange:NSMakeRange(0, [self.database allFlyersSortedByUploadDate].count) options:NSBinarySearchingInsertionIndex usingComparator:^NSComparisonResult(id obj1, id obj2) {
-        return [((CD_V2_Flyer*)obj1).updated_at compare:((CD_V2_Flyer *)obj2).updated_at];
-    }];
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
-    NSIndexPath *indexPath2 = [NSIndexPath indexPathForRow:1 inSection:section];
-    
-    [self.delegate insertItemsAtIndexPaths:[NSArray arrayWithObjects:indexPath, indexPath2, nil]];
+//    CD_V2_Flyer *flyerToAdd = notification.object;
+//    NSUInteger section = [[self.database allFlyersSortedByUploadDate] indexOfObject:flyerToAdd inSortedRange:NSMakeRange(0, [self.database allFlyersSortedByUploadDate].count) options:NSBinarySearchingInsertionIndex usingComparator:^NSComparisonResult(id obj1, id obj2) {
+//        return [((CD_V2_Flyer*)obj1).updated_at compare:((CD_V2_Flyer *)obj2).updated_at];
+//    }];
+//    
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:section];
+//    
+//    [self.delegate insertItemsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil]];
 //    [self.delegate insertItemAtIndexPath:nil];
+    
+    [self updateTimer];
 }
 
 
 - (NSUInteger)numberOfItemsInSection:(NSUInteger)section
 {
     return (section == self.expandedSection) ? 2 : 1;
+//    return 1;
 }
 
 - (NSUInteger)numberOfSections
@@ -92,6 +110,11 @@
 - (CD_V2_Flyer *)flyerAtIndexPath:(NSIndexPath *)indexPath
 {
     return self.dataSource[indexPath.section];
+}
+
+- (void)handleDatabaseChange
+{
+    [self filterWithCategoryName:self.filterString];
 }
 
 - (void)filterWithCategoryName:(NSString *)categoryName

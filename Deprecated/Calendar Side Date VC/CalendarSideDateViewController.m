@@ -19,6 +19,11 @@
 #import "CalendarSideDateFlyerHTKCollectionViewCell.h"
 #import "CalendarSideDateModel.h"
 #import "CalendarSideDateDateHTKCollectionViewCell.h"
+#import "PvmntStyleKit.h"
+#import "CategoryFilterView.h"
+#import "PvmntCategorySliderLabel.h"
+#import <UINavigationBar+Addition/UINavigationBar+Addition.h>
+
 
 static CGFloat VERTICAL_PADDING = 10.f;
 static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"CalendarSideDateFlyerHTKCollectionViewCellIndentifier";
@@ -28,8 +33,8 @@ static BOOL useAutoLayoutCell = NO;
 @interface CalendarSideDateViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *sideDateCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *cellCollectionView;
+@property (weak, nonatomic) IBOutlet UIView *filterView;
 @property (strong, nonatomic) CalendarSideDateModel *model;
-@property (weak, nonatomic) IBOutlet CalendarSideDateActionCell *bottomActionCell;
 @property (strong, nonatomic) NSMutableDictionary *cellHeightDict;
 @end
 
@@ -38,6 +43,22 @@ static BOOL useAutoLayoutCell = NO;
 - (void)viewDidLoad {
     [super viewDidLoad];
    
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar hideBottomHairline];
+    
+    UIButton *pvmntLogo = [UIButton new];
+    [pvmntLogo setTitle:@"Pvmnt" forState:UIControlStateNormal];
+    pvmntLogo.titleLabel.font = [UIFont fontWithName:@"Lobster" size:30.];
+    [pvmntLogo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    self.navigationItem.titleView = pvmntLogo;
+    
+    self.tabBarController.tabBar.barTintColor = [UIColor whiteColor];
+    self.tabBarController.tabBar.tintColor = [UIColor blackColor];
+    self.tabBarController.tabBar.translucent = NO;
+    self.title = @"Sidewalk";
+    
     [self.cellCollectionView registerNib:[UINib nibWithNibName:@"CalendarListCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"Calendar List Cell"];
     [self.sideDateCollectionView registerNib:[UINib nibWithNibName:@"CalendarSideDateCell" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Side Date Cell"];
     [self.cellCollectionView registerClass:[CalendarSideDateFlyerHTKCollectionViewCell class] forCellWithReuseIdentifier:CalendarSideDateFlyerHTKCollectionViewCellIndentifier];
@@ -47,48 +68,34 @@ static BOOL useAutoLayoutCell = NO;
     self.sideDateCollectionView.dataSource = self;
     self.sideDateCollectionView.delegate = self;
     self.sideDateCollectionView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0);
+    self.sideDateCollectionView.backgroundColor = [PvmntStyleKit calendarSidebar];
     
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.minimumLineSpacing = 10.f;
-//    flowLayout.sectionInset = UIEdgesMake(0, 0, 10, 0);
-    flowLayout.estimatedItemSize = CGSizeMake(self.cellCollectionView.frame.size.width, DEFAULT_FLYER_CELL_SIZE.height);
-    [self.cellCollectionView setCollectionViewLayout:flowLayout];
+//    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+//    flowLayout.minimumLineSpacing = 10.f;
+//    flowLayout.minimumInteritemSpacing = 10.f;
+//    flowLayout.estimatedItemSize = CGSizeMake(self.cellCollectionView.frame.size.width, DEFAULT_FLYER_CELL_SIZE.height);
+//    [self.cellCollectionView setCollectionViewLayout:flowLayout];
     
     self.cellCollectionView.dataSource = self;
     self.cellCollectionView.delegate = self;
     self.cellCollectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+    self.cellCollectionView.backgroundColor = [PvmntStyleKit pureWhite];
     
     self.model = [[CalendarSideDateModel alloc] init];
     self.model.delegate = self;
     
     self.cellHeightDict = [[NSMutableDictionary alloc] init];
+    [self.model refreshDatabase];
 //    [self addActionCell];
 }
 
-- (void)addActionCell {
-    CGSize sizeForCell = [CalendarSideDateActionCell sizeForActionCellView];
-    CGRect rectForCell = CGRectMake(self.view.frame.size.width/2.0, self.view.frame.size.height - 20 - sizeForCell.height, sizeForCell.width, sizeForCell.height);
-    CalendarSideDateActionCell *actionCell = [[CalendarSideDateActionCell alloc] initWithFrame:rectForCell];
-    [self.view insertSubview:actionCell aboveSubview:self.cellCollectionView];
-    
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    view.backgroundColor = [UIColor blackColor];
-    [self.view insertSubview:view aboveSubview:self.cellCollectionView];
-    [self.view bringSubviewToFront:view];
-    
-    
-//    
-//    NSDictionary *viewDict = NSDictionaryOfVariableBindings(actionCell);
-//    NSDictionary *metricDict = @{@"cellWidth" : [NSNumber numberWithFloat:sizeForCell.width],
-//                                 @"cellHeight" : [NSNumber numberWithFloat:sizeForCell.height],
-//                                 @"bottomSpace" : @20};
-//    
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[actionCell(cellWidth)]" options:0 metrics:metricDict views:viewDict]];
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[actionCell(cellHeight)]-bottomSpace-|" options:0 metrics:metricDict views:viewDict]];
-//    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:actionCell attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-    
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.filterView addSubview:[[CategoryFilterView alloc] initWithFrame:self.filterView.frame andCategorySelectionBlock:^(UIView *categoryView, NSInteger categoryIndex) {
+        [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
+    }]];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -145,6 +152,7 @@ static BOOL useAutoLayoutCell = NO;
             
             NSDate *dateForSection = [self.model dateForSection:indexPath.section];
             header.dateForHeader = dateForSection;
+            header.backgroundColor = [PvmntStyleKit calendarSidebar];
             return header;
         }
     } else return nil;
@@ -171,31 +179,27 @@ static BOOL useAutoLayoutCell = NO;
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (collectionView == _sideDateCollectionView) {
-    
-        NSArray *flyersInSection = [self.model flyersForSection:indexPath.section];
-        CGFloat heightForCell = 0;
-        
-        CGSize defaultSize = DEFAULT_FLYER_CELL_SIZE;
-        for (CD_V2_Flyer *flyer in flyersInSection) {
-//            heightForCell += [CalendarSideDateFlyerHTKCollectionViewCell sizeForCellWithDefaultSize:defaultSize setupCellBlock:^id(id<HTKDynamicResizingCellProtocol> cellToSetup) {
-//                [((CalendarSideDateFlyerHTKCollectionViewCell *)cellToSetup) setupWithFlyer:flyer];
-//                return cellToSetup;
-//            }].height;
-            heightForCell += [self heightForFlyerCellWithFlyer:flyer];
+        NSUInteger section = indexPath.section;
+        NSUInteger numItemsInSection = [self.cellCollectionView numberOfItemsInSection:section];
+        CGFloat heightForCell = -[self collectionView:self.sideDateCollectionView layout:self.sideDateCollectionView.collectionViewLayout referenceSizeForHeaderInSection:section].height;
+        for (NSUInteger row = 0; row < numItemsInSection; row++) {
+            CGSize sizeForCellAtIndexPath = [self collectionView:self.cellCollectionView layout:self.cellCollectionView.collectionViewLayout sizeForItemAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+            heightForCell += sizeForCellAtIndexPath.height;
         }
         
-//        NSUInteger numEventsInSection = [self.cellCollectionView numberOfItemsInSection:indexPath.section];
-        NSUInteger numEventsInSection = flyersInSection.count;
-        heightForCell += 10 * (numEventsInSection) - [self collectionView:self.sideDateCollectionView layout:self.sideDateCollectionView.collectionViewLayout referenceSizeForHeaderInSection:indexPath.section].height;
+        NSUInteger numEventsInSection = numItemsInSection;
+        heightForCell += 10 * (numEventsInSection);
         
         return CGSizeMake(collectionView.frame.size.width, heightForCell);
     } else if (collectionView == _cellCollectionView) {
         CGSize defaultSize = DEFAULT_FLYER_CELL_SIZE;
         CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:indexPath];
-        return [CalendarSideDateFlyerHTKCollectionViewCell sizeForCellWithDefaultSize:defaultSize setupCellBlock:^id(id<HTKDynamicResizingCellProtocol> cellToSetup) {
+        CGSize cellSize = [CalendarSideDateFlyerHTKCollectionViewCell sizeForCellWithDefaultSize:defaultSize setupCellBlock:^id(id<HTKDynamicResizingCellProtocol> cellToSetup) {
             [((CalendarSideDateFlyerHTKCollectionViewCell *)cellToSetup) setupWithFlyer:flyerForCell];
             return cellToSetup;
         }];
+//        NSLog(@"Cell size for %@: \n[%f, %f]", flyerForCell.title, cellSize.height, cellSize.width);
+        return cellSize;
 
     } else return CGSizeMake(0, 0);
 }
@@ -237,22 +241,49 @@ static BOOL useAutoLayoutCell = NO;
     }
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    if (collectionView == _cellCollectionView) {
+        return UIEdgeInsetsMake(0, 0, 10, 0);
+    } else return UIEdgeInsetsZero;
+}
 
 #pragma mark - CalendarSideDateModelDelegate Implementation
 - (void)insertItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.sideDateCollectionView reloadData];
-    [self.cellCollectionView reloadData];
+//    [self.sideDateCollectionView reloadData];
+//    [self.cellCollectionView reloadData];
     
 }
 
 - (void)removeItemsAtIndexPath:(NSArray *)indexPaths
 {
-    [self.sideDateCollectionView reloadData];
-    [self.cellCollectionView reloadData];
+//    [self.sideDateCollectionView reloadData];
+//    [self.cellCollectionView reloadData];
 }
 
-
+- (void)removeItemsAtIndexes:(NSArray *)indexesToRemove addItemsAtIndexes:(NSArray *)indexesToAdd dateSectionsToRemove:(NSIndexSet *)sectionsToRemove dateSectionsToAdd:(NSIndexSet *)sectionsToAdd
+{
+    NSLog(@"Calling updating items at indexes");
+    @try
+    {
+//        [self.cellCollectionView performBatchUpdates:^{
+//            [self.cellCollectionView deleteItemsAtIndexPaths:indexesToRemove];
+//            [self.cellCollectionView deleteSections:sectionsToRemove];
+//            [self.cellCollectionView insertSections:sectionsToAdd];
+//            [self.cellCollectionView insertItemsAtIndexPaths:indexesToAdd];
+//        } completion:^(BOOL finished) {
+//            
+//        }];
+        [self.cellCollectionView reloadData];
+        [self.sideDateCollectionView reloadData];
+    }
+    @catch (NSException *except)
+    {
+        NSLog(@"DEBUG: failure to batch update.  %@", except.description);
+    }
+    
+}
 
 #pragma mark - Navigation
 

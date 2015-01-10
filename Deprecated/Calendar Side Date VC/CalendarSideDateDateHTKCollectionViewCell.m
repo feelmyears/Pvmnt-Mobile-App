@@ -28,12 +28,12 @@ static CGFloat cellPadding = 10.f;
 }
 
 - (void)setupView {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
 
     self.monthLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.monthLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.monthLabel.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:10];
-    self.monthLabel.textColor = [UIColor blackColor];
+    self.monthLabel.textColor = [UIColor whiteColor];
     self.monthLabel.numberOfLines = 1;
     self.monthLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.monthLabel.textAlignment = NSTextAlignmentLeft;
@@ -43,7 +43,7 @@ static CGFloat cellPadding = 10.f;
     self.dateNameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.dateNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.dateNameLabel.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:10];
-    self.dateNameLabel.textColor = [UIColor blackColor];
+    self.dateNameLabel.textColor = [UIColor whiteColor];
     self.dateNameLabel.numberOfLines = 1;
     self.dateNameLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.dateNameLabel.textAlignment = NSTextAlignmentLeft;
@@ -51,7 +51,7 @@ static CGFloat cellPadding = 10.f;
     self.dayLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.dayLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.dayLabel.font = [UIFont fontWithName:@"HelveticaNeue-Regular" size:80];
-    self.dayLabel.textColor = [UIColor blackColor];
+    self.dayLabel.textColor = [UIColor whiteColor];
     self.dayLabel.numberOfLines = 1;
     self.dayLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.dayLabel.textAlignment = NSTextAlignmentLeft;
