@@ -23,6 +23,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.alwaysBounceVertical = YES;
@@ -31,7 +32,11 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
     [self.collectionView registerClass:[EventInfoFlyerImageHTKCollectionViewCell class] forCellWithReuseIdentifier:EventInfoFlyerImageHTKCollectionViewCellIdentifier];
     [self.collectionView registerClass:[FeedEventInfoHTKCollectionViewCell class] forCellWithReuseIdentifier:FeedEventInfoHTKCollectionViewCellIdentifier];
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationItem.backBarButtonItem setTitle:@" "];
+}
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return 2;
