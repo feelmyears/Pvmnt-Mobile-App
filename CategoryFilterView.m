@@ -1,6 +1,6 @@
 //
 //  CategoryFilterView.m
-//  Pvmnt
+//  Pvmnts
 //
 //  Created by Phil Meyers IV on 1/9/15.
 //  Copyright (c) 2015 Pvmnt. All rights reserved.
@@ -20,6 +20,15 @@
 {
     if (self = [super initWithFrame:frame]) {
         [self setupViewWithBlock:block];
+        
+        CGRect frame = self.frame;
+        frame.size.width += 10;
+        frame.origin.x -= 5;
+
+        self.layer.masksToBounds = NO;
+        self.layer.shadowOffset = CGSizeMake(0, 1);
+        self.layer.shadowOpacity = 1;
+        self.layer.shadowRadius = 10;
     }
     
     return self;
