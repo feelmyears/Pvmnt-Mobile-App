@@ -21,6 +21,8 @@
     self.navigationItem.leftBarButtonItem = barButton;
     barButton.tintColor = [UIColor blackColor];
     // Do any additional setup after loading the view.
+    
+    
 }
 
 - (void)handleSideDrawerBarButtonTap

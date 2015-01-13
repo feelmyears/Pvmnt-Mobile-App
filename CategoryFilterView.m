@@ -10,7 +10,7 @@
 #import "CategorySliderView.h"
 #import "FlyerDB.h"
 #import "PvmntStyleKit.h"
-#import "PvmntCategorySliderLabel.h"
+
 @interface CategoryFilterView()
 @property (strong, nonatomic) CategorySliderView *sliderView;
 @end

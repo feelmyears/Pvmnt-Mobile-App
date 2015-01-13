@@ -13,6 +13,7 @@
 #import "SidewalkFlyerCollectionCell.h"
 #import "SidewalkModel.h"
 #import "PulldownMenu.h"
+#import "CalendarSideDateModel.h"
 
 @interface SidewalkViewController : PvmntViewController
 <

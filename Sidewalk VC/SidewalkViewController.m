@@ -75,6 +75,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 @property (strong, nonatomic) FilterTableViewController *filterTableVC;
 @property (weak, nonatomic) IBOutlet UIButton *titleViewButton;
 @property (strong, nonatomic) CategorySliderView *categoryFilterSlider;
+@property (nonatomic) BOOL smallCell;
 @end
 
 CGFloat const SIDEWALK_COLLECTION_VIEW_PADDING = 0.;
@@ -171,7 +172,8 @@ static CGFloat spacing = 12.5;
         [self performSegueWithIdentifier:@"Pick School Segue" sender:self];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSchoolChosenNotification) name:kSchoolPickerSchoolChosenNotification object:nil];
     }
-
+    
+    self.smallCell = NO;
     
     //CollectionView Setup
     [self.collectionView setDelegate:self];
@@ -385,7 +387,15 @@ static CGFloat spacing = 12.5;
     
     if (indexPath.row == 0) {
         CD_V2_Flyer *flyerForCell = [self.model flyerAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:indexPath.section]];
-        return [SidewalkFlyerImageHTKCollectionViewCell sizeForCellWithImage:flyerForCell.image];
+        CGSize fullSize = [SidewalkFlyerImageHTKCollectionViewCell sizeForCellWithImage:flyerForCell.image];
+
+        if (self.smallCell) {
+//            self.collectionView.contentInset = UIEdgeInsetsMake(0, 100, 0, 0);
+            return CGSizeMake(fullSize.width - 100, fullSize.height);
+        } else {
+//            self.collectionView.contentInset = UIEdgeInsetsZero;
+            return fullSize;
+        }
         
     } else {
         /*
@@ -430,8 +440,25 @@ static CGFloat spacing = 12.5;
     */
 //    [self toggleDescriptionCellViewAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"Flyer Close Up Segue" sender:[self.model flyerAtIndexPath:indexPath]];
+//    [self switchCellSize];
 }
 
+
+- (void)switchCellSize
+{
+//    self.smallCell = !self.smallCell;
+//    [self.collectionView.collectionViewLayout invalidateLayout];
+    [self.collectionView performBatchUpdates:^{
+        self.smallCell = !self.smallCell;
+        if (self.smallCell) {
+             self.collectionView.contentInset = UIEdgeInsetsMake(0, 100, 0, 0);
+        } else {
+            self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+
+        }
+    } completion:NULL];
+    
+}
 - (UICollectionViewTransitionLayout *)collectionView:(UICollectionView *)collectionView transitionLayoutForOldLayout:(UICollectionViewLayout *)fromLayout newLayout:(UICollectionViewLayout *)toLayout
 {
     return [[TLTransitionLayout alloc] initWithCurrentLayout:fromLayout nextLayout:toLayout];

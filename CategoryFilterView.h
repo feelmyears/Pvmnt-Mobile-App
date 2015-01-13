@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CategorySliderView.h"
-
+#import "PvmntCategorySliderLabel.h"
 @interface CategoryFilterView : UIView
 @property (strong, nonatomic) UIColor *selectedColor;
 @property (strong, nonatomic) UIColor *unselectedColor;

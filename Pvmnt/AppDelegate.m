@@ -76,7 +76,9 @@
 {
     if (!_sidewalkViewController) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        _sidewalkViewController = [storyboard instantiateViewControllerWithIdentifier:@"Sidewalk VC Nav"];
+//        _sidewalkViewController = [storyboard instantiateViewControllerWithIdentifier:@"Sidewalk VC Nav"];
+        _sidewalkViewController = [storyboard instantiateViewControllerWithIdentifier:@"Sidewalk Calendar VC Nav"];
+        
     }
     return _sidewalkViewController;
 }

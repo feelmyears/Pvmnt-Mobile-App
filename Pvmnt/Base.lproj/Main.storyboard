@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0i7-jB-lcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7619" y="2478"/>
+            <point key="canvasLocation" x="7587" y="3364"/>
         </scene>
         <!--Menu Table View Controller-->
         <scene sceneID="k5d-6e-QhA">
@@ -449,7 +449,127 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ExC-YJ-STZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6899" y="2391"/>
+            <point key="canvasLocation" x="6707" y="3247"/>
+        </scene>
+        <!--Calendar Sidewalk Nav-->
+        <scene sceneID="mW9-AO-437">
+            <objects>
+                <navigationController storyboardIdentifier="Sidewalk Calendar VC Nav" title="Calendar Sidewalk Nav" automaticallyAdjustsScrollViewInsets="NO" id="4W1-UA-aXZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VW9-Nd-Bjw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TfS-mg-5Cs" kind="relationship" relationship="rootViewController" id="gfe-Kk-qKX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10T-wZ-bKv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5938" y="4188"/>
+        </scene>
+        <!--Sidewalk Calendar View Controller-->
+        <scene sceneID="BBk-9Q-vaF">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="TfS-mg-5Cs" customClass="SidewalkCalendarViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E3W-MM-uuJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ujq-kd-4s5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b3E-QG-tOX">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bV4-B6-2iX">
+                                <rect key="frame" x="0.0" y="64" width="600" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Re9-sD-s4I"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GS7-Tk-mq2">
+                                <rect key="frame" x="0.0" y="104" width="60" height="496"/>
+                                <color key="backgroundColor" red="0.14223097439999999" green="0.30941062800000002" blue="0.66280691960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="mP0-Ck-SI9"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="spT-NC-31r" customClass="CSStickyHeaderFlowLayout">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Blank Side Cell" id="OTv-ox-OdP">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qyR-hP-Edh">
+                                <rect key="frame" x="0.0" y="104" width="600" height="496"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PdE-DA-KDT" customClass="NDCollectionViewFlowLayout">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Na3-BM-u7o">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qyR-hP-Edh" firstAttribute="top" secondItem="bV4-B6-2iX" secondAttribute="bottom" id="7Xs-c0-BWq"/>
+                            <constraint firstAttribute="trailing" secondItem="bV4-B6-2iX" secondAttribute="trailing" id="Fuh-48-j2e"/>
+                            <constraint firstItem="ujq-kd-4s5" firstAttribute="top" secondItem="GS7-Tk-mq2" secondAttribute="bottom" id="IrF-yZ-iqk"/>
+                            <constraint firstItem="qyR-hP-Edh" firstAttribute="leading" secondItem="b3E-QG-tOX" secondAttribute="leading" id="Knu-eQ-hvJ"/>
+                            <constraint firstItem="ujq-kd-4s5" firstAttribute="top" secondItem="qyR-hP-Edh" secondAttribute="bottom" id="bUR-uN-gNL"/>
+                            <constraint firstItem="bV4-B6-2iX" firstAttribute="leading" secondItem="b3E-QG-tOX" secondAttribute="leading" id="lAv-O8-uuj"/>
+                            <constraint firstItem="GS7-Tk-mq2" firstAttribute="top" secondItem="bV4-B6-2iX" secondAttribute="bottom" id="n7m-Qm-wSn"/>
+                            <constraint firstAttribute="trailing" secondItem="qyR-hP-Edh" secondAttribute="trailing" id="oyW-su-UCo"/>
+                            <constraint firstItem="GS7-Tk-mq2" firstAttribute="leading" secondItem="b3E-QG-tOX" secondAttribute="leading" id="s9K-AH-Api"/>
+                            <constraint firstItem="bV4-B6-2iX" firstAttribute="top" secondItem="E3W-MM-uuJ" secondAttribute="bottom" id="w2k-uF-zW6"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="xpd-cD-5d6">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BvM-BO-nNz">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" none="YES" button="YES" notEnabled="YES"/>
+                            </accessibility>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mainCollectionView" destination="qyR-hP-Edh" id="SX6-iO-j5M"/>
+                        <outlet property="sideCollectionView" destination="GS7-Tk-mq2" id="LzQ-4n-dQd"/>
+                        <outlet property="sliderView" destination="bV4-B6-2iX" id="jwg-SI-NgX"/>
+                        <outlet property="titleViewButton" destination="BvM-BO-nNz" id="EjX-aD-PcF"/>
+                        <segue destination="1gD-tl-2ck" kind="show" identifier="Flyer Close Up Segue" id="Wm9-T6-ltT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9AX-Fo-ypW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6766" y="4188"/>
         </scene>
         <!--Select a School-->
         <scene sceneID="Kjk-6E-Oqa">
@@ -565,7 +685,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8b-Hv-dtL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10591.5" y="2019"/>
+            <point key="canvasLocation" x="10185" y="2201"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="cho-Cu-Z6C">
@@ -607,8 +727,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Wm9-T6-ltT"/>
         <segue reference="H2i-01-751"/>
-        <segue reference="5W9-Ha-EHP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>
