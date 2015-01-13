@@ -46,6 +46,7 @@
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
+    /*
     UIViewController *leftSideDrawerViewController = [[PvmntSideDrawerViewController alloc] init];
     [leftSideDrawerViewController setRestorationIdentifier:@"PvmntSideDrawerViewControllerRestorationKey"];
     UINavigationController *leftSideNavController = [[UINavigationController alloc] initWithRootViewController:leftSideDrawerViewController];
@@ -69,6 +70,7 @@
     
     [self.window setTintColor:[UIColor blackColor]];
     [self.window setRootViewController:self.drawerController];
+     */
     return YES;
 }
 

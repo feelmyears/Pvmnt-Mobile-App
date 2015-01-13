@@ -63,7 +63,8 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     [self.sideCollectionView setDelegate:self];
     [self.sideCollectionView setDataSource:self];
     
-    
+    self.mainCollectionView.scrollsToTop = YES;
+    self.sideCollectionView.scrollsToTop = NO;
     
     
     self.mainCollectionView.pagingEnabled = NO;
