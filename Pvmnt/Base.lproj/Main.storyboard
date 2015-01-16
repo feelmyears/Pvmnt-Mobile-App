@@ -97,7 +97,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TY0-Gq-RwQ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OCL-Ap-SVR">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="OCL-Ap-SVR">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -480,17 +480,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bV4-B6-2iX">
-                                <rect key="frame" x="0.0" y="64" width="600" height="40"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Re9-sD-s4I"/>
+                                    <constraint firstAttribute="height" constant="44" id="Re9-sD-s4I"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GS7-Tk-mq2">
-                                <rect key="frame" x="0.0" y="104" width="60" height="496"/>
+                                <rect key="frame" x="0.0" y="108" width="70" height="492"/>
                                 <color key="backgroundColor" red="0.14223097439999999" green="0.30941062800000002" blue="0.66280691960000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="mP0-Ck-SI9"/>
+                                    <constraint firstAttribute="width" constant="70" id="mP0-Ck-SI9"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="spT-NC-31r" customClass="CSStickyHeaderFlowLayout">
                                     <size key="itemSize" width="50" height="50"/>
@@ -511,7 +511,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qyR-hP-Edh">
-                                <rect key="frame" x="0.0" y="104" width="600" height="496"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PdE-DA-KDT" customClass="NDCollectionViewFlowLayout">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -565,6 +565,7 @@
                         <outlet property="sliderView" destination="bV4-B6-2iX" id="jwg-SI-NgX"/>
                         <outlet property="titleViewButton" destination="BvM-BO-nNz" id="EjX-aD-PcF"/>
                         <segue destination="1gD-tl-2ck" kind="show" identifier="Flyer Close Up Segue" id="Wm9-T6-ltT"/>
+                        <segue destination="hYo-rH-u55" kind="presentation" identifier="Pick School Segue" animates="NO" id="rNi-UL-UCh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AX-Fo-ypW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -631,7 +632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03H-WA-rOl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9963" y="1126.5"/>
+            <point key="canvasLocation" x="8797" y="4208"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FfT-eK-Acs">
@@ -648,7 +649,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6w-Xx-CfE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9187.5" y="1126.5"/>
+            <point key="canvasLocation" x="8021" y="4208"/>
         </scene>
         <!--Sidewalk-->
         <scene sceneID="KpN-4m-q8o">
@@ -728,6 +729,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Wm9-T6-ltT"/>
+        <segue reference="rNi-UL-UCh"/>
         <segue reference="H2i-01-751"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

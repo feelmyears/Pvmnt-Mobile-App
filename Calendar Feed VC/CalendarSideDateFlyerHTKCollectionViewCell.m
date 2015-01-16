@@ -17,7 +17,7 @@
 @property (strong, nonatomic) UILabel *minorLabel;
 @end
 
-static CGFloat cellPadding = 7.5f;
+static CGFloat cellPadding = 5.f;
 static CGFloat imageViewSize = 73.f;
 static BOOL circularImageView = YES;
 static CGFloat nonCircularImageViewCornerRadius = 20.f;
@@ -68,10 +68,11 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
                                  @"zeroPadding": @0,
                                  @"verticalBuffer": @0,
                                  @"imageViewSize": [NSNumber numberWithFloat:imageViewSize],
-                                 @"zeroValue": @0};
+                                 @"zeroValue": @0,
+                                 @"cellInset": @75};
     
     
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_imageView(imageViewSize)]-(>=0)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(cellInset)-[_imageView(imageViewSize)]" options:0 metrics:metricDict views:viewDict]];
     
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_imageView]-(padding)-[_titleLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_imageView]-(padding)-[_minorLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
@@ -92,9 +93,9 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
     [self.minorLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
     
     CGSize defaultSize = DEFAULT_FLYER_CELL_SIZE;
-    self.titleLabel.preferredMaxLayoutWidth = defaultSize.width - 3 * [metricDict[@"padding"] floatValue] - [metricDict[@"imageViewSize"] floatValue];
+    self.titleLabel.preferredMaxLayoutWidth = defaultSize.width - 2 * [metricDict[@"padding"] floatValue] - [metricDict[@"imageViewSize"] floatValue] - [metricDict[@"cellInset"] floatValue];
     
-    self.minorLabel.preferredMaxLayoutWidth = defaultSize.width - 3 * [metricDict[@"padding"] floatValue] - [metricDict[@"imageViewSize"] floatValue];
+    self.minorLabel.preferredMaxLayoutWidth = defaultSize.width - 2 * [metricDict[@"padding"] floatValue] - [metricDict[@"imageViewSize"] floatValue] - [metricDict[@"cellInset"] floatValue];
     
 }
 
@@ -107,7 +108,7 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
 //    self.minorLabel.text = ([flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length) ? [NSString stringWithFormat:@"%@ | %@", [flyer.event_time shortTimeString], [flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]] : [flyer.event_time shortTimeString];
     self.minorLabel.text = flyer.event_time.shortTimeString;
     self.imageView.layer.borderWidth = .5;
-    self.imageView.layer.borderColor = [PvmntStyleKit calendarSidebar].CGColor;
+    self.imageView.layer.borderColor = [PvmntStyleKit gold].CGColor;
 }
 
 

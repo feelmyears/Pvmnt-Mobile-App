@@ -14,6 +14,9 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <FormatterKit/TTTAddressFormatter.h>
 #import <MapKit/MapKit.h>
+#import "FlyerCloseLookButtonView.h"
+#import "FlyerCloseLookIconButton.h"
+#import <BlocksKit/BlocksKit+UIKit.h>
 
 
 @interface FeedEventInfoHTKCollectionViewCell()
@@ -21,9 +24,13 @@
 @property (strong, nonatomic) UILabel *locationLabel;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) TTTAttributedLabel *descriptionLabel;
+@property (strong, nonatomic) UIView *hairline;
+@property (strong, nonatomic) FlyerCloseLookIconButton *addToCalButton;
+@property (strong, nonatomic) FlyerCloseLookIconButton *shareEventButton;
+@property (strong, nonatomic) FlyerCloseLookIconButton *moreButton;
 @end
 
-static CGFloat padding = 10;
+static CGFloat padding = 7.5;
 
 @implementation FeedEventInfoHTKCollectionViewCell
 - (instancetype)initWithFrame:(CGRect)frame
@@ -36,36 +43,41 @@ static CGFloat padding = 10;
 
 - (void)setupView
 {
-    self.backgroundColor = [PvmntStyleKit calendarSidebar];
+    self.backgroundColor = [PvmntStyleKit pureWhite];
+    
+    self.hairline = [[UIView alloc] initWithFrame:CGRectZero];
+    self.hairline.translatesAutoresizingMaskIntoConstraints = NO;
+    self.hairline.backgroundColor = [PvmntStyleKit mainBlack];
+    self.hairline.alpha = .75;
     
     self.timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.timeLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.timeLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-    self.timeLabel.textColor = [UIColor whiteColor];
+    self.timeLabel.font = [UIFont fontWithName:@"OpenSans" size:15];
+    self.timeLabel.textColor = [PvmntStyleKit mainBlack];
     self.timeLabel.numberOfLines = 0;
     self.timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.timeLabel.textAlignment = NSTextAlignmentLeft;
     
     self.locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.locationLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.locationLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-    self.locationLabel.textColor = [UIColor whiteColor];
+    self.locationLabel.font = [UIFont fontWithName:@"OpenSans" size:15];
+    self.locationLabel.textColor = [PvmntStyleKit mainBlack];
     self.locationLabel.numberOfLines = 0;
     self.locationLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.locationLabel.textAlignment = NSTextAlignmentLeft;
     
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.font = [UIFont fontWithName:@"OpenSans-Bold" size:18];
+    self.titleLabel.textColor = [PvmntStyleKit mainBlack];
     self.titleLabel.numberOfLines = 0;
     self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.titleLabel.textAlignment = NSTextAlignmentLeft;
     
     self.descriptionLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
     self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.descriptionLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    self.descriptionLabel.textColor = [UIColor whiteColor];
+    self.descriptionLabel.font = [UIFont fontWithName:@"OpenSans" size:15];
+    self.descriptionLabel.textColor = [PvmntStyleKit mainBlack];
     self.descriptionLabel.numberOfLines = 0;
     self.descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.descriptionLabel.textAlignment = NSTextAlignmentLeft;
@@ -83,22 +95,50 @@ static CGFloat padding = 10;
     self.descriptionLabel.enabledTextCheckingTypes = NSTextCheckingTypeAddress | NSTextCheckingTypeLink | NSTextCheckingTypePhoneNumber;
     self.descriptionLabel.delegate = self;
     
+    CGFloat buttonSpacing = 0.5;
+    CGSize flyerCloseLookButtonSize = CGSizeMake((DEFAULT_FEED_EVENT_INFO_CELL_SIZE.width - 3*buttonSpacing)/3.0, 40);
+    NSUInteger i = 0;
+    self.addToCalButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width + buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"Add to cal" image:[UIImage imageNamed:@"add_to_calendar_icon"]];
+    [self.addToCalButton addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+        NSLog(@"Tapped add to calendar");
+    }]];
+    
+    self.shareEventButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width+buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"Share flyer" image:[UIImage imageNamed:@"share_event_icon"]];
+    [self.shareEventButton addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+        NSLog(@"Tapped share event");
+    }]];
+    
+    self.moreButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width +buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"More" image:[UIImage imageNamed:@"more_icon"]];
+    [self.moreButton addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
+        NSLog(@"Tapped more");
+    }]];
+    
+    
     [self.contentView addSubview:self.timeLabel];
     [self.contentView addSubview:self.locationLabel];
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.descriptionLabel];
+    [self.contentView addSubview:self.hairline];
+    [self.contentView addSubview:self.addToCalButton];
+    [self.contentView addSubview:self.shareEventButton];
+    [self.contentView addSubview:self.moreButton];
     
-    NSDictionary *viewDict = NSDictionaryOfVariableBindings(_timeLabel, _locationLabel, _titleLabel, _descriptionLabel);
-    NSDictionary *metricDict = @{@"padding" : @(padding)};
+    NSDictionary *viewDict = NSDictionaryOfVariableBindings(_timeLabel, _locationLabel, _titleLabel, _descriptionLabel, _hairline, _addToCalButton, _shareEventButton, _moreButton);
+    NSDictionary *metricDict = @{@"padding" : @(padding),
+                                 @"buttonHeight" : @(flyerCloseLookButtonSize.height),
+                                 @"buttonWidth" : @(flyerCloseLookButtonSize.width)};
     
     //Horizontal Constraints
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_titleLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_locationLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_timeLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_descriptionLabel]-(>=padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[_hairline]-(padding)-|" options:0 metrics:metricDict views:viewDict]];
+
     
     //Vertical Constraints
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(padding)-[_titleLabel]-(padding)-[_timeLabel]-(0)-[_locationLabel]-(padding)-[_descriptionLabel]-(padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(buttonHeight)-[_titleLabel]-(0)-[_timeLabel]-(0)-[_locationLabel]-(padding)-[_hairline(0.5)]-(padding)-[_descriptionLabel]-(padding)-|" options:0 metrics:metricDict views:viewDict]];
+    
     
     
     for (UILabel *label in @[self.descriptionLabel, self.titleLabel, self.timeLabel, self.locationLabel]) {
@@ -114,11 +154,11 @@ static CGFloat padding = 10;
 {
     
     self.titleLabel.text = flyer.title;
-    self.timeLabel.text = [NSString stringWithFormat:@"Time: %@", flyer.event_time.shortTimeString];
+    self.timeLabel.text = [NSString stringWithFormat:@"Date: %@, %@", flyer.event_time.mediumDateString, flyer.event_time.shortTimeString];
     NSMutableAttributedString *mutableTimeLabelText = [self.timeLabel.attributedText mutableCopy];
     NSRange timeLabelRange = NSMakeRange(0, 1);
     CGFloat timeLabelFontSize = ((UIFont *)[mutableTimeLabelText attribute:NSFontAttributeName atIndex:0 effectiveRange:&timeLabelRange]).pointSize;
-    [mutableTimeLabelText setAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:timeLabelFontSize]} range:NSMakeRange(0, @"Time :".length)];
+    [mutableTimeLabelText setAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"OpenSans-SemiBold" size:timeLabelFontSize]} range:NSMakeRange(0, @"Time :".length)];
     self.timeLabel.attributedText = mutableTimeLabelText;
     
     
@@ -126,10 +166,14 @@ static CGFloat padding = 10;
     NSMutableAttributedString *mutableLocationLabelText = [self.locationLabel.attributedText mutableCopy];
     NSRange locationLabelRange = NSMakeRange(0, 1);
     CGFloat locationLabelFontSize = ((UIFont *)[mutableLocationLabelText attribute:NSFontAttributeName atIndex:0 effectiveRange:&locationLabelRange]).pointSize;
-    [mutableLocationLabelText setAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:locationLabelFontSize]} range:NSMakeRange(0, @"Location :".length)];
+    [mutableLocationLabelText setAttributes:@{NSFontAttributeName : [UIFont fontWithName:@"OpenSans-SemiBold" size:locationLabelFontSize]} range:NSMakeRange(0, @"Location :".length)];
     self.locationLabel.attributedText = mutableLocationLabelText;
     
     self.descriptionLabel.text = flyer.desc;
+    
+    for (FlyerCloseLookIconButton *button in @[self.addToCalButton, self.shareEventButton, self.moreButton]) {
+//        [button setupButton];
+    }
 }
 
 

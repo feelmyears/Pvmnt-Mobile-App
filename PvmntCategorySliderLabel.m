@@ -16,7 +16,7 @@
         self.alpha = 1;
     } else {
         self.textColor = self.standardColor;
-        self.alpha = powf(fabsf((1-ratio-0.95)),5);
+        self.alpha = powf(fabsf((1-ratio-0.95)),2.5);
     }
     
     

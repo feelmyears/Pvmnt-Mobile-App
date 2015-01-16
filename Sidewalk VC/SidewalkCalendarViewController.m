@@ -113,8 +113,11 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
         
     } else {
         self.model.mode = SidewalkCalendarModelModeCalendar;
-        self.mainCollectionView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0);
-        self.sideCollectionView.alpha = 1;
+//        [UIView animateWithDuration:0.1 animations:^{
+//            self.mainCollectionView.contentInset = UIEdgeInsetsMake(10, self.sideCollectionView.frame.size.width, 10, 0);
+//
+//        }];
+               self.sideCollectionView.alpha = 1;
 //        self.sideCollectionView.backgroundColor = [PvmntStyleKit sidewalkCalendarSideCollectionViewBackgroundColor];
 //        self.sideCollectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     }
@@ -308,15 +311,16 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
             if (collectionView == self.mainCollectionView) {
                 CGFloat topInset;
                 if (section == 0) {
-                    topInset = 0;
+                    topInset = 10;
                 } else {
                     topInset = 0;
                 }
-                return UIEdgeInsetsMake(topInset, self.sideCollectionView.frame.size.width, 10, 0);
+//                return UIEdgeInsetsMake(topInset, self.sideCollectionView.frame.size.width, 10, 0);
+                return UIEdgeInsetsMake(topInset, 0, 10, 0);
             } else if (collectionView == self.sideCollectionView) {
                 CGFloat topInset;
                 if (section == 0) {
-                    topInset = 0;
+                    topInset = 10;
                 } else {
                     topInset = 0;
                 }

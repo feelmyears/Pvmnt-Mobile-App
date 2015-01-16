@@ -42,7 +42,7 @@
     UIColor *highlightedColor = [PvmntStyleKit pureWhite];
     UIColor *standardColor = [PvmntStyleKit pureWhite];
     CGFloat sliderHeight = self.frame.size.height;
-    UIFont *font = [UIFont fontWithName:@"OpenSans" size:19];
+    UIFont *font = [UIFont fontWithName:@"OpenSans" size:20];
     for (NSString *categoryName in categoryNames) {
         CGFloat width = [categoryName sizeWithAttributes:@{NSFontAttributeName:font}].width;
         

@@ -108,6 +108,7 @@ DEPENDENCIES:
   - AMScrollingNavbar
   - BFNavigationBarDrawer
   - BlocksKit (= 2.2.2)
+  - BlocksKit (~> 2.2)
   - BlurryModalSegue
   - FNShyTabBar
   - FormatterKit (~> 1.7)

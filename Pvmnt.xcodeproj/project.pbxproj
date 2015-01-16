@@ -12,9 +12,11 @@
 		211E01471A53139E00B17343 /* PvmntSideDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E01461A53139E00B17343 /* PvmntSideDrawerViewController.m */; };
 		211E014A1A531C6E00B17343 /* PvmntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E01491A531C6E00B17343 /* PvmntViewController.m */; };
 		211E014F1A53383900B17343 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 211E014E1A53383900B17343 /* KxMenu.m */; };
+		212F37A41A67060000C723FD /* FlyerCloseLookButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 212F37A31A67060000C723FD /* FlyerCloseLookButtonView.m */; };
 		21356A401A5758680058E8D5 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356A3F1A5758680058E8D5 /* GradientView.m */; };
 		21356A441A575CFC0058E8D5 /* EmptyStateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21356A431A575CFC0058E8D5 /* EmptyStateView.m */; };
 		21367F861A618CDA00B495D3 /* FlyerCloseLookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21367F851A618CDA00B495D3 /* FlyerCloseLookViewController.m */; };
+		213D58D51A68567B0012D54B /* FlyerCloseLookIconButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 213D58D41A68567B0012D54B /* FlyerCloseLookIconButton.m */; };
 		214526C11A50DAE60092376F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C01A50DAE60092376F /* Social.framework */; };
 		214526C31A50DAED0092376F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214526C21A50DAED0092376F /* MessageUI.framework */; };
 		214526EA1A50EC4A0092376F /* SVWebViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 214526CB1A50EC4A0092376F /* SVWebViewController.strings */; };
@@ -195,12 +197,16 @@
 		211E01491A531C6E00B17343 /* PvmntViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntViewController.m; sourceTree = SOURCE_ROOT; };
 		211E014D1A53383900B17343 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		211E014E1A53383900B17343 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
+		212F37A21A67060000C723FD /* FlyerCloseLookButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerCloseLookButtonView.h; sourceTree = "<group>"; };
+		212F37A31A67060000C723FD /* FlyerCloseLookButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerCloseLookButtonView.m; sourceTree = "<group>"; };
 		21356A3E1A5758680058E8D5 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		21356A3F1A5758680058E8D5 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
 		21356A421A575CFC0058E8D5 /* EmptyStateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyStateView.h; sourceTree = "<group>"; };
 		21356A431A575CFC0058E8D5 /* EmptyStateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyStateView.m; sourceTree = "<group>"; };
 		21367F841A618CDA00B495D3 /* FlyerCloseLookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerCloseLookViewController.h; sourceTree = "<group>"; };
 		21367F851A618CDA00B495D3 /* FlyerCloseLookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerCloseLookViewController.m; sourceTree = "<group>"; };
+		213D58D31A68567B0012D54B /* FlyerCloseLookIconButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlyerCloseLookIconButton.h; sourceTree = "<group>"; };
+		213D58D41A68567B0012D54B /* FlyerCloseLookIconButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlyerCloseLookIconButton.m; sourceTree = "<group>"; };
 		214526C01A50DAE60092376F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		214526C21A50DAED0092376F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		214526CC1A50EC4A0092376F /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SVWebViewController.strings; sourceTree = "<group>"; };
@@ -351,8 +357,8 @@
 		21D7794A1A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarFeedHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		21D7794B1A50D2320038CC30 /* CalendarFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarFeedViewController.h; sourceTree = "<group>"; };
 		21D7794C1A50D2320038CC30 /* CalendarFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarFeedViewController.m; sourceTree = "<group>"; };
-		21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarSideDateFlyerHTKCollectionViewCell.h; path = "../../Calendar Feed VC/CalendarSideDateFlyerHTKCollectionViewCell.h"; sourceTree = "<group>"; };
-		21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarSideDateFlyerHTKCollectionViewCell.m; path = "../../Calendar Feed VC/CalendarSideDateFlyerHTKCollectionViewCell.m"; sourceTree = "<group>"; };
+		21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarSideDateFlyerHTKCollectionViewCell.h; path = "../Calendar Feed VC/CalendarSideDateFlyerHTKCollectionViewCell.h"; sourceTree = "<group>"; };
+		21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarSideDateFlyerHTKCollectionViewCell.m; path = "../Calendar Feed VC/CalendarSideDateFlyerHTKCollectionViewCell.m"; sourceTree = "<group>"; };
 		21D7794F1A50D2320038CC30 /* CalendarSideDateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarSideDateModel.h; path = "../../Calendar Feed VC/CalendarSideDateModel.h"; sourceTree = "<group>"; };
 		21D779501A50D2320038CC30 /* CalendarSideDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarSideDateModel.m; path = "../../Calendar Feed VC/CalendarSideDateModel.m"; sourceTree = "<group>"; };
 		21D779781A50D23F0038CC30 /* Calendar List Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Calendar List Header.h"; sourceTree = "<group>"; };
@@ -542,6 +548,7 @@
 				21D7794A1A50D2320038CC30 /* CalendarFeedHeaderCollectionReusableView.m */,
 			);
 			name = Cells;
+			path = "../Calendar Feed VC";
 			sourceTree = "<group>";
 		};
 		211E014C1A53383900B17343 /* KxMenu */ = {
@@ -585,6 +592,10 @@
 		21367F881A61928F00B495D3 /* HTK Feed Cell */ = {
 			isa = PBXGroup;
 			children = (
+				213D58D31A68567B0012D54B /* FlyerCloseLookIconButton.h */,
+				213D58D41A68567B0012D54B /* FlyerCloseLookIconButton.m */,
+				212F37A21A67060000C723FD /* FlyerCloseLookButtonView.h */,
+				212F37A31A67060000C723FD /* FlyerCloseLookButtonView.m */,
 				218E54631A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.h */,
 				218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */,
 			);
@@ -594,11 +605,10 @@
 		214526C41A50DDE60092376F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */,
+				21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */,
 				21D77A0C1A50D2520038CC30 /* SidewalkFlyerImageHTKCollectionViewCell.h */,
 				21D77A0D1A50D2520038CC30 /* SidewalkFlyerImageHTKCollectionViewCell.m */,
-				21356A411A57586C0058E8D5 /* Helper */,
-				21D77A101A50D2520038CC30 /* SidewalkTitleHTKCollectionViewCell.h */,
-				21D77A111A50D2520038CC30 /* SidewalkTitleHTKCollectionViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -687,6 +697,7 @@
 		215BADC51A646B150057FB25 /* Sidewalk Calendar VC */ = {
 			isa = PBXGroup;
 			children = (
+				214526C41A50DDE60092376F /* Cells */,
 				21A056181A6592DB00B62CDD /* NDCollectionViewFlowLayout.h */,
 				21A056171A6592DB00B62CDD /* NDCollectionViewFlowLayout.m */,
 				21E4BD3C1A64D4C500E6C963 /* SidewalkCalendarModel.h */,
@@ -1082,7 +1093,6 @@
 		21D779461A50D2320038CC30 /* Calendar Feed VC */ = {
 			isa = PBXGroup;
 			children = (
-				211E014B1A531E6300B17343 /* Cells */,
 				21D7794B1A50D2320038CC30 /* CalendarFeedViewController.h */,
 				21D7794C1A50D2320038CC30 /* CalendarFeedViewController.m */,
 			);
@@ -1117,8 +1127,6 @@
 		21D7797D1A50D23F0038CC30 /* Calendar Side Date VC */ = {
 			isa = PBXGroup;
 			children = (
-				21D7794D1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.h */,
-				21D7794E1A50D2320038CC30 /* CalendarSideDateFlyerHTKCollectionViewCell.m */,
 				21D7794F1A50D2320038CC30 /* CalendarSideDateModel.h */,
 				21D779501A50D2320038CC30 /* CalendarSideDateModel.m */,
 				21D7797E1A50D23F0038CC30 /* CalendarSideDateActionCell.h */,
@@ -1405,8 +1413,11 @@
 		21D77A001A50D2520038CC30 /* Sidewalk VC */ = {
 			isa = PBXGroup;
 			children = (
+				21356A411A57586C0058E8D5 /* Helper */,
+				21D77A101A50D2520038CC30 /* SidewalkTitleHTKCollectionViewCell.h */,
+				21D77A111A50D2520038CC30 /* SidewalkTitleHTKCollectionViewCell.m */,
+				211E014B1A531E6300B17343 /* Cells */,
 				21D77A011A50D2520038CC30 /* Event Query */,
-				214526C41A50DDE60092376F /* Cells */,
 				21D77A121A50D2520038CC30 /* SidewalkViewController.h */,
 				21D77A131A50D2520038CC30 /* SidewalkViewController.m */,
 				21356A421A575CFC0058E8D5 /* EmptyStateView.h */,
@@ -1675,6 +1686,7 @@
 				21D77A341A50D2520038CC30 /* SidewalkViewController.m in Sources */,
 				21D77A3A1A50D2800038CC30 /* PVMNT_CONSTANTS.m in Sources */,
 				211E014A1A531C6E00B17343 /* PvmntViewController.m in Sources */,
+				212F37A41A67060000C723FD /* FlyerCloseLookButtonView.m in Sources */,
 				21D77A221A50D2520038CC30 /* CD_Image.m in Sources */,
 				21D7795E1A50D2320038CC30 /* UIColor+YUVSpace.m in Sources */,
 				21D77A291A50D2520038CC30 /* RK_Flyer.m in Sources */,
@@ -1765,6 +1777,7 @@
 				21D77A2A1A50D2520038CC30 /* SchoolPickerViewController.m in Sources */,
 				21D77A1B1A50D2520038CC30 /* EventInfoFlyerDetailHTKCollectionViewCell.m in Sources */,
 				21D779611A50D2320038CC30 /* MSDynamicsDrawerViewController.m in Sources */,
+				213D58D51A68567B0012D54B /* FlyerCloseLookIconButton.m in Sources */,
 				21D779511A50D2320038CC30 /* CHTCollectionViewWaterfallLayout.m in Sources */,
 				21D779C11A50D23F0038CC30 /* FlyerDetailInformationCell.m in Sources */,
 				21D7796C1A50D2320038CC30 /* UICollectionView+EmptyState.m in Sources */,
@@ -1912,9 +1925,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = PvmntLaunch;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Pvmnt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1925,9 +1940,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = PvmntLaunch;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Pvmnt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

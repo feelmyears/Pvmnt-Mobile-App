@@ -6,6 +6,8 @@
 
 @implementation NDCollectionViewFlowLayout
 
+
+/*
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
     NSMutableArray *newAttributes = [NSMutableArray arrayWithCapacity:attributes.count];
@@ -15,16 +17,21 @@
     }
     
     for (UICollectionViewLayoutAttributes *attribute in attributes) {
-        if (attribute.frame.origin.x >= maxX) {
-            [newAttributes addObject:attribute];
-        } else {
-            CGRect newFrame = attribute.frame;
-            newFrame.origin.x = maxX;
-            attribute.frame = newFrame;
-            [newAttributes addObject:attribute];
-        }
+//        if (attribute.frame.origin.x >= maxX) {
+//            [newAttributes addObject:attribute];
+//        } else {
+//            CGRect newFrame = attribute.frame;
+//            newFrame.origin.x = maxX;
+//            attribute.frame = newFrame;
+//            [newAttributes addObject:attribute];
+//        }
+//        CGRect newFrame = attribute.frame;
+//        newFrame.origin.x = maxX;
+//        attribute.frame = newFrame;
+//        [newAttributes addObject:attribute];
     }
     return newAttributes;
 }
 
+*/
 @end

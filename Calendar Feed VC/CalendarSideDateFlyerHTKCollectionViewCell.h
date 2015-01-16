@@ -9,7 +9,7 @@
 #import "HTKDynamicResizingCollectionViewCell.h"
 #import "CD_V2_Flyer.h"
 
-#define DEFAULT_FLYER_CELL_SIZE (CGSize){[[UIScreen mainScreen] bounds].size.width - 70, 50}
+#define DEFAULT_FLYER_CELL_SIZE (CGSize){[[UIScreen mainScreen] bounds].size.width, 50}
 
 @interface CalendarSideDateFlyerHTKCollectionViewCell : HTKDynamicResizingCollectionViewCell
 
