@@ -28,3 +28,12 @@ extern NSString *const kFlurryUsingCalendarViewKey;
 
 extern NSString *const kFlurryReportFlyerKey;
 extern NSString *const kFlurryReportFlyerFlyerIdKey;
+
+extern NSString *const kFlurryAddedToCalendarKey;
+extern NSString *const kFlurryAddedToCalendarFlyerIdKey;
+extern NSString *const kFlurryAddedToCalendarEventNameKey;
+
+extern NSString *const kFlurrySharedFlyerKey;
+extern NSString *const kFlurrySharedFlyerActivityTypeKey;
+extern NSString *const kFlurrySharedFlyerFlyerIdKey;
+extern NSString *const kFlurrySharedFlyerEventNameKey;

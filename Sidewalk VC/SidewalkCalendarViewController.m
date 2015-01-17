@@ -33,6 +33,7 @@
 @property (strong, nonatomic) SidewalkCalendarModel *model;
 @property (weak, nonatomic) IBOutlet UIButton *titleViewButton;
 @property (strong, nonatomic) CategorySliderView *categoryFilterSlider;
+@property (strong, nonatomic) UIBarButtonItem *toggleButton;
 @end
 
 static NSString *SidewalkFlyerImageHTKCollectionViewCellIdentifier  = @"SidewalkFlyerImageHTKCollectionViewCellIdentifier";
@@ -48,7 +49,9 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
     
-    [self.titleViewButton setImage:[PvmntStyleKit imageOfPvmntLogo] forState:UIControlStateNormal];
+//    [self.titleViewButton setImage:[PvmntStyleKit imageOfPvmntLogo] forState:UIControlStateNormal];
+    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[PvmntStyleKit imageOfPvmntLogo]];
+    self.navigationItem.titleView = titleImageView;
     
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsHasPickedSchoolKey]) {
@@ -82,9 +85,10 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     self.model.delegate = self;
     [self handleViewTypeSwitch];
     
-    UIBarButtonItem *toggleButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(handleViewTypeSwitch)];
-    toggleButton.tintColor = [UIColor blackColor];
-    self.navigationItem.rightBarButtonItem = toggleButton;
+//    UIBarButtonItem *toggleButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(handleViewTypeSwitch)];
+    self.toggleButton = [[UIBarButtonItem alloc] initWithTitle:@"Sidewalk" style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
+    self.toggleButton.tintColor = [UIColor blackColor];
+    self.navigationItem.rightBarButtonItem = self.toggleButton;
     
     [self.mainCollectionView addPullToRefreshWithActionHandler:^{
         [[FlyerDB sharedInstance] fetchAllWithCompletionBlock:^{
@@ -105,8 +109,10 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     if (self.model.mode == SIdewalkCalendarModelModeNone) {
         self.model.mode = SidewalkCalendarModelModeSidewalk;
         [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
+        self.toggleButton.title = @"Sidewalk";
     } else if (self.model.mode == SidewalkCalendarModelModeCalendar) {
         self.model.mode = SidewalkCalendarModelModeSidewalk;
+        self.toggleButton.title = @"Sidewalk";
         [Flurry endTimedEvent:kFlurryUsingCalendarViewKey withParameters:nil];
         [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
         [UIView animateWithDuration:0.3f animations:^{
@@ -116,6 +122,7 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
         [Flurry endTimedEvent:kFlurryUsingSidewalkViewKey withParameters:nil];
         [Flurry logEvent:kFlurryUsingCalendarViewKey timed:YES];
         self.model.mode = SidewalkCalendarModelModeCalendar;
+        self.toggleButton.title = @"Calendar";
         self.sideCollectionView.alpha = 1;
     }
     

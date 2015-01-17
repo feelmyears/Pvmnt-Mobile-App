@@ -222,6 +222,11 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
     UIImage *shareImage = [self.flyer.image imageforCD_Image];
     NSArray *activityItems = @[shareString, shareImage];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError){
+        if (completed && activityType) {
+            [Flurry logEvent:kFlurrySharedFlyerKey withParameters:@{kFlurrySharedFlyerFlyerIdKey : self.flyer.flyerId, kFlurrySharedFlyerEventNameKey : self.flyer.title, kFlurrySharedFlyerActivityTypeKey : activityType}];
+        }
+    };
     activityViewController.excludedActivityTypes = @[UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
     [self presentViewController:activityViewController animated:YES completion:^{
         //        code
@@ -302,6 +307,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
                 [SVProgressHUD showErrorWithStatus:@"Failed to save event, please try again"];
             } else {
                 [SVProgressHUD showSuccessWithStatus:@"Event added"];
+                [Flurry logEvent:kFlurryAddedToCalendarKey withParameters:@{kFlurryAddedToCalendarFlyerIdKey : self.flyer.flyerId, kFlurryAddedToCalendarEventNameKey : self.flyer.title}];
             }
         }];
     } else {

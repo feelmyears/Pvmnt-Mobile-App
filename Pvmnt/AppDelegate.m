@@ -48,7 +48,7 @@
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-    [Flurry setCrashReportingEnabled:YES];
+//    [Flurry setCrashReportingEnabled:YES];
     [Flurry startSession:@"CW77P66GWF5XJ943FVT4"];
     return YES;
 }

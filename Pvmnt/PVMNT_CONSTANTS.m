@@ -27,3 +27,12 @@ NSString *const kFlurryUsingCalendarViewKey             = @"kFlurryUsingCalendar
 
 NSString *const kFlurryReportFlyerKey                   = @"kFlurryReportFlyerKey";
 NSString *const kFlurryReportFlyerFlyerIdKey            = @"kFlurryReportFlyerFlyerIdKey";
+
+NSString *const kFlurryAddedToCalendarKey               = @"kFlurryAddedToCalendarKey";
+NSString *const kFlurryAddedToCalendarFlyerIdKey        = @"kFlurryAddedToCalendarFlyerIdKey";
+NSString *const kFlurryAddedToCalendarEventNameKey      = @"kFlurryAddedToCalendarEventNameKey";
+
+NSString *const kFlurrySharedFlyerKey                   = @"kFlurrySharedFlyerKey";
+NSString *const kFlurrySharedFlyerActivityTypeKey       = @"kFlurrySharedFlyerActivityTypeKey";
+NSString *const kFlurrySharedFlyerFlyerIdKey            = @"kFlurrySharedFlyerFlyerIdKey";
+NSString *const kFlurrySharedFlyerEventNameKey          = @"kFlurrySharedFlyerEventNameKey";

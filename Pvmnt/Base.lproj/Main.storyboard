@@ -548,6 +548,7 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="xpd-cD-5d6">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="SettingsIcon" id="5UD-fR-dne"/>
                         <button key="titleView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BvM-BO-nNz">
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -727,6 +728,9 @@
             <point key="canvasLocation" x="7197" y="724.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SettingsIcon" width="64" height="64"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Wm9-T6-ltT"/>
         <segue reference="rNi-UL-UCh"/>
