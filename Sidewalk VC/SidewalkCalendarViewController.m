@@ -104,17 +104,17 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
 {
     if (self.model.mode == SIdewalkCalendarModelModeNone) {
         self.model.mode = SidewalkCalendarModelModeSidewalk;
-//        [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
+        [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
     } else if (self.model.mode == SidewalkCalendarModelModeCalendar) {
         self.model.mode = SidewalkCalendarModelModeSidewalk;
-//        [Flurry endTimedEvent:kFlurryUsingCalendarViewKey withParameters:nil];
-//        [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
+        [Flurry endTimedEvent:kFlurryUsingCalendarViewKey withParameters:nil];
+        [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
         [UIView animateWithDuration:0.3f animations:^{
             self.sideCollectionView.alpha = 0;
         }];
     } else {
-//        [Flurry endTimedEvent:kFlurryUsingSidewalkViewKey withParameters:nil];
-//        [Flurry logEvent:kFlurryUsingCalendarViewKey timed:YES];
+        [Flurry endTimedEvent:kFlurryUsingSidewalkViewKey withParameters:nil];
+        [Flurry logEvent:kFlurryUsingCalendarViewKey timed:YES];
         self.model.mode = SidewalkCalendarModelModeCalendar;
         self.sideCollectionView.alpha = 1;
     }
