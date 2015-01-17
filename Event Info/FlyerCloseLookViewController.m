@@ -36,9 +36,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 {
     _flyer = flyer;
     self.title = flyer.title;
-    [Flurry logEvent:kFlurryClickedOnFlyerKey withParameters:@{kFlurryClickedOnFlyerFlyerIdKey : flyer.flyerId,
-                                                               kFlurryClickedOnFlyerEventNameKey : flyer.title}
-               timed:YES];
+//    [Flurry logEvent:kFlurryClickedOnFlyerKey withParameters:@{kFlurryClickedOnFlyerFlyerIdKey : flyer.flyerId, kFlurryClickedOnFlyerEventNameKey : flyer.title} timed:YES];
 }
 
 - (URBMediaFocusViewController *)URBMediaFocusVC
@@ -69,8 +67,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 {
     [super didMoveToParentViewController:parent];
     if (!parent) {
-        [Flurry endTimedEvent:kFlurryClickedOnFlyerKey withParameters:@{kFlurryClickedOnFlyerFlyerIdKey : self.flyer.flyerId,
-                                                                        kFlurryClickedOnFlyerEventNameKey : self.flyer.title}];
+//        [Flurry endTimedEvent:kFlurryClickedOnFlyerKey withParameters:@{kFlurryClickedOnFlyerFlyerIdKey : self.flyer.flyerId, kFlurryClickedOnFlyerEventNameKey : self.flyer.title}];
     }
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -208,7 +205,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
             } else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Report event"]) {
                 [UIAlertView showWithTitle:@"Report event?" message:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Report"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Report"]) {
-                        [Flurry logEvent:kFlurryReportFlyerKey withParameters:@{kFlurryReportFlyerFlyerIdKey : self.flyer.flyerId}];
+//                        [Flurry logEvent:kFlurryReportFlyerKey withParameters:@{kFlurryReportFlyerFlyerIdKey : self.flyer.flyerId}];
                     }
                 }];
             }

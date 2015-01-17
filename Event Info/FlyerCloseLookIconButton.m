@@ -34,7 +34,7 @@
 
 - (void)setupButton
 {
-    self.backgroundColor = [PvmntStyleKit pureWhite];
+    self.backgroundColor = [UIColor whiteColor];
     
     UIFont *font = [UIFont fontWithName:@"OpenSans" size:15];
     CGSize labelSize = [self.text sizeWithAttributes:@{NSFontAttributeName : font}];
@@ -45,10 +45,11 @@
     CGFloat paddingBetweenImageAndText = 5;
     CGFloat sidePadding = (CGRectGetWidth(self.frame) - paddingBetweenImageAndText - imageViewSize.width - labelSize.width)/2.0;
     
-    CGRect imageViewFrame = CGRectMake(sidePadding, (CGRectGetHeight(self.frame) - imageViewSize.height)/2.0, imageViewSize.width, imageViewSize.height);
+    CGRect imageViewFrame = CGRectMake(sidePadding, (CGRectGetHeight(self.frame) - imageViewSize.height)/2.0, imageViewSize.width + 10, imageViewSize.height);
     self.imageView = [[UIImageView alloc] initWithFrame:imageViewFrame];
-//    self.imageView.image = self.image;
-    self.imageView.backgroundColor = [PvmntStyleKit mainBlack];
+    self.imageView.image = self.image;
+    self.imageView.backgroundColor = [UIColor clearColor];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     CGRect labelFrame = CGRectMake(CGRectGetMaxX(imageViewFrame) + paddingBetweenImageAndText, (CGRectGetHeight(self.frame) - labelSize.height)/2.0, labelSize.width, labelSize.height);
     
