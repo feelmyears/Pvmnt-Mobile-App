@@ -45,7 +45,7 @@
     CGFloat paddingBetweenImageAndText = 5;
     CGFloat sidePadding = (CGRectGetWidth(self.frame) - paddingBetweenImageAndText - imageViewSize.width - labelSize.width)/2.0;
     
-    CGRect imageViewFrame = CGRectMake(sidePadding, (CGRectGetHeight(self.frame) - imageViewSize.height)/2.0, imageViewSize.width + 10, imageViewSize.height);
+    CGRect imageViewFrame = CGRectMake(sidePadding, (CGRectGetHeight(self.frame) - imageViewSize.height)/2.0, imageViewSize.width, imageViewSize.height);
     self.imageView = [[UIImageView alloc] initWithFrame:imageViewFrame];
     self.imageView.image = self.image;
     self.imageView.backgroundColor = [UIColor clearColor];

@@ -175,6 +175,9 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
                 eventForFlyer.notes = self.flyer.desc;
                 eventForFlyer.location = self.flyer.location;
                 
+                NSString *shareURL = [NSString stringWithFormat:@"https://northwestern.pvmnt.com/flyers/%@", self.flyer.flyerId];
+                eventForFlyer.URL = [NSURL URLWithString:shareURL];
+                
                 EKEventEditViewController *createEventVC = [EKEventEditViewController new];
                 createEventVC.editViewDelegate = self;
                 createEventVC.event = eventForFlyer;
