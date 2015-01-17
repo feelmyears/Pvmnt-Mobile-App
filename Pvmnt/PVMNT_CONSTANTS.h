@@ -26,3 +26,5 @@ extern NSString *const kFlurryFilteredByCategoryCategoryNameKey;
 extern NSString *const kFlurryUsingSidewalkViewKey;
 extern NSString *const kFlurryUsingCalendarViewKey;
 
+extern NSString *const kFlurryReportFlyerKey;
+extern NSString *const kFlurryReportFlyerFlyerIdKey;

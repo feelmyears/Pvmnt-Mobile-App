@@ -24,3 +24,6 @@ NSString *const kFlurryFilteredByCategoryCategoryNameKey = @"kFlurryFilteredByCa
 
 NSString *const kFlurryUsingSidewalkViewKey             = @"kFlurryUsingSidewalkViewKey";
 NSString *const kFlurryUsingCalendarViewKey             = @"kFlurryUsingCalendarViewKey";
+
+NSString *const kFlurryReportFlyerKey                   = @"kFlurryReportFlyerKey";
+NSString *const kFlurryReportFlyerFlyerIdKey            = @"kFlurryReportFlyerFlyerIdKey";

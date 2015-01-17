@@ -208,7 +208,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
             } else if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Report event"]) {
                 [UIAlertView showWithTitle:@"Report event?" message:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Report"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Report"]) {
-                        NSLog(@"Report event");
+                        [Flurry logEvent:kFlurryReportFlyerKey withParameters:@{kFlurryReportFlyerFlyerIdKey : self.flyer.flyerId}];
                     }
                 }];
             }
