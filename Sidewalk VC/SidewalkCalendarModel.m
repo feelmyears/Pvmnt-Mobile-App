@@ -95,7 +95,7 @@
 
 }
 - (void)filterWithCategoryName:(NSString *)categoryName {
-//    [Flurry logEvent:kFlurryFilteredByCategoryKey withParameters:@{kFlurryFilteredByCategoryCategoryNameKey : categoryName}];
+    [Flurry logEvent:kFlurryFilteredByCategoryKey withParameters:@{kFlurryFilteredByCategoryCategoryNameKey : categoryName}];
     [self.calendarModel filterWithCategoryName:categoryName];
     [self.sidewalkModel filterWithCategoryName:categoryName];
 
