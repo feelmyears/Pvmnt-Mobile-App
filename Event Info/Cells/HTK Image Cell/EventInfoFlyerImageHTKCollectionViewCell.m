@@ -84,7 +84,7 @@ static CGFloat FRAME_HEIGHT = 40;
 {
     self.image = image;
     
-    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:image.imageURL] andPlaceholderImage:[UIImage imageNamed:@"Concrete_Pattern"] options:0 progress:nil completed:nil];
+    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:image.imageURL] andPlaceholderImage:[PvmntStyleKit imageOfPvmntLoadingImage] options:0 progress:nil completed:nil];
 }
 
 + (CGSize)sizeForCellWithImage:(CD_Image *)image

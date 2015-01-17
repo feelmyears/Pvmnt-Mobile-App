@@ -98,7 +98,7 @@ static CGFloat nonCircularImageViewCornerRadius = 20.f;
 
 - (void)setupWithFlyer:(CD_V2_Flyer *)flyer
 {
-    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:flyer.image.imageURL] andPlaceholderImage:[UIImage imageNamed:@"Image"] options:0 progress:NULL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:flyer.image.imageURL] andPlaceholderImage:[PvmntStyleKit imageOfPvmntLoadingImage] options:0 progress:NULL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         //        <#code#>
     }];
     self.titleLabel.text = flyer.title;

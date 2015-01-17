@@ -105,7 +105,7 @@ static CGFloat hairlineSize = 0.5;
 
 - (void)setupCellWithFlyer:(CD_V2_Flyer *)flyer
 {
-    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:flyer.image.imageURL] andPlaceholderImage:[UIImage imageNamed:@"Concrete_Pattern"] options:0 progress:nil completed:nil];
+    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:flyer.image.imageURL] andPlaceholderImage:[PvmntStyleKit imageOfPvmntLoadingImage] options:0 progress:nil completed:nil];
     self.titleLabel.text = flyer.title;
     self.timeLabel.text = [NSString stringWithFormat:@"%@ | %@", flyer.event_time.longDateString, flyer.event_time.shortTimeString];
 
@@ -121,7 +121,7 @@ static CGFloat hairlineSize = 0.5;
 
 - (void)setupCellWithImage:(CD_Image *)image
 {
-    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:image.imageURL] andPlaceholderImage:[UIImage imageNamed:@"Concrete_Pattern"] options:0 progress:nil completed:nil];
+    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:image.imageURL] andPlaceholderImage:[PvmntStyleKit imageOfPvmntLoadingImage] options:0 progress:nil completed:nil];
     
 }
 

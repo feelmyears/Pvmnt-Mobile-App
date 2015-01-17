@@ -100,7 +100,7 @@ static CGFloat padding = 5.f;
     self.minorLabel.text = [minorLabelText componentsJoinedByString:@" at "];
     
     
-    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:flyer.image.imageURL] andPlaceholderImage:[UIImage imageNamed:@"Concrete_Pattern"] options:0 progress:nil completed:nil];
+    [self.imageView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:flyer.image.imageURL] andPlaceholderImage:[PvmntStyleKit imageOfPvmntLoadingImage] options:0 progress:nil completed:nil];
    
     CGSize imageSize = [self sizeForImage:flyer.image];
     

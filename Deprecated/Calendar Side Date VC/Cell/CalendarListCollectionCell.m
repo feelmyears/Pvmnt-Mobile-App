@@ -29,7 +29,7 @@
 //    NSLog(@"%@", flyerForCell.event_date.shortString);
     self.eventTitleLabel.text = flyerForCell.title;
     
-    [self.flyerImage sd_setImageWithURL:[NSURL URLWithString:flyerForCell.image.imageURL] placeholderImage:[UIImage imageNamed:@"Concrete_Pattern"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.flyerImage sd_setImageWithURL:[NSURL URLWithString:flyerForCell.image.imageURL] placeholderImage:[PvmntStyleKit imageOfPvmntLoadingImage] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         //Code
     }];
     

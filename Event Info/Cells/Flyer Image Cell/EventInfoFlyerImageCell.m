@@ -89,7 +89,7 @@
     [self setNeedsLayout];
     [self setNeedsDisplay];
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.image.imageURL] placeholderImage:[UIImage imageNamed:@"Concrete_Pattern"]];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.image.imageURL] placeholderImage:[PvmntStyleKit imageOfPvmntLoadingImage]];
     
 }
 
