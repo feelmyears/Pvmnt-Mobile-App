@@ -11,6 +11,7 @@
 #import "FeedEventInfoHTKCollectionViewCell.h"
 #import <ISHPermissionKit/ISHPermissionsViewController.h>
 #import <EventKitUI/EventKitUI.h>
+#import "Flurry.h"
 @interface FlyerCloseLookViewController : UIViewController
 <UICollectionViewDataSource,
 UICollectionViewDelegate,

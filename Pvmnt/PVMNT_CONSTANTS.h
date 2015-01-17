@@ -14,3 +14,15 @@ extern NSString *const kNSUserDefaultsSchoolNameKey;
 
 extern NSString *const kSVPullToRefreshViewStartedRefreshingKey;
 extern NSString *const kSVPullToRefreshViewStoppedRefreshingKey;
+
+extern NSString *const kFlurryClickedOnFlyerKey;
+extern NSString *const kFlurryClickedOnFlyerFlyerIdKey;
+extern NSString *const kFlurryClickedOnFlyerEventNameKey;
+extern NSString *const kFlurryClickedOnFlyerCategoryNameKey;
+
+extern NSString *const kFlurryFilteredByCategoryKey;
+extern NSString *const kFlurryFilteredByCategoryCategoryNameKey;
+
+extern NSString *const kFlurryUsingSidewalkViewKey;
+extern NSString *const kFlurryUsingCalendarViewKey;
+

@@ -24,6 +24,7 @@
 #import "SidewalkCalendarModel.h"
 #import "CalendarSideDateFlyerHTKCollectionViewCell.h"
 #import "CalendarSideDateCell.h"
+#import "Flurry.h"
 
 @interface SidewalkCalendarViewController ()<SidewalkCalendarModelDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
@@ -79,7 +80,7 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     
     self.model = [SidewalkCalendarModel new];
     self.model.delegate = self;
-    self.model.mode = SidewalkCalendarModelModeSidewalk;
+    [self handleViewTypeSwitch];
     
     UIBarButtonItem *toggleButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(handleViewTypeSwitch)];
     toggleButton.tintColor = [UIColor blackColor];
@@ -101,25 +102,21 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
 
 - (void)handleViewTypeSwitch
 {
-    if (self.model.mode == SidewalkCalendarModelModeCalendar) {
+    if (self.model.mode == SIdewalkCalendarModelModeNone) {
         self.model.mode = SidewalkCalendarModelModeSidewalk;
-        self.mainCollectionView.contentInset = UIEdgeInsetsZero;
-        self.sideCollectionView.contentInset = UIEdgeInsetsZero;
+        [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
+    } else if (self.model.mode == SidewalkCalendarModelModeCalendar) {
+        self.model.mode = SidewalkCalendarModelModeSidewalk;
+        [Flurry endTimedEvent:kFlurryUsingCalendarViewKey withParameters:nil];
+        [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
         [UIView animateWithDuration:0.3f animations:^{
             self.sideCollectionView.alpha = 0;
-//            self.sideCollectionView.backgroundColor = [UIColor whiteColor];
         }];
-        
-        
     } else {
+        [Flurry endTimedEvent:kFlurryUsingSidewalkViewKey withParameters:nil];
+        [Flurry logEvent:kFlurryUsingCalendarViewKey timed:YES];
         self.model.mode = SidewalkCalendarModelModeCalendar;
-//        [UIView animateWithDuration:0.1 animations:^{
-//            self.mainCollectionView.contentInset = UIEdgeInsetsMake(10, self.sideCollectionView.frame.size.width, 10, 0);
-//
-//        }];
-               self.sideCollectionView.alpha = 1;
-//        self.sideCollectionView.backgroundColor = [PvmntStyleKit sidewalkCalendarSideCollectionViewBackgroundColor];
-//        self.sideCollectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
+        self.sideCollectionView.alpha = 1;
     }
     
     [self.mainCollectionView performBatchUpdates:^{

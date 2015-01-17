@@ -10,6 +10,7 @@
 #import "FlyerDB.h"
 #import "SidewalkModel.h"
 #import "CalendarSideDateModel.h"
+#import "Flurry.h"
 
 @interface SidewalkCalendarModel()<SidewalkModelDelegate, CalendarSideDateModelDelegate>
 @property (strong, nonatomic) SidewalkModel *sidewalkModel;
@@ -29,6 +30,7 @@
 
 - (void)setupModel
 {
+    self.mode = SIdewalkCalendarModelModeNone;
     self.sidewalkModel = [[SidewalkModel alloc] init];
     self.sidewalkModel.delegate = self;
     
@@ -88,31 +90,12 @@
 }
 
 - (void)refreshDatabase {
-//    switch (self.mode) {
-//        case SidewalkCalendarModelModeCalendar: {
-//            [self.calendarModel refreshDatabase];
-//        }
-//        case SidewalkCalendarModelModeSidewalk: {
-//            [self.sidewalkModel refreshDatabase];
-//        }
-//        default:
-//            break;
-//    }
     [self.calendarModel refreshDatabase];
     [self.sidewalkModel refreshDatabase];
 
 }
 - (void)filterWithCategoryName:(NSString *)categoryName {
-//    switch (self.mode) {
-//        case SidewalkCalendarModelModeCalendar: {
-//            [self.calendarModel filterWithCategoryName:categoryName];
-//        }
-//        case SidewalkCalendarModelModeSidewalk: {
-//            [self.sidewalkModel filterWithCategoryName:categoryName];
-//        }
-//        default:
-//            break;
-//    }
+    [Flurry logEvent:kFlurryFilteredByCategoryKey withParameters:@{kFlurryFilteredByCategoryCategoryNameKey : categoryName}];
     [self.calendarModel filterWithCategoryName:categoryName];
     [self.sidewalkModel filterWithCategoryName:categoryName];
 

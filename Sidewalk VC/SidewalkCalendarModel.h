@@ -18,6 +18,7 @@
 typedef enum : NSUInteger {
     SidewalkCalendarModelModeSidewalk,
     SidewalkCalendarModelModeCalendar,
+    SIdewalkCalendarModelModeNone
 } SidewalkCalendarModelMode;
 
 @interface SidewalkCalendarModel : NSObject

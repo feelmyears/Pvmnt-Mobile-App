@@ -21,6 +21,8 @@
 
 #import "SidewalkViewController.h"
 #import "CalendarFeedViewController.h"
+
+#import "Flurry.h"
 @interface AppDelegate ()
 @property (strong, nonatomic) MMDrawerController *drawerController;
 @property (strong, nonatomic) UINavigationController *sidewalkViewController;
@@ -46,31 +48,8 @@
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-    /*
-    UIViewController *leftSideDrawerViewController = [[PvmntSideDrawerViewController alloc] init];
-    [leftSideDrawerViewController setRestorationIdentifier:@"PvmntSideDrawerViewControllerRestorationKey"];
-    UINavigationController *leftSideNavController = [[UINavigationController alloc] initWithRootViewController:leftSideDrawerViewController];
-    [leftSideNavController setRestorationIdentifier:@"PvmntLeftSideNavControllerRestorationKey"];
-    
-    UINavigationController *centerViewController = [self sidewalkViewController];
-    
-    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:centerViewController leftDrawerViewController:leftSideNavController];
-    [self. drawerController setShowsShadow:YES];
-    [self.drawerController setRestorationIdentifier:@"MMDrawer"];
-
-    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeBezelPanningCenterView | MMCloseDrawerGestureModePanningCenterView | MMCloseDrawerGestureModePanningNavigationBar | MMCloseDrawerGestureModeTapCenterView | MMCloseDrawerGestureModeTapNavigationBar];
-    [self.drawerController setShouldStretchDrawer:NO];
-    [self.drawerController setCenterHiddenInteractionMode:MMDrawerOpenCenterInteractionModeNavigationBarOnly];
-    
-    [self.drawerController setDrawerVisualStateBlock:[MMDrawerVisualState slideVisualStateBlock]];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.drawerController setMaximumLeftDrawerWidth:self.window.frame.size.width - 50];
-    
-    [self.window setTintColor:[UIColor blackColor]];
-    [self.window setRootViewController:self.drawerController];
-     */
+    [Flurry setCrashReportingEnabled:YES];
+    [Flurry startSession:@"CW77P66GWF5XJ943FVT4"];
     return YES;
 }
 

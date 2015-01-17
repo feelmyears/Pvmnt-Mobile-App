@@ -19,7 +19,7 @@
 #import "UIActionSheet+Blocks.h"
 #import "UIAlertView+Blocks.h"
 #import <URBMediaFocusViewController/URBMediaFocusViewController.h>
-
+#import "CD_V2_Flyer.h"
 
 
 
@@ -36,6 +36,9 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 {
     _flyer = flyer;
     self.title = flyer.title;
+    [Flurry logEvent:kFlurryClickedOnFlyerKey withParameters:@{kFlurryClickedOnFlyerFlyerIdKey : flyer.flyerId,
+                                                               kFlurryClickedOnFlyerEventNameKey : flyer.title}
+               timed:YES];
 }
 
 - (URBMediaFocusViewController *)URBMediaFocusVC
@@ -52,7 +55,6 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-100.f, 0) forBarMetrics:UIBarMetricsDefault];
     
     self.collectionView.delegate = self;
@@ -62,6 +64,14 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
        
     [self.collectionView registerClass:[EventInfoFlyerImageHTKCollectionViewCell class] forCellWithReuseIdentifier:EventInfoFlyerImageHTKCollectionViewCellIdentifier];
     [self.collectionView registerClass:[FeedEventInfoHTKCollectionViewCell class] forCellWithReuseIdentifier:FeedEventInfoHTKCollectionViewCellIdentifier];
+}
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    [super didMoveToParentViewController:parent];
+    if (!parent) {
+        [Flurry endTimedEvent:kFlurryClickedOnFlyerKey withParameters:@{kFlurryClickedOnFlyerFlyerIdKey : self.flyer.flyerId,
+                                                                        kFlurryClickedOnFlyerEventNameKey : self.flyer.title}];
+    }
 }
 - (void)viewWillAppear:(BOOL)animated
 {

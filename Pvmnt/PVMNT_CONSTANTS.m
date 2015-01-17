@@ -13,3 +13,14 @@ NSString *const kNSUserDefaultsSchoolNameKey            = @"kNSUserDefaultsSchoo
 
 NSString *const kSVPullToRefreshViewStartedRefreshingKey = @"kSVPullToRefreshViewStartedRefreshingKey";
 NSString *const kSVPullToRefreshViewStoppedRefreshingKey = @"kSVPullToRefreshViewStoppedRefreshingKey";
+
+NSString *const kFlurryClickedOnFlyerKey                = @"kFlurryClickedOnFlyerKey";
+NSString *const kFlurryClickedOnFlyerFlyerIdKey         = @"kFlurryClickedOnFlyerFlyerIdKey";
+NSString *const kFlurryClickedOnFlyerEventNameKey       = @"kFlurryClickedOnFlyerEventNameKey";
+NSString *const kFlurryClickedOnFlyerCategoryNameKey    = @"kFlurryClickedOnFlyerCategoryNameKey";
+
+NSString *const kFlurryFilteredByCategoryKey            = @"kFlurryFilteredByCategoryKey";
+NSString *const kFlurryFilteredByCategoryCategoryNameKey = @"kFlurryFilteredByCategoryCategoryNameKey";
+
+NSString *const kFlurryUsingSidewalkViewKey             = @"kFlurryUsingSidewalkViewKey";
+NSString *const kFlurryUsingCalendarViewKey             = @"kFlurryUsingCalendarViewKey";
