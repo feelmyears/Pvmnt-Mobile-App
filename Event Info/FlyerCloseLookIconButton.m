@@ -7,6 +7,8 @@
 //
 
 #import "FlyerCloseLookIconButton.h"
+#import "PvmntStyleKit.h"
+
 @interface FlyerCloseLookIconButton()
 @property (strong, nonatomic) UILabel *label;
 @property (strong, nonatomic) UIImageView *imageView;
@@ -32,7 +34,7 @@
 
 - (void)setupButton
 {
-    self.backgroundColor = [UIColor redColor];
+    self.backgroundColor = [PvmntStyleKit pureWhite];
     
     UIFont *font = [UIFont fontWithName:@"OpenSans" size:15];
     CGSize labelSize = [self.text sizeWithAttributes:@{NSFontAttributeName : font}];
@@ -45,13 +47,14 @@
     
     CGRect imageViewFrame = CGRectMake(sidePadding, (CGRectGetHeight(self.frame) - imageViewSize.height)/2.0, imageViewSize.width, imageViewSize.height);
     self.imageView = [[UIImageView alloc] initWithFrame:imageViewFrame];
-    self.imageView.image = self.image;
+//    self.imageView.image = self.image;
+    self.imageView.backgroundColor = [PvmntStyleKit mainBlack];
     
     CGRect labelFrame = CGRectMake(CGRectGetMaxX(imageViewFrame) + paddingBetweenImageAndText, (CGRectGetHeight(self.frame) - labelSize.height)/2.0, labelSize.width, labelSize.height);
     
     self.label = [[UILabel alloc] initWithFrame:labelFrame];
     self.label.text = self.text;
-    self.label.textColor = [UIColor whiteColor];
+    self.label.textColor = [PvmntStyleKit mainBlack];
     self.label.font = font;
     
     [self addSubview:self.label];

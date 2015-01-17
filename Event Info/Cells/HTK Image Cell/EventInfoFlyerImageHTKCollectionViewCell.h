@@ -12,7 +12,7 @@
 #define DEFAULT_FLYER_IMAGE_CELL_SIZE (CGSize){[[UIScreen mainScreen] bounds].size.width, 85}
 
 @interface EventInfoFlyerImageHTKCollectionViewCell : HTKDynamicResizingCollectionViewCell
-
+@property (readonly) UIImageView *imageView;
 - (void)setupCellWithImage:(CD_Image *)image;
 + (CGSize)sizeForCellWithImage:(CD_Image *)image;
 @end

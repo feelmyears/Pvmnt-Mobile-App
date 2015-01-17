@@ -994,11 +994,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Event Info/FlyerCloseLookIconButton.m"
-            timestampString = "443141476.720898"
+            timestampString = "443146908.721143"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "-setupButton"
             landmarkType = "5">
          </BreakpointContent>
@@ -1010,12 +1010,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/FeedEventInfoHTKCollectionViewCell.m"
-            timestampString = "443141805.318842"
+            timestampString = "443151336.379903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-setupView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Event Info/EventInforViewController.m"
+            timestampString = "443151137.300234"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "-handleAddToCalendarTap"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -12,7 +12,15 @@
 #import <MessageUI/MessageUI.h>
 
 #define DEFAULT_FEED_EVENT_INFO_CELL_SIZE (CGSize){[[UIScreen mainScreen] bounds].size.width, 50}
+@class FeedEventInfoHTKCollectionViewCell;
+@protocol FeedEventInfoDelegate <NSObject>
+@required
+- (void)handleCalendarAction;
+- (void)handleShareAction;
+- (void)handleMoreAction;
+@end
 
 @interface FeedEventInfoHTKCollectionViewCell : HTKDynamicResizingCollectionViewCell<TTTAttributedLabelDelegate>
+@property (weak, nonatomic) id<FeedEventInfoDelegate> delegate;
 - (void)setupCellWithFlyer:(CD_V2_Flyer *)flyer;
 @end
