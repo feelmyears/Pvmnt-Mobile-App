@@ -12,6 +12,7 @@
 NSString *const kSchoolPickerSchoolChosenNotification       = @"kSchoolPickerSchoolChosenNotification";
 
 @interface SchoolPickerViewController ()
+@property (weak, nonatomic) IBOutlet MPGTextField *schoolPickerTextField;
 @property (weak, nonatomic) IBOutlet UITableView *schoolListTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *barButtonItem;
 
@@ -23,7 +24,12 @@ NSString *const kSchoolPickerSchoolChosenNotification       = @"kSchoolPickerSch
 @implementation SchoolPickerViewController
 
 static NSString *kSchoolNameCellIdentifier = @"SchoolNameCellIdentifier";
-
+- (void)setSchoolName:(NSString *)schoolName
+{
+    _schoolName = schoolName;
+    self.schoolPickerTextField.placeholder = _schoolName;
+    self.barButtonItem.enabled = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -53,6 +59,14 @@ static NSString *kSchoolNameCellIdentifier = @"SchoolNameCellIdentifier";
 //    [self.schoolListTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kSchoolNameCellIdentifier];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    if (self.schoolName) {
+        self.schoolPickerTextField.text = self.schoolName;
+    }
+}
 - (NSString *)keyForSection:(NSUInteger)section
 {
     NSArray *sortedKeys = [self.schoolNameArraysOrganizedByFirstLetter.allKeys sortedArrayUsingSelector:@selector(compare:)];
@@ -130,6 +144,52 @@ static NSString *kSchoolNameCellIdentifier = @"SchoolNameCellIdentifier";
         [[NSNotificationCenter defaultCenter] postNotificationName:kSchoolPickerSchoolChosenNotification object:nil];
         
         [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+#pragma mark - MPGTextField Delegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.barButtonItem.enabled = NO;
+}
+
+- (NSArray *)dataForPopoverInTextField:(MPGTextField *)textField
+{
+    NSString *searchString = textField.text;
+    if(searchString.length == 0)
+    {
+        return nil;
+    }
+    else
+    {
+        NSMutableArray *filteredData = [[NSMutableArray alloc] init];
+        
+        for (NSString *schoolName in self.schoolList)
+        {
+            NSRange nameRange = [schoolName rangeOfString:searchString options:NSCaseInsensitiveSearch];
+            NSRange descriptionRange = [schoolName rangeOfString:searchString options:NSCaseInsensitiveSearch];
+            if(nameRange.location != NSNotFound || descriptionRange.location != NSNotFound)
+            {
+                [filteredData addObject:@{@"DisplayText" : schoolName, @"CustomObject" : schoolName}];
+            }
+        }
+        return filteredData;
+    }
+
+}
+
+- (BOOL)textFieldShouldSelect:(MPGTextField *)textField
+{
+    return YES;
+}
+
+- (void)textField:(MPGTextField *)textField didEndEditingWithSelection:(NSDictionary *)result
+{
+    if ([self.schoolList containsObject:result[@"CustomObject"]]) {
+        self.barButtonItem.enabled = YES;
+        self.selectedSchoolName = result[@"CustomObject"];
+    } else {
+        self.barButtonItem.enabled = NO;
     }
 }
 @end

@@ -43,19 +43,19 @@
     
     UIColor *textColor = [UIColor whiteColor];
     [dateString addAttributes:@{
-                                NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:20],
+                                NSFontAttributeName: [UIFont fontWithName:@"OpenSans-Light" size:20],
                                 NSForegroundColorAttributeName: textColor
                                 }
                         range:NSMakeRange(0, dayFormattedString.length)];
     
     [dateString addAttributes:@{
-                                NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:14],
+                                NSFontAttributeName: [UIFont fontWithName:@"OpenSans-Light" size:14],
                                 NSForegroundColorAttributeName: textColor
                                 }
                         range:NSMakeRange(dayFormattedString.length + 1, dayInWeekFormattedString.length)];
     
     [dateString addAttributes:@{
-                                NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Thin" size:12],
+                                NSFontAttributeName: [UIFont fontWithName:@"OpenSans-Light" size:12],
                                 NSForegroundColorAttributeName: textColor
                                 }
                         range:NSMakeRange(dateString.string.length - monthFormattedString.length, monthFormattedString.length)];
@@ -69,6 +69,7 @@
      */
     
     self.dayNumberLabel.attributedText = dateString;
+    self.dayNumberLabel.textAlignment = NSTextAlignmentRight;
 
 }
 

@@ -19,6 +19,8 @@
 #import "SVPullToRefresh.h"
 //#import "PVMNT_CONSTANTS.h"
 #import "SchoolPickerViewController.h"
+#import "Reachability.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 NSString *const kFlyerDBRemovedFlyersNotification            = @"kFlyerDBRemovedFlyersNotification";
 NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFlyerNotification";
@@ -28,6 +30,8 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
 @property (strong, nonatomic) dispatch_group_t imageDownloadingGroup;
 @property (strong, nonatomic) NSMutableArray *temporaryDB;
 @property (nonatomic) BOOL schoolExists;
+@property (strong, nonatomic) Reachability *reachability;
+@property (nonatomic) BOOL isReachable;
 @end
 
 @implementation FlyerDB
@@ -59,6 +63,13 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
     self.concurrentRestfulServicesQueue = dispatch_queue_create("com.pvmnt.pvmntapp.restfulServicesQueue", DISPATCH_QUEUE_CONCURRENT);
     self.imageDownloadingGroup = dispatch_group_create();
     self.restfulServicesGroup = dispatch_group_create();
+    self.reachability = [Reachability reachabilityWithHostName:@"www.google.com"];
+    self.reachability.unreachableBlock = ^(Reachability * reachability){
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [SVProgressHUD showErrorWithStatus:@"Network unavailable"];
+        });
+    };
+    [self.reachability startNotifier];
     [self configureRestKit];
     
 }
@@ -109,7 +120,15 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
 
 - (void)fetchAllWithCompletionBlock:(void (^)())completionBlock
 {
-    if (self.schoolExists) {
+    __block FlyerDB *flyerDB = self;
+    self.reachability.reachableBlock = ^(Reachability *reachability){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [flyerDB fetchAllWithCompletionBlock:completionBlock];
+            flyerDB.reachability.reachableBlock = NULL;
+        });
+    };
+    
+    if (self.schoolExists && (self.reachability.isReachableViaWiFi || self.reachability.isReachableViaWWAN)) {
         dispatch_async(self.concurrentRestfulServicesQueue, ^{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -141,6 +160,12 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
             });
             
         });
+    } else {
+//        __block FlyerDB *flyerDB = self;
+//        self.reachability.reachableBlock = ^(Reachability *reachability){
+//            [flyerDB fetchAllWithCompletionBlock:completionBlock];
+//            flyerDB.reachability.reachableBlock = NULL;
+//        };
     }
 }
 

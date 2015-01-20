@@ -164,7 +164,11 @@ static CGFloat padding = 7.5;
     self.timeLabel.attributedText = mutableTimeLabelText;
     
     
-    self.locationLabel.text = [NSString stringWithFormat:@"Location: %@", flyer.location];
+    if ([flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length) {
+        self.locationLabel.text = [NSString stringWithFormat:@"Location: %@", flyer.location];
+    } else {
+        self.locationLabel.text = @"Location: TBA";
+    }
     NSMutableAttributedString *mutableLocationLabelText = [self.locationLabel.attributedText mutableCopy];
     NSRange locationLabelRange = NSMakeRange(0, 1);
     CGFloat locationLabelFontSize = ((UIFont *)[mutableLocationLabelText attribute:NSFontAttributeName atIndex:0 effectiveRange:&locationLabelRange]).pointSize;

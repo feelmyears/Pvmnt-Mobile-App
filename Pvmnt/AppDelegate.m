@@ -22,6 +22,8 @@
 #import "SidewalkViewController.h"
 #import "CalendarFeedViewController.h"
 
+#import "iRate.h"
+
 #import "Flurry.h"
 @interface AppDelegate ()
 @property (strong, nonatomic) MMDrawerController *drawerController;
@@ -46,9 +48,12 @@
     
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Lobster" size:12], NSFontAttributeName, nil] forState:UIControlStateNormal];
     
+    [iRate sharedInstance].daysUntilPrompt = 5;
+    [iRate sharedInstance].usesUntilPrompt = 15;
+    
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-//    [Flurry setCrashReportingEnabled:YES];
+
     [Flurry startSession:@"CW77P66GWF5XJ943FVT4"];
     return YES;
 }

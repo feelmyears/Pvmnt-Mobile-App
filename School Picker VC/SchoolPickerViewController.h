@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPGTextField.h"
 
 extern NSString *const kSchoolPickerSchoolChosenNotification;
 
-@interface SchoolPickerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface SchoolPickerViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MPGTextFieldDelegate>
+@property (strong, nonatomic) NSString *schoolName;
 
 @end

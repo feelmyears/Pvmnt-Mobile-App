@@ -34,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *titleViewButton;
 @property (strong, nonatomic) CategorySliderView *categoryFilterSlider;
 @property (strong, nonatomic) UIBarButtonItem *toggleButton;
+@property (strong, nonatomic) UIBarButtonItem *sidewalkItem;
+@property (strong, nonatomic) UIBarButtonItem *calendarItem;
 @end
 
 static NSString *SidewalkFlyerImageHTKCollectionViewCellIdentifier  = @"SidewalkFlyerImageHTKCollectionViewCellIdentifier";
@@ -59,6 +61,12 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSchoolChosenNotification) name:kSchoolPickerSchoolChosenNotification object:nil];
     }
     
+    self.sidewalkItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SidewalkIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
+    self.calendarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CalendarIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
+//    self.calendarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(handleViewTypeSwitch)];
+    self.navigationItem.rightBarButtonItems = @[self.sidewalkItem, self.calendarItem];
+    self.calendarItem.imageInsets = UIEdgeInsetsMake(0, 0, 0, -30);
+    self.navigationItem.rightBarButtonItems = @[self.sidewalkItem, self.calendarItem];
     
     //CollectionView Setup
 //    [self.mainCollectionView setCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
@@ -69,7 +77,9 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     
     self.mainCollectionView.scrollsToTop = YES;
     self.sideCollectionView.scrollsToTop = NO;
-    
+//    
+//    self.toggleButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CalendarIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
+//    self.navigationItem.rightBarButtonItem = self.toggleButton;
     
     self.mainCollectionView.pagingEnabled = NO;
     [self.mainCollectionView registerClass:[SidewalkFlyerImageHTKCollectionViewCell class] forCellWithReuseIdentifier:SidewalkFlyerImageHTKCollectionViewCellIdentifier];
@@ -85,10 +95,6 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     self.model.delegate = self;
     [self handleViewTypeSwitch];
     
-//    UIBarButtonItem *toggleButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(handleViewTypeSwitch)];
-    self.toggleButton = [[UIBarButtonItem alloc] initWithTitle:@"Sidewalk" style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
-    self.toggleButton.tintColor = [UIColor blackColor];
-    self.navigationItem.rightBarButtonItem = self.toggleButton;
     
     [self.mainCollectionView addPullToRefreshWithActionHandler:^{
         [[FlyerDB sharedInstance] fetchAllWithCompletionBlock:^{
@@ -109,10 +115,13 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     if (self.model.mode == SIdewalkCalendarModelModeNone) {
         self.model.mode = SidewalkCalendarModelModeSidewalk;
         [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
-        self.toggleButton.title = @"Sidewalk";
+        self.toggleButton.image = [UIImage imageNamed:@"CalendarIcon"];
+        self.sidewalkItem.enabled = NO;
     } else if (self.model.mode == SidewalkCalendarModelModeCalendar) {
         self.model.mode = SidewalkCalendarModelModeSidewalk;
-        self.toggleButton.title = @"Sidewalk";
+        self.toggleButton.image = [UIImage imageNamed:@"CalendarIcon"];
+        self.sidewalkItem.enabled = NO;
+        self.calendarItem.enabled = YES;
         [Flurry endTimedEvent:kFlurryUsingCalendarViewKey withParameters:nil];
         [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
         [UIView animateWithDuration:0.3f animations:^{
@@ -122,7 +131,9 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
         [Flurry endTimedEvent:kFlurryUsingSidewalkViewKey withParameters:nil];
         [Flurry logEvent:kFlurryUsingCalendarViewKey timed:YES];
         self.model.mode = SidewalkCalendarModelModeCalendar;
-        self.toggleButton.title = @"Calendar";
+        self.toggleButton.image = [UIImage imageNamed:@"SidewalkIcon"];
+        self.sidewalkItem.enabled = YES;
+        self.calendarItem.enabled = NO;
         self.sideCollectionView.alpha = 1;
     }
     

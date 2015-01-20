@@ -42,7 +42,7 @@
     CGFloat imageViewDimension = 20;
     CGSize imageViewSize = CGSizeMake(imageViewDimension, imageViewDimension);
     
-    CGFloat paddingBetweenImageAndText = 5;
+    CGFloat paddingBetweenImageAndText = 3;
     CGFloat sidePadding = (CGRectGetWidth(self.frame) - paddingBetweenImageAndText - imageViewSize.width - labelSize.width)/2.0;
     
     CGRect imageViewFrame = CGRectMake(sidePadding, (CGRectGetHeight(self.frame) - imageViewSize.height)/2.0, imageViewSize.width, imageViewSize.height);

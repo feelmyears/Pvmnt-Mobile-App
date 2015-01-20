@@ -49,11 +49,15 @@
 		2151CD671A5E47A1005AFA94 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5D1A5E4513005AFA94 /* OpenSans-ExtraBoldItalic.ttf */; };
 		2151CD681A5E47A1005AFA94 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5E1A5E4513005AFA94 /* OpenSans-Italic.ttf */; };
 		2151CD691A5E47A1005AFA94 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5F1A5E4513005AFA94 /* OpenSans-Semibold.ttf */; };
+		216CB2671A6D8F7200F26237 /* MPGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 216CB2661A6D8F7200F26237 /* MPGTextField.m */; };
 		218E545B1A56056B00E75616 /* CategorySliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E545A1A56056B00E75616 /* CategorySliderView.m */; };
 		218E54621A5605AD00E75616 /* PvmntCategorySliderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */; };
 		218E54651A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */; };
 		218E54681A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54671A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m */; };
 		21A056191A6592DB00B62CDD /* NDCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A056171A6592DB00B62CDD /* NDCollectionViewFlowLayout.m */; };
+		21AA033C1A6DFBC10036E2F8 /* iRate.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21AA03391A6DFBC10036E2F8 /* iRate.bundle */; };
+		21AA033D1A6DFBC10036E2F8 /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AA033B1A6DFBC10036E2F8 /* iRate.m */; };
+		21AA03401A6DFE200036E2F8 /* TextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21AA033F1A6DFE200036E2F8 /* TextViewViewController.m */; };
 		21C3E69D1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21C3E69C1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m */; };
 		21CCDE5E1A6B092800C2FAA0 /* libFlurry_6.0.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CCDE5D1A6B092800C2FAA0 /* libFlurry_6.0.0.a */; };
 		21D3B7451A5487CB0078B038 /* PulldownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B7431A5487CB0078B038 /* PulldownMenu.m */; };
@@ -256,6 +260,8 @@
 		2151CD5D1A5E4513005AFA94 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		2151CD5E1A5E4513005AFA94 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		2151CD5F1A5E4513005AFA94 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		216CB2651A6D8F7200F26237 /* MPGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGTextField.h; sourceTree = "<group>"; };
+		216CB2661A6D8F7200F26237 /* MPGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGTextField.m; sourceTree = "<group>"; };
 		218E54591A56056B00E75616 /* CategorySliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategorySliderView.h; path = "3rd Party/CategorySliderView.h"; sourceTree = "<group>"; };
 		218E545A1A56056B00E75616 /* CategorySliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategorySliderView.m; path = "3rd Party/CategorySliderView.m"; sourceTree = "<group>"; };
 		218E54601A5605AD00E75616 /* PvmntCategorySliderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntCategorySliderLabel.h; sourceTree = "<group>"; };
@@ -266,6 +272,11 @@
 		218E54671A5733B300E75616 /* SidewalkCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidewalkCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		21A056171A6592DB00B62CDD /* NDCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		21A056181A6592DB00B62CDD /* NDCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		21AA03391A6DFBC10036E2F8 /* iRate.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = iRate.bundle; sourceTree = "<group>"; };
+		21AA033A1A6DFBC10036E2F8 /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		21AA033B1A6DFBC10036E2F8 /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
+		21AA033E1A6DFE200036E2F8 /* TextViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewViewController.h; sourceTree = "<group>"; };
+		21AA033F1A6DFE200036E2F8 /* TextViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewViewController.m; sourceTree = "<group>"; };
 		21C3E69B1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntLaunchScreenShimmerTextView.h; sourceTree = "<group>"; };
 		21C3E69C1A54A7E000BDACFC /* PvmntLaunchScreenShimmerTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PvmntLaunchScreenShimmerTextView.m; sourceTree = "<group>"; };
 		21CCDE5D1A6B092800C2FAA0 /* libFlurry_6.0.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_6.0.0.a; sourceTree = "<group>"; };
@@ -525,6 +536,8 @@
 		211E01431A53134800B17343 /* Settings VC */ = {
 			isa = PBXGroup;
 			children = (
+				21AA033E1A6DFE200036E2F8 /* TextViewViewController.h */,
+				21AA033F1A6DFE200036E2F8 /* TextViewViewController.m */,
 				211E013E1A524FE900B17343 /* MenuTableViewController.h */,
 				211E013F1A524FE900B17343 /* MenuTableViewController.m */,
 			);
@@ -722,6 +735,15 @@
 			path = "Sidewalk VC";
 			sourceTree = "<group>";
 		};
+		216CB2641A6D8F7200F26237 /* MPGTextField */ = {
+			isa = PBXGroup;
+			children = (
+				216CB2651A6D8F7200F26237 /* MPGTextField.h */,
+				216CB2661A6D8F7200F26237 /* MPGTextField.m */,
+			);
+			path = MPGTextField;
+			sourceTree = "<group>";
+		};
 		218E545C1A56057F00E75616 /* Fliter Slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,6 +755,16 @@
 				218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */,
 			);
 			name = "Fliter Slider";
+			sourceTree = "<group>";
+		};
+		21AA03381A6DFBC10036E2F8 /* iRate */ = {
+			isa = PBXGroup;
+			children = (
+				21AA03391A6DFBC10036E2F8 /* iRate.bundle */,
+				21AA033A1A6DFBC10036E2F8 /* iRate.h */,
+				21AA033B1A6DFBC10036E2F8 /* iRate.m */,
+			);
+			path = iRate;
 			sourceTree = "<group>";
 		};
 		21D3B7461A5487D10078B038 /* PulldownMenu */ = {
@@ -869,6 +901,8 @@
 		21D778F01A50D2320038CC30 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				21AA03381A6DFBC10036E2F8 /* iRate */,
+				216CB2641A6D8F7200F26237 /* MPGTextField */,
 				212DDEC01A6A108B0029D90C /* Flurry */,
 				21D3B7471A548C170078B038 /* LMDropdownView */,
 				21D3B7461A5487D10078B038 /* PulldownMenu */,
@@ -1622,6 +1656,7 @@
 				21D77A201A50D2520038CC30 /* PvmntPermissionRequestISHPermissionRequestViewController.xib in Resources */,
 				214526EF1A50EC4A0092376F /* SVWebViewControllerActivityChrome-iPad@2x.png in Resources */,
 				21D779B81A50D23F0038CC30 /* EventInfoActionsCell.xib in Resources */,
+				21AA033C1A6DFBC10036E2F8 /* iRate.bundle in Resources */,
 				21D3B7541A548C520078B038 /* FilterTableViewController.xib in Resources */,
 				21D778D81A50D13E0038CC30 /* Images.xcassets in Resources */,
 				21D77A191A50D2520038CC30 /* EventInfoFlyerImageCell.xib in Resources */,
@@ -1761,6 +1796,7 @@
 				21D77A211A50D2520038CC30 /* CD_Colorscheme.m in Sources */,
 				21356A401A5758680058E8D5 /* GradientView.m in Sources */,
 				21D7795F1A50D2320038CC30 /* MBPullDownController.m in Sources */,
+				216CB2671A6D8F7200F26237 /* MPGTextField.m in Sources */,
 				21D778CD1A50D13E0038CC30 /* main.m in Sources */,
 				21D77A261A50D2520038CC30 /* v2_Category.m in Sources */,
 				21D779641A50D2320038CC30 /* NSDate+Utilities.m in Sources */,
@@ -1783,7 +1819,9 @@
 				21D779C01A50D23F0038CC30 /* FlyerDetailHeaderCell.m in Sources */,
 				21D779BD1A50D23F0038CC30 /* EventInfoFlyerTitleCell.m in Sources */,
 				21D3B7531A548C520078B038 /* FilterTableViewController.m in Sources */,
+				21AA03401A6DFE200036E2F8 /* TextViewViewController.m in Sources */,
 				21D779B91A50D23F0038CC30 /* EventInfoFlyerDescriptionCell.m in Sources */,
+				21AA033D1A6DFBC10036E2F8 /* iRate.m in Sources */,
 				21D779B01A50D23F0038CC30 /* CalendarSideDateActionCell.m in Sources */,
 				21D77A161A50D2520038CC30 /* EventInfoActionCellView.m in Sources */,
 				218E545B1A56056B00E75616 /* CategorySliderView.m in Sources */,
