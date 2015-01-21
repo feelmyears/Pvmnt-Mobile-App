@@ -18,6 +18,7 @@
 #import "FlyerCloseLookViewController.h"
 #import "FlyerDB.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
 
 //Cells
 #import "SidewalkFlyerImageHTKCollectionViewCell.h"
@@ -54,7 +55,13 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
 //    [self.titleViewButton setImage:[PvmntStyleKit imageOfPvmntLogo] forState:UIControlStateNormal];
 //    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[PvmntStyleKit imageOfPvmntLogo]];
     UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_pvmnt_app"]];
+//    [titleImageView addGestureRecognizer:[UITapGestureRecognizer bk_performBlock:^{
+//        [self.mainCollectionView setContentOffset:CGPointMake(0, 0) animated:YES];
+//    } afterDelay:0];
+    [titleImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleScrollToTop)]];
+    titleImageView.userInteractionEnabled = YES;
     self.navigationItem.titleView = titleImageView;
+    
     
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsHasPickedSchoolKey]) {
@@ -83,7 +90,7 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     self.mainCollectionView.scrollsToTop = YES;
     self.sideCollectionView.scrollsToTop = NO;
 //    
-    self.toggleButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CalendarIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
+    self.toggleButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"PvmntCalendar"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
     self.navigationItem.rightBarButtonItem = self.toggleButton;
     
     self.mainCollectionView.pagingEnabled = NO;
@@ -100,7 +107,6 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     self.model.delegate = self;
     [self handleViewTypeSwitch];
     
-    
     [self.mainCollectionView addPullToRefreshWithActionHandler:^{
         [[FlyerDB sharedInstance] fetchAllWithCompletionBlock:^{
             [self.mainCollectionView.pullToRefreshView stopAnimating];
@@ -108,6 +114,11 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     } position:SVPullToRefreshPositionTop];
     
     [self initialFetch];
+}
+
+- (void)handleScrollToTop
+{
+    [self.mainCollectionView setContentOffset:CGPointZero animated:YES];
 }
 
 - (void)handleSchoolChosenNotification
@@ -119,24 +130,24 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
 {
     if (self.model.mode == SIdewalkCalendarModelModeNone) {
         self.model.mode = SidewalkCalendarModelModeSidewalk;
-        [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
-        self.toggleButton.image = [UIImage imageNamed:@"CalendarIcon"];
+        [Flurry logEvent:kFlurrySwitchedViewKey withParameters:@{kFlurrySwitchedViewViewTypeKey : kFlurryUsingSidewalkViewKey} timed:YES];
+        self.toggleButton.image = [UIImage imageNamed:@"PvmntCalendar"];
         self.sidewalkItem.enabled = NO;
     } else if (self.model.mode == SidewalkCalendarModelModeCalendar) {
         self.model.mode = SidewalkCalendarModelModeSidewalk;
-        self.toggleButton.image = [UIImage imageNamed:@"CalendarIcon"];
+        self.toggleButton.image = [UIImage imageNamed:@"PvmntCalendar"];
         self.sidewalkItem.enabled = NO;
         self.calendarItem.enabled = YES;
-        [Flurry endTimedEvent:kFlurryUsingCalendarViewKey withParameters:nil];
-        [Flurry logEvent:kFlurryUsingSidewalkViewKey timed:YES];
+        [Flurry endTimedEvent:kFlurrySwitchedViewKey withParameters:nil];
+        [Flurry logEvent:kFlurrySwitchedViewKey withParameters:@{kFlurrySwitchedViewViewTypeKey : kFlurryUsingSidewalkViewKey} timed:YES];
         [UIView animateWithDuration:0.3f animations:^{
             self.sideCollectionView.alpha = 0;
         }];
     } else {
-        [Flurry endTimedEvent:kFlurryUsingSidewalkViewKey withParameters:nil];
-        [Flurry logEvent:kFlurryUsingCalendarViewKey timed:YES];
+        [Flurry endTimedEvent:kFlurrySwitchedViewKey withParameters:nil];
+        [Flurry logEvent:kFlurrySwitchedViewKey withParameters:@{kFlurrySwitchedViewViewTypeKey : kFlurryUsingCalendarViewKey} timed:YES];
         self.model.mode = SidewalkCalendarModelModeCalendar;
-        self.toggleButton.image = [UIImage imageNamed:@"SidewalkIcon"];
+        self.toggleButton.image = [UIImage imageNamed:@"PvmntSidewalk"];
         self.sidewalkItem.enabled = YES;
         self.calendarItem.enabled = NO;
         self.sideCollectionView.alpha = 1;

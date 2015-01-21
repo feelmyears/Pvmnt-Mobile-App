@@ -9,8 +9,9 @@
 #import "MenuTableViewController.h"
 #import "SchoolPickerViewController.h"
 #import "TextViewViewController.h"
-
+#import "UIAlertView+Blocks.h"
 #import "iRate.h"
+#import "Flurry.h"
 
 @interface MenuTableViewController ()
 @end
@@ -154,8 +155,11 @@
                     [self presentViewController:mailVC animated:YES completion:NULL];                }
                     break;
                 case 3: {
-                    NSString *uploadText = @"Upload to pvmnt via the website, bitch";
-                    [self performSegueWithIdentifier:@"Text View Segue" sender:uploadText];
+//                    NSString *uploadText = @"Upload to pvmnt via the website, bitch";
+//                    [self performSegueWithIdentifier:@"Text View Segue" sender:uploadText];
+                    [Flurry logEvent:kFlurryUploadAttemptKey];
+                    [UIAlertView showWithTitle:nil message:@"Visit www.pvmnt.com on your computer to upload an event today!" cancelButtonTitle:@"OK" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                    }];
                 }
                     break;
                 default:

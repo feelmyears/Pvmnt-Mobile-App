@@ -2068,7 +2068,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 43CFE088CCB8243E49764925 /* Pods-Pvmnt.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = PvmntIconSet;
+				ASSETCATALOG_COMPILER_APPICON_NAME = FinalPvmntAppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = PvmntLaunch;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2095,7 +2095,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F5E665890529F06191D224A /* Pods-Pvmnt.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = PvmntIconSet;
+				ASSETCATALOG_COMPILER_APPICON_NAME = FinalPvmntAppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = PvmntLaunch;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

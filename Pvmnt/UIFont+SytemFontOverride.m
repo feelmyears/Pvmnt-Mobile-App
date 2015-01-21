@@ -12,14 +12,15 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 
-static NSString *fontName = @"OpenSans";
+static NSString *fontName = @"OpenSans-Light";
+static NSString *boldFontName = @"OpenSans";
 
 + (UIFont *)boldSystemFontOfSize:(CGFloat)fontSize {
     return [UIFont fontWithName:fontName size:fontSize];
 }
 
 + (UIFont *)systemFontOfSize:(CGFloat)fontSize {
-    return [UIFont fontWithName:fontName size:fontSize];
+    return [UIFont fontWithName:boldFontName size:fontSize];
 }
 
 #pragma clang diagnostic pop

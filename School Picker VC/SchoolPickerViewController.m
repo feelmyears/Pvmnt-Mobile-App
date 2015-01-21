@@ -32,7 +32,8 @@ static NSString *kSchoolNameCellIdentifier = @"SchoolNameCellIdentifier";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     //School List Setup
     self.schoolList = @[@"Northwestern University"];
     

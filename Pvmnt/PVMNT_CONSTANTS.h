@@ -23,6 +23,8 @@ extern NSString *const kFlurryClickedOnFlyerCategoryNameKey;
 extern NSString *const kFlurryFilteredByCategoryKey;
 extern NSString *const kFlurryFilteredByCategoryCategoryNameKey;
 
+extern NSString *const kFlurrySwitchedViewKey;
+extern NSString *const kFlurrySwitchedViewViewTypeKey;
 extern NSString *const kFlurryUsingSidewalkViewKey;
 extern NSString *const kFlurryUsingCalendarViewKey;
 
@@ -37,3 +39,5 @@ extern NSString *const kFlurrySharedFlyerKey;
 extern NSString *const kFlurrySharedFlyerActivityTypeKey;
 extern NSString *const kFlurrySharedFlyerFlyerIdKey;
 extern NSString *const kFlurrySharedFlyerEventNameKey;
+
+extern NSString *const kFlurryUploadAttemptKey;

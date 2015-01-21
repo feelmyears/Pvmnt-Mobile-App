@@ -22,6 +22,8 @@ NSString *const kFlurryClickedOnFlyerCategoryNameKey    = @"kFlurryClickedOnFlye
 NSString *const kFlurryFilteredByCategoryKey            = @"kFlurryFilteredByCategoryKey";
 NSString *const kFlurryFilteredByCategoryCategoryNameKey = @"kFlurryFilteredByCategoryCategoryNameKey";
 
+NSString *const kFlurrySwitchedViewKey                  = @"kFlurrySwitchedViewKey";
+NSString *const kFlurrySwitchedViewViewTypeKey          = @"kFlurrySwitchedViewViewTypeKey";
 NSString *const kFlurryUsingSidewalkViewKey             = @"kFlurryUsingSidewalkViewKey";
 NSString *const kFlurryUsingCalendarViewKey             = @"kFlurryUsingCalendarViewKey";
 
@@ -36,3 +38,5 @@ NSString *const kFlurrySharedFlyerKey                   = @"kFlurrySharedFlyerKe
 NSString *const kFlurrySharedFlyerActivityTypeKey       = @"kFlurrySharedFlyerActivityTypeKey";
 NSString *const kFlurrySharedFlyerFlyerIdKey            = @"kFlurrySharedFlyerFlyerIdKey";
 NSString *const kFlurrySharedFlyerEventNameKey          = @"kFlurrySharedFlyerEventNameKey";
+
+NSString *const kFlurryUploadAttemptKey                 = @"kFlurryUploadAttemptKey";

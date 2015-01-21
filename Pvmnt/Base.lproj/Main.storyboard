@@ -444,7 +444,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="xpd-cD-5d6">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="list26" id="5UD-fR-dne">
+                        <barButtonItem key="leftBarButtonItem" image="PvmntHamburger" id="5UD-fR-dne">
                             <connections>
                                 <segue destination="Y9t-Ai-bs4" kind="presentation" id="QTy-w7-8Yv"/>
                             </connections>
@@ -779,7 +779,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="list26" width="22" height="22"/>
+        <image name="PvmntHamburger" width="20" height="20"/>
         <image name="move12" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>

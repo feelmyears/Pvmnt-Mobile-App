@@ -240,18 +240,21 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
                                         createEventVC.editViewDelegate = self;
                                         createEventVC.event = eventForFlyer;
                                         createEventVC.eventStore = eventStore;
-                                        createEventVC.navigationController.navigationBar.tintColor = [PvmntStyleKit mainBlack];
+                                        createEventVC.navigationBar.tintColor = [PvmntStyleKit mainBlack];
                                         [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0) forBarMetrics:UIBarMetricsDefault];
                                         [self presentViewController:createEventVC animated:YES completion:NULL];
                                     }
 
                                 } else {
-                                    [UIAlertView showWithTitle:@"Access Denied" message:@"Failed to add event. Please check your privacy settings." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Settings"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                                        if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Settings"]) {
-                                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-                                        }
-                                    }];
-
+                                    if (userDialogResult == ClusterDialogResultDenied) {
+                                        [SVProgressHUD showErrorWithStatus:@"Permission denied"];
+                                    } else if (systemDialogResult == ClusterDialogResultParentallyRestricted || systemDialogResult == ClusterDialogResultNoActionTaken) {
+                                        [UIAlertView showWithTitle:@"Access Denied" message:@"Failed to add event. Please check your privacy settings." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Settings"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                            if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Settings"]) {
+                                                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                                            }
+                                        }];
+                                    }
                                 }
                             }];
     

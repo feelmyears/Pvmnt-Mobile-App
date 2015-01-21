@@ -43,7 +43,7 @@
     
     UIColor *textColor = [UIColor whiteColor];
     [dateString addAttributes:@{
-                                NSFontAttributeName: [UIFont fontWithName:@"OpenSans-Light" size:20],
+                                NSFontAttributeName: [UIFont fontWithName:@"OpenSans-Light" size:16],
                                 NSForegroundColorAttributeName: textColor
                                 }
                         range:NSMakeRange(0, dayFormattedString.length)];
