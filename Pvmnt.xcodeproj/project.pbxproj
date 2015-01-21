@@ -50,6 +50,9 @@
 		2151CD681A5E47A1005AFA94 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5E1A5E4513005AFA94 /* OpenSans-Italic.ttf */; };
 		2151CD691A5E47A1005AFA94 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2151CD5F1A5E4513005AFA94 /* OpenSans-Semibold.ttf */; };
 		216CB2671A6D8F7200F26237 /* MPGTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 216CB2661A6D8F7200F26237 /* MPGTextField.m */; };
+		216EBD721A6F4D0700EEC963 /* SelectSchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 216EBD711A6F4D0700EEC963 /* SelectSchoolViewController.m */; };
+		216EBD751A6F54C700EEC963 /* UIFont+SytemFontOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = 216EBD741A6F54C700EEC963 /* UIFont+SytemFontOverride.m */; };
+		216EBD861A6F5A9C00EEC963 /* ClusterPrePermissions.m in Sources */ = {isa = PBXBuildFile; fileRef = 216EBD7B1A6F5A9C00EEC963 /* ClusterPrePermissions.m */; };
 		218E545B1A56056B00E75616 /* CategorySliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E545A1A56056B00E75616 /* CategorySliderView.m */; };
 		218E54621A5605AD00E75616 /* PvmntCategorySliderLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54611A5605AD00E75616 /* PvmntCategorySliderLabel.m */; };
 		218E54651A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 218E54641A56E71C00E75616 /* FeedEventInfoHTKCollectionViewCell.m */; };
@@ -271,6 +274,12 @@
 		2151CD5F1A5E4513005AFA94 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		216CB2651A6D8F7200F26237 /* MPGTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGTextField.h; sourceTree = "<group>"; };
 		216CB2661A6D8F7200F26237 /* MPGTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGTextField.m; sourceTree = "<group>"; };
+		216EBD701A6F4D0700EEC963 /* SelectSchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSchoolViewController.h; sourceTree = "<group>"; };
+		216EBD711A6F4D0700EEC963 /* SelectSchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSchoolViewController.m; sourceTree = "<group>"; };
+		216EBD731A6F54C700EEC963 /* UIFont+SytemFontOverride.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+SytemFontOverride.h"; sourceTree = "<group>"; };
+		216EBD741A6F54C700EEC963 /* UIFont+SytemFontOverride.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+SytemFontOverride.m"; sourceTree = "<group>"; };
+		216EBD7A1A6F5A9C00EEC963 /* ClusterPrePermissions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusterPrePermissions.h; sourceTree = "<group>"; };
+		216EBD7B1A6F5A9C00EEC963 /* ClusterPrePermissions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusterPrePermissions.m; sourceTree = "<group>"; };
 		218E54591A56056B00E75616 /* CategorySliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategorySliderView.h; path = "3rd Party/CategorySliderView.h"; sourceTree = "<group>"; };
 		218E545A1A56056B00E75616 /* CategorySliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategorySliderView.m; path = "3rd Party/CategorySliderView.m"; sourceTree = "<group>"; };
 		218E54601A5605AD00E75616 /* PvmntCategorySliderLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PvmntCategorySliderLabel.h; sourceTree = "<group>"; };
@@ -627,6 +636,7 @@
 		21367F831A618C4200B495D3 /* Flyer Close Look VC */ = {
 			isa = PBXGroup;
 			children = (
+				21D779E31A50D2520038CC30 /* Permission */,
 				21367F871A618DE700B495D3 /* Cells */,
 				21367F841A618CDA00B495D3 /* FlyerCloseLookViewController.h */,
 				21367F851A618CDA00B495D3 /* FlyerCloseLookViewController.m */,
@@ -773,6 +783,16 @@
 			path = MPGTextField;
 			sourceTree = "<group>";
 		};
+		216EBD791A6F5A9C00EEC963 /* ClusterPrePermissions */ = {
+			isa = PBXGroup;
+			children = (
+				216EBD7A1A6F5A9C00EEC963 /* ClusterPrePermissions.h */,
+				216EBD7B1A6F5A9C00EEC963 /* ClusterPrePermissions.m */,
+			);
+			name = ClusterPrePermissions;
+			path = ClusterPrePermissions/ClusterPrePermissions;
+			sourceTree = "<group>";
+		};
 		218E545C1A56057F00E75616 /* Fliter Slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -881,6 +901,8 @@
 		21D778C91A50D13E0038CC30 /* Pvmnt */ = {
 			isa = PBXGroup;
 			children = (
+				216EBD731A6F54C700EEC963 /* UIFont+SytemFontOverride.h */,
+				216EBD741A6F54C700EEC963 /* UIFont+SytemFontOverride.m */,
 				21EF5D6E1A5392D200D1DF98 /* CGRectPositioning.h */,
 				21EF5D6B1A538DB600D1DF98 /* PvmntStyleKit.h */,
 				21EF5D6C1A538DB600D1DF98 /* PvmntStyleKit.m */,
@@ -930,6 +952,7 @@
 		21D778F01A50D2320038CC30 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				216EBD791A6F5A9C00EEC963 /* ClusterPrePermissions */,
 				21F00D681A6F42440078DEAD /* TNTextBox */,
 				21AA03381A6DFBC10036E2F8 /* iRate */,
 				216CB2641A6D8F7200F26237 /* MPGTextField */,
@@ -1332,7 +1355,6 @@
 				21D779C71A50D2520038CC30 /* Cells */,
 				21D779E11A50D2520038CC30 /* EventInforViewController.h */,
 				21D779E21A50D2520038CC30 /* EventInforViewController.m */,
-				21D779E31A50D2520038CC30 /* Permission */,
 			);
 			name = "Event Info VC";
 			path = "Event Info";
@@ -1482,6 +1504,8 @@
 		21D779FD1A50D2520038CC30 /* School Picker VC */ = {
 			isa = PBXGroup;
 			children = (
+				216EBD701A6F4D0700EEC963 /* SelectSchoolViewController.h */,
+				216EBD711A6F4D0700EEC963 /* SelectSchoolViewController.m */,
 				21D779FE1A50D2520038CC30 /* SchoolPickerViewController.h */,
 				21D779FF1A50D2520038CC30 /* SchoolPickerViewController.m */,
 			);
@@ -1797,6 +1821,7 @@
 				21D77A221A50D2520038CC30 /* CD_Image.m in Sources */,
 				21D7795E1A50D2320038CC30 /* UIColor+YUVSpace.m in Sources */,
 				21D77A291A50D2520038CC30 /* RK_Flyer.m in Sources */,
+				216EBD721A6F4D0700EEC963 /* SelectSchoolViewController.m in Sources */,
 				21D779621A50D2320038CC30 /* NSDate+RoundToTime.m in Sources */,
 				21D77A1C1A50D2520038CC30 /* EventInfoFlyerImageHTKCollectionViewCell.m in Sources */,
 				214526F01A50EC4A0092376F /* SVWebViewControllerActivityChrome.m in Sources */,
@@ -1831,6 +1856,7 @@
 				21367F861A618CDA00B495D3 /* FlyerCloseLookViewController.m in Sources */,
 				21D779701A50D2320038CC30 /* UIView+RoundedCorners.m in Sources */,
 				21FA0D111A60E78800DDEDCC /* CategoryFilterView.m in Sources */,
+				216EBD861A6F5A9C00EEC963 /* ClusterPrePermissions.m in Sources */,
 				21D779531A50D2320038CC30 /* CSStickyHeaderFlowLayoutAttributes.m in Sources */,
 				21D779B11A50D23F0038CC30 /* CalendarSideDateDateHTKCollectionViewCell.m in Sources */,
 				21D77A3D1A50D2880038CC30 /* Model.xcdatamodeld in Sources */,
@@ -1868,6 +1894,7 @@
 				21D779641A50D2320038CC30 /* NSDate+Utilities.m in Sources */,
 				21D7796E1A50D2320038CC30 /* UIImage-MJGScaling.m in Sources */,
 				21D3B7451A5487CB0078B038 /* PulldownMenu.m in Sources */,
+				216EBD751A6F54C700EEC963 /* UIFont+SytemFontOverride.m in Sources */,
 				21D779651A50D2320038CC30 /* Reachability.m in Sources */,
 				21D779AF1A50D23F0038CC30 /* CalendarListViewController.m in Sources */,
 				211E01401A524FE900B17343 /* MenuTableViewController.m in Sources */,

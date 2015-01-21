@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -79,10 +78,10 @@
                     <exclude reference="u32-Pp-4Mz"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="Rey-3u-oBj"/>
-                    <exclude reference="eLO-xd-9U2"/>
                     <exclude reference="OEM-jt-ORK"/>
                     <exclude reference="vws-EN-kyb"/>
+                    <exclude reference="Rey-3u-oBj"/>
+                    <exclude reference="eLO-xd-9U2"/>
                     <exclude reference="4P8-kV-K9U"/>
                     <exclude reference="aX6-nG-Heq"/>
                     <exclude reference="tqm-tR-eXl"/>
@@ -95,10 +94,10 @@
                     <include reference="u32-Pp-4Mz"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Rey-3u-oBj"/>
-                    <include reference="eLO-xd-9U2"/>
                     <include reference="OEM-jt-ORK"/>
                     <include reference="vws-EN-kyb"/>
+                    <include reference="Rey-3u-oBj"/>
+                    <include reference="eLO-xd-9U2"/>
                     <include reference="4P8-kV-K9U"/>
                     <include reference="aX6-nG-Heq"/>
                     <include reference="tqm-tR-eXl"/>

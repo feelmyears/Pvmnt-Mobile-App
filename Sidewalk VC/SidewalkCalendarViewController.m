@@ -58,7 +58,12 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kNSUserDefaultsHasPickedSchoolKey]) {
-        [self performSegueWithIdentifier:@"Pick School Segue" sender:self];
+//        [self performSegueWithIdentifier:@"Pick School Segue" sender:self];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UIViewController *VC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Schoolpicker VC Nav"];
+            [self presentViewController:VC animated:NO completion:NULL];
+        });
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSchoolChosenNotification) name:kSchoolPickerSchoolChosenNotification object:nil];
     }
     

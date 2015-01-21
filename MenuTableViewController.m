@@ -68,7 +68,7 @@
             return 1;
         }
         case 1: {
-            return 5;
+            return 4;
         }
         default:
             return 0;
@@ -94,19 +94,16 @@
         case 1: {
             switch (indexPath.row) {
                 case 0:
-                    textForCell = @"About Pvmnt";
-                    break;
-                case 1:
                     textForCell = @"Share Pvmnt";
                     break;
-                case 2:
+                case 1:
                     textForCell = @"Rate Pvmnt";
                     break;
-                case 3:
-                    textForCell = @"Contact Pvmnt";
+                case 2:
+                    textForCell = @"Contact Us";
                     break;
-                case 4:
-                    textForCell = @"Upload to Pvmnt";
+                case 3:
+                    textForCell = @"Upload Your Event";
                     break;
                 default:
                     break;
@@ -141,27 +138,22 @@
         case 1: {
             switch (indexPath.row) {
                 case 0: {
-                    NSString *aboutText = @"About pvmnt!!!!!!";
-                    [self performSegueWithIdentifier:@"Text View Segue" sender:aboutText];
-                }
-                    break;
-                case 1: {
                     NSString *shareString = @"Check out www.pvmnt.com and rediscover campus!";
                     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[shareString] applicationActivities:nil];
                     [self presentViewController:activityVC animated:YES completion:nil];
                 }
                     break;
-                case 2:
+                case 1:
                     [[iRate sharedInstance] promptForRating];
                     break;
-                case 3: {
+                case 2: {
                     MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
                     [mailVC setToRecipients:[NSArray arrayWithObject:@"pvmntapp@gmail.com"]];
                     mailVC.mailComposeDelegate = self;
                     mailVC.navigationBar.tintColor = [UIColor blackColor];
                     [self presentViewController:mailVC animated:YES completion:NULL];                }
                     break;
-                case 4: {
+                case 3: {
                     NSString *uploadText = @"Upload to pvmnt via the website, bitch";
                     [self performSegueWithIdentifier:@"Text View Segue" sender:uploadText];
                 }

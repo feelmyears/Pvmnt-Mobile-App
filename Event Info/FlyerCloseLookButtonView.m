@@ -9,37 +9,41 @@
 #import "FlyerCloseLookButtonView.h"
 #import "PvmntStyleKit.h"
 @interface FlyerCloseLookButtonView()
+@property (strong, nonatomic) NSString *text;
 @end
 
-
-static CGFloat horizontalPadding = 4.f;
-static CGFloat verticalPadding = 0;
-static CGFloat borderWidth = 2.f;
 @implementation FlyerCloseLookButtonView
-- (instancetype)initWithLabel:(NSString *)label
+- (instancetype)initWithFrame:(CGRect)frame andLabel:(NSString *)label
 {
-    UIFont *font = [UIFont fontWithName:@"Lobster 1.4" size:20];
-    CGSize textSize = [label sizeWithAttributes:@{NSFontAttributeName : font}];
-    CGRect frame = CGRectMake(0, 0, textSize.width + 2*(horizontalPadding + borderWidth), textSize.height + 2*(verticalPadding + borderWidth));
     if (self = [super initWithFrame:frame]) {
-        [self setupViewWithLabel:label andFont:font];
+        self.text = label;
     }
-    
     return self;
 }
 
-- (void)setupViewWithLabel:(NSString *)string andFont:(UIFont *)font
+- (void)layoutSubviews
 {
-    CGSize textSize = [string sizeWithAttributes:@{NSFontAttributeName : font}];
-    CGRect frame = CGRectMake((self.frame.size.width - textSize.width)/2, (self.frame.size.height - textSize.height)/2, textSize.width, textSize.height);
-    UILabel *label = [[UILabel alloc] initWithFrame:frame];
-    label.font = font;
-    label.text = string;
-    label.textColor = [PvmntStyleKit pureWhite];
-    [self addSubview:label];
-    
-    self.layer.borderWidth = borderWidth;
-    self.layer.borderColor = [PvmntStyleKit pureWhite].CGColor;
+    [self setupButton];
 }
+
+- (void)setupButton
+{
+    self.backgroundColor = [UIColor whiteColor];
+    
+    UIFont *font = [UIFont fontWithName:@"OpenSans-Light" size:16];
+    CGSize labelSize = [self.text sizeWithAttributes:@{NSFontAttributeName : font}];
+    
+    CGRect labelFrame = CGRectMake((CGRectGetWidth(self.frame)-labelSize.width)/2.0, (CGRectGetHeight(self.frame)-labelSize.height)/2.0, labelSize.width, labelSize.height);
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
+    label.text = self.text;
+    label.textColor = [PvmntStyleKit mainBlack];
+    label.font = font;
+    
+    [self addSubview:label];
+
+    
+}
+
 
 @end

@@ -26,9 +26,9 @@
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) TTTAttributedLabel *descriptionLabel;
 @property (strong, nonatomic) UIView *hairline;
-@property (strong, nonatomic) FlyerCloseLookIconButton *addToCalButton;
-@property (strong, nonatomic) FlyerCloseLookIconButton *shareEventButton;
-@property (strong, nonatomic) FlyerCloseLookIconButton *moreButton;
+@property (strong, nonatomic) FlyerCloseLookButtonView *addToCalButton;
+@property (strong, nonatomic) FlyerCloseLookButtonView *shareEventButton;
+@property (strong, nonatomic) FlyerCloseLookButtonView *moreButton;
 @end
 
 static CGFloat padding = 7.5;
@@ -100,17 +100,20 @@ static CGFloat padding = 7.5;
     CGFloat buttonSpacing = 0.5;
     CGSize flyerCloseLookButtonSize = CGSizeMake((DEFAULT_FEED_EVENT_INFO_CELL_SIZE.width - 3*buttonSpacing)/3.0, 40);
     NSUInteger i = 0;
-    self.addToCalButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width + buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"Save Event" image:[UIImage imageNamed:@"AddToCalIcon"]];
+//    self.addToCalButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width + buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"Save Event" image:[UIImage imageNamed:@"AddToCalIcon"]];
+    self.addToCalButton = [[FlyerCloseLookButtonView alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width + buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) andLabel:@"Save Event"];
     [self.addToCalButton addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
         [self.delegate handleCalendarAction];
     }]];
     
-    self.shareEventButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width+buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"Share" image:[UIImage imageNamed:@"ShareIcon"]];
+//    self.shareEventButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width+buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"Share" image:[UIImage imageNamed:@"ShareIcon"]];
+    self.shareEventButton = [[FlyerCloseLookButtonView alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width+buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) andLabel:@"Share"];
     [self.shareEventButton addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
         [self.delegate handleShareAction];
     }]];
     
-    self.moreButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width +buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"More" image:[UIImage imageNamed:@"MoreIcon"]];
+//    self.moreButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width +buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"More" image:[UIImage imageNamed:@"MoreIcon"]];
+    self.moreButton = [[FlyerCloseLookButtonView alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width +buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) andLabel:@"More"];
     [self.moreButton addGestureRecognizer:[UITapGestureRecognizer bk_recognizerWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location) {
         [self.delegate handleMoreAction];
     }]];

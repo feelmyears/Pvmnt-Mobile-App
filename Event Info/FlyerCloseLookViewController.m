@@ -20,7 +20,7 @@
 #import "UIAlertView+Blocks.h"
 #import <URBMediaFocusViewController/URBMediaFocusViewController.h>
 #import "CD_V2_Flyer.h"
-
+#import "ClusterPrePermissions.h"
 
 
 static NSString *EventInfoFlyerImageHTKCollectionViewCellIdentifier = @"EventInfoFlyerImageHTKCollectionViewCellIdentifier";
@@ -134,7 +134,7 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 }
 
 #pragma mark - FeedEventInfoHTKCollectionViewCell Delegate
-
+/*
 - (void)handleCalendarAction
 {
     NSArray *permissions = @[
@@ -196,8 +196,66 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
         }
     }
 }
+*/
 
+- (void)handleCalendarAction
+{
+    ClusterPrePermissions *permissions = [ClusterPrePermissions sharedPermissions];
+    [permissions showEventPermissionsWithType:ClusterEventAuthorizationTypeEvent
+                                        Title:@"Allow calendar access?"
+                                      message:nil
+                              denyButtonTitle:@"Not now"
+                             grantButtonTitle:@"Allow"
+                            completionHandler:^(BOOL hasPermission, ClusterDialogResult userDialogResult, ClusterDialogResult systemDialogResult) {
+                                if (hasPermission) {
+                                    EKEventStore *eventStore = [[EKEventStore alloc] init];
+                                    EKCalendar *calendar = [eventStore defaultCalendarForNewEvents];
+                                    
+                                    NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:self.flyer.event_time endDate:[self.flyer.event_time dateByAddingHours:1] calendars:@[calendar]];
+                                    NSArray *events = [eventStore eventsMatchingPredicate:predicate];
+                                    EKEvent *eventForFlyer = nil;
+                                    
+                                    for (EKEvent *queryResult in events) {
+                                        if ([queryResult.title isEqualToString:self.flyer.title] && [queryResult.startDate isEqualToDate:self.flyer.event_time]) {
+                                            eventForFlyer = queryResult;
+                                        }
+                                    }
+                                    
+                                    if (eventForFlyer) {
+                                        [SVProgressHUD showInfoWithStatus:@"Event already added!"];
+                                    } else {
+                                        eventForFlyer = [EKEvent eventWithEventStore:eventStore];
+                                        
+                                        eventForFlyer.title = self.flyer.title;
+                                        eventForFlyer.startDate = self.flyer.event_time;
+                                        eventForFlyer.endDate = [self.flyer.event_time dateByAddingHours:1];
+                                        eventForFlyer.calendar = calendar;
+                                        eventForFlyer.notes = self.flyer.desc;
+                                        eventForFlyer.location = self.flyer.location;
+                                        
+                                        NSString *shareURL = [NSString stringWithFormat:@"https://northwestern.pvmnt.com/flyers/%@", self.flyer.flyerId];
+                                        eventForFlyer.URL = [NSURL URLWithString:shareURL];
+                                        
+                                        EKEventEditViewController *createEventVC = [EKEventEditViewController new];
+                                        createEventVC.editViewDelegate = self;
+                                        createEventVC.event = eventForFlyer;
+                                        createEventVC.eventStore = eventStore;
+                                        createEventVC.navigationController.navigationBar.tintColor = [PvmntStyleKit mainBlack];
+                                        [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0) forBarMetrics:UIBarMetricsDefault];
+                                        [self presentViewController:createEventVC animated:YES completion:NULL];
+                                    }
 
+                                } else {
+                                    [UIAlertView showWithTitle:@"Access Denied" message:@"Failed to add event. Please check your privacy settings." cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"Settings"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                        if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Settings"]) {
+                                            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                                        }
+                                    }];
+
+                                }
+                            }];
+    
+}
 - (void)handleMoreAction
 {
     [UIActionSheet showInView:self.view withTitle:nil cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Report event" otherButtonTitles:@[@"Save image"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {

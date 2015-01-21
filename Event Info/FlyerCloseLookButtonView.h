@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FlyerCloseLookButtonView : UIView
-- (instancetype)initWithLabel:(NSString *)label;
+- (instancetype)initWithFrame:(CGRect)frame andLabel:(NSString *)label;
 @end
