@@ -319,7 +319,7 @@
 		21D4A3B41A7060160056DF0E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		21D4A3B51A7060160056DF0E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		21D4A3B61A7069180056DF0E /* NewLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewLaunchScreen.xib; sourceTree = "<group>"; };
-		21D778C71A50D13E0038CC30 /* Pvmnt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pvmnt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21D778C71A50D13E0038CC30 /* pvmnt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pvmnt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D778CB1A50D13E0038CC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D778CC1A50D13E0038CC30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21D778CE1A50D13E0038CC30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -921,7 +921,7 @@
 		21D778C81A50D13E0038CC30 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21D778C71A50D13E0038CC30 /* Pvmnt.app */,
+				21D778C71A50D13E0038CC30 /* pvmnt.app */,
 				21D778E01A50D13E0038CC30 /* PvmntTests.xctest */,
 			);
 			name = Products;
@@ -1668,7 +1668,7 @@
 			);
 			name = Pvmnt;
 			productName = Pvmnt;
-			productReference = 21D778C71A50D13E0038CC30 /* Pvmnt.app */;
+			productReference = 21D778C71A50D13E0038CC30 /* pvmnt.app */;
 			productType = "com.apple.product-type.application";
 		};
 		21D778DF1A50D13E0038CC30 /* PvmntTests */ = {
@@ -2118,7 +2118,7 @@
 					Party/Flurry,
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pvmnt;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -2145,7 +2145,7 @@
 					Party/Flurry,
 					"$(PROJECT_DIR)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pvmnt;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
