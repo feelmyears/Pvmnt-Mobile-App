@@ -322,6 +322,7 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
     newFlyer.title = [rkFlyer.title stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     newFlyer.event_date = [rkFlyer.event_date dateAtStartOfDay];
     newFlyer.event_time = rkFlyer.event_date;
+    NSAssert([newFlyer.event_date isEqualToDateIgnoringTime:newFlyer.event_time], @"Must be true");
     newFlyer.desc = [rkFlyer.flyerDescription stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
 //    NSAttributedString *markdownString = [[NSAttributedString alloc] initWithData:[rkFlyer.flyerDescription dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:@(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
