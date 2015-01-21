@@ -898,28 +898,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
-            timestampString = "443508176.026785"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
-            landmarkName = "-handleViewTypeSwitch"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
-            timestampString = "443508176.026785"
+            timestampString = "443516537.692661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "318"
             endingLineNumber = "318"
-            landmarkName = "-handleViewTypeSwitch"
+            landmarkName = "-collectionView:viewForSupplementaryElementOfKind:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -930,12 +914,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
-            timestampString = "443508176.026785"
+            timestampString = "443516537.692661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "319"
             endingLineNumber = "319"
-            landmarkName = "-handleViewTypeSwitch"
+            landmarkName = "-collectionView:viewForSupplementaryElementOfKind:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -946,12 +930,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
-            timestampString = "443508176.026785"
+            timestampString = "443516537.692661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345"
-            landmarkName = "-handleViewTypeSwitch"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "-collectionView:viewForSupplementaryElementOfKind:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -962,12 +946,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
-            timestampString = "443508176.026785"
+            timestampString = "443516537.692661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
-            landmarkName = "-handleViewTypeSwitch"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
+            landmarkName = "-collectionView:layout:insetForSectionAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -978,12 +962,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
-            timestampString = "443508176.026785"
+            timestampString = "443516537.692661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389"
-            landmarkName = "-handleViewTypeSwitch"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
+            landmarkName = "-collectionView:layout:insetForSectionAtIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
+            timestampString = "443516537.692661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
+            landmarkName = "-scrollViewDidScroll:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1175,7 +1175,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "178"
             endingLineNumber = "178"
-            landmarkName = "-handleViewTypeSwitch"
+            landmarkName = "-initialFetch"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1191,7 +1191,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "179"
             endingLineNumber = "179"
-            landmarkName = "-handleViewTypeSwitch"
+            landmarkName = "-initialFetch"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -47,7 +47,7 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.sliderView.layer.zPosition = 100;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
@@ -250,11 +250,12 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
                 //        calendarListCell.flyerForCell = flyerForCell;
                 [cell setupWithFlyer:flyerForCell];
                 //        NSLog(@"%@ - %@", flyerForCell.title, flyerForCell.event_time.shortDateString);
-                
+                cell.layer.zPosition = 0;
                 return cell;
             } else if (collectionView == self.sideCollectionView) {
                 static NSString *cellIdentifier = @"Blank Side Cell";
                 UICollectionViewCell *blankSideCell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+                blankSideCell.layer.zPosition = 0;
                 return blankSideCell;
             } else return nil;
         }
