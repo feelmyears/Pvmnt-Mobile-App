@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "78A1BA61DB46F1AC03F9ACD6"
+               BlueprintIdentifier = "179366606B0B486A58C001C1"
                BuildableName = "libPods-Pvmnt-WYPopoverController.a"
                BlueprintName = "Pods-Pvmnt-WYPopoverController"
                ReferencedContainer = "container:Pods.xcodeproj">

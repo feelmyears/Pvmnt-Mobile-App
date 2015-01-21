@@ -1,6 +1,6 @@
 // TTTURLRequestFormatter.m
 //
-// Copyright (c) 2011 Mattt Thompson (http://mattt.me)
+// Copyright (c) 2011–2015 Mattt Thompson (http://mattt.me)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -63,8 +63,13 @@
 
     if ([request URL]) {
         NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[request URL]];
-        for (NSHTTPCookie *cookie in cookies) {
-            [command appendCommandLineArgument:[NSString stringWithFormat:@"--cookie \"%@=%@\"", [cookie name], [cookie value]]];
+        if (cookies.count) {
+            NSMutableString *mutableCookieString = [NSMutableString string];
+            for (NSHTTPCookie *cookie in cookies) {
+                [mutableCookieString appendFormat:@"%@=%@;", cookie.name, cookie.value];
+            }
+
+            [command appendCommandLineArgument:[NSString stringWithFormat:@"--cookie \"%@\"", mutableCookieString]];
         }
     }
 

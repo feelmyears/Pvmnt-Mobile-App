@@ -52,7 +52,8 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     self.navigationController.navigationBar.translucent = NO;
     
 //    [self.titleViewButton setImage:[PvmntStyleKit imageOfPvmntLogo] forState:UIControlStateNormal];
-    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[PvmntStyleKit imageOfPvmntLogo]];
+//    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[PvmntStyleKit imageOfPvmntLogo]];
+    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_pvmnt_app"]];
     self.navigationItem.titleView = titleImageView;
     
     
@@ -61,12 +62,11 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleSchoolChosenNotification) name:kSchoolPickerSchoolChosenNotification object:nil];
     }
     
-    self.sidewalkItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SidewalkIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
-    self.calendarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CalendarIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
-//    self.calendarItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(handleViewTypeSwitch)];
-    self.navigationItem.rightBarButtonItems = @[self.sidewalkItem, self.calendarItem];
-    self.calendarItem.imageInsets = UIEdgeInsetsMake(0, 0, 0, -30);
-    self.navigationItem.rightBarButtonItems = @[self.sidewalkItem, self.calendarItem];
+//    self.sidewalkItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SidewalkIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
+//    self.calendarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CalendarIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
+//    self.navigationItem.rightBarButtonItems = @[self.sidewalkItem, self.calendarItem];
+//    self.calendarItem.imageInsets = UIEdgeInsetsMake(0, 0, 0, -30);
+//    self.navigationItem.rightBarButtonItems = @[self.sidewalkItem, self.calendarItem];
     
     //CollectionView Setup
 //    [self.mainCollectionView setCollectionViewLayout:[[UICollectionViewLayout alloc] init]];
@@ -78,8 +78,8 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     self.mainCollectionView.scrollsToTop = YES;
     self.sideCollectionView.scrollsToTop = NO;
 //    
-//    self.toggleButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CalendarIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
-//    self.navigationItem.rightBarButtonItem = self.toggleButton;
+    self.toggleButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"CalendarIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(handleViewTypeSwitch)];
+    self.navigationItem.rightBarButtonItem = self.toggleButton;
     
     self.mainCollectionView.pagingEnabled = NO;
     [self.mainCollectionView registerClass:[SidewalkFlyerImageHTKCollectionViewCell class] forCellWithReuseIdentifier:SidewalkFlyerImageHTKCollectionViewCellIdentifier];

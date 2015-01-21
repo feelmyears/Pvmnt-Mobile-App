@@ -8,6 +8,7 @@ pod 'RestKit', '~> 0.20.0'
 pod 'SDWebImage', '~>3.6'
 pod 'TLLayoutTransitioning'
 pod 'BFNavigationBarDrawer'
+
 pod 'XLMediaZoom'
 pod 'URBMediaFocusViewController'
 #pod 'Canvas', '~> 0.1'
@@ -31,7 +32,8 @@ pod 'ionicons'
 pod 'WYPopoverController', '~> 0.2.2'
 pod 'Shimmer'
 pod 'UINavigationBar+Addition'
-
+platform :ios, '7.0'
+pod 'BFPaperCheckbox', '~> 1.2.4'
 pod 'BlocksKit', '2.2.2'
 pod 'ObjcAssociatedObjectHelpers', '1.2.1'
 pod 'libextobjc/EXTScope', '0.4'
@@ -39,6 +41,7 @@ pod 'JRSwizzle', '1.0'
 
 pod 'TLLayoutTransitioning', '~> 1.0'
 pod 'BlocksKit', '~> 2.2'
+
 #platform :ios, '7.0'
 #    pod 'ECSlidingViewController', '~> 2.0.3'
 end

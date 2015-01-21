@@ -357,7 +357,6 @@
         <!--Sidewalk Calendar View Controller-->
         <scene sceneID="BBk-9Q-vaF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9AX-Fo-ypW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="TfS-mg-5Cs" customClass="SidewalkCalendarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E3W-MM-uuJ"/>
@@ -472,6 +471,7 @@
                         <segue destination="hYo-rH-u55" kind="presentation" identifier="Pick School Segue" animates="NO" id="rNi-UL-UCh"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9AX-Fo-ypW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6766" y="4188"/>
         </scene>
@@ -551,6 +551,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Mh7-9y-hpE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lXx-re-70x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrp-yt-LxP">
@@ -573,10 +574,10 @@
                                 <exclude reference="mrp-yt-LxP"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="xXM-dr-gu5"/>
                                 <exclude reference="Q4W-Ho-fsF"/>
                                 <exclude reference="XP7-LJ-4Gn"/>
                                 <exclude reference="wEg-Tk-oU5"/>
-                                <exclude reference="xXM-dr-gu5"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -584,10 +585,10 @@
                                 <include reference="mrp-yt-LxP"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="xXM-dr-gu5"/>
                                 <include reference="Q4W-Ho-fsF"/>
                                 <include reference="XP7-LJ-4Gn"/>
                                 <include reference="wEg-Tk-oU5"/>
-                                <include reference="xXM-dr-gu5"/>
                             </mask>
                         </variation>
                     </view>

@@ -9,7 +9,7 @@
 #import "MenuTableViewController.h"
 #import "SchoolPickerViewController.h"
 #import "TextViewViewController.h"
-#import <MessageUI/MessageUI.h>
+
 #import "iRate.h"
 
 @interface MenuTableViewController ()
@@ -156,9 +156,10 @@
                     break;
                 case 3: {
                     MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
-                    [mailVC setToRecipients:@[@"pvmntapp@gmail.com"]];
-                    [self presentViewController:mailVC animated:YES completion:nil];
-                }
+                    [mailVC setToRecipients:[NSArray arrayWithObject:@"pvmntapp@gmail.com"]];
+                    mailVC.mailComposeDelegate = self;
+                    mailVC.navigationBar.tintColor = [UIColor blackColor];
+                    [self presentViewController:mailVC animated:YES completion:NULL];                }
                     break;
                 case 4: {
                     NSString *uploadText = @"Upload to pvmnt via the website, bitch";
@@ -173,67 +174,14 @@
             break;
     }
 }
-#pragma mark Table view delegate
 
-
-/*
- - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
- return 44.0f;
- }
-*/
-
-#pragma mark - Table view data source
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - MFMailVi
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+    if (result == MFMailComposeResultCancelled) {
+        [controller dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
