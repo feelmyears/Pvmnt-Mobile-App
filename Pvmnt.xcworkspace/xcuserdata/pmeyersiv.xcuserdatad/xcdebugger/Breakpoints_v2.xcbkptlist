@@ -902,6 +902,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             timestampString = "443568887.183818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -931,6 +932,13 @@
 >>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
+=======
+            timestampString = "443516537.692661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+>>>>>>> FETCH_HEAD
             landmarkName = "-collectionView:viewForSupplementaryElementOfKind:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -942,6 +950,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -979,6 +988,13 @@
             startingLineNumber = "319"
             endingLineNumber = "319"
 >>>>>>> FETCH_HEAD
+=======
+            timestampString = "443516537.692661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+>>>>>>> FETCH_HEAD
             landmarkName = "-collectionView:viewForSupplementaryElementOfKind:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -990,6 +1006,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1027,6 +1044,13 @@
             startingLineNumber = "320"
             endingLineNumber = "320"
 >>>>>>> FETCH_HEAD
+=======
+            timestampString = "443516537.692661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+>>>>>>> FETCH_HEAD
             landmarkName = "-collectionView:viewForSupplementaryElementOfKind:atIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1042,6 +1066,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             timestampString = "443568887.183818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -1050,11 +1075,14 @@
 =======
 =======
 >>>>>>> FETCH_HEAD
+=======
+>>>>>>> FETCH_HEAD
             timestampString = "443516537.692661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "346"
             endingLineNumber = "346"
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> FETCH_HEAD
 =======
@@ -1068,6 +1096,8 @@
             startingLineNumber = "346"
             endingLineNumber = "346"
 <<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
@@ -1082,6 +1112,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1119,6 +1150,13 @@
             startingLineNumber = "349"
             endingLineNumber = "349"
 >>>>>>> FETCH_HEAD
+=======
+            timestampString = "443516537.692661"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
+>>>>>>> FETCH_HEAD
             landmarkName = "-collectionView:layout:insetForSectionAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1130,6 +1168,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sidewalk VC/SidewalkCalendarViewController.m"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1159,11 +1198,16 @@
             endingLineNumber = "390"
 >>>>>>> FETCH_HEAD
 =======
+=======
+>>>>>>> FETCH_HEAD
             timestampString = "443516537.692661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "390"
             endingLineNumber = "390"
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
             landmarkName = "-scrollViewDidScroll:"
             landmarkType = "5">
@@ -1364,6 +1408,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD

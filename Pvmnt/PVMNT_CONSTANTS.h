@@ -41,3 +41,30 @@ extern NSString *const kFlurrySharedFlyerFlyerIdKey;
 extern NSString *const kFlurrySharedFlyerEventNameKey;
 
 extern NSString *const kFlurryUploadAttemptKey;
+
+extern NSString *const kGAIClickedOnFlyerKey;
+extern NSString *const kGAIClickedOnFlyerFlyerIdKey;
+extern NSString *const kGAIClickedOnFlyerEventNameKey;
+extern NSString *const kGAIClickedOnFlyerCategoryNameKey;
+
+extern NSString *const kGAIFilteredByCategoryKey;
+extern NSString *const kGAIFilteredByCategoryCategoryNameKey;
+
+extern NSString *const kGAISwitchedViewKey;
+extern NSString *const kGAISwitchedViewViewTypeKey;
+extern NSString *const kGAIUsingSidewalkViewKey;
+extern NSString *const kGAIUsingCalendarViewKey;
+
+extern NSString *const kGAIReportFlyerKey;
+extern NSString *const kGAIReportFlyerFlyerIdKey;
+
+extern NSString *const kGAIAddedToCalendarKey;
+extern NSString *const kGAIAddedToCalendarFlyerIdKey;
+extern NSString *const kGAIAddedToCalendarEventNameKey;
+
+extern NSString *const kGAISharedFlyerKey;
+extern NSString *const kGAISharedFlyerActivityTypeKey;
+extern NSString *const kGAISharedFlyerFlyerIdKey;
+extern NSString *const kGAISharedFlyerEventNameKey;
+
+extern NSString *const kGAIUploadAttemptKey;

@@ -307,6 +307,16 @@
 		21D3B7501A548C520078B038 /* FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewController.h; sourceTree = "<group>"; };
 		21D3B7511A548C520078B038 /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
 		21D3B7521A548C520078B038 /* FilterTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterTableViewController.xib; sourceTree = "<group>"; };
+		21D4A3AC1A7060160056DF0E /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		21D4A3AD1A7060160056DF0E /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		21D4A3AE1A7060160056DF0E /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		21D4A3AF1A7060160056DF0E /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		21D4A3B01A7060160056DF0E /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		21D4A3B11A7060160056DF0E /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		21D4A3B21A7060160056DF0E /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		21D4A3B31A7060160056DF0E /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		21D4A3B41A7060160056DF0E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		21D4A3B51A7060160056DF0E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		21D778C71A50D13E0038CC30 /* Pvmnt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pvmnt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D778CB1A50D13E0038CC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D778CC1A50D13E0038CC30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -864,6 +874,23 @@
 			name = "Launch Screen";
 			sourceTree = "<group>";
 		};
+		21D4A3AB1A7060160056DF0E /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				21D4A3AC1A7060160056DF0E /* GAI.h */,
+				21D4A3AD1A7060160056DF0E /* GAIDictionaryBuilder.h */,
+				21D4A3AE1A7060160056DF0E /* GAIEcommerceFields.h */,
+				21D4A3AF1A7060160056DF0E /* GAIEcommerceProduct.h */,
+				21D4A3B01A7060160056DF0E /* GAIEcommerceProductAction.h */,
+				21D4A3B11A7060160056DF0E /* GAIEcommercePromotion.h */,
+				21D4A3B21A7060160056DF0E /* GAIFields.h */,
+				21D4A3B31A7060160056DF0E /* GAILogger.h */,
+				21D4A3B41A7060160056DF0E /* GAITrackedViewController.h */,
+				21D4A3B51A7060160056DF0E /* GAITracker.h */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
 		21D778BE1A50D13E0038CC30 = {
 			isa = PBXGroup;
 			children = (
@@ -952,6 +979,7 @@
 		21D778F01A50D2320038CC30 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				21D4A3AB1A7060160056DF0E /* GoogleAnalytics */,
 				216EBD791A6F5A9C00EEC963 /* ClusterPrePermissions */,
 				21F00D681A6F42440078DEAD /* TNTextBox */,
 				21AA03381A6DFBC10036E2F8 /* iRate */,

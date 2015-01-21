@@ -40,3 +40,32 @@ NSString *const kFlurrySharedFlyerFlyerIdKey            = @"kFlurrySharedFlyerFl
 NSString *const kFlurrySharedFlyerEventNameKey          = @"kFlurrySharedFlyerEventNameKey";
 
 NSString *const kFlurryUploadAttemptKey                 = @"kFlurryUploadAttemptKey";
+
+
+// GAI
+NSString *const kGAIClickedOnFlyerKey                = @"kGAIClickedOnFlyerKey";
+NSString *const kGAIClickedOnFlyerFlyerIdKey         = @"kGAIClickedOnFlyerFlyerIdKey";
+NSString *const kGAIClickedOnFlyerEventNameKey       = @"kGAIClickedOnFlyerEventNameKey";
+NSString *const kGAIClickedOnFlyerCategoryNameKey    = @"kGAIClickedOnFlyerCategoryNameKey";
+
+NSString *const kGAIFilteredByCategoryKey            = @"kGAIFilteredByCategoryKey";
+NSString *const kGAIFilteredByCategoryCategoryNameKey = @"kGAIFilteredByCategoryCategoryNameKey";
+
+NSString *const kGAISwitchedViewKey                  = @"kGAISwitchedViewKey";
+NSString *const kGAISwitchedViewViewTypeKey          = @"kGAISwitchedViewViewTypeKey";
+NSString *const kGAIUsingSidewalkViewKey             = @"kGAIUsingSidewalkViewKey";
+NSString *const kGAIUsingCalendarViewKey             = @"kGAIUsingCalendarViewKey";
+
+NSString *const kGAIReportFlyerKey                   = @"kGAIReportFlyerKey";
+NSString *const kGAIReportFlyerFlyerIdKey            = @"kGAIReportFlyerFlyerIdKey";
+
+NSString *const kGAIAddedToCalendarKey               = @"kGAIAddedToCalendarKey";
+NSString *const kGAIAddedToCalendarFlyerIdKey        = @"kGAIAddedToCalendarFlyerIdKey";
+NSString *const kGAIAddedToCalendarEventNameKey      = @"kGAIAddedToCalendarEventNameKey";
+
+NSString *const kGAISharedFlyerKey                   = @"kGAISharedFlyerKey";
+NSString *const kGAISharedFlyerActivityTypeKey       = @"kGAISharedFlyerActivityTypeKey";
+NSString *const kGAISharedFlyerFlyerIdKey            = @"kGAISharedFlyerFlyerIdKey";
+NSString *const kGAISharedFlyerEventNameKey          = @"kGAISharedFlyerEventNameKey";
+
+NSString *const kGAIUploadAttemptKey                 = @"kGAIUploadAttemptKey";

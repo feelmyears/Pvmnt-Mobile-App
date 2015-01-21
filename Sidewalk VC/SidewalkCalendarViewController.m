@@ -27,6 +27,7 @@
 #import "CalendarSideDateCell.h"
 #import "Flurry.h"
 
+
 @interface SidewalkCalendarViewController ()<SidewalkCalendarModelDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *mainCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionView *sideCollectionView;

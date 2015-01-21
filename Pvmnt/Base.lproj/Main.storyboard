@@ -780,7 +780,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PvmntHamburger" width="20" height="20"/>
+        <image name="PvmntHamburger" width="20" height="17"/>
         <image name="move12" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
