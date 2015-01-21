@@ -47,7 +47,7 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.sliderView.layer.zPosition = 100;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     self.navigationController.navigationBar.translucent = NO;
@@ -108,9 +108,13 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     [self handleViewTypeSwitch];
     
     [self.mainCollectionView addPullToRefreshWithActionHandler:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.mainCollectionView.pullToRefreshView stopAnimating];
+        });
+        
         [[FlyerDB sharedInstance] fetchAllWithCompletionBlock:^{
             [self.mainCollectionView.pullToRefreshView stopAnimating];
-        }];
+        } ignoringReachability:YES];
     } position:SVPullToRefreshPositionTop];
     
     [self initialFetch];
@@ -179,12 +183,10 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
             [self.model refreshDatabase];
             
             [self.sliderView addSubview:[[CategoryFilterView alloc] initWithFrame:self.sliderView.frame andCategorySelectionBlock:^(UIView *categoryView, NSInteger categoryIndex) {
-                
                 [self.model filterWithCategoryName:((PvmntCategorySliderLabel *)categoryView).text];
                 [self.mainCollectionView setContentOffset:CGPointZero animated:YES];
-                
             }]];
-        }];
+        } ignoringReachability:NO];
     }
 }
 
@@ -250,11 +252,12 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
                 //        calendarListCell.flyerForCell = flyerForCell;
                 [cell setupWithFlyer:flyerForCell];
                 //        NSLog(@"%@ - %@", flyerForCell.title, flyerForCell.event_time.shortDateString);
-                
+                cell.layer.zPosition = 0;
                 return cell;
             } else if (collectionView == self.sideCollectionView) {
                 static NSString *cellIdentifier = @"Blank Side Cell";
                 UICollectionViewCell *blankSideCell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+                blankSideCell.layer.zPosition = 0;
                 return blankSideCell;
             } else return nil;
         }

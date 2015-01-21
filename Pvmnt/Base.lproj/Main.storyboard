@@ -482,6 +482,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Vdi-bD-8Ha"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bfz-T3-dBV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqE-3Y-fxJ" customClass="BFPaperCheckbox">
@@ -534,10 +535,10 @@
                                 <exclude reference="bom-75-C6F"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="D05-4o-1Qs"/>
                                 <exclude reference="6vs-a6-QNA"/>
                                 <exclude reference="ABS-z0-IdO"/>
                                 <exclude reference="KhJ-Pf-SY1"/>
-                                <exclude reference="D05-4o-1Qs"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -546,10 +547,10 @@
                                 <include reference="bom-75-C6F"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="D05-4o-1Qs"/>
                                 <include reference="6vs-a6-QNA"/>
                                 <include reference="ABS-z0-IdO"/>
                                 <include reference="KhJ-Pf-SY1"/>
-                                <include reference="D05-4o-1Qs"/>
                             </mask>
                         </variation>
                     </view>
@@ -591,10 +592,10 @@
                                 <exclude reference="aO8-f0-8mk"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="OgV-qD-LaR"/>
                                 <exclude reference="Bna-AD-V95"/>
                                 <exclude reference="jIs-GN-gJX"/>
                                 <exclude reference="och-25-R1m"/>
-                                <exclude reference="OgV-qD-LaR"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -602,10 +603,10 @@
                                 <include reference="aO8-f0-8mk"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="OgV-qD-LaR"/>
                                 <include reference="Bna-AD-V95"/>
                                 <include reference="jIs-GN-gJX"/>
                                 <include reference="och-25-R1m"/>
-                                <include reference="OgV-qD-LaR"/>
                             </mask>
                         </variation>
                     </view>

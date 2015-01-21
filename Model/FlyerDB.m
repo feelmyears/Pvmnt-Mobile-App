@@ -118,15 +118,18 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
 //----------------------------------RESTFUL SERVICES FETCHING------------------------------------//
 
 
-- (void)fetchAllWithCompletionBlock:(void (^)())completionBlock
+- (void)fetchAllWithCompletionBlock:(void (^)())completionBlock ignoringReachability:(BOOL)ignoreReachability
 {
-    __block FlyerDB *flyerDB = self;
-    self.reachability.reachableBlock = ^(Reachability *reachability){
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [flyerDB fetchAllWithCompletionBlock:completionBlock];
-            flyerDB.reachability.reachableBlock = NULL;
-        });
-    };
+    if (!ignoreReachability) {
+        __block FlyerDB *flyerDB = self;
+        self.reachability.reachableBlock = ^(Reachability *reachability){
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [SVProgressHUD show];
+                [flyerDB fetchAllWithCompletionBlock:completionBlock ignoringReachability:YES];
+                flyerDB.reachability.reachableBlock = NULL;
+            });
+        };
+    }
     
     if (self.schoolExists && (self.reachability.isReachableViaWiFi || self.reachability.isReachableViaWWAN)) {
         dispatch_async(self.concurrentRestfulServicesQueue, ^{
@@ -160,12 +163,6 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
             });
             
         });
-    } else {
-//        __block FlyerDB *flyerDB = self;
-//        self.reachability.reachableBlock = ^(Reachability *reachability){
-//            [flyerDB fetchAllWithCompletionBlock:completionBlock];
-//            flyerDB.reachability.reachableBlock = NULL;
-//        };
     }
 }
 

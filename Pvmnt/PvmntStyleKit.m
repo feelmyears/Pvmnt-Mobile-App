@@ -923,7 +923,7 @@ static UIImage* _imageOfSidewalkIcon = nil;
     UIColor* flyerGradientColorStop = [UIColor colorWithRed: 0 green: 0 blue: 0 alpha: 0];
 
     //// Gradient Declarations
-    CGFloat sidewalkTitleGradientLocations[] = {0, 0.7, 1};
+    CGFloat sidewalkTitleGradientLocations[] = {0, 0.76, 1};
     PCGradient* sidewalkTitleGradient = [PCGradient gradientWithColors: @[PvmntStyleKit.flyerGradientColorStart, [PvmntStyleKit.flyerGradientColorStart blendedColorWithFraction: 0.5 ofColor: flyerGradientColorStop], flyerGradientColorStop] locations: sidewalkTitleGradientLocations];
 
     //// Rectangle Drawing

@@ -17,7 +17,7 @@ extern NSString *const kFlyerDBAddedFlyerNotification;
 
 
 + (id)sharedInstance;
-- (void)fetchAllWithCompletionBlock:(void (^)())completionBlock;
+- (void)fetchAllWithCompletionBlock:(void (^)())completionBlock ignoringReachability:(BOOL)ignoreReachability;
 
 - (NSArray *)flyerDates;
 - (NSArray *)flyersAtDate:(NSDate *)date;

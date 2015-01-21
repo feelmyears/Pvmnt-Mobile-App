@@ -81,7 +81,7 @@ static NSString *CalendarFeedHeaderCollectionResuableViewIdentifier     = @"Cale
             [self.collectionView.pullToRefreshView stopAnimating];
             [self.collectionView reloadData];
             self.refreshing = NO;
-        }];
+        } ignoringReachability:YES];
     } position:SVPullToRefreshPositionTop];
     
 }

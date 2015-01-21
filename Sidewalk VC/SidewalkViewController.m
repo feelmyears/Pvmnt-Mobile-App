@@ -205,7 +205,7 @@ static CGFloat spacing = 12.5;
 
 //            [self.collectionView reloadData];
             self.refreshing = NO;
-        }];
+        } ignoringReachability:YES];
     } position:SVPullToRefreshPositionTop];
   
     [self initialFetch];
@@ -303,7 +303,7 @@ static CGFloat spacing = 12.5;
                 [self.collectionView setContentOffset:CGPointZero animated:YES];
                 
             }]];
-        }];
+        } ignoringReachability:NO];
     }
 }
 
