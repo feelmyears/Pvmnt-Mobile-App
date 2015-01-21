@@ -53,12 +53,13 @@ static NSString *FeedEventInfoHTKCollectionViewCellIdentifier       = @"FeedEven
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.translucent = NO;
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-100.f, 0) forBarMetrics:UIBarMetricsDefault];
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.alwaysBounceVertical = YES;
-    self.collectionView.backgroundColor = [PvmntStyleKit mainBlack];
+    self.collectionView.backgroundColor = [PvmntStyleKit pureWhite];
        
     [self.collectionView registerClass:[EventInfoFlyerImageHTKCollectionViewCell class] forCellWithReuseIdentifier:EventInfoFlyerImageHTKCollectionViewCellIdentifier];
     [self.collectionView registerClass:[FeedEventInfoHTKCollectionViewCell class] forCellWithReuseIdentifier:FeedEventInfoHTKCollectionViewCellIdentifier];

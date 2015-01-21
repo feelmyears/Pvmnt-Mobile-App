@@ -44,8 +44,8 @@ static CGFloat padding = 7.5;
 
 - (void)setupView
 {
-    self.backgroundColor = [PvmntStyleKit mainBlack];
-    UIColor *textColor = [PvmntStyleKit pureWhite];
+    self.backgroundColor = [PvmntStyleKit pureWhite];
+    UIColor *textColor = [PvmntStyleKit mainBlack];
     
     self.hairline = [[UIView alloc] initWithFrame:CGRectZero];
     self.hairline.translatesAutoresizingMaskIntoConstraints = NO;
@@ -54,7 +54,7 @@ static CGFloat padding = 7.5;
     
     self.timeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.timeLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.timeLabel.font = [UIFont fontWithName:@"OpenSans" size:15];
+    self.timeLabel.font = [UIFont fontWithName:@"OpenSans" size:16];
     self.timeLabel.textColor = textColor;
     self.timeLabel.numberOfLines = 0;
     self.timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -62,7 +62,7 @@ static CGFloat padding = 7.5;
     
     self.locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.locationLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.locationLabel.font = [UIFont fontWithName:@"OpenSans" size:15];
+    self.locationLabel.font = [UIFont fontWithName:@"OpenSans" size:16];
     self.locationLabel.textColor = textColor;
     self.locationLabel.numberOfLines = 0;
     self.locationLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -70,7 +70,7 @@ static CGFloat padding = 7.5;
     
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.titleLabel.font = [UIFont fontWithName:@"OpenSans-Bold" size:18];
+    self.titleLabel.font = [UIFont fontWithName:@"OpenSans-Bold" size:19];
     self.titleLabel.textColor = textColor;
     self.titleLabel.numberOfLines = 0;
     self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -78,7 +78,7 @@ static CGFloat padding = 7.5;
     
     self.descriptionLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
     self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    self.descriptionLabel.font = [UIFont fontWithName:@"OpenSans" size:15];
+    self.descriptionLabel.font = [UIFont fontWithName:@"OpenSans" size:16];
     self.descriptionLabel.textColor = textColor;
     self.descriptionLabel.numberOfLines = 0;
     self.descriptionLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -98,7 +98,7 @@ static CGFloat padding = 7.5;
     self.descriptionLabel.delegate = self;
     
     CGFloat buttonSpacing = 0.5;
-    CGSize flyerCloseLookButtonSize = CGSizeMake((DEFAULT_FEED_EVENT_INFO_CELL_SIZE.width - 3*buttonSpacing)/3.0, 40);
+    CGSize flyerCloseLookButtonSize = CGSizeMake((DEFAULT_FEED_EVENT_INFO_CELL_SIZE.width - 2*buttonSpacing)/3.0, 40);
     NSUInteger i = 0;
 //    self.addToCalButton = [[FlyerCloseLookIconButton alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width + buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) text:@"Save Event" image:[UIImage imageNamed:@"AddToCalIcon"]];
     self.addToCalButton = [[FlyerCloseLookButtonView alloc] initWithFrame:CGRectMake((i++)*(flyerCloseLookButtonSize.width + buttonSpacing), 0, flyerCloseLookButtonSize.width, flyerCloseLookButtonSize.height) andLabel:@"Save Event"];
@@ -130,7 +130,7 @@ static CGFloat padding = 7.5;
     
     NSDictionary *viewDict = NSDictionaryOfVariableBindings(_timeLabel, _locationLabel, _titleLabel, _descriptionLabel, _hairline, _addToCalButton, _shareEventButton, _moreButton);
     NSDictionary *metricDict = @{@"padding" : @(padding),
-                                 @"buttonHeight" : @(flyerCloseLookButtonSize.height + 5),
+                                 @"buttonHeight" : @(flyerCloseLookButtonSize.height + 7.5),
                                  @"buttonWidth" : @(flyerCloseLookButtonSize.width)};
     
     //Horizontal Constraints
@@ -142,7 +142,7 @@ static CGFloat padding = 7.5;
 
     
     //Vertical Constraints
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(buttonHeight)-[_titleLabel]-(0)-[_timeLabel]-(0)-[_locationLabel]-(padding)-[_hairline(0.5)]-(padding)-[_descriptionLabel]-(padding)-|" options:0 metrics:metricDict views:viewDict]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(buttonHeight)-[_titleLabel]-(2)-[_timeLabel]-(0)-[_locationLabel]-(10.5)-[_hairline(0.5)]-(10.5)-[_descriptionLabel]-(padding)-|" options:0 metrics:metricDict views:viewDict]];
     
     
     
@@ -170,7 +170,7 @@ static CGFloat padding = 7.5;
     if ([flyer.location stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length) {
         self.locationLabel.text = [NSString stringWithFormat:@"Location: %@", flyer.location];
     } else {
-        self.locationLabel.text = @"Location: TBA";
+        self.locationLabel.text = @"Location: TBD";
     }
     NSMutableAttributedString *mutableLocationLabelText = [self.locationLabel.attributedText mutableCopy];
     NSRange locationLabelRange = NSMakeRange(0, 1);

@@ -28,16 +28,16 @@
 
 - (void)setupButton
 {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [PvmntStyleKit mainBlack];
     
-    UIFont *font = [UIFont fontWithName:@"OpenSans-Light" size:16];
+    UIFont *font = [UIFont fontWithName:@"OpenSans-Light" size:17];
     CGSize labelSize = [self.text sizeWithAttributes:@{NSFontAttributeName : font}];
     
     CGRect labelFrame = CGRectMake((CGRectGetWidth(self.frame)-labelSize.width)/2.0, (CGRectGetHeight(self.frame)-labelSize.height)/2.0, labelSize.width, labelSize.height);
     
     UILabel *label = [[UILabel alloc] initWithFrame:labelFrame];
     label.text = self.text;
-    label.textColor = [PvmntStyleKit mainBlack];
+    label.textColor = [PvmntStyleKit pureWhite];
     label.font = font;
     
     [self addSubview:label];
