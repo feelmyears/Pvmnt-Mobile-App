@@ -68,6 +68,7 @@
 		21D3B74E1A548C180078B038 /* UIImage+LMImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B74C1A548C180078B038 /* UIImage+LMImage.m */; };
 		21D3B7531A548C520078B038 /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D3B7511A548C520078B038 /* FilterTableViewController.m */; };
 		21D3B7541A548C520078B038 /* FilterTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D3B7521A548C520078B038 /* FilterTableViewController.xib */; };
+		21D4A3B71A7069180056DF0E /* NewLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21D4A3B61A7069180056DF0E /* NewLaunchScreen.xib */; };
 		21D778CD1A50D13E0038CC30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D778CC1A50D13E0038CC30 /* main.m */; };
 		21D778D01A50D13E0038CC30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D778CF1A50D13E0038CC30 /* AppDelegate.m */; };
 		21D778D61A50D13E0038CC30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D778D41A50D13E0038CC30 /* Main.storyboard */; };
@@ -317,6 +318,7 @@
 		21D4A3B31A7060160056DF0E /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
 		21D4A3B41A7060160056DF0E /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		21D4A3B51A7060160056DF0E /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		21D4A3B61A7069180056DF0E /* NewLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewLaunchScreen.xib; sourceTree = "<group>"; };
 		21D778C71A50D13E0038CC30 /* Pvmnt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pvmnt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D778CB1A50D13E0038CC30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21D778CC1A50D13E0038CC30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -944,6 +946,7 @@
 				21D778D41A50D13E0038CC30 /* Main.storyboard */,
 				21D778D71A50D13E0038CC30 /* Images.xcassets */,
 				21D778D91A50D13E0038CC30 /* LaunchScreen.xib */,
+				21D4A3B61A7069180056DF0E /* NewLaunchScreen.xib */,
 				21D77A3B1A50D2880038CC30 /* Model.xcdatamodeld */,
 				21D778CA1A50D13E0038CC30 /* Supporting Files */,
 			);
@@ -1751,6 +1754,7 @@
 				21D779BC1A50D23F0038CC30 /* EventInfoFlyerInformationCell.xib in Resources */,
 				21D779BA1A50D23F0038CC30 /* EventInfoFlyerDescriptionCell.xib in Resources */,
 				214526F51A50EC4A0092376F /* SVWebViewControllerActivitySafari@2x.png in Resources */,
+				21D4A3B71A7069180056DF0E /* NewLaunchScreen.xib in Resources */,
 				214526EC1A50EC4A0092376F /* SVWebViewController.bundle in Resources */,
 				21D779BE1A50D23F0038CC30 /* EventInfoFlyerTitleCell.xib in Resources */,
 				21D77A151A50D2520038CC30 /* EventInfoActionsCollectionViewCell.xib in Resources */,
