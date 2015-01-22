@@ -173,6 +173,7 @@ static NSString *CalendarSideDateFlyerHTKCollectionViewCellIndentifier = @"Calen
     }];
     
     [self.mainCollectionView updatePullToRefreshInsets];
+    [self.mainCollectionView setContentOffset:CGPointZero animated:NO];
     
 }
 - (void)initialFetch
