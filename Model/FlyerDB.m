@@ -79,8 +79,8 @@ NSString *const kFlyerDBAddedFlyerNotification              = @"kFlyerDBAddedFly
  */
 - (void)configureRestKit
 {
-    NSURL *baseURL = [NSURL URLWithString:@"https://www.pvmnt.com/api/v2/"];
-//    NSURL *baseURL = [NSURL URLWithString:@"https://staging-pvmnt.herokuapp.com/api/v2/"];
+//    NSURL *baseURL = [NSURL URLWithString:@"https://www.pvmnt.com/api/v2/"];
+    NSURL *baseURL = [NSURL URLWithString:@"https://staging-pvmnt.herokuapp.com/api/v2/"];
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
     RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
 
