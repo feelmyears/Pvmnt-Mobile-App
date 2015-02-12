@@ -36,6 +36,12 @@
 
 @implementation AppDelegate
 
+#ifndef DEBUG
+#define FLURRY_SESSION_ID @"CW77P66GWF5XJ943FVT4"
+#else
+#define FLURRY_SESSION_ID @"XCWB5TDPDHRD6VH9B5ZC"
+#endif
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -55,8 +61,7 @@
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     
-
-    [Flurry startSession:@"CW77P66GWF5XJ943FVT4"];
+    [Flurry startSession:FLURRY_SESSION_ID];
     return YES;
 }
 
