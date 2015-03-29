@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8584CFEF33EB110AA4BB4499"
+               BlueprintIdentifier = "5B62ED2C665C922DB5687C9F"
                BuildableName = "libPods-Pvmnt-ionicons.a"
                BlueprintName = "Pods-Pvmnt-ionicons"
                ReferencedContainer = "container:Pods.xcodeproj">

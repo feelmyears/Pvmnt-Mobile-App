@@ -240,6 +240,12 @@
 #define COCOAPODS_VERSION_MINOR_ObjcAssociatedObjectHelpers 2
 #define COCOAPODS_VERSION_PATCH_ObjcAssociatedObjectHelpers 1
 
+// PureLayout
+#define COCOAPODS_POD_AVAILABLE_PureLayout
+#define COCOAPODS_VERSION_MAJOR_PureLayout 2
+#define COCOAPODS_VERSION_MINOR_PureLayout 0
+#define COCOAPODS_VERSION_PATCH_PureLayout 5
+
 // RestKit
 #define COCOAPODS_POD_AVAILABLE_RestKit
 #define COCOAPODS_VERSION_MAJOR_RestKit 0

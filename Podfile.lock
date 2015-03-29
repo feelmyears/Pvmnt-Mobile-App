@@ -71,6 +71,7 @@ PODS:
     - MMDrawerController/Core
   - MZAppearance (1.1.3)
   - ObjcAssociatedObjectHelpers (1.2.1)
+  - PureLayout (2.0.5)
   - RestKit (0.20.3):
     - RestKit/Core
   - RestKit/Core (0.20.3):
@@ -126,6 +127,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.8)
   - MMDrawerController (~> 0.5.7)
   - ObjcAssociatedObjectHelpers (= 1.2.1)
+  - PureLayout (~> 2.0)
   - RestKit (~> 0.20.0)
   - SDWebImage (~> 3.6)
   - Shimmer
@@ -163,6 +165,7 @@ SPEC CHECKSUMS:
   MMDrawerController: c3ab7a318ddc7e2bcd133139c3161af08c6e1197
   MZAppearance: c88502c0c2345120630c34e09d5ff09e2969ba30
   ObjcAssociatedObjectHelpers: bbb9f597f62ab0d7b0c187f56bc887c9f7d0c8f0
+  PureLayout: 63a3257320223e8edddcd3afb407445f85a6bf74
   RestKit: 7f9490e709ee745e166c4d2aa7a8d132831275b0
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   Shimmer: 057fcfe9c1c978d69d50b64fce93a61080cd08ec
